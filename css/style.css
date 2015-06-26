@@ -10,7 +10,7 @@ html {
 body{
     margin-top: 70px;
     font-family: 'Noto Sans', sans-serif;
-    margin-bottom: 60px;
+    margin-bottom: 120px;
 
 }
 
@@ -409,11 +409,14 @@ hr {
 }
 
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #31a463;
+    color: #fff;
+    border-top: 5px solid #147c41;
   /* Set the fixed height of the footer here */
-  height: 60px;
+    height: 120px;
 }
 
 @media (max-width : 767px) {
