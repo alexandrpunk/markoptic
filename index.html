@@ -6,10 +6,10 @@
     <meta name="description" content="Fundación Markoptic A.C., brindando ayuda a personas con alguna discapacidad física, con la firme tarea de DONAR Dispositivos Medico Tecnológicos.">
     <meta name="author" content="Jesus Alejandro Sandoval Lopez">
     <title>Fundacion Markoptic</title>
-    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="shortcut icon" href="img/favicon.ico">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
     
 
@@ -73,9 +73,9 @@
                         </div>
                     </nav>
                 
-                        <!-- Carousel================================================== -->
+       <!--
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
+          
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -106,34 +106,45 @@
             </div>
             <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
             <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-        </div>
-        <!-- /.carousel -->
-                
+        </div>-->
+        
+                <video id="video-background" autoplay controls preload="auto">
+                    <source src="vid/donar.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'/>
+                    <source src="vid/donar.webm" type='video/webm; codecs="vp8, vorbis"'/>
+                    <source src="vid/donar.ogv" type='video/ogg; codecs="theora, vorbis"' />
+                </video>
                 <div class="panel panel-default panel-mark ">
                     <div class="panel-heading panel-heading-mark" id="verde">CAUSAS PORQUÉ DONAR</div>
                     <div style="padding:0;" class="panel-body panel-body-mark">
                         <div class="foo-center">
-                        <a><span id="reflex" class="foo">Dispositivos Donados a la Sociedad<img src="img/g4181.png"></span></a>
-                        <a><span id="cyan" class="foo">Mejorar la Calidad de Vida</span></a>
-                        <a><span id="militar" class="foo">Primera Fundacion Tecnologica en Mexico</span></a>
-                        <a><span id="morado" class="foo">Desarrollo de Tecnologia en Sinaloa</span></a>
-                        <a><span id="amarillo" class="foo">Laboratorio de clase mundial en Sinaloa</span></a>
-                        <a><span id="naranja" class="foo">Jovenes en Actividades de Desarrollo Tecnologico</span></a>
-                        <a><span id="mark" class="foo">Oportunidad de Trabajo</span></a>
-                        <a><span id="aqua" class="foo">Tecnologia para Domar a mas Mexicanos</span></a>
-                        <a><span id="rosado" class="foo">Se dona a quien mas lo necesita</span></a>
-                        <a><span id="verde" class="foo">Vinculacion con Universidades Prestigiadas</span></a>
+                            
+                        <a class="foo" id="reflex"><span>
+                            <p>Dispositivos Donados a la Sociedad</p>
+                            <img src="img/arm.png">
+                            </span>
+                        </a>
+                            
+                        <a id="rosado" class="foo"><span >
+                            <p>Jóvenes en Actividades de Desarrollo Tecnológico</p>
+                            <img src="img/group.png">
+                            </span>
+                        </a>
+                        <a id="amarillo" class="foo"><span >
+                            <p>Vinculación con las Universidades</p>
+                            <img src="img/university.png">
+                            </span>
+                        </a>
+                        <a id="aqua" class="foo"><span >
+                            <p>Tecnología para Donar a más Familias</p>
+                            <img src="img/family.png">
+                            </span>
+                        </a>
+                        <a id="verde" class="foo"><span >
+                            <p>Laboratorio de Clase Mundial</p>
+                            <img src="img/lab.png">
+                            </span>
+                        </a>                            
                         </div>
-                        <!---<center><img src="img/1.jpg">
-                        <img src="img/2.jpg">
-                        <img src="img/3.jpg">
-                        <img src="img/4.jpg">
-                        <img src="img/5.jpg">
-                        <img src="img/6.jpg">
-                        <img src="img/7.jpg">
-                        <img src="img/8.jpg">
-                        <img src="img/9.jpg">
-                        <img src="img/10.jpg"></center>-->
                     </div>
                 </div>     
                 
@@ -141,21 +152,21 @@
                   <div class="panel-heading panel-heading-mark" id="cyan">ULTIMAS NOTICIAS</div>
                   <div class="panel-body panel-body-mark">
                     <div class="postit">
-                        <a href="#"><img class="pull-left thumb-new" src="http://placehold.it/120x120"></a>
-                        <a href="#"><h4>Titulo de la noticia</h4></a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sit amet ullamcorper neque. In cursus pulvinar imperdiet. Nam nec ultricies turpis. Pellentesque a dui mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+                        <a data-toggle="modal" href="#myModal"><img class="pull-left thumb-new" src="img/recognize_coppel.jpg"></a>
+                        <a data-toggle="modal" href="#myModal"><h4>Ultimas Donaciones</h4></a>
+                        <p>Agradecemos la confianza de nuestras empresas donadoras, que hacen posible alcanzar el objetivo de donar Dispositivos Médicos Tecnológicos, de acuerdo al programa “Dar Para Donar”.</p>
                     </div>
                       <hr>
                     <div class="postit">
-                        <a href="#"><img class="pull-left thumb-new" src="http://placehold.it/120x120"></a>
-                        <a href="#"><h4>Titulo de la noticia</h4></a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sit amet ullamcorper neque. In cursus pulvinar imperdiet. Nam nec ultricies turpis. Pellentesque a dui mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+                        <a href="#"><img class="pull-left thumb-new" src="img/summer_2015.png"></a>
+                        <a href="#"><h4>Jóvenes Emprendedores -Verano 2015</h4></a>
+                        <p>Damos el banderazo por el inicio al Verano de Jóvenes Emprendedores 2015 en Fundación Markoptic A.C. el cual se llevara a cabo del 15 de junio al 31 de julio en los cuales destaca la participación del programa FESE.</p>
                     </div> 
                     <hr>
                     <div class="postit">
-                        <a href="#"><img class="pull-left thumb-new" src="http://placehold.it/120x120"></a>
-                        <a href="#"><h4>Titulo de la noticia</h4></a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sit amet ullamcorper neque. In cursus pulvinar imperdiet. Nam nec ultricies turpis. Pellentesque a dui mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+                        <a href="#"><img class="pull-left thumb-new" src="img/cer_sw.jpg"></a>
+                        <a href="#"><h4>Certificación en SolidWorks</h4></a>
+                        <p>Nos sentimos muy contentos al dar a conocer, que nuestros Jóvenes del Centro de Investigación Científica, Desarrollo Tecnológico E Innovación lograron obtener la Certificación en SolidWorks 2015 para el diseño y simulación para el desarrollo de tecnología.</p>
                     </div>
                   </div>
                 </div>
@@ -202,9 +213,28 @@
         <p >Place sticky footer content here.</p>
       </div>
     </footer>
+    
+    <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
 </body>
 </html>

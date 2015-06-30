@@ -18,7 +18,7 @@ body{
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 9999;
+    z-index: 99;
     width: 100%;
     background: #31a463;
     border: 0;
@@ -242,7 +242,7 @@ font-size: 1.2em;
 }
 .panel-mark .col{
     max-width: 170px;
-    max-height: 170px;
+    max-height: 115px;
     margin: 10px;
 }
 
@@ -252,8 +252,9 @@ font-size: 1.2em;
     color: #fff;
     height: 42px;
     line-height: 42px; 
-    padding: 0 10px 0;
+    padding:0;
     text-align: center;
+    vertical-align: middle;
     font-family: 'Oswald', sans-serif;
     font-weight: bold;
     font-size: 1.4em;
@@ -336,16 +337,17 @@ font-size: 0.75em;
 /*Botones de donacion*/
 .foo{
     width: 150px;
-    height: 130px;
+    height: 150px;
     margin: 6px;
     display: inline-table;
     border-radius: 3px;
-    padding: 8px;
+    padding: 5px;
     text-align: center;
-    font-size: 0.89em;
+    font-size: 1.05em;
     font-weight: 600;
     font-family: 'Oswald', sans-serif;
     color: #fff;
+    list-style-type: none;
 }
 .foo:hover{
     text-decoration: none;
@@ -355,23 +357,28 @@ font-size: 0.75em;
     box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.5);
 }
 .foo img{
-    display: block;
-    position: absolute;
-    z-index: 999;
-    text-align: center;
-    width: 80px;
+    width: auto;
+    max-width: 120px;
+    height: 80px;
+    max-height: 80px;
+    margin-top: 10px;
+    text-decoration: none;
+    list-style-type: none;
+}
+.foo p{
+    color: #fff;
+    height: 45px;
 }
 .foo-center{
     overflow: hidden;
     text-align: center;
     width:100%;
-    text-align:center;
     margin:10px auto;
     padding: 0;
 }
 
 .bannerd{
-    width:300px;
+    width:350px;
     height: 140px;
     margin-bottom: 15px;
     float: right;
@@ -383,7 +390,7 @@ font-size: 0.75em;
 /*estilo de la lista de articulos*/
 
 .postit {
-    min-height: 125px;
+ min-height: 100px;
 }
 .postit a {
     text-decoration: none;
@@ -402,7 +409,7 @@ font-size: 0.75em;
 
 .thumb-new {
     margin-right: 10px;
-    height: 120px;
+    width: 125px;
     background-color: white;
     border: solid 2px white;
 }
@@ -426,6 +433,12 @@ hr {
     height: 120px;
 }
 
+#video-background { 
+  width: 100%; 
+  height: auto;
+    margin-bottom: 15px;
+}
+
 @media (max-width : 767px) {
     .top-right{
         width: 300px;
@@ -443,11 +456,13 @@ hr {
     
     }
     
-            .logo, .bannerd{
-        margin-right: auto;
-        margin-left: auto;
-        float: none;
-            display: block;
+    .logo, .bannerd{
+    width: 270px;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+    float: none;
+    display: block;
         
     }
     
@@ -465,13 +480,19 @@ hr {
     }   
     
             .foo{
-    width: 120px;
+    width: 115px;
     height: 120px;
-    font-size: 0.7em;
+    font-size: 0.9em;
+            padding: 15px;
 
+            }
+    .foo p{
+    color: #fff;
+    height: 35px;
+}
+    
+    .foo img{
+    width: 100px;
+    max-width: 110px;
     }
-    
-
-    
-    
 }
