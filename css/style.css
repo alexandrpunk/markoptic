@@ -186,30 +186,6 @@ fieldset[disabled] .btn-mark.active {
 font-size: 1.2em;
 }
 
-#magenta{background:#E92A6F;}
-
-#aqua{background: #09d3c5;}
-
-#naranja{background:#ff8d2c;}
-
-#verde{background: #63c62f;}
-
-#cyan{background:#25AAE3;}
-
-#morado{background: #A17AB3;}
-
-#rosado{background: #F05B6F;}
-
-#reflex{background: #0D426E;}
-
-#militar{background: #9AAE3B;}
-
-#mark{background: #31a463;}
-
-#amarillo{background: #fccf14;}
-
-
-
 .zero{
     padding: 0;
     margin: 0;
@@ -438,6 +414,54 @@ hr {
   height: auto;
     margin-bottom: 15px;
 }
+
+.modal-mark{
+    background:#31a463;
+    border-radius: 5px 5px 0 0;
+}
+.modal-mark h4{
+    color: #fff;
+    font-weight: 600;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.7em;
+}
+.modal-mark .close{
+    color: #fff;
+    opacity: 1;
+}
+
+
+#magenta{background:#E92A6F;}
+#aqua{background: #09d3c5;}
+#naranja{background:#ff8d2c;}
+#verde{background: #63c62f;}
+#cyan{background:#25AAE3;}
+#morado{background: #A17AB3;}
+#rosado{background: #F05B6F;}
+#reflex{background: #0D426E;}
+#militar{background: #9AAE3B;}
+#mark{background: #31a463;}
+#amarillo{background: #fccf14;}
+
+.modal-magenta{background:#E92A6F;}
+.modal-aqua{background: #09d3c5;}
+.modal-naranja{background:#ff8d2c;}
+.modal-verde{background: #63c62f;}
+.modal-cyan{background:#25AAE3;}
+.modal-morado{background: #A17AB3;}
+.modal-rosado{background: #F05B6F;}
+.modal-reflex{background: #0D426E;}
+.modal-militar{background: #9AAE3B;}
+.modal-amarillo{background: #fccf14;}
+
+.news{
+    color:#6D6E71;
+    font-size: 1em;
+    font-weight: 700;
+    margin-top: 10px;
+    text-align: justify;
+}
+
 
 @media (max-width : 767px) {
     .top-right{
