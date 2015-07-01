@@ -9,8 +9,7 @@ html {
 body{
     margin-top: 70px;
     font-family: 'Noto Sans', sans-serif;
-    margin-bottom: 120px;
-
+    margin-bottom: 150px;
 }
 
 .mark-nav{
@@ -327,9 +326,9 @@ font-size: 0.75em;
 .foo:hover{
     text-decoration: none;
     cursor:pointer;
-    -webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.5);
-    -moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.5);
-    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0px 1px 15px 0px rgba(0, 152, 219, 0.86);
+    -moz-box-shadow:  0px 1px 15px 0px rgba(0, 152, 219, 0.86);
+    box-shadow: 0px 1px 15px 0px rgba(0, 152, 219, 0.86);
 }
 .foo img{
     width: auto;
@@ -373,13 +372,14 @@ font-size: 0.75em;
 }
 .postit h4 {
     font-size: 1.5em;
-    font-weight: 800;
-    text-transform: capitalize;
+    font-weight: 600;
     margin-bottom: 0;
 }
 .postit p {
     text-align: justify;
     font-size: 0.98em;
+    font-weight: 500;
+
 }
 
 .thumb-new {
@@ -404,14 +404,43 @@ hr {
     background-color: #31a463;
     color: #fff;
     border-top: 5px solid #147c41;
+    padding: 10px;
   /* Set the fixed height of the footer here */
-    height: 120px;
+    height: 150px;
+}
+
+.footer h3{
+    margin: 0;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.footer p{
+    margin: 0;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 1.05em;
+}
+
+.footer a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer a:hover{
+    text-decoration: underline;
+
 }
 
 #video-background { 
-  width: 100%; 
-  height: auto;
+    width: 100%; 
+    height: auto;
     margin-bottom: 15px;
+    -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.4);
 }
 
 .modal-mark{
@@ -463,6 +492,14 @@ hr {
 
 
 @media (max-width : 767px) {
+    body{
+    margin-bottom: 210px;
+}
+    
+    .footer {
+    height: 210px;
+}
+    
     .top-right{
         width: 300px;
         margin-right: -10px;
@@ -485,8 +522,7 @@ hr {
     margin-right: auto;
     margin-left: auto;
     float: none;
-    display: block;
-        
+    display: block; 
     }
     
 }
@@ -508,11 +544,11 @@ hr {
     font-size: 0.9em;
             padding: 15px;
 
-            }
+    }
     .foo p{
     color: #fff;
     height: 35px;
-}
+    }
     
     .foo img{
     width: 100px;
