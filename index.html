@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
-    
+
 
     <!--[if IE]>
         <script src="https://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -118,61 +118,61 @@
                     <div style="padding:0;" class="panel-body panel-body-mark">
                         <div class="foo-center">
                             
-                        <a class="foo" id="reflex"><span>
+                        <a class="foo" id="reflex" data-toggle="modal" href="#foo1"><span>
                             <p>Dispositivos Donados a la Sociedad</p>
-                            <img src="img/arm.jpg">
+                            <img src="img/arm.png">
                             </span>
                         </a>
                             
-                        <a class="foo" id="cyan"><span>
+                        <a class="foo" id="cyan" data-toggle="modal" href="#foo2"><span>
                             <p>Mejorar la Calidad de Vida</p>
-                            <img src="img/arm.jpg">
+                            <img src="img/qualitylife.jpg">
                             </span>
                         </a>
                             
-                        <a class="foo" id="militar"><span>
+                        <a class="foo" id="militar" data-toggle="modal" href="#foo3"><span>
                             <p>Primera Fundacion Tecnologica en Mexico</p>
-                            <img src="img/arm.jpg">
+                            <img src="img/arm.png">
                             </span>
                         </a>
                         
-                        <a class="foo" id="morado"><span>
+                        <a class="foo" id="morado" data-toggle="modal" href="#foo4"><span>
                             <p>Desarrollo de Tecnologia en Sinaloa</p>
-                            <img src="img/arm.jpg">
+                            <img src="img/development.jpg">
                             </span>
                         </a>
                             
-                        <a id="amarillo" class="foo"><span >
+                        <a id="amarillo" class="foo" data-toggle="modal" href="#foo5"><span>
                             <p>Laboratorio de Clase Mundial en Sinaloa</p>
                             <img src="img/lab.jpg">
                             </span>
                         </a> 
                             
-                        <a id="naranja" class="foo"><span >
+                        <a id="naranja" class="foo" data-toggle="modal" href="#foo6"><span>
                             <p>Jóvenes en Actividades de Desarrollo Tecnológico</p>
                             <img src="img/group.jpg">
                             </span>
                         </a>
                         
-                        <a id="mark" class="foo"><span >
+                        <a id="mark" class="foo" data-toggle="modal" href="#foo7"><span>
                             <p>Oportunidad de <br> Trabajo</p>
-                            <img src="img/group.jpg">
+                            <img src="img/work.jpeg">
                             </span>
                         </a>
                             
-                        <a id="aqua" class="foo"><span >
+                        <a id="aqua" class="foo" data-toggle="modal" href="#foo8"><span>
                             <p>Tecnología para Donar a más Familias</p>
                             <img src="img/family.png">
                             </span>
                         </a>
                             
-                        <a id="rosado" class="foo"><span >
+                        <a id="rosado" class="foo" data-toggle="modal" href="#foo9"><span>
                             <p>Se dona a quien más lo necesita</p>
-                            <img src="img/family.png">
+                            <img src="img/charity.jpg">
                             </span>
                         </a>
                             
-                        <a id="verde" class="foo"><span >
+                        <a id="verde" class="foo" data-toggle="modal" href="#foo10"><span>
                             <p>Vinculación con las Universidades Prestigiadas</p>
                             <img src="img/university.png">
                             </span>
@@ -251,19 +251,194 @@
       </div>
     </footer>
     
-    <!-- Noticia 1 -->
-<div class="modal fade" id="noticia1" tabindex="-1" role="dialog" aria-labelledby="Ultimas Donaciones">
+    
+        <!-- foo 1 -->
+<div class="modal fade" id="foo1" tabindex="-1" role="dialog" aria-labelledby="Dispositivos Donados a la Sociedad">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header modal-mark modal-reflex">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="foo1">Dispositivos Donados a la Sociedad</h4>
+      </div>
+        <div class="modal-body">
+            <img class="img-responsive center-block" src="img/arm.png">
+            <p class="news">La Totalidad de los proyectos generados por Fundación Markoptic AC tienen objetivo de ser donados a la sociedad, en apoyo a las familias de escasos recursos que desean integrarse a una vida social y productiva plena.</p>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    <!-- foo2 -->
+<div class="modal fade" id="foo2" tabindex="-1" role="dialog" aria-labelledby="Mejorar la Calidad de Vida">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header modal-mark modal-cyan">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="foo2">Mejorar la Calidad de Vida</h4>
+      </div>
+        <div class="modal-body">
+            <img class="img-responsive center-block" src="img/qualitylife.jpg">
+            <p class="news">Mediante la innovación, creación y desarrollo de Tecnología Médica, se crean Prótesis Robóticas que tienen la capacidad de imitar varios movimientos del cuerpo humano, las cuales son personalizadas para adaptarse a la anatomía de cualquier persona, y regresar funcionalidad a la parte amputada.</p>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    <!-- foo3 -->
+<div class="modal fade" id="foo3" tabindex="-1" role="dialog" aria-labelledby="Primera Fundacion Tecnologica en Mexico">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header modal-mark modal-militar">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="foo3">Primera Fundacion Tecnologica en Mexico</h4>
+      </div>
+        <div class="modal-body">
+            <img class="img-responsive center-block" src="img/arm.png">
+            <p class="news">Fundación Markoptic A.C. surge de la iniciativa en profundizar en la Investigación Médica y Tecnológica, de esta manera se han desarrollado diversos Proyectos Tecnológicos que se vuelcan en beneficio social para personas que padezcan alguna discapacidad física. Siendo así la primera institución en México con estas características.</p>
+      </div>
+    </div>
+  </div>
+</div> 
+    
+    <!-- foo4 -->
+<div class="modal fade" id="foo4" tabindex="-1" role="dialog" aria-labelledby="Desarrollo de Tecnología en Sinaloa">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header modal-mark modal-morado">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="foo4">Desarrollo de Tecnología en Sinaloa</h4>
+      </div>
+        <div class="modal-body">
+            <img class="img-responsive center-block" src="img/development.jpg">
+            <p class="news">El avance de la Tecnología hoy en día, es de vital importancia para la humanidad, ya que facilita y mejora la calidad de vida de las personas. El Estado de Sinaloa ha sido identificado por su Tecnología agrícola y a partir de esta Fundación puede ser también reconocida por su Tecnología Médica Robótica.</p>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    <!-- foo5 -->
+<div class="modal fade" id="foo5" tabindex="-1" role="dialog" aria-labelledby="Laboratorio de Clase Mundial en Sinaloa">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header modal-mark modal-amarillo">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="foo5">Laboratorio de Clase Mundial en Sinaloa</h4>
+      </div>
+        <div class="modal-body">
+            <img class="img-responsive center-block" src="img/lab.jpg">
+            <p class="news">Actualmente en la Capital del Estado, Culiacán Rosales, Sinaloa, se creó un laboratorio completamente equipado con maquinaria, equipo de cómputo, software y herramental de última Tecnología, que es capaz de desarrollar cualquier tipo de Dispositivo Robótico altamente funcional.</p>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    <!-- foo6-->
+<div class="modal fade" id="foo6" tabindex="-1" role="dialog" aria-labelledby="Jóvenes en Actividades de Desarrollo Tecnológico">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header modal-mark modal-naranja">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="foo6">Jóvenes en Actividades de Desarrollo Tecnológico</h4>
+      </div>
+        <div class="modal-body">
+            <img class="img-responsive center-block" src="img/group.jpg">
+            <p class="news">La fundación ofrece la oportunidad a jóvenes estudiantes destacados y emprendedores de realizar Servicio Social, Prácticas Profesionales, Voluntariado y Verano Científico en nuestras distintas áreas de Ingeniería Mecánica, Electrónica, Mecatrónica, Industrial, Sistemas y Administración al igual las Licenciaturas en Mercadotecnia y Contabilidad.</p>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    <!-- foo7-->
+<div class="modal fade" id="foo7" tabindex="-1" role="dialog" aria-labelledby="Oportunidad de Trabajo">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header modal-mark modal-mark">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="foo7">Oportunidad de Trabajo</h4>
+      </div>
+        <div class="modal-body">
+            <img class="img-responsive center-block" src="img/work.jpeg">
+            <p class="news">Conforme se avanza, en la apertura de nuevos proyectos es necesario contar con capital humano. Un estudiante que este por egresar o egresado que necesite y tenga el entusiasmo de superarse puede integrarse, todo ello dependiendo de sus actitudes y logros, son altamente candidatos para una oportunidad de trabajo.</p>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    <!-- foo8-->
+<div class="modal fade" id="foo8" tabindex="-1" role="dialog" aria-labelledby="Tecnología para Donar a más Familias">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header modal-mark modal-aqua">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="foo8">Tecnología para Donar a más Familias</h4>
+      </div>
+        <div class="modal-body">
+            <img class="img-responsive center-block" src="img/family.png">
+            <p class="news">Fundación Markoptic AC, ofrece la oportunidad a nuestras Familias Mexicanas de contar con diversos Dispositivos Médicos con el carácter de gratuito. Ya que actualmente esta Tecnología la ofrecen países de primer mundo con un alto costo y poca accesibilidad.</p>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    <!-- foo9-->
+<div class="modal fade" id="foo9" tabindex="-1" role="dialog" aria-labelledby="Se dona a quien más lo necesita">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header modal-mark modal-rosado">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="foo9">Se dona a quien más lo necesita</h4>
+      </div>
+        <div class="modal-body">
+            <img class="img-responsive center-block" src="img/charity.jpg">
+            <p class="news">Creemos firmemente que la tarea de desarrollar Tecnología Médica para TODOS, es la mejor manera de mejorar la calidad de vida en la sociedad. Y más cuando las personas que lo necesitan no cuentan con los recursos suficientes para poder conseguirlos. Es por eso que llegamos a todas las Familias para encontrar estas personas que sueñan con salir adelante.</p>
+      </div>
+    </div>
+  </div>
+</div> 
+    
+    <!-- foo10-->
+<div class="modal fade" id="foo10" tabindex="-1" role="dialog" aria-labelledby="Vinculación con las Universidades Prestigiadas">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header modal-mark modal-verde">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="foo10">Vinculación con las Universidades Prestigiadas</h4>
+      </div>
+        <div class="modal-body">
+            <img class="img-responsive center-block" src="img/university.png">
+            <p class="news">La gran diversidad educativa con la que cuenta México hoy en día, nos permite tener vinculación con diferentes instituciones las cuales son:</p>
+            <ul class="news">
+                <li>Instituto Tecnológico de Culiacán</li>
+                <li>Universidad de Occidente</li>
+                <li>Universidad Autónoma de Sinaloa</li>
+                <li>Universidad Politécnica de Sinaloa</li>
+                <li>Benemérita Universidad Autónoma de Puebla.</li>
+            </ul>
+<p class="news">Y contar con la valiosa participación de maestros y doctores que gozan de gran reconocimiento en sus áreas que representan.</p>
+      </div>
+    </div>
+  </div>
+</div>
+    
+  
+    <!-- Noticia 1 -->
+<div class="modal fade" id="noticia1" tabindex="-1" role="dialog" aria-labelledby="Ultimas Donaciones">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header modal-mark modal-magenta">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="noticia1">Ultimas Donaciones</h4>
       </div>
-      <div class="modal-body">
-
-<img class="img-responsive" src="img/recognize_uas.jpg" alt="Slide One">   
-
-        <p class="news">Agradecemos la confianza de nuestras empresas donadoras, que hacen posible alcanzar el objetivo de donar Dispositivos Médicos Tecnológicos, de acuerdo al programa “Dar Para Donar”.</p>
+        <div class="modal-body">
+            <ul class="rslides">
+                <li><img src="img/recognize_coppel.jpg"></li>
+                <li><img src="img/recognize_espinoza.jpg"></li>
+                <li><img src="img/recognize_gallbo.png"></li>
+                <li><img src="img/recognize_itc.png"></li>
+                <li><img src="img/recognize_trizalet.png"></li>
+                <li><img src="img/recognize_uas.jpg"></li>
+            </ul>
+            <p class="news">Agradecemos la confianza de nuestras empresas donadoras, que hacen posible alcanzar el objetivo de donar Dispositivos Médicos Tecnológicos, de acuerdo al programa “Dar Para Donar”.</p>
       </div>
     </div>
   </div>
@@ -273,7 +448,7 @@
 <div class="modal fade" id="noticia2" tabindex="-1" role="dialog" aria-labelledby="Ultimas Donaciones">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header modal-mark modal-cyan">
+      <div class="modal-header modal-mark modal-magenta">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="noticia2">Jóvenes Emprendedores - Verano 2015</h4>
       </div>
@@ -289,7 +464,7 @@
 <div class="modal fade" id="noticia3" tabindex="-1" role="dialog" aria-labelledby="Ultimas Donaciones">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header modal-mark modal-cyan">
+      <div class="modal-header modal-mark modal-magenta">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="noticia3">Certificación en SolidWorks</h4>
       </div>
@@ -304,5 +479,18 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+    <script src="js/responsiveslides.min.js"></script>
+    <script>
+      $(function() {
+        $(".rslides").responsiveSlides({
+        auto: true,
+        pagination: true,
+        pager: true, 
+        nav: true,
+        fade: 500,
+        maxwidth: 800
+});
+      });
+    </script>
 </body>
 </html>
