@@ -201,19 +201,16 @@ font-size: 1.2em;
     -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
     box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
 }
-.panel-mark h1{
+.panel-mark h1, .panel-mark h2{
     color:#6D6E71;
     margin: 0 0 8px 0 ;
-    font-weight: 700;
-    text-align: center;
-}
+    font-weight: 600;
+    }
 .panel-mark p{
     color:#6D6E71;
     margin: 0 0 10px 0;
-    font-size: 1em;
-    font-weight: 600;
-    text-align: center;
-}
+    font-size:1em;
+    }
 .panel-mark .col{
     max-width: 170px;
     max-height: 115px;
@@ -395,8 +392,8 @@ font-size: 0.75em;
 }
 
 hr {
-    border-top-color: #ddd;
-    border-bottom: #eee;
+    border-top-color: #d6d6d6;
+    border-bottom: #f2f2f2;
     border-style: solid none;
     border-width: 1px 0 1px 0;
     margin: 10px 0;
