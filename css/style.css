@@ -196,27 +196,50 @@ font-size: 1.2em;
 .panel-mark{
     border-radius: 0;
     border: 0 solid;
-    
     -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
     -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
     box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
 }
 .panel-mark h1, .panel-mark h2{
-    color:#6D6E71;
+    color:#5a5a5a;
     margin: 0 0 8px 0 ;
-    font-weight: 600;
+    font-weight: 500;
+    line-height: 100%;
     }
+
+.decor{
+    background: url(../img/line.png);
+    background-size: 100% 2px;
+    background-repeat: no-repeat;
+    background-position: center
+}
+.decor-gal{
+    background: url(../img/aqua.png);
+    background-size: 100% 2px;
+    background-repeat: no-repeat;
+    background-position: center
+}
+.decor-span{
+    background-color: #E7E8EA;
+    padding: 0 15px;
+}
+
 .panel-mark p{
-    color:#6D6E71;
+    color:#5a5a5a;
     margin: 0 0 10px 0;
-    font-size:1em;
+    font-size: 1.2em;
     }
+.panel-mark ul{
+    color:#5a5a5a;
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+    }
+
 .panel-mark .col{
     max-width: 170px;
     max-height: 115px;
     margin: 10px;
 }
-
 .panel-default > .panel-heading-mark{
     background-color: #31a463;
     border-radius: 0;
@@ -366,7 +389,7 @@ font-size: 0.75em;
 /*estilo de la lista de articulos*/
 
 .postit {
- min-height: 100px;
+ overflow: hidden;
 }
 .postit a {
     text-decoration: none;
@@ -379,16 +402,16 @@ font-size: 0.75em;
 }
 .postit p {
     text-align: justify;
-    font-size: 0.98em;
+    font-size: 1em;
     font-weight: 500;
-
 }
 
 .thumb-new {
     margin-right: 10px;
-    width: 125px;
-    background-color: white;
-    border: solid 2px white;
+    max-width: 150px;
+    background-color: #fff;
+    border: solid 3px #fff;
+    float: left;
 }
 
 hr {
@@ -455,6 +478,13 @@ hr {
     font-family: 'Oswald', sans-serif;
     font-size: 1.7em;
 }
+.text-body{
+    text-align: justify;
+    font-size: 1em;
+    font-weight: 500;
+    
+}
+
 .modal-mark .close{
     color: #fff;
     opacity: 1;
@@ -711,3 +741,27 @@ hr {
   background: #222;
   background: rgba(0,0,0, .8);
   }
+
+/*gakeria*/
+.image-list {
+    padding:0 10px;
+    list-style: none;
+    overflow: hidden;
+}
+.image-list li {
+    float: left;
+    margin-top: 10px;
+}
+
+.image-list a,
+.image-list img {
+    display: block;
+    width: 100%;
+}
+.image-list img {
+    border: solid #fff 3px;
+    border-radius: 100px;
+    -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
+}
