@@ -27,12 +27,20 @@ body{
     height: 50px;
     padding: 8px;
 }
+.mark-nav a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+}
+.mark-nav a:hover{
+    text-decoration: underline;
+}
 
 .bar-social{
     float: left;
     text-align: center;
     line-height: 1.7em;
-    vertical-align: middle;
+    margin-top:4px;
 }
 
 .bar-social ul{
@@ -48,11 +56,11 @@ list-style-type: none;
 }
 
 .top-right{
-    position: inherit;
     float: right;
     max-width: 300px;
     text-align: right;
-    line-height: 30px;
+    line-height: 34px;
+    vertical-align: middle;
     margin-left: 10px;
 }
 
@@ -73,6 +81,10 @@ list-style-type: none;
     background-color: #31a463;
     color: #fff;
     border: #31a463;
+}
+
+.txt-mark{
+    color: #31a463 !important;
 }
 
 /* botones markoptic */
@@ -200,10 +212,9 @@ font-size: 1.2em;
     -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
     box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
 }
-.panel-mark h1, .panel-mark h2{
+.panel-mark h1, .panel-mark h2, .panel-mark h3{
     color:#5a5a5a;
-    margin: 0 0 8px 0 ;
-    font-weight: 500;
+    margin: 10px 0 10px 0 ;
     line-height: 100%;
     }
 
@@ -366,6 +377,7 @@ font-size: 0.75em;
 .foo p{
     color: #fff;
     height: 45px;
+    font-size: 1em;
 }
 
 .foo-center{
@@ -744,13 +756,14 @@ hr {
 
 /*gakeria*/
 .image-list {
-    padding:0 10px;
+    padding: 0;
     list-style: none;
     overflow: hidden;
 }
 .image-list li {
     float: left;
-    margin-top: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .image-list a,
@@ -765,3 +778,46 @@ hr {
     -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
     box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
 }
+
+.scroll-top-wrapper {
+    position: fixed;
+	opacity: 0;
+	visibility: hidden;
+	overflow: hidden;
+	text-align: center;
+	z-index: 99999999;
+    background-color: rgba(49, 164, 99, 0.76);
+	color: #fff;
+	width: 48px;
+	height: 48px;
+	line-height: 48px;
+	right: 30px;
+	bottom: 30px;
+	padding-top: 2px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+    border: solid #fff 2px;
+        -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
+}
+.scroll-top-wrapper:hover {
+	background-color: #31a463;
+}
+.scroll-top-wrapper.show {
+    visibility:visible;
+    cursor:pointer;
+	opacity: 1.0;
+}
+.scroll-top-wrapper i.fa {
+	line-height: 48px;
+    vertical-align: middle;
+}
+ 
