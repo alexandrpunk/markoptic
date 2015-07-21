@@ -13,7 +13,7 @@
                                 <li id="magenta"><a href="fundacion">Fundacion</a></li>
                                 <li id="naranja"><a href="proyectos">Proyectos</a></li>
                                 <li id="cyan"><a href="/#Noticias">Noticias</a></li>
-                                <li id="amarillo"><a href="/#Colaboradores">Colaboradores</a></li>
+                                <li id="amarillo"><a href="colaboradores">Colaboradores</a></li>
                                 <li id="aqua"><a href="galeria">Galeria</a></li>
                             </ul>
                         </div>

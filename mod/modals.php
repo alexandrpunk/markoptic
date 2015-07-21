@@ -160,7 +160,7 @@
                 <li>Universidad Politécnica de Sinaloa</li>
                 <li>Benemérita Universidad Autónoma de Puebla.</li>
             </ul>
-<p class="news">Y contar con la valiosa participación de maestros y doctores que gozan de gran reconocimiento en sus áreas que representan.</p>
+<p class="news">Y contar con la valiosa participación de maestros y doctores que gozan de gran reconocimiento en las áreas que representan.</p>
       </div>
     </div>
   </div>
@@ -173,7 +173,7 @@
     <div class="modal-content">
       <div class="modal-header modal-mark modal-magenta">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="noticia1">Ultimas Donaciones</h4>
+        <h4 class="modal-title" id="noticia1">Donaciones Recientes</h4>
       </div>
         <div class="modal-body">
             <ul class="rslides">
@@ -200,7 +200,7 @@
       </div>
       <div class="modal-body text-body">
           <img class="img-responsive center-block" src="img/summer.jpg">
-        <p>Damos el banderazo por el inicio al Verano de Jóvenes Emprendedores 2015 en Fundación Markoptic A.C. el cual se llevara a cabo del 15 de junio al 31 de julio en los cuales destaca la participación del programa FESE.</p>
+        <p class="news">Damos el banderazo por el inicio al Verano de Jóvenes Emprendedores 2015 en Fundación Markoptic A.C. el cual se llevara a cabo del 15 de junio al 31 de julio en los cuales destaca la participación del programa FESE.</p>
       </div>
     </div>
   </div>
@@ -216,7 +216,7 @@
       </div>
       <div class="modal-body">
         <img class="img-responsive center-block" src="img/cer_sw.jpg">
-        <p>Nos sentimos muy contentos al dar a conocer, que nuestros Jóvenes del Centro de Investigación Científica, Desarrollo Tecnológico E Innovación lograron obtener la Certificación en SolidWorks 2015 para el diseño y simulación para el desarrollo de tecnología.</p>
+        <p class="news">Nos sentimos muy contentos al dar a conocer, que nuestros Jóvenes del Centro de Investigación Científica, Desarrollo Tecnológico e Innovación lograron obtener la Certificación en SolidWorks 2015 para el diseño y simulación en pro del desarrollo de tecnología.</p>
       </div>
     </div>
   </div>
@@ -232,7 +232,7 @@
       </div>
       <div class="modal-body">
         <img class="img-responsive center-block" src="img/tax.jpg">
-        <p>Con agrado informamos que nuestra fundación fue autorizada por el SAT para recibir donativos deducibles de impuestos en México y en el Extranjero, esto de acuerdo al Oficio: 600-04-02-2015-57527, Exp. 24369, Folio: 365660.</p>
+        <p class="news">Con agrado informamos que nuestra fundación fue autorizada por el SAT para recibir donativos deducibles de impuestos en México y en el Extranjero, esto de acuerdo al Oficio: 600-04-02-2015-57527, Exp. 24369, Folio: 365660.</p>
       </div>
     </div>
   </div>

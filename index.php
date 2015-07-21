@@ -1,15 +1,15 @@
 <?php require 'mod/head.php';?>
 
-<body>
-    
+<body>  
+ 
 <?php require 'mod/navbar.php';?>
 
-    <div class="container">
+    <div class="container ">
         
         <?php require 'mod/header.php';?>
         
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-9 ">
                 
                 <?php require 'mod/menu.php';?>
         
@@ -26,24 +26,24 @@
                             
                         <a class="foo" id="reflex" data-toggle="modal" href="#foo1"><span>
                             <p>Dispositivos Donados a la Sociedad</p>
-                            <img src="img/arm.png">
+                            <img src="img/maxresdefault.jpg">
                             </span>
                         </a>
                             
                         <a class="foo" id="cyan" data-toggle="modal" href="#foo2"><span>
-                            <p>Mejorar la Calidad de Vida</p>
+                            <p>Mejorar la Calidad <br>de Vida</p>
                             <img src="img/qualitylife.jpg">
                             </span>
                         </a>
                             
                         <a class="foo" id="militar" data-toggle="modal" href="#foo3"><span>
-                            <p>Primera Fundacion Tecnologica en Mexico</p>
+                            <p>Primera Fundación Tecnológica en México</p>
                             <img src="img/arm.png">
                             </span>
                         </a>
                         
                         <a class="foo" id="morado" data-toggle="modal" href="#foo4"><span>
-                            <p>Desarrollo de Tecnologia en Sinaloa</p>
+                            <p>Desarrollo de Tecnología en Sinaloa</p>
                             <img src="img/development.jpg">
                             </span>
                         </a>
@@ -61,7 +61,7 @@
                         </a>
                         
                         <a id="mark" class="foo" data-toggle="modal" href="#foo7"><span>
-                            <p>Oportunidad de <br> Trabajo</p>
+                            <p>Oportunidad <br>de Trabajo</p>
                             <img src="img/work.jpeg">
                             </span>
                         </a>
@@ -130,26 +130,6 @@
                 
             </div>
         </div>
-
-            <div class="panel panel-default panel-mark" id="Colaboradores">
-                 <div class="panel-heading panel-heading-mark" id="amarillo">COLABORADORES</div>
-                <div class="panel-body panel-body-mark">
-                    <h1 class="text-center">¡Muchas Gracias!</h1>
-                    <p class="text-center">Agradecemos a nuestros colaboradores por la confienza que nos dan, de mejorar la calidad de vida de personas con algun discapacidad</p>
-                    <center>
-                    <img class="col" src="img/colaboradores/logo_gallbo.png">
-                    <img class="col" src="img/colaboradores/logo_cib.png">
-                    <img class="col" src="img/colaboradores/logo_coppel.png">
-                    <img class="col" src="img/colaboradores/logo_espinoza.png">
-                    <img class="col" src="img/colaboradores/logo_trizalet.png">
-                    <img class="col" src="img/colaboradores/logo_buap.png">                        
-                    <img class="col" src="img/colaboradores/logo_itc.png">
-                    <img class="col" src="img/colaboradores/logo_uas.png">
-                    <img class="col" src="img/colaboradores/logo_udeo.png">
-                    <img class="col" src="img/colaboradores/logo_ups.png">
-                    </center>
-                </div>
-            </div>
     </div>
     
 <?php require 'mod/footer.php';?>
@@ -158,8 +138,8 @@
 
 <?php require 'mod/scripts.php';?>
 
-<script src="js/responsiveslides.min.js"></script>
-<script src="js/initslides.js"></script>
+<script async src="js/responsiveslides.min.js"></script>
+<script async src="js/initslides.js"></script>
 
 
     
