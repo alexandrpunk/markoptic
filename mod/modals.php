@@ -7,7 +7,7 @@
         <h4 class="modal-title" id="foo1">Dispositivos Donados a la Sociedad</h4>
       </div>
         <div class="modal-body">
-            <img class="img-responsive center-block" src="img/arm.png">
+            <img class="img-responsive center-block" src="img/disp.jpg">
             <p class="news">La Totalidad de los proyectos generados por Fundación Markoptic AC tienen objetivo de ser donados a la sociedad, en apoyo a las familias de escasos recursos que desean integrarse a una vida social y productiva plena.</p>
       </div>
     </div>

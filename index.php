@@ -26,7 +26,7 @@
                             
                         <a class="foo" id="reflex" data-toggle="modal" href="#foo1"><span>
                             <p>Dispositivos Donados a la Sociedad</p>
-                            <img src="img/maxresdefault.jpg">
+                            <img src="img/disp.jpg">
                             </span>
                         </a>
                             
