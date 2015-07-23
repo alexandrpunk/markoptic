@@ -65,6 +65,7 @@ RewriteRule ^(.*)$ $1.php
   ExpiresByType application/xhtml+xml "access plus 600 seconds"
 </ifModule>
 # END Expire headers
+
  
 # BEGIN Cache-Control Headers
 <ifModule mod_headers.c>

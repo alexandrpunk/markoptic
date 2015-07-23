@@ -7,4 +7,6 @@
     <meta name="author" content="Jesus Alejandro Sandoval Lopez">
     <title>Fundacion Markoptic</title>
     <?php require 'style.php';?> 
+    
+<?php include 'analytic.php';?> 
 </head>
