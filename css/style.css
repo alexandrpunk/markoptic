@@ -241,6 +241,13 @@ font-size: 1.2em;
     background-repeat: no-repeat;
     background-position: center
 }
+.decor-donar{
+    background: url(../img/rose.png);
+    background-size: 100% 2px;
+    background-repeat: no-repeat;
+    background-position: center
+    
+}
 .decor-span{
     background-color: #E7E8EA;
     padding: 0 15px;
@@ -405,6 +412,7 @@ font-size: 0.75em;
 
 .bannerd{
     width:300px;
+    margin-bottom: 15px;
     height: auto;
     float: right;
 }
@@ -840,4 +848,27 @@ hr {
 .dlink a:focus, .dlink a:hover{
     color: #fff !important;
     text-decoration: underline;
+}
+
+
+.don-btn{
+    height: 145px;
+    min-height: 145px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px;
+    margin: 10px 0;
+}
+.don-btn img{
+    opacity: 0.7;
+}
+.don-btn p{
+    margin: 10px 0 0 0;
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bolder;
+    color: #fff;
+}
+.don-a:visited, .don-a:hover, .don-a:active, .don-a:link{
+text-decoration: none;
 }
