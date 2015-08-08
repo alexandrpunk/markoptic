@@ -93,6 +93,14 @@
                   <div class="panel-heading panel-heading-mark" id="cyan">ULTIMAS NOTICIAS</div>
                   <div class="panel-body panel-body-mark">
                     <div class="postit">
+                         <div class="postit">
+                        <a data-toggle="modal" href="#noticia5"><img class="thumb-new" src="img/verano_15.png"></a>
+                        <a data-toggle="modal" href="#noticia5"><h4>Verano FESE 2015</h4></a>
+                        <p>Realizar un verano de innovación empresarial fue una experiencia muy gratificante, ya que uno realmente experimenta como es el mundo fuera de la escuela y que uno solo sabe lo teórico y al estar realizando mi verano pude darme cuenta que es muy diferente a la escuela,<a data-toggle="modal" href="#noticia5"> Leer Más...</a></p>                    
+                    </div>
+                      
+                      <hr>
+                      
                         <a data-toggle="modal" href="#noticia1"><img class="thumb-new" src="img/recognize_coppel.jpg"></a>
                         <a data-toggle="modal" href="#noticia1"><h4>Donaciones Recientes</h4></a>
                         <p>Agradecemos la confianza de nuestras empresas donadoras, que hacen posible alcanzar el objetivo de donar Dispositivos Médicos Tecnológicos, de acuerdo al programa “Dar Para Donar”.</p>                    

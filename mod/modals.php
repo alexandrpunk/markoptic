@@ -237,3 +237,22 @@
     </div>
   </div>
 </div>
+
+    <!-- Noticia5 -->
+<div class="modal fade" id="noticia5" tabindex="-1" role="dialog" aria-labelledby="Ultimas Donaciones">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header modal-mark modal-magenta">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="noticia3">Verano FESE 2015</h4>
+      </div>
+      <div class="modal-body">
+        <img class="img-responsive center-block" src="img/verano_15.png">
+        <p class="news">"Realizar un verano de innovación empresarial fue una experiencia muy gratificante, ya que uno realmente experimenta como es el mundo fuera de la escuela y que uno solo sabe lo teórico y al estar realizando mi verano pude darme cuenta que es muy diferente a la escuela,
+                        ya que no hay un procedimiento para realizar las actividades que se te asignan por lo que obtuve grandes conocimientos gracias a este verano y aprendí que se necesita trabajar en equipo para poder realizar los trabajos más eficientemente,
+                        ya que varias personas aportan más aún proyecto que solo una por lo que estoy muy satisfecho con todas las experiencias y logros que alcance durante el verano.<br>Por lo que recomiendo realizar estos programas en los veranos para estar mejor preparados".</p>
+      <p class="align-right"><b><i>Daniel Sepulveda - Joven Emprendedor Verano 2015</i></p>
+    </div>
+    </div>
+  </div>
+</div>
