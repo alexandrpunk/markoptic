@@ -1,3 +1,4 @@
+<?php $titulo = "Quiero Donar"; ?>
 <?php require 'mod/head.php';?>
 
 
@@ -18,10 +19,10 @@
                     <div class="panel-heading panel-heading-mark" id="rosado">HAZ TU DONACIÓN</div>
                     <div class="panel-body panel-body-mark">    
                     <img class="banerd center-block img-responsive" src="img/donar.svg">
-                    <p class="text-center">Agradecemos tu participación como donar, puedes seleccionar cualquiera de nuestras opciones y formar parte de esta gran causa.</p>
+                    <p class="text-center" style="margin-top:15px;">Agradecemos tu participación como donar, puedes seleccionar cualquiera de nuestras opciones y formar parte de esta gran causa.</p>
                     <div class="row text-center">
                     <div class="col-md-3 col-sm-3 col-xs-6">
-                         <a class="don-a" href="#"><div class="don-btn"  id="magenta">
+                         <a class="don-a" href="#"><div class="don-btn"  id="verde">
                        
                         <img src="img/cheque.png">
                         <p>Deposito en cheque</p>
@@ -29,14 +30,14 @@
                     </div>
                         
                     <div class="col-md-3 col-sm-3 col-xs-6">
-                        <a class="don-a" href="#"><div class="don-btn"  id="amarillo">
+                        <a class="don-a" href="#"><div class="don-btn"  id="naranja">
                         <img src="img/trasnferencia.png">
                         <p>Transferencia Bancaria</p>
                         </div></a> 
                     </div>
                         
                     <div class="col-md-3 col-sm-3 col-xs-6">
-                        <a class="don-a" href="#"><div class="don-btn"  id="naranja">
+                        <a class="don-a" href="#"><div class="don-btn"  id="rosado">
                         <img src="img/deposito.png">
                         <p>Deposito en efectivo</p>
                         </div></a> 
@@ -50,11 +51,11 @@
                     </div>
                         
                     </div>    
-                     <h3 style="margin:20px 8%;" class="text-center decor-donar"><span class="decor-span">¿Deseas tu recibo deducible de impuestos?</span></h3>
-                    <center><a class="btn btn-lg btn-success" href="#">Tramitalo aqui</a></center>
-                     <p class="text-center">Unidos todos hacemos mas. Tu donacion desarrolla tecnologia que transforma vidas.</p>
+                     <h3 style="margin:20px 5%;" class="text-center decor-donar"><span class="decor-span">¿Deseas tu recibo deducible de impuestos?</span></h3>
+                    <center><a class="btn btn-lg btn-success" href="recibo">Tramitalo aqui</a></center>
+                     <p class="text-center" style="margin-top:15px;">Unidos todos hacemos mas. Tu donacion desarrolla tecnologia que transforma vidas.</p>
                         
-                    <div class="text-right"><a href="files/aspectoslegales.pdf" target="_blank">Ver Aspectos Legales</a></div>
+                    <div class="text-right" ><a href="files/aspectoslegales.pdf" target="_blank">Ver Aspectos Legales</a></div>
                     </div>
                 </div>     
             </div>

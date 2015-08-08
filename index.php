@@ -1,3 +1,4 @@
+<?php $titulo = "Inicio"; ?>
 <?php require 'mod/head.php';?>
 
 <body>  
@@ -93,7 +94,7 @@
                   <div class="panel-body panel-body-mark">
                     <div class="postit">
                         <a data-toggle="modal" href="#noticia1"><img class="thumb-new" src="img/recognize_coppel.jpg"></a>
-                        <a data-toggle="modal" href="#noticia1"><h4>Ultimas Donaciones</h4></a>
+                        <a data-toggle="modal" href="#noticia1"><h4>Donaciones Recientes</h4></a>
                         <p>Agradecemos la confianza de nuestras empresas donadoras, que hacen posible alcanzar el objetivo de donar Dispositivos Médicos Tecnológicos, de acuerdo al programa “Dar Para Donar”.</p>                    
                     </div>
                       

@@ -1,3 +1,4 @@
+<?php $titulo = "Galeria"; ?>
 <?php require 'mod/head.php';?>
 
 
@@ -118,7 +119,6 @@ Con este torneo inicia una etapa de proyectos deportivos que tienen como fin pro
     
 <?php require 'mod/scripts.php';?>
     
-    <script async src="js/lightbox.min.js"></script>
 
 
     

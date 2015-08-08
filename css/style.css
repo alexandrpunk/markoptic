@@ -250,7 +250,8 @@ font-size: 1.2em;
 }
 .decor-span{
     background-color: #E7E8EA;
-    padding: 0 15px;
+    padding: 0 10px;
+    line-height: 30px;
 }
 
 .panel-mark p{
@@ -858,6 +859,11 @@ hr {
     text-align: center;
     padding: 10px;
     margin: 10px 0;
+    transition: all 0.3s ease 0s;
+}
+.don-btn:active{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
+    transition: all 0.1s ease 0s;
 }
 .don-btn img{
     opacity: 0.7;
@@ -865,10 +871,15 @@ hr {
 .don-btn p{
     margin: 10px 0 0 0;
     text-align: center;
+    vertical-align: middle;
     font-size: 1.3em;
     font-weight: bolder;
     color: #fff;
 }
 .don-a:visited, .don-a:hover, .don-a:active, .don-a:link{
 text-decoration: none;
+}
+.fb-video { 
+    position: absolute;
+    z-index: 99999999;
 }

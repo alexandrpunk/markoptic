@@ -1,3 +1,4 @@
+<?php $titulo = "Nuestros Proyectos"; ?>
 <?php require 'mod/head.php';?>
 
 

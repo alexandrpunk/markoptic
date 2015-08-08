@@ -1,3 +1,4 @@
+<?php $titulo = "Nuestros Colaboradores"; ?>
 <?php require 'mod/head.php';?>
 
 
