@@ -886,7 +886,12 @@ hr {
 .don-a:visited, .don-a:hover, .don-a:active, .don-a:link{
 text-decoration: none;
 }
-.fb-video { 
-    position: absolute;
-    z-index: 99999999;
+
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
 }
