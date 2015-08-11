@@ -53,14 +53,37 @@ $mensaje = '
 </html>
 ';
 
+$info='
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Se acaba de recibir un donativo</title>
+</head>
+<body>
+<h1>Se recibio un donativo</h1>
+<p>Los datos del donante son los siguientes</p>
+<p><strong>Nombre: </strong>'.$nombre.'</p>
+<p><strong>email: </strong>'.$email.'</p>
+<p><strong>direccion: </strong>'.$direccion.'</p>
+<p><strong>rfc: </strong>'.$rfc.'</p>
+<p><strong>Monto del Donativo: </strong>$'.$monto.'</p>
+<p><strong>No. de Referencia: </strong>'.$referencia.'</p>
+<p><strong>Comentario: </strong>'.$comentario.'</p>
+</body>
+</html>
+';
+
 // Cabecera que especifica que es un HMTL
 $cabeceras  = 'MIME-Version: 1.0' . "\r\n";
-$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+$cabeceras .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
 // Cabeceras adicionales
 $cabeceras .= 'From: Donativo Fundacion Markoptic <donativo@fundacionmarkoptic.org.mx>' . "\r\n";
 // enviamos el correo!
 mail($email, $titulo, $mensaje, $cabeceras);
- echo $mensaje;
+mail('donativo@fundacionmarkoptic.org.mx', 'Se acaba de recibir un donativo', $info, $cabeceras);
+echo $mensaje;
+echo $info;
 
 ?>
  
