@@ -118,6 +118,7 @@ Con este torneo inicia una etapa de proyectos deportivos que tienen como fin pro
 <?php require 'mod/footer.php';?>
     
 <?php require 'mod/scripts.php';?>
+<script src="js/lightbox.min.js"></script>
     
 
 

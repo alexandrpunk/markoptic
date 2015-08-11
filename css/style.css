@@ -1,5 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Noto+Sans);
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,700,300);
+@import url(http://fonts.googleapis.com/css?family=Pacifico);
 /* verde markoptic: #31a463 */
 html {
   position: relative;
@@ -903,4 +904,12 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
 -webkit-appearance: none;
 margin: 0;
+}
+
+.grat{
+    max-height: 350px;
+}
+.pacificoh{
+    font-family: 'Pacifico', cursive;
+    text-align: center;
 }
