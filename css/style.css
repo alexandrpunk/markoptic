@@ -872,9 +872,18 @@ hr {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
     transition: all 0.1s ease 0s;
 }
+
+
 .don-btn img{
     opacity: 0.7;
+    transition: all 0.8s ease 0s;
 }
+
+.don-btn:hover img{
+    opacity: 1;
+    transition: all 0.2s ease 0s;
+}
+
 .don-btn p{
     margin: 10px 0 0 0;
     text-align: center;

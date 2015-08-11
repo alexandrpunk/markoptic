@@ -146,7 +146,8 @@
 <?php require 'mod/modals.php';?>
 
 <?php require 'mod/scripts.php';?>
-
+    
+<script src="js/scroll.js"></script>
 <script async src="js/responsiveslides.min.js"></script>
 <script async src="js/initslides.js"></script>
 

@@ -22,29 +22,30 @@
                     <p class="text-center" style="margin-top:15px;">Agradecemos tu participación como donar, puedes seleccionar cualquiera de nuestras opciones y formar parte de esta gran causa.</p>
                     <div class="row text-center">
                     <div class="col-md-3 col-sm-3 col-xs-6">
-                         <a class="don-a" href="#"><div class="don-btn"  id="verde">
-                       
+                         <a class="don-a" href="#cheque" data-toggle="modal"><div class="don-btn"  id="verde">
                         <img src="img/cheque.png">
                         <p>Deposito en cheque</p>
                         </div></a>                  
                     </div>
                         
                     <div class="col-md-3 col-sm-3 col-xs-6">
-                        <a class="don-a" href="#"><div class="don-btn"  id="naranja">
+                        <a class="don-a" href="#transfer" data-toggle="modal"><div class="don-btn"  id="rosado">
                         <img src="img/trasnferencia.png">
                         <p>Transferencia Bancaria</p>
                         </div></a> 
                     </div>
                         
                     <div class="col-md-3 col-sm-3 col-xs-6">
-                        <a class="don-a" href="#"><div class="don-btn"  id="rosado">
+                        <a class="don-a" href="#efectivo" data-toggle="modal">
+                        <div class="don-btn"  id="naranja">
                         <img src="img/deposito.png">
                         <p>Deposito en efectivo</p>
                         </div></a> 
                     </div>
                         
                     <div class="col-md-3 col-sm-3 col-xs-6">
-                        <a class="don-a" href="#"><div class="don-btn"  id="cyan">
+                        <a class="don-a" href="#paypal" data-toggle="modal">
+                        <div class="don-btn"  id="cyan">
                         <img src="img/paypal.png">
                         <p>PayPal</p>
                         </div></a>
@@ -55,7 +56,7 @@
                     <center><a class="btn btn-lg btn-success" href="recibo">Tramitalo aqui</a></center>
                      <p class="text-center" style="margin-top:15px;">Unidos todos hacemos mas. Tu donacion desarrolla tecnologia que transforma vidas.</p>
                         
-                    <div class="text-right" ><a href="files/aspectoslegales.pdf" target="_blank">Ver Aspectos Legales</a></div>
+                    <div class="text-center" ><a href="files/aspectoslegales.pdf" target="_blank">Ver Aspectos Legales</a></div>
                     </div>
                 </div>     
             </div>
@@ -70,6 +71,8 @@
 
     
 <?php require 'mod/footer.php';?>
+    
+<?php require 'mod/mmodal.php';?>
     
 <?php require 'mod/scripts.php';?>
     
