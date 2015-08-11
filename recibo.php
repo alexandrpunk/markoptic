@@ -20,7 +20,7 @@
                     <div class="panel-heading panel-heading-mark" id="militar">Solicitud de recibo deducible de impuestos</div>
                     <div class="panel-body panel-body-mark">    
                         
-                        <form action="inc/solicitar"  method="POST" id="soloicitud" class="news">
+                        <form action="inc/solicitar"  method="POST" id="solicitud" class="news">
                               <div class="form-group">
                                 <label for="nombre" data-toggle="tooltip" data-placement="right" title="Noombre de la personal o Razon Social a la cual se hara el recibo">Nombre o o Razon Social</label>
                                 <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre completo" required autofocus  maxlength="254">
@@ -64,7 +64,7 @@
                                 <textarea id="comentario" name="comentario" class="form-control" placeholder="Dejenos algun comentario"></textarea>
                             </div>
 
-                              <button type="submit" class="btn btn-info btn-block" name="enviar">Solicitar</button>
+                              <button type="submit" id="enviar" class="btn btn-info btn-block" name="enviar">Solicitar</button>
                         </form>
 
                     </div>
@@ -83,20 +83,9 @@
 <?php require 'mod/footer.php';?>
     
 <?php require 'mod/scripts.php';?>
-    <script>
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
-        
-        $('input[type=number]').on('mousewheel', function(){
-            var el = $(this);
-            el.blur();
-            setTimeout(function(){
-            el.focus();
-            }, 10);
-        })
-        
-    </script>
+    
+<script src="js/form.js"></script>
+
     
 </body>
 </html>

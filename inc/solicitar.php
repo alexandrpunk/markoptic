@@ -33,9 +33,7 @@ if (! $result){
 echo "Hubo un error en la suscripcion.".mysql_error();
 exit();
 }else {
-echo "Gacias por suscribirse le mantendremos informado";
-}
- 
+    
 $titulo = 'Fundacion Markoptic - Gracias por tu Donativo';
 // Cuerpo o mensaje
 $mensaje = '
@@ -82,8 +80,10 @@ $cabeceras .= 'From: Donativo Fundacion Markoptic <donativo@fundacionmarkoptic.o
 // enviamos el correo!
 mail($email, $titulo, $mensaje, $cabeceras);
 mail('donativo@fundacionmarkoptic.org.mx', 'Se acaba de recibir un donativo', $info, $cabeceras);
-echo $mensaje;
-echo $info;
+    echo $mensaje;
+    echo $info;
+    header('Location: /gracias');    
+}
 
 ?>
  
