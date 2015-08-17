@@ -19,7 +19,7 @@
                     <div class="panel-heading panel-heading-mark" id="rosado">HAZ TU DONACIÓN</div>
                     <div class="panel-body panel-body-mark">    
                     <img class="banerd center-block img-responsive" src="img/donar.svg">
-                    <p class="text-center" style="margin-top:15px;">Agradecemos tu participación como donar, puedes seleccionar cualquiera de nuestras opciones y formar parte de esta gran causa.</p>
+                    <p class="text-center" style="margin-top:15px;">Agradecemos tu participación como donador, puedes seleccionar cualquiera de nuestras opciones y formar parte de esta gran causa.</p>
                     <div class="row text-center">
                     <div class="col-md-3 col-sm-3 col-xs-6">
                          <a class="don-a" href="#cheque" data-toggle="modal"><div class="don-btn"  id="verde">

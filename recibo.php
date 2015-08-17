@@ -22,7 +22,7 @@
                         
                         <form action="inc/solicitar"  method="POST" id="solicitud" class="news">
                               <div class="form-group">
-                                <label for="nombre" data-toggle="tooltip" data-placement="right" title="Noombre de la personal o Razon Social a la cual se hara el recibo">Nombre o o Razon Social</label>
+                                <label for="nombre" data-toggle="tooltip" data-placement="right" title="Nombre completo de la persona o Razon Social a la cual se hara el recibo">Nombre o o Razon Social</label>
                                 <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre completo" required autofocus  maxlength="254">
                               </div>
                             
@@ -37,7 +37,7 @@
                             </div>
                             
                             <div class="form-group">
-                                <label for="rfc" data-toggle="tooltip" data-placement="right" title="Numero del registro federal de Contribuyentes">R.F.C.</label>
+                                <label for="rfc" data-toggle="tooltip" data-placement="right" title="Numero del Registro Federal de Contribuyentes">R.F.C.</label>
                                 <input type="text" name="rfc" id="rfc" class="form-control" placeholder="Registro Federal de Contribuyente" required  maxlength="13">
                             </div>
                             

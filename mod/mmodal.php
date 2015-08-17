@@ -8,7 +8,7 @@
       </div>
         <div class="modal-body">
             <img class="img-responsive center-block" src="img/cheque_c.png">
-            <p class="news">Si desea hacer su donativo mediante deposito en cheque este debe ser a nombre de  Markoptic AC y depositado en nuestra Cuenta autorizada en <strong>Banamex 7007-3742542.</strong></p>
+            <p class="news">Si desea hacer su donativo mediante deposito en cheque este debe ser a nombre de Fundacion Markoptic AC y depositado en nuestra Cuenta autorizada en <strong>Banamex 7007-3742542.</strong></p>
       </div>
     </div>
   </div>

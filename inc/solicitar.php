@@ -62,7 +62,7 @@ h1 {
      
 <h1>¡MUCHAS GRACIAS POR TU DONATIVO!</h1>
     <p><strong>Estimado(a) '.$nombre.'</strong></p>
-    <p>Felicidades su apoyo favorece a las personas con alguna discapacidad motriz,</p>
+    <p>Felicidades, su apoyo favorece a las personas con alguna discapacidad motriz,</p>
     <p>ahora usted es parte de la Conciencia Social,</p>
     <p>le agradecemos su confianza.</p>
 <h3>Bienvenido al Club &quot;Dar Para Donar&quot;.</h3>
