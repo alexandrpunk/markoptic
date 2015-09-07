@@ -22,17 +22,17 @@
                         
                         <form action="inc/solicitar"  method="POST" id="solicitud" class="news">
                               <div class="form-group">
-                                <label for="nombre" data-toggle="tooltip" data-placement="right" title="Nombre completo de la persona o Razon Social a la cual se hara el recibo">Nombre o o Razon Social</label>
+                                <label for="nombre" data-toggle="tooltip" data-placement="right" title="Nombre completo de la persona o Razon Social a la cual se hara el recibo">Nombre o Razón Social</label>
                                 <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre completo" required autofocus  maxlength="254">
                               </div>
                             
                               <div class="form-group">
-                                <label for="email" data-toggle="tooltip" data-placement="right" title="Email al cual se enviara el recibo">Correo Electronico</label>
+                                <label for="email" data-toggle="tooltip" data-placement="right" title="Email al cual se enviara el recibo">Correo Electrónico</label>
                                 <input type="email" name="email" class="form-control" id="email" placeholder="correo electronico" required  maxlength="254">
                               </div>
                             
                             <div class="form-group">
-                                <label for="direccion" data-toggle="tooltip" data-placement="right" title="Direccion de facturacion a la cual se hara el recibo">Direccion</label>
+                                <label for="direccion" data-toggle="tooltip" data-placement="right" title="Direccion de facturacion a la cual se hara el recibo">Domicilio Fiscal</label>
                                 <textarea id="direccion" name="direccion" class="form-control" placeholder="Ingrese su direccion de facturacion" required></textarea>
                             </div>
                             

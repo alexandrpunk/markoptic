@@ -475,14 +475,14 @@ hr {
 .footer h3{
     margin: 0;
     margin-bottom: 10px;
-    text-align: center;
+    text-align: left;
     font-weight: 700;
 }
 
 .footer p{
     margin: 0;
     margin-bottom: 10px;
-    text-align: center;
+    text-align: left;
     font-size: 1.05em;
 }
 

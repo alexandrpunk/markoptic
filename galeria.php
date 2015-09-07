@@ -17,7 +17,33 @@
                 
                 <div class="panel panel-default panel-mark animated fadeIn">
                     <div class="panel-heading panel-heading-mark" id="aqua">GALERIA</div>
-                    <div class="panel-body panel-body-mark">    
+                     <div class="panel-body panel-body-mark"> 
+                        <h2 style="margin:10px 8%;" class="text-center decor-gal"><span class="decor-span">Testimonios</span></h2>
+                        
+                         <!--  <div class="row">
+                        <div class="col-md-5 col-sm-12 col-xs-12">
+                        <div class="fb-video" data-allowfullscreen="1" data-href="/fundacionmarkoptic/videos/vb.610631102365685/784679761627484/?type=1"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/fundacionmarkoptic/videos/784679761627484/"><a href="https://www.facebook.com/fundacionmarkoptic/videos/784679761627484/"></a><p>Aumentando nuestro desarrollo tecnológico en Prótesis Robóticas, disfruten el siguiente video en el cual se observa el ensamble de nuestras Prótesis de Brazo. #PrótesisRoboticas #PrótesisdeBrazo #FundacionMarcoptic_AC</p>Posted by <a href="https://www.facebook.com/fundacionmarkoptic">Fundación Markoptic A.C.</a> on Miércoles, 27 de mayo de 2015</blockquote></div></div>
+                            </div>
+                        <div class="col-md-7 col-sm-12 col-xsgallardo-12">
+                            <h3 class="txt-mark">Juan Carlos Gallardo Inzunza<br>Director del Centro de Investigación</h3>
+                            <p class="text-justify">PROXIMAMENTE...</p>
+                        </div> 
+                    </div>
+
+                    <hr>
+-->
+                    <div class="row">
+                        <div class="col-md-5 col-sm-12 col-xs-12">
+                        <div><iframe width="323" height="182" src="https://www.youtube.com/embed/7lsJkTsWHRc" frameborder="0" allowfullscreen></iframe></div>
+                        </div>
+                        <div class="col-md-7 col-sm-12 col-xsgallardo-12">
+                            <h3 class="txt-mark">Noé Saavedra - JOVEN EMPRENDEDOR</h3>
+                            <p class="text-justify">Palabras de un joven emprendedor del estado de Morelos, que realizo la Estancia de Verano FESE 2015, en donde compartio conocimientos teoricos y los hizo realizad en una organización.</p>
+                        </div> 
+                    </div>
+
+                    <hr>
+
                         <h2 style="margin:10px 8%;" class="text-center decor-gal"><span class="decor-span">Galeria</span></h2>
                         <ul class="row image-list">
                             <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
@@ -64,8 +90,8 @@
                         
                         <div class="row">
                         <div class="col-md-5 col-sm-12 col-xs-12">
-                        <div class="fb-video" data-allowfullscreen="1" data-href="/fundacionmarkoptic/videos/vb.610631102365685/784679761627484/?type=1"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/fundacionmarkoptic/videos/784679761627484/"><a href="https://www.facebook.com/fundacionmarkoptic/videos/784679761627484/"></a><p>Aumentando nuestro desarrollo tecnológico en Prótesis Robóticas, disfruten el siguiente video en el cual se observa el ensamble de nuestras Prótesis de Brazo. #PrótesisRoboticas #PrótesisdeBrazo #FundacionMarcoptic_AC</p>Posted by <a href="https://www.facebook.com/fundacionmarkoptic">Fundación Markoptic A.C.</a> on Miércoles, 27 de mayo de 2015</blockquote></div></div>
-                            </div>
+                        <div><iframe width="323" height="182" src="https://www.youtube.com/embed/ERSKPfpf0Ac" frameborder="0" allowfullscreen></iframe></div>
+                        </div>
                         <div class="col-md-7 col-sm-12 col-xs-12">
                             <h3 class="txt-mark">Simulación 3D - Ensamble Prótesis Robótica</h3>
                             <p class="text-justify">Aumentando nuestro desarrollo tecnológico en Prótesis Robóticas, disfruten el siguiente video en el cual se observa el ensamble de nuestras Prótesis de Brazo.</p>
@@ -76,8 +102,8 @@
                         
                         <div class="row">
                         <div class="col-md-5 col-sm-12 col-xs-12">
-                            <div class="fb-video" data-allowfullscreen="1" data-href="/fundacionmarkoptic/videos/vb.610631102365685/784033318358795/?type=1"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/fundacionmarkoptic/videos/784033318358795/"><a href="https://www.facebook.com/fundacionmarkoptic/videos/784033318358795/"></a><p>En Fundación Markoptic A.C. enfocados a la vanguardia tecnológica en desarrollo de Prótesis Robóticas, mostramos un pequeño video en el cual se observan uno de los varios movimientos que tiene una Prótesis de Mano.#DonacióndePrótesis #PrótesisRobóticas</p>Posted by <a href="https://www.facebook.com/fundacionmarkoptic">Fundación Markoptic A.C.</a> on Martes, 26 de mayo de 2015</blockquote></div></div>
-                            </div>
+                        <div><iframe width="323" height="182" src="https://www.youtube.com/embed/Hw3T0krPGdE" frameborder="0" allowfullscreen></iframe></div>
+                        </div>
                         <div class="col-md-7 col-sm-12 col-xs-12">
                             <h3 class="txt-mark">Prótesis Robóticas</h3>
                             <p class="text-justify">En Fundación Markoptic A.C. enfocados a la vanguardia tecnológica en desarrollo de prótesis Robóticas, mostramos un pequeño video en el cual se observan uno de los varios movimientos que tiene una Prótesis de Brazo.</p>
@@ -89,8 +115,8 @@
                         
                         <div class="row">
                         <div class="col-md-5 col-sm-12 col-xs-12">
-                            <div class="fb-video" data-allowfullscreen="true" data-href="https://www.facebook.com/video.php?v=1625937184309666&amp;set=vb.100006802005246&amp;type=1"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/video.php?v=1625937184309666&amp;set=vb.100006802005246&amp;type=1"><a href="https://www.facebook.com/video.php?v=1625937184309666&amp;set=vb.100006802005246&amp;type=1"></a><p>1er. Torneo Intramuros de Voleibol.Causa: &quot;Donación de Prótesis&quot;Que lo disfruten!!!</p>Posted by <a href="https://www.facebook.com/video.php?v=1625937184309666&amp;set=vb.100006802005246&amp;type=1">Fundacion Markoptic</a> on Jueves, 26 de marzo de 2015</blockquote></div></div>
-                            </div>
+                        <div><iframe width="323" height="182" src="https://www.youtube.com/embed/0ikCJtlT09M" frameborder="0" allowfullscreen></iframe></div>
+                        </div>
                         <div class="col-md-7 col-sm-12 col-xs-12">
                             <h3 class="txt-mark">Primer Torneo Intramuros Voleibol Markoptic</h3>
                             <p class="text-justify">El pasado 21 de Marzo se dio por inaugurado el primer torneo intramuros Markoptic de voleibol con el propósito de recaudar fondos para una gran causa, la "Donación de prótesis". 

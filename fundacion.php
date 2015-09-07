@@ -47,7 +47,7 @@ Es así, como de esta investigación han derivado diversos proyectos tecnológic
                         
                         <hr>
                         <h2 style="margin:10px 8%;" class="decor text-center"><pan class="decor-span">Directorio</pan></h2>
-                        <div class="row row-centered ">
+                        <div class="row row-centered">
                             <div class="col-md-4 ">
                                 <address class="news">
                                 <strong>Manuel Humberto Gallardo Inzunza</strong><br>
@@ -56,7 +56,7 @@ Es así, como de esta investigación han derivado diversos proyectos tecnológic
                                 </address>
                             </div>
                             
-                            <div class="col-md-4 ">
+                            <div class="col-md-4">
                                 <address class="news">
                                 <strong>Ana Cecilia Torres Soto</strong><br>
                             Direccion Fundación Markoptic AC<br>
@@ -67,7 +67,7 @@ Es así, como de esta investigación han derivado diversos proyectos tecnológic
                             <div class="col-md-4">
                                 <address class="news">
                                 <strong>Juan Carlos Gallardo Inzunza</strong><br>
-                             <abbr title="Centro de Investigación Científica, Desarrollo Tecnológico e Innovación">Direccion CICDTeI</abbr><br>
+                             <abbr title="Centro de Investigación Científica, Desarrollo Tecnológico e Innovación">Direccion CICDTeI<br>
                             <a href="mailto:jgallardo@markoptic.com" target="_blank">jgallardo@markoptic.com</a>
                                 </address>
                             </div>

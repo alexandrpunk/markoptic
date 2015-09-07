@@ -22,15 +22,18 @@
                         <p class="text-center">Agradecemos a nuestros colaboradores por la confienza que nos dan, de mejorar la calidad de vida de personas con algun discapacidad</p>
                         <center>
                         <img class="col" src="img/colaboradores/logo_gallbo.png">
+                        <img class="col" src="img/colaboradores/logo_buap.png"> 
                         <img class="col" src="img/colaboradores/logo_cib.png">
-                        <img class="col" src="img/colaboradores/logo_coppel.png">
-                        <img class="col" src="img/colaboradores/logo_espinoza.png">
-                        <img class="col" src="img/colaboradores/logo_trizalet.png">
-                        <img class="col" src="img/colaboradores/logo_buap.png">                        
                         <img class="col" src="img/colaboradores/logo_itc.png">
+                        <img class="col" src="img/colaboradores/logo_coppel.png">
                         <img class="col" src="img/colaboradores/logo_uas.png">
+                        <img class="col" src="img/colaboradores/logo_espinoza.png">
                         <img class="col" src="img/colaboradores/logo_udeo.png">
-                        <img class="col" src="img/colaboradores/logo_ups.png">
+                        <img class="col" src="img/colaboradores/logo_trizalet.png">                      
+                        <img class="col" src="img/colaboradores/logo_persal.png">
+                        <img class="col" src="img/colaboradores/logo_castilla.png">
+                        <img class="col" src="img/colaboradores/logo_cab.png">
+
                         </center>
                     </div>
                 </div>     

@@ -14,11 +14,7 @@
                 
                 <?php require 'mod/menu.php';?>
         
-                <video id="video-background" autoplay controls preload="auto">
-                    <source src="vid/donar.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'/>
-                    <source src="vid/donar.webm" type='video/webm; codecs="vp8, vorbis"'/>
-                    <source src="vid/donar.ogv" type='video/ogg; codecs="theora, vorbis"' />
-                </video>
+                <?php require 'mod/carrousel.php';?>
                 
                 <div class="panel panel-default panel-mark ">
                     <div class="panel-heading panel-heading-mark" id="verde">CAUSAS PORQUÉ DONAR</div>

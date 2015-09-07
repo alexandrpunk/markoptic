@@ -6,24 +6,24 @@
                 <li data-target="#myCarousel" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner">
-                        <div style="background-image:url('img/protesis_clic.jpg')" class="item active">
+                        <div style="background-image:url('img/carrucel_uno.png')" class="item active">
                             <div class="carousel-caption">
                                 <a href="#">
-                                    <h4>Hacen entregan protesis al pequeño Alexis | <small>El dia sabado se hizo entrega de la protesis al...</small></h4>
+                                    <h4>Fundación Markoptic A.C. | <small>Donación de Tecnología Médica.</small></h4>
                                 </a>
                             </div>
                         </div>
-                        <div style="background-image:url('img/showimage.jpg')" class="item">
+                        <div style="background-image:url('img/carrucel_dos.png')" class="item">
                             <div class="carousel-caption">
                                 <a href="#">
-                                    <h4>Campaña un paso Adelante juntos |<small> Este mes de junio da comienzo la campaña un paso adelante juntos...</small></h4>
+                                    <h4>FESE Verano 2015 | <small>Jóvenes emprendedores de diferentes instituciones del país realizan estancia.</small></h4>
                                 </a>
                             </div>
                         </div> 
-                        <div style="background-image:url('img/maxresdefault.jpg')" class="item">
+                        <div style="background-image:url('img/carrucel_tres.jpg')" class="item">
                             <div class="carousel-caption">
                                 <a href="#">
-                                    <h4>Porque donar | <small> Con tu donacion nos ayudas a llevar acabo nuestra tarea de mejorar la calidad de vida de niños...</small></h4>
+                                    <h4>Emprendedores | <small>Jóvenes desarrollando nuevas tecnologías.</small></h4>
                                 </a>
                             </div>
                         </div>

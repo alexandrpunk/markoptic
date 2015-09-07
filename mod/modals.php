@@ -251,7 +251,12 @@
         <p class="news">"Realizar un verano de innovación empresarial fue una experiencia muy gratificante, ya que uno realmente experimenta como es el mundo fuera de la escuela y que uno solo sabe lo teórico y al estar realizando mi verano pude darme cuenta que es muy diferente a la escuela,
                         ya que no hay un procedimiento para realizar las actividades que se te asignan por lo que obtuve grandes conocimientos gracias a este verano y aprendí que se necesita trabajar en equipo para poder realizar los trabajos más eficientemente,
                         ya que varias personas aportan más aún proyecto que solo una por lo que estoy muy satisfecho con todas las experiencias y logros que alcance durante el verano.<br>Por lo que recomiendo realizar estos programas en los veranos para estar mejor preparados".</p>
-      <p class="align-right"><b><i>Daniel Sepulveda - Joven Emprendedor Verano 2015</i></p>
+      <p class="align-right"><b><i>Daniel Sepulveda - Joven Emprendedor Verano 2015</i></b></p>
+      <hr width=100% align="center">
+      <p class="news"> "Fue una gran experiencia el haber participado en el programa de Verano de la Innovación FESE ya que nos ayuda como estudiantes a conocer más de cerca el ámbito laboral y desarrollarnos dentro del mismo aplicando los conocimientos adquiridos en el salón de clases; este tipo de programas nos ayuda a prepararnos para el futuro una vez concluidos nuestros estudios.<br>
+                        El haber realizado la estancia en Fundación Markoptic A. C. fue muy satisfactorio, además de aprender muchas cosas nuevas, conocí más a fondo el tema de la discapacidad, un problema que afecta a miles de personas en el mundo, y que es una gran fortuna que exista una fundación que apoye a personas con esta problemática.<br>
+                        Fue un placer haber participado y dejado una parte de mí en los diferentes trabajos y  proyectos de la organización".</p>
+      <p class="align-left"><b><i>Servando Talavera - Joven Emprendedor Verano 2015</i></b></p>
     </div>
     </div>
   </div>
