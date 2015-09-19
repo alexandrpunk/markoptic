@@ -32,6 +32,15 @@ Es así, como de esta investigación han derivado diversos proyectos tecnológic
                         <h2 style="margin:10px 8%;" class="decor text-center"><pan class="decor-span">Vision</pan></h2>
                         <p class="text-justify">Ser una fundación líder en donación de dispositivos electrónicos de alta calidad y funcionalidad, producidos con materiales y tecnologías de última generación que den soluciones a personas con alguna discapacidad.</p>
                         <hr>
+
+                        <h2 style="margin:10px 8%;" class="decor text-center"><pan class="decor-span">Objetivos</pan></h2>
+                        <p class="text-justify">
+                        •   Desarrollar y donar dispositivos médicos terapéuticos, que ayuden a personas con discapacidad motriz a recuperar movimientos naturales del cuerpo y lograr independencia, bienestar emocional y aceptación social y laboral.</li>
+                        <br>•   Ser una organización tecnológica sin fines de lucro que fomente una cultura de inclusión a favor de personas con capacidades diferentes con alcance global.</li>
+                        <br>•   Ser una entidad que cumpla los mecanismos de transparencia y procesos de gestión a nuestros donadores y beneficiarios, logrando cumplir con las normativas mexicanas en el proceso de identificación, sistematización y difusión de información para el público, adquiriendo así el reconocimiento a la buena práctica en el manejo de sus programas, uso de datos y rendición de cuentas, con la finalidad de comunicar compromisos, objetivos y resultados de las actuaciones en relación al desarrollo sostenible en los ámbitos económico, ambiental y social ante las autoridades correspondientes.</li>
+                        </p>
+                        <hr>
+
                         <h2 style="margin:10px 8%;" class="decor text-center"><pan class="decor-span">Valores</pan></h2>
                         <ul class="news">
                             <li>Liderazgo</li>
