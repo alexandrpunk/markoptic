@@ -36,7 +36,7 @@
     <div class="modal-content">
       <div class="modal-header modal-mark modal-militar">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="foo3">Primera Fundacion Tecnologica en Mexico</h4>
+        <h4 class="modal-title" id="foo3">Primera Fundación Tecnológica en México</h4>
       </div>
         <div class="modal-body">
             <img class="img-responsive center-block" src="img/arm.png">

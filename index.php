@@ -70,7 +70,7 @@
                         </a>
                             
                         <a id="rosado" class="foo" data-toggle="modal" href="#foo9"><span>
-                            <p>Se dona a quien más lo necesita</p>
+                            <p>Se Dona a Quien más lo Necesita</p>
                             <img src="img/charity.jpg">
                             </span>
                         </a>

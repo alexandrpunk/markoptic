@@ -16,10 +16,10 @@
                 <?php require 'mod/menu.php';?>
                 
                   <div class="panel panel-default panel-mark animated fadeIn">
-                    <div class="panel-heading panel-heading-mark" id="aqua">Gracias por tu Donacion</div>
+                    <div class="panel-heading panel-heading-mark" id="aqua">Gracias por tu Donación</div>
                     <div class="panel-body panel-body-mark">    
                     <img class=" grat center-block img-responsive" src="img/gracias.svg">
-                    <h2 class="pacificoh">Tu donacion nos ayudara a hacer la diferencia en la vida de las personas que lo necesitan.</h2>
+                    <h2 class="pacificoh">Tu donación nos ayudara a hacer la diferencia en la vida de las personas que lo necesitan.</h2>
                     </div>
                 </div>     
             </div>

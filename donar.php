@@ -24,7 +24,7 @@
                     <div class="col-md-3 col-sm-3 col-xs-6">
                          <a class="don-a" href="#cheque" data-toggle="modal"><div class="don-btn"  id="verde">
                         <img src="img/cheque.png">
-                        <p>Deposito en cheque</p>
+                        <p>Depósito en cheque</p>
                         </div></a>                  
                     </div>
                         
@@ -39,7 +39,7 @@
                         <a class="don-a" href="#efectivo" data-toggle="modal">
                         <div class="don-btn"  id="naranja">
                         <img src="img/deposito.png">
-                        <p>Deposito en efectivo</p>
+                        <p>Depósito en efectivo</p>
                         </div></a> 
                     </div>
                         
@@ -53,8 +53,8 @@
                         
                     </div>    
                      <h3 style="margin:20px 5%;" class="text-center decor-donar"><span class="decor-span">¿Deseas tu recibo deducible de impuestos?</span></h3>
-                    <center><a class="btn btn-lg btn-success" href="recibo">Tramitalo aqui</a></center>
-                     <p class="text-center" style="margin-top:15px;">Unidos todos hacemos mas. Tu donacion desarrolla tecnologia que transforma vidas.</p>
+                    <center><a class="btn btn-lg btn-success" href="recibo">Tramítalo aquí</a></center>
+                     <p class="text-center" style="margin-top:15px;">Unidos todos hacemos más. Tu donación desarrolla tecnología que transforma vidas.</p>
                         
                     <div class="text-center" ><a href="files/aspectoslegales.pdf" target="_blank">Ver Aspectos Legales</a></div>
                     </div>

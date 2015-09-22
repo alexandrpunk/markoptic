@@ -4,11 +4,11 @@
     <div class="modal-content">
       <div class="modal-header modal-mark modal-verde">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="summon">Haz tu donativo mediante deposito en cheque</h4>
+        <h4 class="modal-title" id="summon">Haz tu donativo mediante depósito en cheque</h4>
       </div>
         <div class="modal-body">
             <img class="img-responsive center-block" src="img/cheque_c.png">
-            <p class="news">Si desea hacer su donativo mediante deposito en cheque este debe ser a nombre de Fundacion Markoptic AC y depositado en nuestra Cuenta autorizada en <strong>Banamex 7007-3742542.</strong></p>
+            <p class="news">Si desea hacer su donativo mediante depósito en cheque este debe ser a nombre de Fundación Markoptic AC y depositado en nuestra Cuenta autorizada en <strong>Banamex 7007-3742542.</strong></p>
       </div>
     </div>
   </div>
@@ -36,11 +36,11 @@
     <div class="modal-content">
       <div class="modal-header modal-mark modal-naranja">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="summon">Haz tu donativo mediante deposito en efectivo</h4>
+        <h4 class="modal-title" id="summon">Haz tu donativo mediante depósito en efectivo</h4>
       </div>
         <div class="modal-body">
             <img class="img-responsive center-block" src="img/efectivo_c.png">
-            <p class="news">Si prefiere hacer su donativo en efectivo este debe ser depositodado en nuestra cuenta autorizada en <strong>Banamex 7007-3742542</strong> a nombre de <strong>Fundacion Markoptic AC</strong> (Las Donaciones en efectivo solo serán recibidas mediante deposito Bancario).</p>
+            <p class="news">Si prefiere hacer su donativo en efectivo este debe ser depositado en nuestra cuenta autorizada en <strong>Banamex 7007-3742542</strong> a nombre de <strong>Fundacion Markoptic AC</strong> (Las Donaciones en efectivo solo serán recibidas mediante depósito Bancario).</p>
       </div>
     </div>
   </div>
@@ -56,7 +56,7 @@
       </div>
         <div class="modal-body">
             <img class="img-responsive center-block" src="img/paypal_c.png">
-            <p class="news">En caso de que usted cuente con una cuenta PayPal y desee hacernos llegar su donativo por este medio, solo debe hacer click en el siguiente boton.</p>
+            <p class="news">En caso de que usted cuente con una cuenta PayPal y desee hacernos llegar su donativo por este medio, solo debe hacer clic en el siguiente botón.</p>
             <center><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
             <input type="hidden" name="cmd" value="_s-xclick">
             <input type="hidden" name="hosted_button_id" value="YDDHME7ZN8YRL">

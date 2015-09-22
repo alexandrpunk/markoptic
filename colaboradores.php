@@ -16,10 +16,10 @@
                 <?php require 'mod/menu.php';?>
                 
                   <div class="panel panel-default panel-mark animated fadeIn">
-                    <div class="panel-heading panel-heading-mark" id="amarillo"> COLABORADORES</div>
+                    <div class="panel-heading panel-heading-mark" id="amarillo">COLABORADORES</div>
                     <div class="panel-body panel-body-mark">
                         <h1 class="text-center">¡Muchas Gracias!</h1>
-                        <p class="text-center">Agradecemos a nuestros colaboradores por la confienza que nos dan, de mejorar la calidad de vida de personas con algun discapacidad</p>
+                        <p class="text-center">Agradecemos a nuestros colaboradores por la confianza que nos dan, de mejorar la calidad de vida de personas con discapacidad.</p>
                         <center>
                         <img class="col" src="img/colaboradores/logo_gallbo.png">
                         <img class="col" src="img/colaboradores/logo_buap.png"> 
@@ -32,7 +32,7 @@
                         <img class="col" src="img/colaboradores/logo_trizalet.png">                      
                         <img class="col" src="img/colaboradores/logo_persal.png">
                         <img class="col" src="img/colaboradores/logo_castilla.png">
-                        <img class="col" src="img/colaboradores/logo_cab.png">
+                        <!-- <img class="col" src="img/colaboradores/logo_cab.png"> -->
 
                         </center>
                     </div>
