@@ -9,7 +9,7 @@
                         <!-- Collection of nav links and other content for toggling -->
                         <div id="navbarCollapse" class="collapse navbar-collapse zero">
                             <ul class="menu zero">
-                                <li id="verde"><a href="/"><i class="fa fa-home fa-lg"></i>Inicio</a></li>
+                                <li id="verde"><a href="/"><i class="fa fa-home fa-lg"></i>&nbsp;Inicio</a></li>
                                 <li id="magenta"><a href="fundacion">Fundación</a></li>
                                 <li id="naranja"><a href="proyectos">Proyectos</a></li>
                                 <li id="cyan"><a href="/#Noticias">Noticias</a></li>

@@ -81,6 +81,18 @@
                             <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
                                 <a href="img/galeria/011.jpg" data-lightbox="image-1"><img src="img/galeria/thumb-011.jpg"></a>
                             </li>
+                            <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+                                <a href="img/galeria/012.jpg" data-lightbox="image-1"><img src="img/galeria/thumb-012.jpg"></a>
+                            </li>
+                             <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+                                <a href="img/galeria/013.jpg" data-lightbox="image-1"><img src="img/galeria/thumb-013.jpg"></a>
+                            </li>
+                             <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+                                <a href="img/galeria/014.jpg" data-lightbox="image-1"><img src="img/galeria/thumb-014.jpg"></a>
+                            </li>
+                             <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+                                <a href="img/galeria/015.jpg" data-lightbox="image-1"><img src="img/galeria/thumb-015.jpg"></a>
+                            </li>
                         </ul>
                         
                         <hr>
