@@ -20,7 +20,7 @@
                                 </a>
                             </div>
                         </div> 
-                        <div style="background-image:url('img/carrucel_tres.jpg')" class="item">
+                        <div style="background-image:url('img/carrucel_tres.png')" class="item">
                             <div class="carousel-caption">
                                 <a href="#">
                                     <h4>Emprendedores | <small>Jóvenes desarrollando nuevas tecnologías.</small></h4>
