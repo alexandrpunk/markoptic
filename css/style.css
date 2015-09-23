@@ -13,7 +13,7 @@ body{
     min-height: 0!important;
     margin-top: 70px;
     font-family: 'Noto Sans', sans-serif;
-    margin-bottom: 150px;
+    margin-bottom: 270px;
 }
 
 .mark-nav{
@@ -469,7 +469,7 @@ hr {
     border-top: 5px solid #147c41;
     padding: 10px;
   /* Set the fixed height of the footer here */
-    height: 150px;
+    height: 270px;
 }
 
 .footer h3{
@@ -562,13 +562,13 @@ hr {
 }
 
 
-@media (max-width : 767px) {
+@media (max-width : 768px) {
     body{
-    margin-bottom: 210px;
+    margin-bottom: 320px;
 }
     
     .footer {
-    height: 210px;
+    height: 320px;
 }
     
     .top-right{
@@ -598,7 +598,26 @@ hr {
     
 }
 
+@media (max-width : 650px) {
+        body{
+    margin-bottom: 360px;
+}
+    
+    .footer {
+    height: 360px;
+}
+  
+}
+
 @media (max-width : 498px) {
+        body{
+    margin-bottom: 400px;
+}
+    
+    .footer {
+    height: 400px;
+}
+    
     .top-right{
         width: 130px;
         margin-right: -20px;
@@ -624,6 +643,16 @@ hr {
     width: 100px;
     max-width: 110px;
     }
+}
+@media (max-width : 320px) {
+        body{
+    margin-bottom: 525px;
+}
+    
+    .footer {
+    height: 525px;
+}
+  
 }
 
 

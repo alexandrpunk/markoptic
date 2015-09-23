@@ -8,7 +8,7 @@
                 <li><a href="https://plus.google.com/+FundacionMarkopticOrgMxAC" target="_blank"><i class="fa fa-google-plus-square fa-fw fa-2x" target="_blank"></i></a></li>
             </ul>
         </div>
-            <p class="top-right hidden-xs"><a href="/#Contacto">Contacto</a></p>
+            <p class="top-right hidden-xs"><a href="#Contacto">Contacto</a></p>
         <div class="input-group top-right hide">
             <input type="text" class="form-mark btn-bar bg-mark" placeholder="Buscar...">
             <span class="input-group-btn">
