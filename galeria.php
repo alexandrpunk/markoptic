@@ -19,18 +19,6 @@
                     <div class="panel-heading panel-heading-mark" id="aqua">GALERÍA</div>
                      <div class="panel-body panel-body-mark"> 
                         <h2 style="margin:10px 8%;" class="text-center decor-gal"><span class="decor-span">Testimonios</span></h2>
-                        
-                         <div class="row">
-                        <div class="col-md-5 col-sm-12 col-xs-12">
-                        <div><iframe width="323" height="182" src="https://www.youtube.com/embed/Koe0j3hJ_9A" frameborder="0" allowfullscreen></iframe></div>
-                        </div>
-                        <div class="col-md-7 col-sm-12 col-xsgallardo-12">
-                            <h3 class="txt-mark">Juan Carlos Gallardo Inzunza<br>Director del Centro de Investigación</h3>
-                            <p class="text-justify">Un pequeño fragmento de historia en la creación y desarrollo de Fundación Markoptic A.C.,  conociendo el gran apoyo de personas preparadas para ayudar a otras personas a mejorar su calidad de vida.</p>
-                        </div> 
-                    </div>
-
-                    <hr>
                     <div class="row">
                         <div class="col-md-5 col-sm-12 col-xs-12">
                         <div><iframe width="323" height="182" src="https://www.youtube.com/embed/7lsJkTsWHRc" frameborder="0" allowfullscreen></iframe></div>
@@ -64,12 +52,6 @@
                                 <a href="img/galeria/005.jpg" data-lightbox="image-1"><img src="img/galeria/thumb-005.jpg"></a>
                             </li>
                             <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
-                                <a href="img/galeria/006.jpg" data-lightbox="image-1"><img src="img/galeria/thumb-006.jpg"></a>
-                            </li>
-                            <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
-                                <a href="img/galeria/007.jpg" data-lightbox="image-1"><img src="img/galeria/thumb-007.jpg"></a>
-                            </li>
-                            <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
                                 <a href="img/galeria/008.jpg" data-lightbox="image-1"><img src="img/galeria/thumb-008.jpg"></a>
                             </li>
                             <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
@@ -92,6 +74,9 @@
                             </li>
                              <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
                                 <a href="img/galeria/015.jpg" data-lightbox="image-1"><img src="img/galeria/thumb-015.jpg"></a>
+                            </li>
+                             <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+                                <a href="img/galeria/016.jpg" data-lightbox="image-1"><img src="img/galeria/thumb-016.jpg"></a>
                             </li>
                         </ul>
                         
