@@ -879,13 +879,13 @@ hr {
  
 .dlink{
     color: #fff;
-    text-decoration: none;
+    text-decoration: none !important;
     font-size: 1.1em;
 }
 
 .dlink a:focus, .dlink a:hover{
     color: #fff !important;
-    text-decoration: underline;
+    text-decoration: none !important;
 }
 
 
