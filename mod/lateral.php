@@ -10,15 +10,7 @@ function googleTranslateElementInit() {
 </div>
 </div>
 
-<div class="panel panel-default panel-mark" >
-    <div class="panel-heading panel-heading-mark" id="magenta"></div>
-    <div class="panel-body panel-body-mark">
-        <a href="solicitud"><span class="img-thumbnail">
-            <h4 class="txt-mark text-center oswald"><strong>Realiza tu Solicitud de Prótesis o Colchón Aquí</strong></h4>
-        </span></a>
-    </div>
-    <div class="panel-heading panel-heading-mark" id="magenta"></div>
-</div>
+<a href="/solicitud"><img src="img/btn-sol.svg" class="img-responsive panel animated tada" alt="Solicita tu protesis aqui"></a>
 
 <div class="panel panel-default panel-mark" >
     <div class="panel-heading panel-heading-mark" id="morado">SE CONVOCA</div>
