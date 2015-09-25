@@ -221,7 +221,7 @@ if(update_folio($folio,$id_solicitud)){
 		if (file_exists($zip_file)) {
 	    	if(update_adj($zip_file,$id_solicitud)){
 	    		if (envioEmails($data)) {
-	    			header('Location: ../solicitud-concluida.php');
+	    			header('Location: /solicitud-concluida');
 	    		}
 	    		else{
 	    			echo "error";

@@ -17,7 +17,7 @@ function googleTranslateElementInit() {
             <div class="img-thumbnail print text-center bg-mark center-block">
                 <h4 class="oswald"><strong>¿Necesitas una protesis o alguno de nuestros dispositivos medicos?</strong></h4>
                 <img style="max-height:150px;"  class="center-block" src="img/hands.svg" />
-                <h4 class="oswald"><strong><i class="fa fa-hand-o-right"></i> SOLICITALO AQUI</strong></h4>
+                <h4 class="oswald"><strong><i class="fa fa-hand-o-right"></i> SOLICITALO AQUI <i class="fa fa-hand-o-left"></i></strong></h4>
             </div>
         </a>
     </div>
