@@ -11,11 +11,21 @@ function googleTranslateElementInit() {
 </div>
 
 <div class="panel panel-default panel-mark" >
+    <div class="panel-heading panel-heading-mark" id="magenta"></div>
+    <div class="panel-body panel-body-mark">
+        <a href="solicitud"><span class="img-thumbnail">
+            <h4 class="txt-mark text-center oswald"><strong>Realiza tu Solicitud de Prótesis o Colchón Aquí</strong></h4>
+        </span></a>
+    </div>
+    <div class="panel-heading panel-heading-mark" id="magenta"></div>
+</div>
+
+<div class="panel panel-default panel-mark" >
     <div class="panel-heading panel-heading-mark" id="morado">SE CONVOCA</div>
     <div class="panel-body panel-body-mark">
         <a href="#summon" data-toggle="modal"><span class="img-thumbnail">
             <img class="img-responsive" src="img/summon.png" />
-            <h4 class="txt-mark text-center oswald"><strong>Haz tus Residencias Profesionales con Nosotros</strong></h4>
+            <h4 class="txt-mark text-center oswald"><strong>Haz tus Residencias Profesionales con nosotros</strong></h4>
         </span></a>
     </div>
 </div>

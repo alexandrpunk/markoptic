@@ -942,3 +942,7 @@ margin: 0;
     font-family: 'Pacifico', cursive;
     text-align: center;
 }
+
+.btn-form{
+  margin: 7px;
+}

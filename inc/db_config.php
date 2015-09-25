@@ -10,5 +10,5 @@ define("PASS","root");
 define("DB","markoptic");
  
 //OTROS DATOS
-define("DEBUG","false");
+define("DEBUG","true");
 ?>
