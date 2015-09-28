@@ -11,13 +11,13 @@ function googleTranslateElementInit() {
 </div>
 
 <div class="panel panel-default panel-mark" >
-    <div class="panel-heading panel-heading-mark" id="rosado">SOLICITA TU PROTESIS</div>
+    <div class="panel-heading panel-heading-mark" id="rosado">SOLICITA TU PRÓTESIS</div>
     <div class="panel-body panel-body-mark">
         <a href="/solicitud" class="dlink">
             <div class="img-thumbnail print text-center bg-mark center-block">
-                <h4 class="oswald"><strong>¿Necesitas una protesis o alguno de nuestros dispositivos medicos?</strong></h4>
+                <h4 class="oswald"><strong>¿Necesitas una prótesis o alguno de nuestros dispositivos médicos?</strong></h4>
                 <img style="max-height:150px;"  class="center-block" src="img/hands.svg" />
-                <h4 class="oswald"><strong><i class="fa fa-hand-o-right"></i> SOLICITALO AQUI <i class="fa fa-hand-o-left"></i></strong></h4>
+                <h4 class="oswald"><strong><i class="fa fa-hand-o-right"></i> SOLICÍTALO AQUÍ <i class="fa fa-hand-o-left"></i></strong></h4>
             </div>
         </a>
     </div>

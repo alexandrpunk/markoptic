@@ -71,10 +71,12 @@
                                 <a href="mailto:ctorres@fundacionmarkoptic.org.mx" target="_blank">ctorres@fundacionmarkoptic.org.mx</a>
                                 </address>
                             </div>
-                            
                         </div>
-                        
-
+                        <hr>
+                        <h2 style="margin:10px 8%;" class="decor text-center"><pan class="decor-span">Transparencia</pan></h2>
+                        <p class="text-justify">
+                            <b>Donataria Autorizada:</b><a href="files/sat.pdf" target="_blank"> Formato de Autorización.</a><P>
+                            <b>Registro Federal de las Organizaciones de la Sociedad Civil:</b><a href="files/cluni.pdf" target="_blank"> CLUNI.</a></p>
                     </div>
                 </div>              
             </div>

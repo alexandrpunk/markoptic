@@ -54,9 +54,7 @@
                     </div>    
                      <h3 style="margin:20px 5%;" class="text-center decor-donar"><span class="decor-span">¿Deseas tu recibo deducible de impuestos?</span></h3>
                     <center><a class="btn btn-lg btn-success" href="recibo">Tramítalo aquí</a></center>
-                     <p class="text-center" style="margin-top:15px;">Unidos todos hacemos más. Tu donación desarrolla tecnología que transforma vidas.</p>
-                        
-                    <div class="text-center" ><a href="files/aspectoslegales.pdf" target="_blank">Ver Aspectos Legales</a></div>
+                     <p class="text-center" style="margin-top:15px;">"Unidos todos hacemos más. Tu donación desarrolla tecnología que transforma vidas".</p>
                     </div>
                 </div>     
             </div>

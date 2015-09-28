@@ -32,6 +32,7 @@
                         <img class="col" src="img/colaboradores/logo_trizalet.png">                      
                         <img class="col" src="img/colaboradores/logo_persal.png">
                         <img class="col" src="img/colaboradores/logo_castilla.png">
+                        <img class="col" src="img/colaboradores/foto_graficos.png">
                         <!-- <img class="col" src="img/colaboradores/logo_cab.png"> -->
 
                         </center>

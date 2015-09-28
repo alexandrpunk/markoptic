@@ -40,13 +40,13 @@
                         </a>
                         
                         <a class="foo" id="morado" data-toggle="modal" href="#foo4"><span>
-                            <p>Desarrollo de Tecnología en Sinaloa</p>
+                            <p>Desarrollo de Tecnología</p>
                             <img src="img/development.jpg">
                             </span>
                         </a>
                             
                         <a id="amarillo" class="foo" data-toggle="modal" href="#foo5"><span>
-                            <p>Laboratorio de Clase Mundial en Sinaloa</p>
+                            <p>Laboratorio de Clase Mundial</p>
                             <img src="img/lab.jpg">
                             </span>
                         </a> 
@@ -90,13 +90,20 @@
                   <div class="panel-body panel-body-mark">
                     <div class="postit">
                          <div class="postit">
+                        <a data-toggle="modal" href="#noticia6"><img class="thumb-new" src="img/idea.png"></a>
+                        <a data-toggle="modal" href="#noticia6"><h4>Damos la Bienvenida a Dr. Ulises Zaldívar</h4></a>
+                        <p>Incorporándose a nuestro equipo de trabajo le damos la bienvenida al Dr. Ulises Zaldívar que actualmente se desempeña como Profesor Investigador de Tiempo Completo, Titular “C” de la Universidad Autónoma de Sinaloa,<a data-toggle="modal" href="#noticia6"> Leer Más...</a></p>                    
+                    </div>
+
+                    <hr>
+                        <div class="postit">
                         <a data-toggle="modal" href="#noticia5"><img class="thumb-new" src="img/verano_15.png"></a>
                         <a data-toggle="modal" href="#noticia5"><h4>Verano FESE 2015</h4></a>
                         <p>Realizar un verano de innovación empresarial fue una experiencia muy gratificante, ya que uno realmente experimenta como es el mundo fuera de la escuela y que uno solo sabe lo teórico y al estar realizando mi verano pude darme cuenta que es muy diferente a la escuela,<a data-toggle="modal" href="#noticia5"> Leer Más...</a></p>                    
                     </div>
                       
                       <hr>
-                      
+                        <div class="postit">
                         <a data-toggle="modal" href="#noticia1"><img class="thumb-new" src="img/recognize_coppel.jpg"></a>
                         <a data-toggle="modal" href="#noticia1"><h4>Donaciones Recientes</h4></a>
                         <p>Agradecemos la confianza de nuestras empresas donadoras, que hacen posible alcanzar el objetivo de donar Dispositivos Médicos Tecnológicos, de acuerdo al programa “Dar Para Donar”.</p>                    
@@ -125,7 +132,7 @@
                         <a data-toggle="modal" href="#noticia4"><h4>Recibo Deducible De Impuestos</h4></a>
                         <p>Con agrado informamos que nuestra fundación fue autorizada por el SAT para recibir donativos deducibles de impuestos en México y en el Extranjero, esto de acuerdo al Oficio: 600-04-02-2015-57527, Exp. 24369, Folio: 365660.</p>
                     </div>
-                      
+                      </div>
                   </div>
                 </div>
             </div>
@@ -147,7 +154,7 @@
 <script async src="js/responsiveslides.min.js"></script>
 <script async src="js/initslides.js"></script>
 
-
+<?php require 'mod/checkCookie.php';?>
     
 </body>
 </html>

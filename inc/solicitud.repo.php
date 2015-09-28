@@ -4,10 +4,9 @@ function AbrirConexion() {
 	$dbhost = "localhost";
 	$dbuser = "gallbo_markoptic";
 	$dbpass = "markoptic2015";
-    $db = "gallbo_markoptic";
 	//$dbuser = "root";
-	//$dbpass = "root";
-    //$db = "markoptic";
+	//$dbpass = "";
+	$db = "gallbo_markoptic";
 	$link = new mysqli($dbhost,$dbuser,$dbpass,$db);
 		if($link->connect_errno) {
 			die("Error " . $link->connect_error);
@@ -75,6 +74,7 @@ function Localidades($id_estado) {
 function Solicitud1($ds){
 	$query = "INSERT INTO solicitud (peticion, opcion_protesis, porque, medio_difusion) VALUES ('".$ds["peticion"]."', '".$ds["opcion_protesis"]."', '".$ds["porque"]."', '".$ds["medio_difusion"]."');";
 	$link = AbrirConexion();
+	mysqli_set_charset($link, "utf8");
 	if($r = $link->query($query)){
 		$id_solicitud = $link->insert_id;
 		return $id_solicitud;
@@ -87,6 +87,7 @@ function Solicitud1($ds){
 function update_folio($folio, $id_solicitud){
 	$query = "UPDATE solicitud SET folio = '".$folio."' WHERE id = '".$id_solicitud."' ";
 	$link = AbrirConexion();
+	mysqli_set_charset($link, "utf8");
 	if($s = $link->query($query)){
 		return true;
 	}else {
@@ -99,6 +100,7 @@ function beneficiario($db){
 	$query_beneficiario = "INSERT INTO beneficiario_solicitud (nombre, apellido, sexo, fecha_nac, edad, direccion, colonia, cp, ciudad, estado, pais, telefono, email, id_solicitud) 
 	VALUES ('".$db["nombre"]."', '".$db["apellido"]."', '".$db["sexo"]."', '".$db["fecha_nac"]."', '".$db["edad"]."', '".$db["direccion"]."', '".$db["colonia"]."', '".$db["cp"]."', '".$db["ciudad"]."', '".$db["estado"]."', '".$db["pais"]."', '".$db["telefono"]."', '".$db["email"]."', '".$db["id_solicitud"]."');";
 	$link = AbrirConexion();
+	mysqli_set_charset($link, "utf8");
 	if($t = $link->query($query_beneficiario)){
 		$id_beneficiario = $link->insert_id;
 		return $id_beneficiario;
@@ -112,6 +114,7 @@ function tutor($dt){
 	$query_tutor = "INSERT INTO tutor_beneficiario (nombre, apellido, sexo, fecha_nac, edad, direccion, colonia, cp, ciudad, estado, pais, telefono, email, parentesco, id_solicitud, id_beneficiario) 
 	VALUES ('".$dt["t_nombre"]."', '".$dt["t_apellido"]."', '".$dt["t_sexo"]."', '".$dt["t_fecha_nac"]."', '".$dt["t_edad"]."', '".$dt["t_direccion"]."', '".$dt["t_colonia"]."', '".$dt["t_cp"]."', '".$dt["t_ciudad"]."', '".$dt["t_estado"]."', '".$dt["t_pais"]."', '".$dt["t_telefono"]."', '".$dt["t_email"]."', '".$dt["t_parentesco"]."', '".$dt["id_solicitud"]."', '".$dt["id_beneficiario"]."');";
 	$link = AbrirConexion();
+	mysqli_set_charset($link, "utf8");
 	if($t = $link->query($query_tutor)){
 		return true;
 	}else {
@@ -123,6 +126,7 @@ function tutor($dt){
 function update_adj($zip_file, $id_solicitud){
 	$query = "UPDATE solicitud SET adjunto = '".$zip_file."' WHERE id = '".$id_solicitud."' ";
 	$link = AbrirConexion();
+	mysqli_set_charset($link, "utf8");
 	if($s = $link->query($query)){
 		return true;
 	}else {

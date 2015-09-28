@@ -47,12 +47,12 @@
 </div> 
     
     <!-- foo4 -->
-<div class="modal fade" id="foo4" tabindex="-1" role="dialog" aria-labelledby="Desarrollo de Tecnología en Sinaloa">
+<div class="modal fade" id="foo4" tabindex="-1" role="dialog" aria-labelledby="Desarrollo de Tecnología">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header modal-mark modal-morado">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="foo4">Desarrollo de Tecnología en Sinaloa</h4>
+        <h4 class="modal-title" id="foo4">Desarrollo de Tecnología</h4>
       </div>
         <div class="modal-body">
             <img class="img-responsive center-block" src="img/development.jpg">
@@ -63,12 +63,12 @@
 </div>
     
     <!-- foo5 -->
-<div class="modal fade" id="foo5" tabindex="-1" role="dialog" aria-labelledby="Laboratorio de Clase Mundial en Sinaloa">
+<div class="modal fade" id="foo5" tabindex="-1" role="dialog" aria-labelledby="Laboratorio de Clase Mundial">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header modal-mark modal-amarillo">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="foo5">Laboratorio de Clase Mundial en Sinaloa</h4>
+        <h4 class="modal-title" id="foo5">Laboratorio de Clase Mundial</h4>
       </div>
         <div class="modal-body">
             <img class="img-responsive center-block" src="img/lab.jpg">
@@ -258,6 +258,23 @@
                         Fue un placer haber participado y dejado una parte de mí en los diferentes trabajos y  proyectos de la organización".</p>
       <p class="align-left"><b><i>Servando Talavera - Joven Emprendedor Verano 2015</i></b></p>
     </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Noticia6 -->
+<div class="modal fade" id="noticia6" tabindex="-1" role="dialog" aria-labelledby="Ultimas Donaciones">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header modal-mark modal-magenta">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="noticia6">Damos la Bienvenida a Dr. Ulises Zaldívar</h4>
+      </div>
+      <div class="modal-body">
+        <img class="img-responsive center-block" src="img/idea.png">
+        <p class="news">Incorporándose a nuestro equipo de trabajo le damos la bienvenida al Dr. Ulises Zaldívar que actualmente se desempeña como Profesor Investigador de Tiempo Completo, Titular “C” de la Universidad Autónoma de Sinaloa, adscrito al Parque de Innovación Tecnológica de la UAS en el cargo de Coordinador Operativo. Asimismo, funge como Presidente de la Asociación Mexicana de Robótica
+         e Industria AC. Es por ello la intención de participar en conjunto con Fundación Markoptic A.C. en el proyecto de Prótesis Robóticas para el beneficio de las personas con discapacidad.</p>
+      </div>
     </div>
   </div>
 </div>
