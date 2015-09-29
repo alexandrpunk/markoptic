@@ -273,7 +273,7 @@
       <div class="modal-body">
         <img class="img-responsive center-block" src="img/idea.png">
         <p class="news">Incorporándose a nuestro equipo de trabajo le damos la bienvenida al Dr. Ulises Zaldívar que actualmente se desempeña como Profesor Investigador de Tiempo Completo, Titular “C” de la Universidad Autónoma de Sinaloa, adscrito al Parque de Innovación Tecnológica de la UAS en el cargo de Coordinador Operativo. Asimismo, funge como Presidente de la Asociación Mexicana de Robótica
-         e Industria AC. Es por ello la intención de participar en conjunto con Fundación Markoptic A.C. en el proyecto de Prótesis Robóticas para el beneficio de las personas con discapacidad.</p>
+         e Industria AC. Es por ello que me motiva ser colaborador voluntario en Fundación Markoptic A.C. en el proyecto de Prótesis Robóticas para el beneficio de las personas con discapacidad.</p>
       </div>
     </div>
   </div>

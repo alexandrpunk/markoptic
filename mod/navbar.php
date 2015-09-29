@@ -10,8 +10,13 @@
             </ul>
 
         </div>
-            <p class="top-right hidden-xs">
-                <a href="#" data-toggle="modal" data-target="#contacto-modal">Contacto</a></p>       
+            <p class="top-right">
+                <a href="#" data-toggle="modal" data-target="#contacto-modal">Contacto</a></p>
+                        <div class="align-right" id="google_translate_element"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>       
     </div>
 </div>
 

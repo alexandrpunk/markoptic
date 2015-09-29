@@ -92,7 +92,7 @@
                          <div class="postit">
                         <a data-toggle="modal" href="#noticia6"><img class="thumb-new" src="img/idea.png"></a>
                         <a data-toggle="modal" href="#noticia6"><h4>Damos la Bienvenida a Dr. Ulises Zaldívar</h4></a>
-                        <p>Incorporándose a nuestro equipo de trabajo le damos la bienvenida al Dr. Ulises Zaldívar que actualmente se desempeña como Profesor Investigador de Tiempo Completo, Titular “C” de la Universidad Autónoma de Sinaloa,<a data-toggle="modal" href="#noticia6"> Leer Más...</a></p>                    
+                        <p>Incorporándose a nuestro equipo de trabajo le damos la bienvenida al Dr. Ulises Zaldívar que actualmente se desempeña como Profesor Investigador de Tiempo Completo, Titular “C” de la Universidad Autónoma de Sinaloa, adscrito al Parque de Innovación Tecnológica <a data-toggle="modal" href="#noticia6"> Leer Más...</a></p>                    
                     </div>
 
                     <hr>

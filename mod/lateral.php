@@ -1,16 +1,4 @@
 <div class="panel panel-default panel-mark" >
-    <div class="panel-heading panel-heading-mark" id="cafe">SELECCIONA TU IDIOMA</div>
-            
-        <div style="padding:10px;" class="panel-body panel-body-mark">
-        <div id="google_translate_element"></div><script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'es', autoDisplay: false}, 'google_translate_element');
-}
-</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-</div>
-</div>
-
-<div class="panel panel-default panel-mark" >
     <div class="panel-heading panel-heading-mark" id="rosado">SOLICITA TU PRÓTESIS</div>
     <div class="panel-body panel-body-mark">
         <a href="/solicitud" class="dlink">
