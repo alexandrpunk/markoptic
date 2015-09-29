@@ -33,11 +33,11 @@
                         <hr>
 
                         <h2 style="margin:10px 8%;" class="decor text-center"><pan class="decor-span">Objetivos</pan></h2>
-                        <p class="text-justify">
-                        •   Desarrollar y donar dispositivos médicos terapéuticos, que ayuden a personas con discapacidad motriz a recuperar movimientos naturales del cuerpo y lograr independencia, bienestar emocional y aceptación social y laboral.</li>
-                        <br>•   Ser una organización tecnológica sin fines de lucro que fomente una cultura de inclusión a favor de personas con capacidades diferentes con alcance global.</li>
-                        <br>•   Ser una entidad que cumpla los mecanismos de transparencia y procesos de gestión a nuestros donadores y beneficiarios, logrando cumplir con las normativas mexicanas en el proceso de identificación, sistematización y difusión de información para el público, adquiriendo así el reconocimiento a la buena práctica en el manejo de sus programas, uso de datos y rendición de cuentas, con la finalidad de comunicar compromisos, objetivos y resultados de las actuaciones en relación al desarrollo sostenible en los ámbitos económico, ambiental y social ante las autoridades correspondientes.</li>
-                        </p>
+                        <ul class="news text-justify">
+                        <li>Desarrollar y donar dispositivos médicos terapéuticos, que ayuden a personas con discapacidad motriz a recuperar movimientos naturales del cuerpo y lograr independencia, bienestar emocional y aceptación social y laboral.</li>
+                        <li>Ser una organización tecnológica sin fines de lucro que fomente una cultura de inclusión a favor de personas con capacidades diferentes con alcance global.</li>
+                        <li>Ser una entidad que cumpla los mecanismos de transparencia y procesos de gestión a nuestros donadores y beneficiarios, logrando cumplir con las normativas mexicanas en el proceso de identificación, sistematización y difusión de información para el público, adquiriendo así el reconocimiento a la buena práctica en el manejo de sus programas, uso de datos y rendición de cuentas, con la finalidad de comunicar compromisos, objetivos y resultados de las actuaciones en relación al desarrollo sostenible en los ámbitos económico, ambiental y social ante las autoridades correspondientes.</li>
+                        </ul>
                         <hr>
 
                         <h2 style="margin:10px 8%;" class="decor text-center"><pan class="decor-span">Valores</pan></h2>
@@ -56,16 +56,16 @@
                         <hr>
                         <h2 style="margin:10px 8%;" class="decor text-center"><pan class="decor-span">Directorio</pan></h2>
                         <div class="row row-centered">
-                            <div class="col-md-8">
-                                <address class="news">
+                            <div class="col-md-6">
+                                <address class="news text-center">
                                 <strong>Manuel Humberto Gallardo Inzunza</strong><br>
                             Presidente Grupo Markoptic<br>
                                 <a href="mailto:mgallardo@fundacionmarkoptic.org.mx" target="_blank">mgallardo@fundacionmarkoptic.org.mx</a>
                                 </address>
                             </div>
                             
-                            <div class="col-md-4">
-                                <address class="news">
+                            <div class="col-md-6">
+                                <address class="news text-center">
                                 <strong>Ana Cecilia Torres Soto</strong><br>
                             Dirección Fundación Markoptic<br>
                                 <a href="mailto:ctorres@fundacionmarkoptic.org.mx" target="_blank">ctorres@fundacionmarkoptic.org.mx</a>
@@ -74,9 +74,9 @@
                         </div>
                         <hr>
                         <h2 style="margin:10px 8%;" class="decor text-center"><pan class="decor-span">Transparencia</pan></h2>
-                        <p class="text-justify">
-                            <b>Donataria Autorizada:</b><a href="files/sat.pdf" target="_blank"> Formato de Autorización.</a><P>
-                            <b>Registro Federal de las Organizaciones de la Sociedad Civil:</b><a href="files/cluni.pdf" target="_blank"> CLUNI.</a></p>
+                        <p class="news text-center">
+                            <strong>Donataria Autorizada: </strong><a href="files/sat.pdf" target="_blank">Formato de Autorización</a>.</p>
+                            <p class="news text-center"><strong>Registro Federal de las Organizaciones de la Sociedad Civil: </strong><a href="files/cluni.pdf" target="_blank">CLUNI</a>.</p>
                     </div>
                 </div>              
             </div>

@@ -12,6 +12,14 @@
         </div>
             <p class="top-right">
                 <a href="#" data-toggle="modal" data-target="#contacto-modal">Contacto</a></p>
+        
+                <div class="input-group top-right hidden">
+                    <input type="text" class="form-mark btn-bar bg-mark" placeholder="Buscar...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-bar" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                </div> 
+        
                         <div class="align-right" id="google_translate_element"></div><script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
@@ -32,25 +40,25 @@ function googleTranslateElementInit() {
                     <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input type="text" placeholder="NOMBRE" class="form-control" id="nombre" name="nombre" required="">
+                                    <input type="text" placeholder="Nombre" class="form-control" id="nombre" name="nombre" required="">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input type="text" placeholder="APELLIDO" class="form-control" id="apellido" name="apellido" required="">
+                                    <input type="text" placeholder="Apellido" class="form-control" id="apellido" name="apellido" required="">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input type="text" placeholder="TELÉFONO" class="form-control" id="telefono" name="telefono" ></div>
+                                    <input type="tel" placeholder="Teléfono" class="form-control" id="telefono" name="telefono" ></div>
                                 </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input type="text" placeholder="CORREO ELECTRÓNICO" class="form-control" id="correo" name="correo" required=""></div>
+                                    <input type="email" placeholder="Correo Electrónico" class="form-control" id="correo" name="correo" required=""></div>
                                 </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <textarea class="form-control" placeholder="ESCRIBE TUS COMENTARIOS..." rows="4" id="comentario" name="comentario" required="" style="resize: none;"></textarea>
+                                    <textarea class="form-control" placeholder="Dejanos tu comentario..." rows="4" id="comentario" name="comentario" required="" style="resize: none;"></textarea>
                                 </div>
                             </div>
                     </div>

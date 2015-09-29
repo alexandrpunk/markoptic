@@ -19,6 +19,8 @@ if(DEBUG == "true"){
 
 /* CONECTAR CON BASE DE DATOS ****************/
 $con = mysqli_connect(SERVER, USER, PASS, DB);
+mysqli_set_charset ( $con , "utf8");
+
 
 if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error());}
 
