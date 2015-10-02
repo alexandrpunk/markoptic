@@ -168,7 +168,7 @@
     
   
     <!-- Noticia 1 -->
-<div class="modal fade" id="noticia1" tabindex="-1" role="dialog" aria-labelledby="Ultimas Donaciones">
+<div class="modal fade" id="noticia1" tabindex="-1" role="dialog" aria-labelledby="Donaciones Resientes">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header modal-mark modal-magenta">
@@ -177,6 +177,7 @@
       </div>
         <div class="modal-body">
             <ul class="rslides">
+                <li><img src="img/recognize_castilla.png"></li>
                 <li><img src="img/recognize_coppel.jpg"></li>
                 <li><img src="img/recognize_espinoza.jpg"></li>
                 <li><img src="img/recognize_gallbo.png"></li>
@@ -191,7 +192,7 @@
 </div>
     
     <!-- Noticia 2 -->
-<div class="modal fade" id="noticia2" tabindex="-1" role="dialog" aria-labelledby="Ultimas Donaciones">
+<div class="modal fade" id="noticia2" tabindex="-1" role="dialog" aria-labelledby="Jovenes Emprendedores - Verano FESE 2015">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header modal-mark modal-magenta">
@@ -207,7 +208,7 @@
 </div>
     
     <!-- Noticia3 -->
-<div class="modal fade" id="noticia3" tabindex="-1" role="dialog" aria-labelledby="Ultimas Donaciones">
+<div class="modal fade" id="noticia3" tabindex="-1" role="dialog" aria-labelledby="Certificación Solidworks">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header modal-mark modal-magenta">
@@ -223,7 +224,7 @@
 </div>
 
     <!-- Noticia4 -->
-<div class="modal fade" id="noticia4" tabindex="-1" role="dialog" aria-labelledby="Ultimas Donaciones">
+<div class="modal fade" id="noticia4" tabindex="-1" role="dialog" aria-labelledby="Recibo Deducible de Inpuestos">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header modal-mark modal-magenta">
@@ -239,7 +240,7 @@
 </div>
 
     <!-- Noticia5 -->
-<div class="modal fade" id="noticia5" tabindex="-1" role="dialog" aria-labelledby="Ultimas Donaciones">
+<div class="modal fade" id="noticia5" tabindex="-1" role="dialog" aria-labelledby="Verano FESE 2015">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header modal-mark modal-magenta">
@@ -263,7 +264,7 @@
 </div>
 
     <!-- Noticia6 -->
-<div class="modal fade" id="noticia6" tabindex="-1" role="dialog" aria-labelledby="Ultimas Donaciones">
+<div class="modal fade" id="noticia6" tabindex="-1" role="dialog" aria-labelledby="Bienvenida al Dr. Ulises Zaldívar">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header modal-mark modal-magenta">
@@ -274,6 +275,26 @@
         <img class="img-responsive center-block" src="img/idea.png">
         <p class="news">Incorporándose a nuestro equipo de trabajo le damos la bienvenida al Dr. Ulises Zaldívar que actualmente se desempeña como Profesor Investigador de Tiempo Completo, Titular “C” de la Universidad Autónoma de Sinaloa, adscrito al Parque de Innovación Tecnológica de la UAS en el cargo de Coordinador Operativo. Asimismo, funge como Presidente de la Asociación Mexicana de Robótica
          e Industria AC. Es por ello que me motiva ser colaborador voluntario en Fundación Markoptic A.C. en el proyecto de Prótesis Robóticas para el beneficio de las personas con discapacidad.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Noticia7 -->
+<div class="modal fade" id="noticia7" tabindex="-1" role="dialog" aria-labelledby="Avances Colchón Inflable Automatizado">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header modal-mark modal-magenta">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="noticia7">Avances Colchón Inflable Automatizado</h4>
+      </div>
+      <div class="modal-body">
+        <ul class="rslides">
+                <li><img src="img/colchon_1.jpg"></li>
+                <li><img src="img/colchon_2.jpg"></li>
+              </ul>
+              <p class="news">En estos momentos el proyecto del colchón antiescaras se encuentra en la etapa final de ensamble de los diferentes componentes. Tales como el colchón inflable, el vibrador,  la válvula distribuidora, el circuito electrónico y el circuito neumático.
+              Después de realizar las primeras pruebas del funcionamiento, se obtuvieron resultados muy favorables pero se continúan buscando mejoras para lograr un mejor desempeño. Estamos a muy poco tiempo de dar como terminado el primero prototipo para el colchón anti escaras automatizado.</p>
       </div>
     </div>
   </div>
