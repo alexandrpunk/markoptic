@@ -299,3 +299,37 @@
     </div>
   </div>
 </div>
+
+    <!-- Noticia8 -->
+<div class="modal fade" id="noticia8" tabindex="-1" role="dialog" aria-labelledby="Conociendo a: Sergio Arturo Santos Cabrera">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header modal-mark modal-magenta">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="noticia8">Conociendo a: Sergio Arturo Santos Cabrera</h4>
+      </div>
+      <div class="modal-body">
+        <img class="img-responsive center-block" src="img/ben_2.jpg">
+        <p class="news">Sergio Santos con 29 años de edad actualmente reside en la ciudad de Culiacán, Sinaloa junto con su esposa y un hijo. A la edad de 11 años sufrió un accidente por electricidad el cual provoco la amputación de ambas manos; desde entonces y por cuestiones económicas él se vio en la necesidad de utilizar prótesis de pinza con las cueles solo puede realizar tareas básicas laboral y personalmente.<br><br>
+        Hace dos meses al escuchar sobre Fundación Markoptic y conocer un proyecto de prótesis robóticas que asemejan los movimientos naturales de una mano, se llena de entusiasmo, emoción y esperanza al saber que puede volver a utilizar sus dos manos y poder aumentar sus funciones tal como tomar la mano de su hijo al cruzar la calle.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Noticia9 -->
+<div class="modal fade" id="noticia9" tabindex="-1" role="dialog" aria-labelledby="Conociendo a: Adoniram Abimelec Castro López">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header modal-mark modal-magenta">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="noticia9">Conociendo a: Adoniram Abimelec Castro López</h4>
+      </div>
+      <div class="modal-body">
+        <img class="img-responsive center-block" src="img/ben_1.jpg">
+        <p class="news">Adoniram actualmente es estudiante de tercer grado de la carrera de licenciatura de educación física en la UAS, proveniente de la cuidad de Los Mochis, logra venir a Culiacán a estudiar la universidad al recibir una beca de estudio que le fue otorgado por su activa participación en eventos de personas con capacidades diferentes.<br><br>
+        Es voluntario en Fundación Markoptic con el sentido humano hacia la tecnología de prótesis robóticas, al igual en otra organización, ayudando a personas con parálisis cerebral con lo que comprueba su calidez humana y aun careciendo de su miembro superior izquierdo desde el  nacimiento muestra gran entusiasmo de poder utilizar por primera vez dos manos con una de nuestras prótesis robóticas.</p>
+      </div>
+    </div>
+  </div>
+</div>
