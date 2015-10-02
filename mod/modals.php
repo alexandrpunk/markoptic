@@ -8,7 +8,7 @@
       </div>
         <div class="modal-body">
             <img class="img-responsive center-block" src="img/disp.jpg">
-            <p class="news">La Totalidad de los proyectos generados por Fundación Markoptic AC tienen objetivo de ser donados a la sociedad, en apoyo a las familias de escasos recursos que desean integrarse a una vida social y productiva plena.</p>
+            <p class="news text-justify">La Totalidad de los proyectos generados por Fundación Markoptic AC tienen objetivo de ser donados a la sociedad, en apoyo a las familias de escasos recursos que desean integrarse a una vida social y productiva plena.</p>
       </div>
     </div>
   </div>
@@ -24,7 +24,7 @@
       </div>
         <div class="modal-body">
             <img class="img-responsive center-block" src="img/qualitylife.jpg">
-            <p class="news">Mediante la innovación, creación y desarrollo de Tecnología Médica, se crean Prótesis Robóticas que tienen la capacidad de imitar varios movimientos del cuerpo humano, las cuales son personalizadas para adaptarse a la anatomía de cualquier persona, y regresar funcionalidad a la parte amputada.</p>
+            <p class="news text-justify">Mediante la innovación, creación y desarrollo de Tecnología Médica, se crean Prótesis Robóticas que tienen la capacidad de imitar varios movimientos del cuerpo humano, las cuales son personalizadas para adaptarse a la anatomía de cualquier persona, y regresar funcionalidad a la parte amputada.</p>
       </div>
     </div>
   </div>
@@ -40,7 +40,7 @@
       </div>
         <div class="modal-body">
             <img class="img-responsive center-block" src="img/arm.png">
-            <p class="news">Fundación Markoptic A.C. surge de la iniciativa en profundizar en la Investigación Médica y Tecnológica, de esta manera se han desarrollado diversos Proyectos Tecnológicos que se vuelcan en beneficio social para personas que padezcan alguna discapacidad física. Siendo así la primera institución en México con estas características.</p>
+            <p class="news text-justify">Fundación Markoptic A.C. surge de la iniciativa en profundizar en la Investigación Médica y Tecnológica, de esta manera se han desarrollado diversos Proyectos Tecnológicos que se vuelcan en beneficio social para personas que padezcan alguna discapacidad física. Siendo así la primera institución en México con estas características.</p>
       </div>
     </div>
   </div>
@@ -56,7 +56,7 @@
       </div>
         <div class="modal-body">
             <img class="img-responsive center-block" src="img/development.jpg">
-            <p class="news">El avance de la Tecnología hoy en día, es de vital importancia para la humanidad, ya que facilita y mejora la calidad de vida de las personas. El Estado de Sinaloa ha sido identificado por su Tecnología agrícola y a partir de esta Fundación puede ser también reconocida por su Tecnología Médica Robótica.</p>
+            <p class="news text-justify">El avance de la Tecnología hoy en día, es de vital importancia para la humanidad, ya que facilita y mejora la calidad de vida de las personas. El Estado de Sinaloa ha sido identificado por su Tecnología agrícola y a partir de esta Fundación puede ser también reconocida por su Tecnología Médica Robótica.</p>
       </div>
     </div>
   </div>
@@ -72,7 +72,7 @@
       </div>
         <div class="modal-body">
             <img class="img-responsive center-block" src="img/lab.jpg">
-            <p class="news">Actualmente en la Capital del Estado, Culiacán Rosales, Sinaloa, se creó un laboratorio completamente equipado con maquinaria, equipo de cómputo, software y herramental de última Tecnología, que es capaz de desarrollar cualquier tipo de Dispositivo Robótico altamente funcional.</p>
+            <p class="news text-justify">Actualmente en la Capital del Estado, Culiacán Rosales, Sinaloa, se creó un laboratorio completamente equipado con maquinaria, equipo de cómputo, software y herramental de última Tecnología, que es capaz de desarrollar cualquier tipo de Dispositivo Robótico altamente funcional.</p>
       </div>
     </div>
   </div>
@@ -88,7 +88,7 @@
       </div>
         <div class="modal-body">
             <img class="img-responsive center-block" src="img/group.jpg">
-            <p class="news">La fundación ofrece la oportunidad a jóvenes estudiantes destacados y emprendedores de realizar Servicio Social, Prácticas Profesionales, Voluntariado y Verano Científico en nuestras distintas áreas de Ingeniería Mecánica, Electrónica, Mecatrónica, Industrial, Sistemas y Administración al igual las Licenciaturas en Mercadotecnia y Contabilidad.</p>
+            <p class="news text-justify">La fundación ofrece la oportunidad a jóvenes estudiantes destacados y emprendedores de realizar Servicio Social, Prácticas Profesionales, Voluntariado y Verano Científico en nuestras distintas áreas de Ingeniería Mecánica, Electrónica, Mecatrónica, Industrial, Sistemas y Administración al igual las Licenciaturas en Mercadotecnia y Contabilidad.</p>
       </div>
     </div>
   </div>
@@ -104,7 +104,7 @@
       </div>
         <div class="modal-body">
             <img class="img-responsive center-block" src="img/work.jpeg">
-            <p class="news">Conforme se avanza, en la apertura de nuevos proyectos es necesario contar con capital humano. Un estudiante que este por egresar o egresado que necesite y tenga el entusiasmo de superarse puede integrarse, todo ello dependiendo de sus actitudes y logros, son altamente candidatos para una oportunidad de trabajo.</p>
+            <p class="news text-justify">Conforme se avanza, en la apertura de nuevos proyectos es necesario contar con capital humano. Un estudiante que este por egresar o egresado que necesite y tenga el entusiasmo de superarse puede integrarse, todo ello dependiendo de sus actitudes y logros, son altamente candidatos para una oportunidad de trabajo.</p>
       </div>
     </div>
   </div>
@@ -120,7 +120,7 @@
       </div>
         <div class="modal-body">
             <img class="img-responsive center-block" src="img/family.png">
-            <p class="news">Fundación Markoptic AC, ofrece la oportunidad a nuestras Familias Mexicanas de contar con diversos Dispositivos Médicos con el carácter de gratuito. Ya que actualmente esta Tecnología la ofrecen países de primer mundo con un alto costo y poca accesibilidad.</p>
+            <p class="news text-justify">Fundación Markoptic AC, ofrece la oportunidad a nuestras Familias Mexicanas de contar con diversos Dispositivos Médicos con el carácter de gratuito. Ya que actualmente esta Tecnología la ofrecen países de primer mundo con un alto costo y poca accesibilidad.</p>
       </div>
     </div>
   </div>
@@ -136,7 +136,7 @@
       </div>
         <div class="modal-body">
             <img class="img-responsive center-block" src="img/charity.jpg">
-            <p class="news">Creemos firmemente que la tarea de desarrollar Tecnología Médica para TODOS, es la mejor manera de mejorar la calidad de vida en la sociedad. Y más cuando las personas que lo necesitan no cuentan con los recursos suficientes para poder conseguirlos. Es por eso que llegamos a todas las Familias para encontrar estas personas que sueñan con salir adelante.</p>
+            <p class="news text-justify">Creemos firmemente que la tarea de desarrollar Tecnología Médica para TODOS, es la mejor manera de mejorar la calidad de vida en la sociedad. Y más cuando las personas que lo necesitan no cuentan con los recursos suficientes para poder conseguirlos. Es por eso que llegamos a todas las Familias para encontrar estas personas que sueñan con salir adelante.</p>
       </div>
     </div>
   </div>
@@ -185,7 +185,7 @@
                 <li><img src="img/recognize_trizalet.png"></li>
                 <li><img src="img/recognize_uas.jpg"></li>
             </ul>
-            <p class="news">Agradecemos la confianza de nuestras empresas donadoras, que hacen posible alcanzar el objetivo de donar Dispositivos Médicos Tecnológicos, de acuerdo al programa “Dar Para Donar”.</p>
+            <p class="news text-justify">Agradecemos la confianza de nuestras empresas donadoras, que hacen posible alcanzar el objetivo de donar Dispositivos Médicos Tecnológicos, de acuerdo al programa “Dar Para Donar”.</p>
       </div>
     </div>
   </div>
@@ -201,7 +201,7 @@
       </div>
       <div class="modal-body text-body">
           <img class="img-responsive center-block" src="img/summer.jpg">
-        <p class="news">Damos el banderazo por el inicio al Verano de Jóvenes Emprendedores 2015 en Fundación Markoptic A.C. el cual se llevara a cabo del 15 de junio al 31 de julio en los cuales destaca la participación del programa FESE.</p>
+        <p class="news text-justify">Damos el banderazo por el inicio al Verano de Jóvenes Emprendedores 2015 en Fundación Markoptic A.C. el cual se llevara a cabo del 15 de junio al 31 de julio en los cuales destaca la participación del programa FESE.</p>
       </div>
     </div>
   </div>
@@ -217,7 +217,7 @@
       </div>
       <div class="modal-body">
         <img class="img-responsive center-block" src="img/cer_sw.jpg">
-        <p class="news">Nos sentimos muy contentos al dar a conocer, que nuestros Jóvenes del Centro de Investigación Científica, Desarrollo Tecnológico e Innovación lograron obtener la Certificación en SolidWorks 2015 para el diseño y simulación en pro del desarrollo de tecnología.</p>
+        <p class="news text-justify">Nos sentimos muy contentos al dar a conocer, que nuestros Jóvenes del Centro de Investigación Científica, Desarrollo Tecnológico e Innovación lograron obtener la Certificación en SolidWorks 2015 para el diseño y simulación en pro del desarrollo de tecnología.</p>
       </div>
     </div>
   </div>
@@ -233,7 +233,7 @@
       </div>
       <div class="modal-body">
         <img class="img-responsive center-block" src="img/tax.jpg">
-        <p class="news">Con agrado informamos que nuestra fundación fue autorizada por el SAT para recibir donativos deducibles de impuestos en México y en el Extranjero, esto de acuerdo al Oficio: 600-04-02-2015-57527, Exp. 24369, Folio: 365660.</p>
+        <p class="news text-justify">Con agrado informamos que nuestra fundación fue autorizada por el SAT para recibir donativos deducibles de impuestos en México y en el Extranjero, esto de acuerdo al Oficio: 600-04-02-2015-57527, Exp. 24369, Folio: 365660.</p>
       </div>
     </div>
   </div>
@@ -249,12 +249,12 @@
       </div>
       <div class="modal-body">
         <img class="img-responsive center-block" src="img/verano_15.png">
-        <p class="news">"Realizar un verano de innovación empresarial fue una experiencia muy gratificante, ya que uno realmente experimenta como es el mundo fuera de la escuela y que uno solo sabe lo teórico y al estar realizando mi verano pude darme cuenta que es muy diferente a la escuela,
+        <p class="news text-justify">"Realizar un verano de innovación empresarial fue una experiencia muy gratificante, ya que uno realmente experimenta como es el mundo fuera de la escuela y que uno solo sabe lo teórico y al estar realizando mi verano pude darme cuenta que es muy diferente a la escuela,
                         ya que no hay un procedimiento para realizar las actividades que se te asignan por lo que obtuve grandes conocimientos gracias a este verano y aprendí que se necesita trabajar en equipo para poder realizar los trabajos más eficientemente,
                         ya que varias personas aportan más aún proyecto que solo una por lo que estoy muy satisfecho con todas las experiencias y logros que alcance durante el verano.<br>Por lo que recomiendo realizar estos programas en los veranos para estar mejor preparados".</p>
       <p class="align-right"><b><i>Daniel Sepulveda - Joven Emprendedor Verano 2015</i></b></p>
       <hr width=100% align="center">
-      <p class="news"> "Fue una gran experiencia el haber participado en el programa de Verano de la Innovación FESE ya que nos ayuda como estudiantes a conocer más de cerca el ámbito laboral y desarrollarnos dentro del mismo aplicando los conocimientos adquiridos en el salón de clases; este tipo de programas nos ayuda a prepararnos para el futuro una vez concluidos nuestros estudios.<br>
+      <p class="news text-justify"> "Fue una gran experiencia el haber participado en el programa de Verano de la Innovación FESE ya que nos ayuda como estudiantes a conocer más de cerca el ámbito laboral y desarrollarnos dentro del mismo aplicando los conocimientos adquiridos en el salón de clases; este tipo de programas nos ayuda a prepararnos para el futuro una vez concluidos nuestros estudios.<br>
                         El haber realizado la estancia en Fundación Markoptic A. C. fue muy satisfactorio, además de aprender muchas cosas nuevas, conocí más a fondo el tema de la discapacidad, un problema que afecta a miles de personas en el mundo, y que es una gran fortuna que exista una fundación que apoye a personas con esta problemática.<br>
                         Fue un placer haber participado y dejado una parte de mí en los diferentes trabajos y  proyectos de la organización".</p>
       <p class="align-left"><b><i>Servando Talavera - Joven Emprendedor Verano 2015</i></b></p>
@@ -273,7 +273,7 @@
       </div>
       <div class="modal-body">
         <img class="img-responsive center-block" src="img/idea.png">
-        <p class="news">Incorporándose a nuestro equipo de trabajo le damos la bienvenida al Dr. Ulises Zaldívar que actualmente se desempeña como Profesor Investigador de Tiempo Completo, Titular “C” de la Universidad Autónoma de Sinaloa, adscrito al Parque de Innovación Tecnológica de la UAS en el cargo de Coordinador Operativo. Asimismo, funge como Presidente de la Asociación Mexicana de Robótica
+        <p class="news text-justify">Incorporándose a nuestro equipo de trabajo le damos la bienvenida al Dr. Ulises Zaldívar que actualmente se desempeña como Profesor Investigador de Tiempo Completo, Titular “C” de la Universidad Autónoma de Sinaloa, adscrito al Parque de Innovación Tecnológica de la UAS en el cargo de Coordinador Operativo. Asimismo, funge como Presidente de la Asociación Mexicana de Robótica
          e Industria AC. Es por ello que me motiva ser colaborador voluntario en Fundación Markoptic A.C. en el proyecto de Prótesis Robóticas para el beneficio de las personas con discapacidad.</p>
       </div>
     </div>
@@ -289,11 +289,11 @@
         <h4 class="modal-title" id="noticia7">Avances Colchón Inflable Automatizado</h4>
       </div>
       <div class="modal-body">
-        <ul class="rslides">
+            <ul class="rslides">
                 <li><img src="img/colchon_1.jpg"></li>
                 <li><img src="img/colchon_2.jpg"></li>
-              </ul>
-              <p class="news">En estos momentos el proyecto del colchón antiescaras se encuentra en la etapa final de ensamble de los diferentes componentes. Tales como el colchón inflable, el vibrador,  la válvula distribuidora, el circuito electrónico y el circuito neumático.
+            </ul>
+          <p class="news text-justify">En estos momentos el proyecto del colchón antiescaras se encuentra en la etapa final de ensamble de los diferentes componentes. Tales como el colchón inflable, el vibrador,  la válvula distribuidora, el circuito electrónico y el circuito neumático.
               Después de realizar las primeras pruebas del funcionamiento, se obtuvieron resultados muy favorables pero se continúan buscando mejoras para lograr un mejor desempeño. Estamos a muy poco tiempo de dar como terminado el primero prototipo para el colchón anti escaras automatizado.</p>
       </div>
     </div>
@@ -310,8 +310,8 @@
       </div>
       <div class="modal-body">
         <img class="img-responsive center-block" src="img/ben_2.jpg">
-        <p class="news">Sergio Santos con 29 años de edad actualmente reside en la ciudad de Culiacán, Sinaloa junto con su esposa y un hijo. A la edad de 11 años sufrió un accidente por electricidad el cual provoco la amputación de ambas manos; desde entonces y por cuestiones económicas él se vio en la necesidad de utilizar prótesis de pinza con las cueles solo puede realizar tareas básicas laboral y personalmente.<br><br>
-        Hace dos meses al escuchar sobre Fundación Markoptic y conocer un proyecto de prótesis robóticas que asemejan los movimientos naturales de una mano, se llena de entusiasmo, emoción y esperanza al saber que puede volver a utilizar sus dos manos y poder aumentar sus funciones tal como tomar la mano de su hijo al cruzar la calle.</p>
+        <p class="news text-justify">Sergio Santos con 29 años de edad actualmente reside en la ciudad de Culiacán, Sinaloa junto con su esposa y un hijo. A la edad de 11 años sufrió un accidente por electricidad el cual provoco la amputación de ambas manos; desde entonces y por cuestiones económicas él se vio en la necesidad de utilizar prótesis de pinza con las cueles solo puede realizar tareas básicas laboral y personalmente.</p>
+        <p class="news text-justify">Hace dos meses al escuchar sobre Fundación Markoptic y conocer un proyecto de prótesis robóticas que asemejan los movimientos naturales de una mano, se llena de entusiasmo, emoción y esperanza al saber que puede volver a utilizar sus dos manos y poder aumentar sus funciones tal como tomar la mano de su hijo al cruzar la calle.</p>
       </div>
     </div>
   </div>
@@ -327,8 +327,8 @@
       </div>
       <div class="modal-body">
         <img class="img-responsive center-block" src="img/ben_1.jpg">
-        <p class="news">Adoniram actualmente es estudiante de tercer grado de la carrera de licenciatura de educación física en la UAS, proveniente de la cuidad de Los Mochis, logra venir a Culiacán a estudiar la universidad al recibir una beca de estudio que le fue otorgado por su activa participación en eventos de personas con capacidades diferentes.<br><br>
-        Es voluntario en Fundación Markoptic con el sentido humano hacia la tecnología de prótesis robóticas, al igual en otra organización, ayudando a personas con parálisis cerebral con lo que comprueba su calidez humana y aun careciendo de su miembro superior izquierdo desde el  nacimiento muestra gran entusiasmo de poder utilizar por primera vez dos manos con una de nuestras prótesis robóticas.</p>
+        <p class="news text-justify">Adoniram actualmente es estudiante de tercer grado de la carrera de licenciatura de educación física en la UAS, proveniente de la cuidad de Los Mochis, logra venir a Culiacán a estudiar la universidad al recibir una beca de estudio que le fue otorgado por su activa participación en eventos de personas con capacidades diferentes.</p>
+        <p class="news text-justify">Es voluntario en Fundación Markoptic con el sentido humano hacia la tecnología de prótesis robóticas, al igual en otra organización, ayudando a personas con parálisis cerebral con lo que comprueba su calidez humana y aun careciendo de su miembro superior izquierdo desde el  nacimiento muestra gran entusiasmo de poder utilizar por primera vez dos manos con una de nuestras prótesis robóticas.</p>
       </div>
     </div>
   </div>
