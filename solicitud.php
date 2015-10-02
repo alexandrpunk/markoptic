@@ -479,5 +479,7 @@ Fundación Markoptic A.C. iniciará un proceso de estudio de la solicitud y se c
     
 <?php require 'mod/scripts.php';?>
     
+    <script src="js/funciones.js"></script>
+    
 </body>
 </html>
