@@ -58,11 +58,11 @@ function envioCorreo($data){
 	}
 }
 
-$nombre = $_POST["nombre"];
-$apellido = $_POST["apellido"];
-$telefono = $_POST["telefono"];
-$correo = $_POST["correo"];
-$comentario = $_POST["comentario"];
+$nombre = $_POST["c_nombre"];
+$apellido = $_POST["c_apellido"];
+$telefono = $_POST["c_telefono"];
+$correo = $_POST["c_correo"];
+$comentario = $_POST["c_comentario"];
 
 $data = array("nombre" => $nombre,
 		"apellido" => $apellido,
