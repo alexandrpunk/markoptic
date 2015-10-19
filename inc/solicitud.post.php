@@ -191,8 +191,6 @@ if(update_folio($folio,$id_solicitud)){
 			else{
 				echo "error";
 			}
-
-			
 		}
 	}
 	else{
