@@ -77,9 +77,11 @@
                         </div>
                         <hr>
                         <h2 style="margin:10px 8%;" class="decor text-center"><pan class="decor-span">Transparencia</pan></h2>
-                        <p class="news text-center">
-                            <strong>Donataria Autorizada: </strong><a href="files/sat.pdf" target="_blank">Formato de Autorización</a>.</p>
-                            <p class="news text-center"><strong>Registro Federal de las Organizaciones de la Sociedad Civil: </strong><a href="files/cluni.pdf" target="_blank">CLUNI</a>.</p>
+                        <ul class="news text-justify">
+                            <li>Donataria Autorizada: <a href="files/sat.pdf" target="_blank">Formato de Autorización</a>.</li>
+                            <li>Registro Federal de las Organizaciones de la Sociedad Civil: </strong><a href="files/cluni.pdf" target="_blank">CLUNI</a>.</li>
+                            <li>Informe de Actividades 2015: </strong><a href="files/informe2015.pdf" target="_blank">Ejercicio 2014-2015</a>.</li>
+                        </ul>
                     </div>
                 </div>              
             </div>

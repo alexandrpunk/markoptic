@@ -15,7 +15,7 @@
                 
                 <?php require 'mod/menu.php';?>
                 
-                <div class="panel panel-default panel-mark animated fadeIn">
+                <div class="panel panel-default panel-mark">
                     <div class="panel-heading panel-heading-mark" id="aqua">GALERÍA</div>
                      <div class="panel-body panel-body-mark"> 
                         <h2 style="margin:10px 8%;" class="text-center decor-gal"><span class="decor-span">Testimonios</span></h2>

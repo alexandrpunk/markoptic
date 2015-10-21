@@ -9,14 +9,22 @@
             </div>
         </a>
     </div>
+    <div class="panel-body panel-body-mark">
+        <a href="solicitantes" class="dlink">
+            <div class="img-thumbnail print text-center bg-mark center-block" id="rosado">
+                <img style="max-height:150px;"  class="center-block"/>
+                <h4 class="oswald"><strong>Lista de Solicitantes</strong></h4>
+            </div>
+        </a>
+        </div>
 </div>
 
 <div class="panel panel-default panel-mark" >
-    <div class="panel-heading panel-heading-mark" id="morado">SE CONVOCA</div>
+    <div class="panel-heading panel-heading-mark" id="morado">UNETE CON NOSOTROS</div>
     <div class="panel-body panel-body-mark">
         <a href="#summon" data-toggle="modal" class="dlink"><span class="center-block img-thumbnail text-center">
             <img class="img-responsive" src="img/summon.png" />
-            <h4 class="txt-mark oswald"><strong>Haz tus Residencias Profesionales con nosotros</strong></h4>
+            <h4 class="txt-mark oswald"><strong>Forma Parte de Nuestro Equipo</strong></h4>
         </span></a>
     </div>
 </div>
