@@ -1,4 +1,3 @@
-
 <?php $titulo = "Solicitud Concluida"; ?>
 <?php require 'mod/head.php';?>
 

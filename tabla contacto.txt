@@ -1,9 +1,0 @@
-CREATE TABLE IF NOT EXISTS contacto(
-    id INT NOT NULL AUTO_INCREMENT,
-    nombre VARCHAR(50) NOT NULL,
-    apellido VARCHAR(50) NOT NULL,
-    telefono VARCHAR(15) NULL,
-    correo VARCHAR(50) NOT NULL,
-    comentario text NOT NULL,
-    PRIMARY KEY (id)
-    ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=1 ;

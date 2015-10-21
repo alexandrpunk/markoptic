@@ -1,15 +1,16 @@
 @import url(http://fonts.googleapis.com/css?family=Noto+Sans);
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,700,300);
 @import url(http://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
 /* verde markoptic: #31a463 */
 html {
-  position: relative;
-  min-height: 100%;
-height: auto!important;
+    position: relative;
+    min-height: 100%;
+    height: auto!important;
 }
 
 body{
-        position: static!important;
+    position: static!important;
     min-height: 0!important;
     margin-top: 70px;
     font-family: 'Noto Sans', sans-serif;
@@ -562,6 +563,9 @@ hr {
     color:#6D6E71;
     font-size: 1em;
     margin-top: 10px;
+}
+.note-img{
+margin: 8px;
 }
 
 
