@@ -1,5 +1,5 @@
 <?php require_once( 'cms/cms.php' ); ?>
-<?php $titulo = "Inicio"; ?>
+<cms:template title='Incio'></cms:template>
 <?php require 'mod/head.php';?>
 
 <body>  
@@ -89,16 +89,17 @@
                 <div class="panel panel-default panel-mark" id="Noticias">
                   <div class="panel-heading panel-heading-mark" id="cyan">ULTIMAS NOTICIAS</div>
                   <div class="panel-body panel-body-mark">
-
+                    <cms:pages masterpage='publicacion.php' limit='5'>
                     <div class="postit">
-                        <a data-toggle="modal" href="#" data-target="#noticia9"><img class="thumb-new" src="img/ben_1.jpg"></a>
-                        <a data-toggle="modal" href="#" data-target="#noticia9"><h4>Conociendo a: Adoniram Abimelec Castro López</h4></a>
-                        <p>Adoniram actualmente es estudiante de tercer grado de la carrera de licenciatura de educación física en la UAS, proveniente de la cuidad de Los Mochis, logra venir a Culiacán a estudiar la universidad al recibir una beca de estudio que le fue otorgado por su activa participación en eventos de personas con capacidades diferentes.<a data-toggle="modal" href="#noticia9"> Leer Más...</a></p>                    
+                        <a href="<cms:show k_page_link />"><img class="thumb-new" src="<cms:show publicacion_image />"></a>
+                        <a href="<cms:show k_page_link />"><h4><cms:show k_page_title /></h4></a>
+                        <p><small>Publicado el: <cms:date k_page_date format='j-m-Y'/></small></p>
+                        <p><cms:excerpt count='50' trail="&nbsp;<a href='<cms:show k_page_link />' style='font-weight: bold;'>leer mas..</a>"><cms:show contenido /></cms:excerpt></p>
                     </div>
-
-                    <hr>
+                    <hr/>
+                    </cms:pages>
                       
-                    <button class="btn btn-mark btn-block"><strong>ver todas las noticias</strong></button>
+                    <a class="btn btn-mark btn-block" href="noticias"><strong>ver todas las noticias</strong></a>
 
                     </div>
                 </div>
