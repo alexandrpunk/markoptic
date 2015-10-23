@@ -333,3 +333,22 @@
     </div>
   </div>
 </div>
+
+    <!-- Noticia 10 -->
+<div class="modal fade" id="noticia10" tabindex="-1" role="dialog" aria-labelledby="Donaciones Resientes">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header modal-mark modal-magenta">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="noticia1">Demostración del Colchón Inflable Anti-escaras</h4>
+      </div>
+        <div class="modal-body">
+            <ul class="rslides">
+                <li><img src="img/demo_col.jpg"></li>
+                <li><img src="img/demo_col2.jpg"></li>
+            </ul>
+            <p class="news text-justify">El día 23 de octubre de 2015 por la tarde se llevó a cabo la demostración de funcionamiento del Colchón Inflable Automatizado para pacientes postrados, en las instalaciones del Instituto Tecnológico de Culiacán en los laboratorios de Ingeniería Mecatrónica, donde, nos acompañó el Dr. José Alfredo Contreras Gutiérrez Director de la Facultad de Medicina de la Universidad Autónoma de Sinaloa y el Ing. Juan Irineo Martínez Medina Subdirector del Tecnológico de Culiacán en conjunto con el equipo de Fundación Markoptic A.C.</p>
+      </div>
+    </div>
+  </div>
+</div>

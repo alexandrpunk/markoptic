@@ -90,6 +90,14 @@
                   <div class="panel-body panel-body-mark">
 
                     <div class="postit">
+                        <a data-toggle="modal" href="#" data-target="#noticia10"><img class="thumb-new" src="img/demo_col.jpg"></a>
+                        <a data-toggle="modal" href="#" data-target="#noticia10"><h4>Demostración del Colchón Inflable Anti-escaras</h4></a>
+                        <p>El día 23 de octubre de 2015 por la tarde se llevó a cabo la demostración de funcionamiento del Colchón Inflable Automatizado para pacientes postrados, en las instalaciones del Instituto Tecnológico de Culiacán en los laboratorios de Ingeniería Mecatrónica, donde,<a data-toggle="modal" href="#noticia10"> Leer Más...</a></p>                    
+                    </div>
+
+                    <hr>
+
+                    <div class="postit">
                         <a data-toggle="modal" href="#" data-target="#noticia9"><img class="thumb-new" src="img/ben_1.jpg"></a>
                         <a data-toggle="modal" href="#" data-target="#noticia9"><h4>Conociendo a: Adoniram Abimelec Castro López</h4></a>
                         <p>Adoniram actualmente es estudiante de tercer grado de la carrera de licenciatura de educación física en la UAS, proveniente de la cuidad de Los Mochis, logra venir a Culiacán a estudiar la universidad al recibir una beca de estudio que le fue otorgado por su activa participación en eventos de personas con capacidades diferentes.<a data-toggle="modal" href="#noticia9"> Leer Más...</a></p>                    
