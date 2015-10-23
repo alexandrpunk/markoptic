@@ -1,3 +1,12 @@
+<?php require_once( 'cms/cms.php' ); ?>
+<cms:template title='blog' clonable='1'>
+    <cms:editable name='contenido' type='richtext' />
+    <cms:editable name='blog_image'
+                    label='Image'
+                    desc='imagen para el post'
+                    type='image'
+    />
+</cms:template>
 <?php $titulo = "publicacion"; ?>
 <?php require 'mod/head.php';?>
 
@@ -18,16 +27,16 @@
                   <div class="panel panel-default panel-mark animated fadeIn">
                     <div class="panel-body panel-body-mark">                
                          
-                        <h1 class="txt-mark oswald">Titulo de la publicacion</h1>
-                        <p><small><strong>publicado por: juan perez, el: 21/10/2015.</strong></small></p>
+                        <h1 class="txt-mark oswald"><cms:show k_page_title /></h1>
+                        <p><small><strong>publicado el: <cms:date k_page_date format='j/m/Y' />.</strong></small></p>
                         
                         <hr />
-                        <p class="text-justify"><img class="pull-left thumbnail note-img" src="http://placehold.it/220x230">Es un dispositivo medico terapéutico, desarrollado para regresar algunos movimientos naturales de la mano, a personas con discapacidad motriz. Todo esto es posible gracias al diseño innovador y tecnológico con el que se creó la Prótesis Robótica, ya que internamente cuenta con motores y un circuito electrónico que hacen diferentes tipos de movimientos, como girar la muñeca  y mover los dedos de manera independiente.
-                        Como Fundación ofrecemos este dispositivo a personas de escasos recursos económicos que estén interesados en aumentar sus capacidades físicas y les permita ejercer una vida social y productiva plena, al mismo tiempo brindamos la asistencia necesaria para el uso correcto de dicho dispositivo, mediante el apoyo de un grupo de especialistas del área Psicología, Traumatología y Terapistas.</p>
-<p class="oswald"><small><strong>Compartenos: </strong></small><i id="share"></i></p>
+                        
+                        <cms:show contenido />
 
                     </div>
                 </div>     
+                <div class="pull-left print"><div id="share"></div></div>
             </div>
             
             <div class="col-md-3">
@@ -55,3 +64,4 @@
     
 </body>
 </html>
+<?php COUCH::invoke(); ?>
