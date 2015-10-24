@@ -335,7 +335,7 @@
 </div>
 
     <!-- Noticia 10 -->
-<div class="modal fade" id="noticia10" tabindex="-1" role="dialog" aria-labelledby="Donaciones Resientes">
+<div class="modal fade" id="noticia10" tabindex="-1" role="dialog" aria-labelledby="Demostración del Colchón Inflable Anti-escaras">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header modal-mark modal-magenta">
