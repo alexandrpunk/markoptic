@@ -275,7 +275,7 @@ function envioEmails($data){
 						<td>'.$data["t_parentesco"].'</td>
 					</tr>
 				</table>
-				<p style="font-size: 17px;">Puedes descargar tus archivos anexados <a href="http://fundacionmarkoptic.org.mx/adj-solicitudes/'.$data["folio"].'">aqui</a></p>
+				<p style="font-size: 17px;">Puedes descargar tus archivos anexados <a href="http://fundacionmarkoptic.org.mx/adj-solicitudes/'.$data["folio"].'.zip">aqui</a></p>
 				<br>
 				<p style="font-size: 18px;">Próximamente nos pondremos en contacto con usted.
 				<br>
