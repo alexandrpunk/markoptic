@@ -7,7 +7,7 @@ $paises = Paises();
 <?php $titulo = "Solicitud"; ?>
 <?php require 'mod/head.php';?>
 
-
+</head>
 <body>
     
 <?php require 'mod/navbar.php';?>
@@ -464,11 +464,10 @@ Fundación Markoptic A.C. iniciará un proceso de estudio de la solicitud y se c
                 </div>     
             </div>
             
-            <div class="col-md-3">
                 
-                <?php require 'mod/lateral.php';?>
-                
-            </div>
+            <?php require 'mod/lateral.php';?>
+            
+
         </div>
     </div>
 

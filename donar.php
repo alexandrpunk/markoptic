@@ -1,7 +1,7 @@
 <?php $titulo = "Quiero Donar"; ?>
 <?php require 'mod/head.php';?>
 
-
+</head>
 <body>
     
 <?php require 'mod/navbar.php';?>

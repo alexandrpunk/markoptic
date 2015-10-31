@@ -1,4 +1,5 @@
-<div class="panel panel-default panel-mark" >
+<div class="col-md-3 zero">
+    <div class="panel panel-default panel-mark col-md-12 col-sm-6" >
     <div class="panel-heading panel-heading-mark" id="rosado">SOLICITA TU PRÓTESIS</div>
     <div class="panel-body panel-body-mark">
         <a href="/solicitud" class="dlink">
@@ -11,7 +12,7 @@
     </div>
 </div>
 
-<div class="panel panel-default panel-mark" >
+<div class="panel panel-default panel-mark col-md-12 col-sm-6 " >
     <div class="panel-heading panel-heading-mark" id="morado">SE CONVOCA</div>
     <div class="panel-body panel-body-mark">
         <a href="#summon" data-toggle="modal" class="dlink"><span class="center-block img-thumbnail text-center">
@@ -21,7 +22,7 @@
     </div>
 </div>
 
-<div class="panel panel-default panel-mark ">
+<div class="panel panel-default panel-mark col-md-12 col-sm-6 ">
     <div class="panel-heading panel-heading-mark" id="naranja">NUESTROS PROYECTOS</div>
     <div style="padding:10px;" class="panel-body panel-body-mark">
         <a href="proyectos" class="dlink">
@@ -35,7 +36,7 @@
     </div>
 </div>
 
-<div class="panel panel-default panel-mark ">
+<div class="panel panel-default panel-mark col-md-12 col-sm-6 ">
     <div class="panel-heading panel-heading-mark" id="cyan">SIGUENOS</div>
     <div style="padding:10px;" class="panel-body panel-body-mark">
 <a class="twitter-timeline" href="https://twitter.com/Markoptic_AC" data-widget-id="619245592129044481">Tweets por el @Markoptic_AC.</a>
@@ -43,11 +44,12 @@
     </div>
 </div>
 
-<div class="panel panel-default panel-mark ">
+<div class="panel panel-default panel-mark col-md-12 col-sm-6">
     <div class="panel-heading panel-heading-mark" id="reflex">DANOS LIKE</div>
     <div style="padding:10px;" class="panel-body panel-body-mark">
 <div class="fb-page" data-href="https://www.facebook.com/fundacionmarkoptic" data-height="200" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/fundacionmarkoptic"><a href="https://www.facebook.com/fundacionmarkoptic">Fundación Markoptic A.C.</a></blockquote></div></div>
     </div>
+</div>
 </div>
 
     <?php include 'lmodal.php';?> 

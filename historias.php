@@ -1,5 +1,47 @@
 <?php require_once( 'cms/cms.php' ); ?>
-<cms:template title='Noticias'></cms:template>
+<?php require_once( 'cms/cms.php' ); ?>
+<cms:template title='Historias' clonable='1'>
+    
+    <cms:editable   name='nombre'
+                    desc='Nombre del solicitante'
+                    type='text'
+    />
+    
+    <cms:editable   name='edad'
+                    desc='Edad del solicitante'
+                    validator='non_negative_integer'
+                    type='text'
+    />
+    
+    <cms:editable   name='vive'
+                    desc='donde vive'
+                    type='text'
+    />
+    
+    
+    <cms:editable   name='necesidad'
+                    desc='Porque necesita la ayuda'
+                    type='text'
+    />
+
+    <cms:editable   name='fotografia'
+                    label='fotografia del solicitante'
+                    desc='fotografia del solicitanten'
+                    show_preview='1'
+                    preview_height='200'
+                    type='image'
+    />
+    
+    <cms:editable   name="fotografia_thumb"
+                    assoc_field="fotografia"
+                    label="Miniatura de la fotografia"
+                    desc="Miniatura de la fotografia"
+                    width='150'
+                    height='150'
+                    crop='1'
+                    type="thumbnail"
+    />
+</cms:template>
 <?php require 'mod/head.php';?>
 
 </head>
@@ -19,9 +61,9 @@
                 <div class="panel panel-default panel-mark  animated fadeIn">
                     <div class="panel-heading panel-heading-mark" id="cyan">NOTICIAS</div>
                     <div  class="panel-body panel-body-mark">
-                    <cms:pages masterpage='publicacion.php' limit='10' paginate='1'>
+                    <cms:pages masterpage='historias.php' limit='10' paginate='1'>
                     <div class="postit">
-                    <a href="<cms:show k_page_link />"><img class="thumb-new" src="<cms:show publicacion_image />"></a>
+                    <img class="thumb-new" src="<cms:show fotografia />">
                         <a href="<cms:show k_page_link />"><h4><cms:show k_page_title /></h4></a>
                         <p><small>Publicado el: <cms:date k_page_date format='j-m-Y'/></small></p>
                         <p><cms:excerpt count='45' trail="&nbsp;<a href='<cms:show k_page_link />' style='font-weight: bold;'>leer mas..</a>"><cms:show contenido /></cms:excerpt></p>

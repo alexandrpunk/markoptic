@@ -19,7 +19,7 @@
             <cms:show k_template_title />
         </cms:if>
     </title>
-    <?php require 'style.php';?> 
-    
 <?php include 'analytic.php';?> 
-</head>
+    
+<?php require 'style.php';?> 
+

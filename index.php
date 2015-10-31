@@ -1,7 +1,7 @@
 <?php require_once( 'cms/cms.php' ); ?>
 <cms:template title='Incio'></cms:template>
 <?php require 'mod/head.php';?>
-
+</head>
 <body>  
  
 <?php require 'mod/navbar.php';?>
@@ -11,14 +11,14 @@
         <?php require 'mod/header.php';?>
         
         <div class="row">
-            <div class="col-md-9 ">
+            <div class="col-md-9">
                 
                 <?php require 'mod/menu.php';?>
         
                 <?php require 'mod/carrousel.php';?>
                 
                 <div class="panel panel-default panel-mark ">
-                    <div class="panel-heading panel-heading-mark" id="verde">CAUSAS PORQUÉ DONAR</div>
+                    <div class="panel-heading panel-heading-mark" id="verde">¿PORQUÉ DONAR?</div>
                     <div style="padding:0;" class="panel-body panel-body-mark">
                         <div class="foo-center">
                             
@@ -86,15 +86,34 @@
                     </div>
                 </div>     
                 
+                                <!-- Solicitudes recientes-->
+                <div class="panel panel-default panel-mark">
+                  <div class="panel-heading panel-heading-mark" id="amarillo">¿A QUIÉN ESTOY AYUDANDO?</div>
+                    <div class="panel-body panel-body-mark">
+                        
+                    <cms:pages masterpage='historias.php' limit='3'>
+                        <div class="col-md-4 col-sm-4 well">
+                            <img class="img-quote center-block" src="<cms:show fotografia_thumb />">
+                            <h4 class="txt-mark text-center oswald"><cms:show nombre /></h4>
+                                <p class="quote"><cms:show necesidad /></p>
+                        </div>
+                    </cms:pages>
+
+                        
+                        <center><h4 class="txt-mark oswald" ><a class="txt-mark"  href="historias">ver todas las historias</a></h4></center>
+                    </div>
+                </div>
+                
+                <!-- Ultimas noticias-->
                 <div class="panel panel-default panel-mark" id="Noticias">
-                  <div class="panel-heading panel-heading-mark" id="cyan">ULTIMAS NOTICIAS</div>
+                  <div class="panel-heading panel-heading-mark" id="cyan">NOTICIAS RECIENTES</div>
                   <div class="panel-body panel-body-mark">
-                    <cms:pages masterpage='publicacion.php' limit='5'>
+                    <cms:pages masterpage='publicacion.php' limit='4'>
                     <div class="postit">
                         <a href="<cms:show k_page_link />"><img class="thumb-new" src="<cms:show publicacion_image />"></a>
-                        <a href="<cms:show k_page_link />"><h4><cms:show k_page_title /></h4></a>
+                        <h4 class="txt-mark"><a  href="<cms:show k_page_link />"><cms:show k_page_title /></a></h4>
                         <p><small>Publicado el: <cms:date k_page_date format='j-m-Y'/></small></p>
-                        <p><cms:excerpt count='50' trail="&nbsp;<a href='<cms:show k_page_link />' style='font-weight: bold;'>leer mas..</a>"><cms:show contenido /></cms:excerpt></p>
+                        <p><cms:excerpt count='450'  truncate_chars='1' trail="&nbsp;<a href='<cms:show k_page_link />' class='badge btn-mark'>leer mas..</a>"><cms:show contenido /></cms:excerpt></p>
                     </div>
                     <hr/>
                     </cms:pages>
@@ -103,12 +122,12 @@
 
                     </div>
                 </div>
+            
             </div>
-            <div class="col-md-3">
                 
-                <?php require 'mod/lateral.php';?>
+            <?php require 'mod/lateral.php';?>
                 
-            </div>
+
         </div>
     </div>
     
@@ -117,10 +136,9 @@
 <?php require 'mod/modals.php';?>
 
 <?php require 'mod/scripts.php';?>
-    
-<script src="js/scroll.js"></script>
-<script async src="js/responsiveslides.min.js"></script>
-<script async src="js/initslides.js"></script>
+  
+<script src="js/responsiveslides.min.js"></script>
+<script src="js/initslides.js"></script>
 
 <?php require 'mod/checkCookie.php';?>
     
