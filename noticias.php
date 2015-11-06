@@ -21,10 +21,10 @@
                     <div  class="panel-body panel-body-mark">
                     <cms:pages masterpage='publicacion.php' limit='10' paginate='1'>
                     <div class="postit">
-                    <a href="<cms:show k_page_link />"><img class="thumb-new" src="<cms:show publicacion_image />"></a>
-                        <a href="<cms:show k_page_link />"><h4><cms:show k_page_title /></h4></a>
+                        <a href="<cms:show k_page_link />"><img class="thumb-new" src="<cms:show publicacion_image />"></a>
+                        <h4 class="txt-mark"><a  href="<cms:show k_page_link />"><cms:show k_page_title /></a></h4>
                         <p><small>Publicado el: <cms:date k_page_date format='j-m-Y'/></small></p>
-                        <p><cms:excerpt count='45' trail="&nbsp;<a href='<cms:show k_page_link />' style='font-weight: bold;'>leer mas..</a>"><cms:show contenido /></cms:excerpt></p>
+                        <p><cms:excerpt count='450'  truncate_chars='1' trail="&nbsp;<a href='<cms:show k_page_link />' class='badge btn-mark'>leer mas..</a>"><cms:show contenido /></cms:excerpt></p>
                     </div>
                     <hr/>
                     

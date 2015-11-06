@@ -1,5 +1,4 @@
 <?php require_once( 'cms/cms.php' ); ?>
-<?php require_once( 'cms/cms.php' ); ?>
 <cms:template title='Historias' clonable='1'>
     
     <cms:editable   name='nombre'
@@ -59,12 +58,13 @@
                 <?php require 'mod/menu.php';?>
                 
                 <div class="panel panel-default panel-mark  animated fadeIn">
-                    <div class="panel-heading panel-heading-mark" id="cyan">NOTICIAS</div>
+                    <div class="panel-heading panel-heading-mark" id="rosado">CONOCE A LAS PERSONAS QUE NECESITAN TU APOYO</div>
                     <div  class="panel-body panel-body-mark">
                     <cms:pages masterpage='historias.php' limit='10' paginate='1'>
+                        
                     <div class="postit">
-                    <img class="thumb-new" src="<cms:show fotografia />">
-                        <a href="<cms:show k_page_link />"><h4><cms:show k_page_title /></h4></a>
+                        <a href="<cms:show fotografia />" data-lightbox="image-1"><img class="thumb-new" src="<cms:show fotografia />"></a>                
+                        <a href="<cms:show k_page_link />"><h4 class="txt-mark"><cms:show k_page_title /></h4></a>
                         <p><small>Publicado el: <cms:date k_page_date format='j-m-Y'/></small></p>
                         <p><cms:excerpt count='45' trail="&nbsp;<a href='<cms:show k_page_link />' style='font-weight: bold;'>leer mas..</a>"><cms:show contenido /></cms:excerpt></p>
                     </div>
@@ -96,10 +96,7 @@
 <?php require 'mod/modals.php';?>
 
 <?php require 'mod/scripts.php';?>
-
-<script src="js/scroll.js"></script>
-<script async src="js/responsiveslides.min.js"></script>
-<script async src="js/initslides.js"></script>
+<script src="js/lightbox.min.js"></script>
     
 </body>
 </html>

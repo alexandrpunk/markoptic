@@ -88,7 +88,7 @@
                 
                                 <!-- Solicitudes recientes-->
                 <div class="panel panel-default panel-mark">
-                  <div class="panel-heading panel-heading-mark" id="amarillo">¿A QUIÉN ESTOY AYUDANDO?</div>
+                  <div class="panel-heading panel-heading-mark" id="rosado">¿A QUIÉN ESTOY AYUDANDO?</div>
                     <div class="panel-body panel-body-mark">
                         
                     <cms:pages masterpage='historias.php' limit='3'>
