@@ -1,16 +1,9 @@
 <?php require_once( 'cms/cms.php' ); ?>
 
 <cms:template title='Testimonios' clonable='1'  order='4'>
-      
-    <cms:editable   name='nombre'
-                    desc='Nombre del la persona que da su testimonio'
-                    type='text'
-    />
-    
     <cms:editable   name='testimonio'
                     desc='testimonio de su experiencia en la fundacion'
-                    type='textarea'
-                    no_xss_check='1'
+                    type='richtext'
     />
     <cms:editable   name='video'
                     desc='colocar el codigo del video del testimonio'

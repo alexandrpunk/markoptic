@@ -1,15 +1,9 @@
 <?php require_once( 'cms/cms.php' ); ?>
 
 <cms:template title='Videos' clonable='1'  order='3'>
-    <cms:editable   name='titulo'
-                    desc='titulo del video'
-                    type='text'
-    />
-    
     <cms:editable   name='descripcion'
                     desc='descripcion del video'
-                    type='textarea'
-                    no_xss_check='1'
+                    type='richtext'
     />
     <cms:editable   name='video'
                     desc='colocar el codigo del video del testimonio'

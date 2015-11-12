@@ -24,7 +24,7 @@
                         <cms:pages masterpage="testimonios.php"  limit='2' >
                             <div class="row">
                             <div class="col-md-5">
-                               <cms:show video />
+                                <cms:show video />
                             </div>
                             <div class="col-md-7">
                                 <h3 class="txt-mark"><cms:show nombre /></h3>
@@ -33,6 +33,7 @@
                             </div>
                             <hr/>
                         </cms:pages>
+                        <center><h4 class="txt-mark oswald" ><a class="txt-mark"  href="testimonios">ver todas los testimonios</a></h4></center>
 
                     <h2 style="margin:10px 8%;" class="text-center decor-gal"><span class="decor-span">Galería Fotografica</span></h2>                         <ul class="row image-list">
                             <cms:pages masterpage="fotografias.php" limit='17' >
@@ -56,7 +57,8 @@
                                     </div>
                                 </div>
                                 <hr/>
-                            </cms:pages>                            
+                            </cms:pages> 
+                            <center><h4 class="txt-mark oswald" ><a class="txt-mark"  href="historias">ver todos los videos</a></h4></center>
                     </div>
                     </div>
                 </div> 
