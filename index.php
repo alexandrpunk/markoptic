@@ -179,6 +179,12 @@
 <?php require 'mod/modals.php';?>
 
 <?php require 'mod/scripts.php';?>
+
+<script type="text/javascript">
+ $(document).ready(function(){
+  $("#itt").modal('show');
+ });
+</script>
     
 <script src="js/scroll.js"></script>
 <script async src="js/responsiveslides.min.js"></script>
