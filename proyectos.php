@@ -1,5 +1,5 @@
 <?php require_once( 'cms/cms.php' ); ?>
-<cms:template title='Proyectos' clonable='1'>
+<cms:template title='Proyectos' clonable='1' order='6'>
     
     <cms:editable   name='descripcion'
                     desc='descripcion del proyecto'
@@ -46,7 +46,7 @@
                         
                         <cms:pages masterpage="proyectos.php" limit='10' >
                             <div class="postit">
-                                <a href="<cms:show imagen_thumb />" data-lightbox="image-1"><img class="thumb-new" src="<cms:show imagen_thumb />"></a>
+                                <a href="<cms:show imagen_thumb />" data-lightbox="image-1"><img class="thumb-new pull-left" src="<cms:show imagen_thumb />"></a>
                                 <h2 class="txt-mark"><cms:show k_page_title /></h2>
                                 <p><cms:show descripcion/></p>
                             </div>

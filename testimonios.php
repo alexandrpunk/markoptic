@@ -1,14 +1,13 @@
 <?php require_once( 'cms/cms.php' ); ?>
 
-<cms:template title='Testimonios' clonable='1'  order='4'>
+<cms:template title='Testimonios' clonable='1'  order='5'>
     <cms:editable   name='testimonio'
                     desc='testimonio de su experiencia en la fundacion'
                     type='richtext'
     />
     <cms:editable   name='video'
                     desc='colocar el codigo del video del testimonio'
-                    type='textarea'
-                    no_xss_check='1'
+                    type='text'
     />
 
 </cms:template>
@@ -34,11 +33,11 @@
                         <cms:pages masterpage="testimonios.php" limit='8' paginate='1'>
                             <div class="row">
                             <div class="col-md-5">
-                               <cms:show video />
+                                <iframe class="center-block" width="285" height="200" src="https://www.youtube.com/embed/<cms:show video />" frameborder="0" allowfullscreen></iframe>
                             </div>
                             <div class="col-md-7">
-                                <h3 class="txt-mark"><cms:show nombre /></h3>
-                                <p class="text-justify"><cms:show testimonio /></p>
+                                <h3 class="txt-mark"><cms:show k_page_title /></h3>
+                                <cms:show testimonio />
                             </div>
                             </div>
                             <hr/>

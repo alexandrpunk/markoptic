@@ -1,11 +1,6 @@
 <?php require_once( 'cms/cms.php' ); ?>
-<cms:template title='Historias' clonable='1'>
-    
-    <cms:editable   name='nombre'
-                    desc='Nombre del solicitante'
-                    type='text'
-    />
-    
+<cms:template title='Historias' clonable='1' order='2'>
+      
     <cms:editable   name='edad'
                     desc='Edad del solicitante'
                     validator='non_negative_integer'
@@ -35,8 +30,8 @@
                     assoc_field="fotografia"
                     label="Miniatura de la fotografia"
                     desc="Miniatura de la fotografia"
-                    width='150'
-                    height='150'
+                    width='170'
+                    height='170'
                     crop='1'
                     type="thumbnail"
     />
@@ -58,16 +53,23 @@
                 <?php require 'mod/menu.php';?>
                 
                 <div class="panel panel-default panel-mark  animated fadeIn">
-                    <div class="panel-heading panel-heading-mark" id="rosado">CONOCE A LAS PERSONAS QUE NECESITAN TU APOYO</div>
+                    <div class="panel-heading panel-heading-mark" id="rosado">CONOCE A QUIENES NECESITAN TU APOYO</div>
                     <div  class="panel-body panel-body-mark">
                     <cms:pages masterpage='historias.php' limit='10' paginate='1'>
-                        
-                    <div class="postit">
-                        <a href="<cms:show fotografia />" data-lightbox="image-1"><img class="thumb-new" src="<cms:show fotografia />"></a>                
-                        <a href="<cms:show k_page_link />"><h4 class="txt-mark"><cms:show k_page_title /></h4></a>
-                        <p><small>Publicado el: <cms:date k_page_date format='j-m-Y'/></small></p>
-                        <p><cms:excerpt count='45' trail="&nbsp;<a href='<cms:show k_page_link />' style='font-weight: bold;'>leer mas..</a>"><cms:show contenido /></cms:excerpt></p>
-                    </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                            <a href="<cms:show fotografia />" data-lightbox="image-1"><img class="img-thumbnail center-block" src="<cms:show fotografia_thumb />"></a>
+                            </div>
+                            <div class="col-md-9">
+                                    <div class="well">
+                                    <label class="txt-mark">Nombre:</label><p><strong><cms:show k_page_title /></strong></p>
+                                    <label class="txt-mark">Edad:</label><p><cms:show edad /></p>
+                                    <label class="txt-mark">Vive en:</label><p><cms:show vive /></p>
+                                    <label class="txt-mark">Necesidad:</label><p class="text-justify"><i><cms:show necesidad /></i></p>
+                                    </div>
+                                
+                            </div>
+                        </div> 
                     <hr/>
                     
                     <cms:if k_paginated_bottom >

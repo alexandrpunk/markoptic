@@ -1,5 +1,5 @@
 <?php require_once( 'cms/cms.php' ); ?>
-<cms:template title='Incio'></cms:template>
+<cms:template title='Incio' order='10'></cms:template>
 <?php require 'mod/head.php';?>
 </head>
 <body>  
@@ -94,7 +94,7 @@
                     <cms:pages masterpage='historias.php' limit='3'>
                         <div class="col-md-4 col-sm-4 well">
                             <img class="img-quote center-block" src="<cms:show fotografia_thumb />">
-                            <h4 class="txt-mark text-center oswald"><cms:show nombre /></h4>
+                            <h4 class="txt-mark text-center oswald"><cms:show k_page_title /></h4>
                                 <p class="quote"><cms:show necesidad /></p>
                         </div>
                     </cms:pages>
@@ -110,7 +110,7 @@
                   <div class="panel-body panel-body-mark">
                     <cms:pages masterpage='publicacion.php' limit='4'>
                     <div class="postit">
-                        <a href="<cms:show k_page_link />"><img class="thumb-new" src="<cms:show publicacion_image />"></a>
+                        <a href="<cms:show k_page_link />"><img class="thumb-new pull-left" src="<cms:show publicacion_image />"></a>
                         <h4 class="txt-mark"><a  href="<cms:show k_page_link />"><cms:show k_page_title /></a></h4>
                         <p><small>Publicado el: <cms:date k_page_date format='j-m-Y'/></small></p>
                         <p><cms:excerpt count='450'  truncate_chars='1' trail="&nbsp;<a href='<cms:show k_page_link />' class='badge btn-mark'>leer mas..</a>"><cms:show contenido /></cms:excerpt></p>
@@ -139,6 +139,12 @@
   
 <script src="js/responsiveslides.min.js"></script>
 <script src="js/initslides.js"></script>
+
+    <script type="text/javascript">
+	$(document).ready(function(){
+		$("foo3").modal('show');
+	});
+</script>
 
 <?php require 'mod/checkCookie.php';?>
     

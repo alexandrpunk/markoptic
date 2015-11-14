@@ -1,5 +1,5 @@
 <?php require_once( 'cms/cms.php' ); ?>
-<cms:template title='Publicaciones' clonable='1' dynamic_folders='1'>
+<cms:template title='Publicaciones' clonable='1' dynamic_folders='1' order='1'>
     <cms:editable name='contenido' type='richtext' />
     <cms:editable name='publicacion_image'
                     label='Imagen de la publicacion'
@@ -14,6 +14,12 @@
 
 <link rel="stylesheet" href="css/jssocials.css">
 <link rel="stylesheet" href="css/jssocials-theme-classic.css">
+  
+<meta property="og:url"                content="<cms:show k_page_link />" />
+<meta property="og:type"               content="article" />
+<meta property="og:image"              content="<cms:show publicacion_image />" />
+<meta property="og:description"        content="<cms:excerpt count='450'  truncate_chars='1'><cms:show contenido /></cms:excerpt>" />
+<meta property="fb:app_id"              content="1632168933701186" />
 </head>
 <body>
     
@@ -60,8 +66,6 @@
             showLabel: false,
             showCount: "inside",
             shares: ["twitter", "facebook", "googleplus", "email", "pinterest"],
-            url: "<cms:show k_page_link />",
-            text: "<hola mundi mundo mudno mudno mudnidnsodaiewqnfaifd"
         });
     </script>
     

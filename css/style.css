@@ -12,9 +12,11 @@ html {
 body{
     position: static!important;
     min-height: 0!important;
-    margin-top: 70px;
+    margin-top: 50px;
     font-family: 'Noto Sans', sans-serif;
     margin-bottom: 130px;
+    /*background: url(/img/bg.png) center top no-repeat;
+    background-size: 100% 300px;*/
 }
 
 .mark-nav{
@@ -87,9 +89,7 @@ list-style-type: none;
 
 
 .logo{
-    width: 290px;
-    height: auto;
-    margin-bottom: 15px;
+    height: 170px;
 }
 
 .bg-mark{
@@ -229,10 +229,6 @@ font-size: 1.2em;
 .zero{
     padding: 0;
     margin: 0;
-}
-.zerol{
-    padding: 0;
-    margin: 0 0 15px;
 }
 
 .sep{
@@ -460,10 +456,9 @@ font-size: 0.75em;
 
 .thumb-new {
     margin-right: 10px;
-    max-height: 150px;
+    max-width: 180px;
     background-color: #fff;
     border: solid 3px #fff;
-    float: left;
     -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.3);
     -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.3);
     box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.3);
@@ -580,12 +575,6 @@ hr {
 margin: 8px;
 }
 
-@media (max-width : 991px) {
-   .zerol{ padding: 0;
-    margin: 0 15px 15px;
-}
-    
-}
 
 @media (max-width : 768px) {
     
@@ -604,15 +593,7 @@ margin: 8px;
     vertical-align: middle;
     
     }
-    
-    .logo, .bannerd{
-    width: 270px;
-    height: auto;
-    margin-right: auto;
-    margin-left: auto;
-    float: none;
-    display: block; 
-    } 
+        
 }
 
 

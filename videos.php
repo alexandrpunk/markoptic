@@ -1,14 +1,13 @@
 <?php require_once( 'cms/cms.php' ); ?>
 
-<cms:template title='Videos' clonable='1'  order='3'>
+<cms:template title='Videos' clonable='1'  order='4'>
     <cms:editable   name='descripcion'
                     desc='descripcion del video'
                     type='richtext'
     />
     <cms:editable   name='video'
                     desc='colocar el codigo del video del testimonio'
-                    type='textarea'
-                    no_xss_check='1'
+                    type='text'
     />
 </cms:template>
 <?php require 'mod/head.php';?>
@@ -29,17 +28,16 @@
                 
                 <div class="panel panel-default panel-mark ">
                     <div class="panel-heading panel-heading-mark" id="aqua">GALERIA DE VIDEOS</div>
-                     <div class="panel-body panel-body-mark">            
-                        <div class="row">
+                    <div class="panel-body panel-body-mark">            
                             <cms:pages masterpage="videos.php" limit='8' paginate='1'>
                                 <div class="row">
-                                <div class="col-md-5">
-                                   <cms:show video />
-                                </div>
-                                <div class="col-md-7">
-                                    <h3 class="txt-mark"><cms:show titulo /></h3>
-                                    <p class="text-justify"><cms:show descripcion /></p>
-                                </div>
+                                    <div class="col-md-5">
+                                       <iframe class="center-block" width="285" height="20S0" src="https://www.youtube.com/embed/<cms:show video />" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h3 class="txt-mark"><cms:show k_page_title /></h3>
+                                        <cms:show descripcion />
+                                    </div>
                                 </div>
                                 <hr/>
                                 <cms:if k_paginated_bottom >
@@ -51,17 +49,12 @@
                                     </cms:if>
                                 </cms:if>
                             </cms:pages>
-                        </div> 
+                    </div> 
                     </div>
                 </div> 
-            </div>
-
-                <?php require 'mod/lateral.php';?>
-
-        </div>
-
-    </div>
-    
+            <?php require 'mod/lateral.php';?>
+            </div>    
+    </div>    
 <?php require 'mod/footer.php';?>
     
 <?php require 'mod/scripts.php';?>

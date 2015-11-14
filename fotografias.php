@@ -1,6 +1,6 @@
 <?php require_once( 'cms/cms.php' ); ?>
 
-<cms:template title='Fotografias' gallery='1'  order='2'>
+<cms:template title='Fotografias' gallery='1'  order='3'>
     
     <cms:editable   name="gg_image"
                     label="Imagen"

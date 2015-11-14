@@ -1,5 +1,5 @@
 <?php require_once( 'cms/cms.php' ); ?>
-<cms:template title='Galeria' order='1'></cms:template>
+<cms:template title='Galeria' order='8'></cms:template>
 <?php require 'mod/head.php';?>
 
 </head>
@@ -24,10 +24,10 @@
                         <cms:pages masterpage="testimonios.php"  limit='2' >
                             <div class="row">
                             <div class="col-md-5">
-                                <cms:show video />
+                                <iframe class="center-block" width="285" height="200" src="https://www.youtube.com/embed/<cms:show video />" frameborder="0" allowfullscreen></iframe>
                             </div>
                             <div class="col-md-7">
-                                <h3 class="txt-mark"><cms:show nombre /></h3>
+                                <h3 class="txt-mark"><cms:show k_page_title /></h3>
                                 <p class="text-justify"><cms:show testimonio /></p>
                             </div>
                             </div>
@@ -41,6 +41,9 @@
                             <a href="<cms:show gg_image />" data-lightbox="image-1"><img src="<cms:show gg_thumb />"></a>
                             </li>
                             </cms:pages>
+                            <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+                            <a href="fotografias"><img src="img/more.svg"></a>
+                            </li>
                         </ul>
                     <hr/>
                         
@@ -49,16 +52,16 @@
                             <cms:pages masterpage="videos.php" limit='3' >
                                 <div class="row">
                                     <div class="col-md-5">
-                                       <cms:show video />
+                                       <iframe class="center-block" width="285" height="200" src="https://www.youtube.com/embed/<cms:show video />" frameborder="0" allowfullscreen></iframe>
                                     </div>
                                     <div class="col-md-7">
-                                        <h3 class="txt-mark"><cms:show titulo /></h3>
-                                        <p class="text-justify"><cms:show descripcion /></p>
+                                        <h3 class="txt-mark"><cms:show k_page_title /></h3>
+                                        <cms:show descripcion />
                                     </div>
                                 </div>
                                 <hr/>
                             </cms:pages> 
-                            <center><h4 class="txt-mark oswald" ><a class="txt-mark"  href="historias">ver todos los videos</a></h4></center>
+                            <center><h4 class="txt-mark oswald" ><a class="txt-mark"  href="videos">ver todos los videos</a></h4></center>
                     </div>
                     </div>
                 </div> 
