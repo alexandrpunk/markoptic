@@ -2,10 +2,10 @@
 
 function AbrirConexion() {
 	$dbhost = "localhost";
-	$dbuser = "gallbo_markoptic";
-	$dbpass = "markoptic2015";
-	//$dbuser = "root";
-	//$dbpass = "";
+	//$dbuser = "gallbo_markoptic";
+	//$dbpass = "markoptic2015";
+	$dbuser = "root";
+	$dbpass = "";
 	$db = "gallbo_markoptic";
 	$link = new mysqli($dbhost,$dbuser,$dbpass,$db);
 		if($link->connect_errno) {

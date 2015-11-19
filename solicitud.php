@@ -43,17 +43,41 @@ $paises = Paises();
                                 <div class="form-group hidden" id="form-solicitud-seccion1-1">
                                     <label for="opcion_protesis" class="col-sm-3 control-label">Opciones de Prótesis</label>
                                     <div class="col-sm-8">
-                                        <select class="form-control" name="opcion_protesis" id="opcion_protesis">
-                                            <option value="">Seleccioné Una Opción</option>
-                                            <option value="Superior Izquierda">Superior Izquierda</option>
-                                            <option value="Superior Derecha">Superior Derecha</option>
-                                            <option value="Inferior Izquierda">Inferior Izquierda</option>
-                                            <option value="Inferior Derecha">Inferior Derecha</option>
-                                        </select>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="chk[]" id="chkop1" value="Superior Derecha">
+                                                Superior Derecha 
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="chk[]" id="chkop2" value="Superior Izquierda">
+                                                Superior Izquierda
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="chk[]" id="chkop3" value="Inferior Derecha">
+                                                Inferior Derecha
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="chk[]" id="chkop4" value="Inferior Izquierda">
+                                                Inferior Izquierda
+                                            </label>
+                                        </div>
+                                        
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <center><a class="btn btn-lg btn-success" id="btn-cont-ss1">Continuar</a></center>
+                                </div>
+                            </div>
+                            <h3 style="margin:50px 5% 20px 5%;" class="text-center decor-donar"><span class="decor-span">¿TIENES UNA NECESIDAD DIFERENTE?</span></h3>
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <center><a  href="#" data-toggle="modal" data-target="#solicitud_necesidad" class="btn btn-lg btn-success" id="">Cuéntanos</a></center>
                                 </div>
                             </div>
                         </div>
@@ -476,10 +500,29 @@ Fundación Markoptic A.C. iniciará un proceso de estudio de la solicitud y se c
 <?php require 'mod/footer.php';?>
     
 <?php require 'mod/mmodal.php';?>
+
+<div class="modal fade" id="solicitud_necesidad" tabindex="-1" role="dialog" aria-labelledby="Otro Dispositivo">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header modal-mark modal-magenta">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="noticia3">¿TIENES UNA NECESIDAD DIFERENTE?</h4>
+      </div>
+        <div class="modal-body">
+        <p class="news">Fundación Markoptic A.C. pone a su disposición la opción "Otro Dispositivo". 
+        Nosotros al ser una fundacion que desarrolla tecnología para personas con discapacidad nos gustaría saber en que otro aspecto te podemos ayudar. 
+        Fundación Markoptic A.C. no se compromete a fabricar el dispositivo, pero si a dar el seguimiento necesario de investigación.</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <a type="button" class="btn btn-primary" href="solicitud_necesidad">Aceptar</a>
+        </div>
+    </div>
+  </div>
+</div>
     
 <?php require 'mod/scripts.php';?>
-    
-    <script src="js/funciones.js"></script>
+<script type="text/javascript" src="js/funciones.js"></script>
     
 </body>
 </html>
