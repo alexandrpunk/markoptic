@@ -9,7 +9,7 @@
                 <li data-target="#myCarousel" data-slide-to="4"></li>
             </ol>
             <div class="carousel-inner">
-                <cms:pages masterpage='publicacion.php' folder='importante' startcount='1' limit='5'>
+                <cms:pages masterpage='publicacion.php' folder='importantes' startcount='1' limit='5'>
                     <cms:if k_count='1'>
                         <div style="background-image:url(<cms:show publicacion_image />)" class="item active">
                             <div class="carousel-caption">

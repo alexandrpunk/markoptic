@@ -100,7 +100,7 @@
                     </cms:pages>
 
                         
-                        <center><h4 class="txt-mark oswald" ><a class="txt-mark"  href="historias">ver todas las historias</a></h4></center>
+                        <center><h4 class="txt-mark oswald" ><a class="txt-mark"  href="historias">Conocer todas las historias</a></h4></center>
                     </div>
                 </div>
                 
@@ -118,7 +118,7 @@
                     <hr/>
                     </cms:pages>
                       
-                    <a class="btn btn-mark btn-block" href="noticias"><strong>ver todas las noticias</strong></a>
+                    <a class="btn btn-mark btn-block" href="noticias"><strong>Ver todas las noticias</strong></a>
 
                     </div>
                 </div>
@@ -136,13 +136,10 @@
 <?php require 'mod/modals.php';?>
 
 <?php require 'mod/scripts.php';?>
-  
-<script src="js/responsiveslides.min.js"></script>
-<script src="js/initslides.js"></script>
 
     <script type="text/javascript">
 	$(document).ready(function(){
-		$("foo3").modal('show');
+		$("#itt").modal('show');
 	});
 </script>
 

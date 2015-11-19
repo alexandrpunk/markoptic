@@ -14,12 +14,14 @@
 
 <link rel="stylesheet" href="css/jssocials.css">
 <link rel="stylesheet" href="css/jssocials-theme-classic.css">
+<link rel="stylesheet" href="css/flexslider.css">
+
   
 <meta property="og:url"                content="<cms:show k_page_link />" />
 <meta property="og:type"               content="article" />
 <meta property="og:image"              content="<cms:show publicacion_image />" />
 <meta property="og:description"        content="<cms:excerpt count='450'  truncate_chars='1'><cms:show contenido /></cms:excerpt>" />
-<meta property="fb:app_id"              content="1632168933701186" />
+<meta property="fb:app_id"             content="1632168933701186" />
 </head>
 <body>
     
@@ -61,6 +63,8 @@
     
 <script src="js/lightbox.min.js"></script>
 <script src="js/jssocials.min.js"></script>
+<script src="js/jquery.flexslider-min.js"></script>
+
         <script>
         $("#share").jsSocials({
             showLabel: false,

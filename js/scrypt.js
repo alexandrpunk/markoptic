@@ -6,6 +6,12 @@ $(document).ready(function(){
         offsetTop = offset.top;
         $('html, body').animate({scrollTop: offsetTop-70}, 150, 'linear');
     }
-    
+      
+  $('.flexslider').flexslider({
+    animation: "slide",
+    animationLoop: false,
+    itemWidth: 300,
+    itemMargin: 10
+  });
 });
 

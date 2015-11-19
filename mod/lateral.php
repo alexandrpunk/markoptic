@@ -9,6 +9,16 @@
                 <h4 class="oswald"><strong>SOLICÍTALO AQUÍ</strong></h4>
             </div>
         </a>
+        <h4 class="txt-rosado oswald text-center" style="margin-bottom:0;" ><a href="historias"><strong>Conoce a los solicitantes</strong></a></h4>
+    </div>
+</div>
+    
+<div class="panel panel-default panel-mark col-md-12 col-sm-6 ">
+    <div class="panel-heading panel-heading-mark" id="militar">CERTIFICACIONES</div>
+    <div style="padding:10px;" class="panel-body panel-body-mark">
+        <a href="files/iit-cemefi.pdf" target="_blank">
+        <img style="max-width:60%" class="img-responsive center-block" src="img/it.png">
+        </a>
     </div>
 </div>
 
@@ -16,7 +26,7 @@
     <div class="panel-heading panel-heading-mark" id="morado">FORMA PARTE</div>
     <div class="panel-body panel-body-mark">
         <a href="#summon" data-toggle="modal" class="dlink"><span class="center-block img-thumbnail text-center">
-            <img class="img-responsive" src="img/summon.png" />
+            <img class="img-responsive center-block" src="img/summon.png" />
             <h4 class="txt-mark oswald"><strong>Haz tus Residencias Profesionales con nosotros</strong></h4>
         </span></a>
     </div>

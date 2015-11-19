@@ -9,6 +9,16 @@
                     preview_height='200'
                     type="image"
     />
+    <cms:editable
+                    name="gg_thumb"
+                    assoc_field="gg_image"
+                    label="Miniatura de la imagen"
+                    desc="Miniatura de la imagen"
+                    width='250'
+                    height='250'
+                    crop='1'
+                    type="thumbnail"
+    />
 </cms:template>
 <?php require 'mod/head.php';?>
 

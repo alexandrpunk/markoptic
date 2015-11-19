@@ -32,7 +32,7 @@
                             <cms:pages masterpage="videos.php" limit='8' paginate='1'>
                                 <div class="row">
                                     <div class="col-md-5">
-                                       <iframe class="center-block" width="285" height="20S0" src="https://www.youtube.com/embed/<cms:show video />" frameborder="0" allowfullscreen></iframe>
+                                       <iframe class="center-block" width="285" height="200" src="https://www.youtube.com/embed/<cms:show video />" frameborder="0" allowfullscreen></iframe>
                                     </div>
                                     <div class="col-md-7">
                                         <h3 class="txt-mark"><cms:show k_page_title /></h3>
