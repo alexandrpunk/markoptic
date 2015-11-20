@@ -1,19 +1,22 @@
 @import url(http://fonts.googleapis.com/css?family=Noto+Sans);
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,700,300);
 @import url(http://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
 /* verde markoptic: #31a463 */
 html {
-  position: relative;
-  min-height: 100%;
-height: auto!important;
+    position: relative;
+    min-height: 100%;
+    height: auto!important;
 }
 
 body{
-        position: static!important;
+    position: static!important;
     min-height: 0!important;
-    margin-top: 70px;
+    margin-top: 50px;
     font-family: 'Noto Sans', sans-serif;
     margin-bottom: 130px;
+    /*background: url(/img/bg.png) center top no-repeat;
+    background-size: 100% 300px;*/
 }
 
 .mark-nav{
@@ -86,9 +89,7 @@ list-style-type: none;
 
 
 .logo{
-    width: 290px;
-    height: auto;
-    margin-bottom: 15px;
+    height: 170px;
 }
 
 .bg-mark{
@@ -100,6 +101,23 @@ list-style-type: none;
 
 .txt-mark{
     color: #31a463 !important;
+}
+
+.txt-mark a,
+.txt-mark a:focus,
+.txt-mark a:hover{
+    color: #31a463 !important;
+    text-decoration: none !important;
+}
+.txt-rosado{
+    color: #F05B6F !important;
+}
+
+.txt-rosado a,
+.txt-rosado a:focus,
+.txt-rosado a:hover{
+    color: #F05B6F !important;
+    text-decoration: none !important;
 }
 
 /* botones markoptic */
@@ -230,9 +248,7 @@ font-size: 1.2em;
 .panel-mark{
     border-radius: 0;
     border: 0 solid;
-    -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
-    -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
-    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
+
 }
 .panel-mark h1, .panel-mark h2, .panel-mark h3{
     color:#5a5a5a;
@@ -300,6 +316,9 @@ font-size: 1.2em;
     background-color: #E7E8EA;
     color: #000;
     border: 0 solid;
+    -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
 }
 
 .oswald{
@@ -434,10 +453,6 @@ font-size: 0.75em;
 .postit {
  overflow: hidden;
 }
-.postit a {
-    text-decoration: none;
-        color: #31a463;
-}
 .postit h4 {
     font-size: 1.5em;
     font-weight: 600;
@@ -451,10 +466,13 @@ font-size: 0.75em;
 
 .thumb-new {
     margin-right: 10px;
-    max-width: 150px;
+    max-width: 180px;
     background-color: #fff;
     border: solid 3px #fff;
-    float: left;
+    -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.3);
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.3);
+    border-radius: 3px;
 }
 
 hr {
@@ -563,6 +581,9 @@ hr {
     font-size: 1em;
     margin-top: 10px;
 }
+.note-img{
+margin: 8px;
+}
 
 
 @media (max-width : 768px) {
@@ -582,16 +603,7 @@ hr {
     vertical-align: middle;
     
     }
-    
-    .logo, .bannerd{
-    width: 270px;
-    height: auto;
-    margin-right: auto;
-    margin-left: auto;
-    float: none;
-    display: block; 
-    }
-    
+        
 }
 
 
@@ -648,160 +660,6 @@ hr {
 }
 
 
-.rslides {
-  position: relative;
-  list-style: none;
-  overflow: hidden;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  }
-
-.rslides li {
-  -webkit-backface-visibility: hidden;
-  position: absolute;
-  display: none;
-  width: 100%;
-  left: 0;
-  top: 0;
-  }
-
-.rslides li:first-child {
-  position: relative;
-  display: block;
-  float: left;
-  }
-
-.rslides img {
-  display: block;
-  height: auto;
-  float: left;
-  width: 100%;
-  border: 0;
-  }
-
-.rslides {
-  margin: 0 auto;
-  }
-
-.rslides_container {
-  margin-bottom: 50px;
-  position: relative;
-  float: left;
-  width: 100%;
-  }
-
-.rslides1_nav {
-  position: absolute;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-  top: 50%;
-  left: 0;
-  z-index: 999;
-  opacity: 0.7;
-  text-indent: -9999px;
-  overflow: hidden;
-  text-decoration: none;
-  height: 61px;
-  width: 38px;
-  background: transparent url("themes.gif") no-repeat left top;
-  margin-top: -45px;
-  }
-
-.rslides1_nav:active {
-  opacity: 1.0;
-  }
-
-.rslides1_nav.next {
-  left: auto;
-  background-position: right top;
-  right: 0;
-  }
-
-.rslides2_nav {
-  position: absolute;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-  top: 0;
-  left: 0;
-  display: block;
-  background: #fff; /* Fix for IE6-9 */
-  opacity: 0;
-  filter: alpha(opacity=1);
-  width: 48%;
-  text-indent: -9999px;
-  overflow: hidden;
-  height: 91%;
-  }
-
-.rslides2_nav.next {
-  left: auto;
-  right: 0;
-  }
-
-.rslides3_nav {
-  position: absolute;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-  opacity: 0.6;
-  text-indent: -9999px;
-  overflow: hidden;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  background: #000 url("themes.gif") no-repeat left 50%;
-  width: 38px;
-  }
-
-.rslides3_nav:active {
-  opacity: 1.0;
-  }
-
-.rslides3_nav.next {
-  left: auto;
-  background-position: right 50%;
-  right: 0;
-  }
-
-.rslides1_nav:focus,
-.rslides2_nav:focus,
-.rslides3_nav:focus {
-  outline: none;
-  }
-
-.rslides_tabs {
-  margin-top: 10px;
-  text-align: center;
-  }
-
-.rslides_tabs li {
-  display: inline;
-  float: none;
-  _float: left;
-  *float: left;
-  margin-right: 5px;
-  }
-
-.rslides_tabs a {
-  text-indent: -9999px;
-  overflow: hidden;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
-  background: #ccc;
-  background: rgba(0,0,0, .2);
-  display: inline-block;
-  _display: block;
-  *display: block;
-  -webkit-box-shadow: inset 0 0 2px 0 rgba(0,0,0,.3);
-  -moz-box-shadow: inset 0 0 2px 0 rgba(0,0,0,.3);
-  box-shadow: inset 0 0 2px 0 rgba(0,0,0,.3);
-  width: 9px;
-  height: 9px;
-  }
-
-.rslides_tabs .rslides_here a {
-  background: #222;
-  background: rgba(0,0,0, .8);
-  }
-
 /*galeria*/
 .image-list {
     padding: 0;
@@ -814,7 +672,6 @@ hr {
     margin-bottom: 5px;
 }
 
-.image-list a,
 .image-list img {
     display: block;
     width: 100%;
@@ -937,4 +794,28 @@ margin: 0;
 
 .btn-form{
   margin: 7px;
+}
+
+.pub img{
+    border: 3px solid #fff;
+    margin: 0 5px 5px;
+    -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.3);
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.3);
+    border-radius: 3px;
+}
+.img-quote{
+    border: 3px solid #fff;
+    -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.3);
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.3);
+    border-radius: 1000px;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 10px;
+}
+.quote{
+    font-style: italic!important;
+    text-align: justify !important;
+    font-size: 1em !important;
 }

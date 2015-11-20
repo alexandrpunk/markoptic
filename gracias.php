@@ -1,7 +1,7 @@
 <?php $titulo = "Quiero Donar"; ?>
 <?php require 'mod/head.php';?>
 
-
+</head>
 <body>
     
 <?php require 'mod/navbar.php';?>
@@ -23,12 +23,9 @@
                     </div>
                 </div>     
             </div>
-            
-            <div class="col-md-3">
-                
+
                 <?php require 'mod/lateral.php';?>
-                
-            </div>
+
         </div>
     </div>
 

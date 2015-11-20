@@ -1,7 +1,28 @@
-<?php $titulo = "Nuestros Colaboradores"; ?>
+<?php require_once( 'cms/cms.php' ); ?>
+
+<cms:template title='Colaboradores' gallery='1'  order='7'>
+    
+    <cms:editable   name="gg_image"
+                    label="Colaborador"
+                    desc="Indica el logotipo del colaborador que quieres subir aqui"
+                    show_preview='1'
+                    preview_height='200'
+                    type="image"
+    />
+    <cms:editable
+                    name="gg_thumb"
+                    assoc_field="gg_image"
+                    label="Miniatura de la imagen"
+                    desc="Miniatura de la imagen"
+                    width='250'
+                    height='250'
+                    crop='1'
+                    type="thumbnail"
+    />
+</cms:template>
 <?php require 'mod/head.php';?>
 
-
+</head>
 <body>
     
 <?php require 'mod/navbar.php';?>
@@ -21,30 +42,16 @@
                         <h1 class="text-center">¡Muchas Gracias!</h1>
                         <p class="text-center">Agradecemos a nuestros colaboradores por la confianza que nos dan, de mejorar la calidad de vida de personas con discapacidad.</p>
                         <center>
-                        <img class="col" src="img/colaboradores/logo_gallbo.png">
-                        <img class="col" src="img/colaboradores/logo_buap.png"> 
-                        <img class="col" src="img/colaboradores/logo_cib.png">
-                        <img class="col" src="img/colaboradores/logo_itc.png">
-                        <img class="col" src="img/colaboradores/logo_coppel.png">
-                        <img class="col" src="img/colaboradores/logo_uas.png">
-                        <img class="col" src="img/colaboradores/logo_espinoza.png">
-                        <img class="col" src="img/colaboradores/logo_udeo.png">
-                        <img class="col" src="img/colaboradores/logo_trizalet.png">                      
-                        <img class="col" src="img/colaboradores/logo_persal.png">
-                        <img class="col" src="img/colaboradores/logo_castilla.png">
-                        <img class="col" src="img/colaboradores/foto_graficos.png">
-                        <!-- <img class="col" src="img/colaboradores/logo_cab.png"> -->
-
+                        <cms:pages masterpage="colaboradores.php">
+                         <img class="col" src="<cms:show gg_image />">     
+                        </cms:pages>
                         </center>
                     </div>
                 </div>     
             </div>
-            
-            <div class="col-md-3">
-                
+
                 <?php require 'mod/lateral.php';?>
-                
-            </div>
+
         </div>
     </div>
 
@@ -57,3 +64,4 @@
     
 </body>
 </html>
+<?php COUCH::invoke(); ?>

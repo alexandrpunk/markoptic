@@ -1,3 +1,4 @@
+Options +FollowSymlinks -MultiViews
 #turn on url rewriting 
 RewriteEngine on
 
@@ -5,6 +6,8 @@ RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-d 
 RewriteCond %{REQUEST_FILENAME}\.php -f 
 RewriteRule ^(.*)$ $1.php
+
+
 
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html

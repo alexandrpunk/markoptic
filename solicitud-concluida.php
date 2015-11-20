@@ -1,8 +1,7 @@
-
 <?php $titulo = "Solicitud Concluida"; ?>
 <?php require 'mod/head.php';?>
 
-
+</head>
 <body>
     
 <?php require 'mod/navbar.php';?>
@@ -28,12 +27,9 @@
                 </div>
                 <div style="margin:15px;"><center><a href="index" class="btn btn-success">Volver a la Pagina Principal</a></center></div>
             </div>
-            
-            <div class="col-md-3">
-                
-                <?php require 'mod/lateral.php';?>
-                
-            </div>
+                            
+            <?php require 'mod/lateral.php';?>
+
         </div>
     </div>
 
