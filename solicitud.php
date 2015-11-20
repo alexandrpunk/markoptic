@@ -511,7 +511,7 @@ Fundación Markoptic A.C. iniciará un proceso de estudio de la solicitud y se c
         <div class="modal-body">
         <p class="news">Fundación Markoptic A.C. pone a su disposición la opción "Otro Dispositivo". 
         Nosotros al ser una fundacion que desarrolla tecnología para personas con discapacidad nos gustaría saber en que otro aspecto te podemos ayudar. 
-        Fundación Markoptic A.C. no se compromete a fabricar el dispositivo, pero si a dar el seguimiento necesario de investigación.</p>
+        </p>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
