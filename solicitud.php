@@ -488,11 +488,10 @@ Fundación Markoptic A.C. iniciará un proceso de estudio de la solicitud y se c
                 </div>     
             </div>
             
-            <div class="col-md-3">
+
                 
                 <?php require 'mod/lateral.php';?>
                 
-            </div>
         </div>
     </div>
 
