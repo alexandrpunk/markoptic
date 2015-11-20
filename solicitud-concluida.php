@@ -27,8 +27,7 @@
                 </div>
                 <div style="margin:15px;"><center><a href="index" class="btn btn-success">Volver a la Pagina Principal</a></center></div>
             </div>
-            
-                
+                            
             <?php require 'mod/lateral.php';?>
 
         </div>

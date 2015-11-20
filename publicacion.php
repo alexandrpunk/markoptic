@@ -64,6 +64,7 @@
 <script src="js/lightbox.min.js"></script>
 <script src="js/jssocials.min.js"></script>
 <script src="js/jquery.flexslider-min.js"></script>
+<script src="js/flex.js"></script>
 
         <script>
         $("#share").jsSocials({
