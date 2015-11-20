@@ -255,33 +255,34 @@ function funcionEnviar(){
 
 function validacion1(){
 	peticion = document.getElementById("peticion").value;
-	opcion_protesis = document.getElementById("opcion_protesis").value;
+
 
 	if (peticion.length == 0) {
     	alert('Seleccione su peticion');
         return false;
     }
-    if (peticion == 'Protesis' && opcion_protesis.length == 0) {
-    	alert('Seleccione una opción de prótesis');
+
+    if(peticion == 'Protesis' && !document.getElementById('chkop1').checked && !document.getElementById('chkop2').checked && !document.getElementById('chkop3').checked && !document.getElementById('chkop4').checked) {
+        alert("Seleccione al menos una opcion de protesis");
         return false;
     }
     return true;
 }
 
 function validacion2(){
-	nombre = document.getElementById("nombre").value;
-	apellido = document.getElementById("apellido").value;
-	sexo = document.getElementById("sexo").value;
-	fecha_nac = document.getElementById("fecha_nac").value;
-	edad = document.getElementById("edad").value;
-	pais = document.getElementById("pais").value;
-	estado = document.getElementById("estado").value;
-	ciudad = document.getElementById("ciudad").value;
-	direccion = document.getElementById("direccion").value;
-	colonia = document.getElementById("colonia").value;
-	cp = document.getElementById("cp").value;
-	telefono = document.getElementById("telefono").value;
-	email = document.getElementById("email").value;
+	var nombre = document.getElementById("nombre").value;
+	var apellido = document.getElementById("apellido").value;
+	var sexo = document.getElementById("sexo").value;
+	var fecha_nac = document.getElementById("fecha_nac").value;
+	var edad = document.getElementById("edad").value;
+	var pais = document.getElementById("pais").value;
+	var estado = document.getElementById("estado").value;
+	var ciudad = document.getElementById("ciudad").value;
+	var direccion = document.getElementById("direccion").value;
+	var colonia = document.getElementById("colonia").value;
+	var cp = document.getElementById("cp").value;
+	var telefono = document.getElementById("telefono").value;
+	var email = document.getElementById("email").value;
 
 	if (nombre.length == 0) {
     	alert('Ingrese su nombre');
@@ -411,6 +412,7 @@ function validacion4(){
     adjunto1 = document.getElementById("adjunto1").value;
     adjunto2 = document.getElementById("adjunto2").value;
     adjunto3 = document.getElementById("adjunto3").value;
+    peticion = document.getElementById("peticion").value;
 
 	if (porque == "") {
     	alert('Cuéntanos porque la necesitas');
@@ -420,11 +422,13 @@ function validacion4(){
     	alert('Menciona la forma por la que te enteraste de nosotros');
         return false;
     }
-    if (adjunto1 == "" && adjunto2 == "" && adjunto3 == "") {
-    	alert('Ingrese por lo menos una imagen o vídeo de usted.');
-        return false;
+    if (peticion == "Protesis") {
+        if (adjunto1 == "" && adjunto2 == "" && adjunto3 == "") {
+            alert('Ingrese por lo menos una imagen o vídeo de usted.');
+            return false;
+        }
     }
-
+    
     if (adjunto1 != "" && document.getElementById("adjunto1").files[0].size > 1024*1024*20) {
     	alert("Tamaño de adjunto 1 excedido");
     	return false;

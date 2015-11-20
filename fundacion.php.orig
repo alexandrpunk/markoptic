@@ -78,17 +78,21 @@
                         <hr>
                         <h2 style="margin:10px 8%;" class="decor text-center"><pan class="decor-span">Transparencia</pan></h2>
                         <ul class="news text-justify">
+<<<<<<< HEAD
                             <li><strong>Donataria Autorizada: </strong><a href="files/sat.pdf" target="_blank">Formato de Autorización</a>.</li>
                             <li><strong>Registro Federal de las Organizaciones de la Sociedad Civil: </strong><a href="files/cluni.pdf" target="_blank">CLUNI</a>.</li>
                             <li><strong>Informe de Actividades 2015: </strong><a href="files/informe2015.pdf" target="_blank">Ejercicio 2014-2015</a>.</li>
                             <li><strong>Certificación IIT Cemefi: </strong><a href="files/iit-cemefi.pdf" target="_blank">Certificado IIT</a>.</li>
+=======
+                            <li>Donataria Autorizada: <a href="files/sat.pdf" target="_blank">Formato de Autorización</a>.</li>
+                            <li>Registro Federal de las Organizaciones de la Sociedad Civil: </strong><a href="files/cluni.pdf" target="_blank">CLUNI</a>.</li>
+                            <li>Informe de Actividades 2015: </strong><a href="files/informe2015.pdf" target="_blank">Ejercicio 2014-2015</a>.</li>
+>>>>>>> 50ba388575664de5bd71e170344eb8929393ea70
                         </ul>
                     </div>
                 </div>              
             </div>
             
-            <div class="col-md-3">
-                
                 <?php require 'mod/lateral.php';?>
 
         </div>

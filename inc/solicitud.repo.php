@@ -2,10 +2,10 @@
 
 function AbrirConexion() {
 	$dbhost = "localhost";
-	$dbuser = "gallbo_markoptic";
-	$dbpass = "markoptic2015";
-	//$dbuser = "root";
-	//$dbpass = "";
+	//$dbuser = "gallbo_markoptic";
+	//$dbpass = "markoptic2015";
+	$dbuser = "root";
+	$dbpass = "";
 	$db = "gallbo_markoptic";
 	$link = new mysqli($dbhost,$dbuser,$dbpass,$db);
 		if($link->connect_errno) {
@@ -275,6 +275,8 @@ function envioEmails($data){
 						<td>'.$data["t_parentesco"].'</td>
 					</tr>
 				</table>
+				<p style="font-size: 17px;">Puedes descargar tus archivos anexados <a href="http://fundacionmarkoptic.org.mx/adj-solicitudes/'.$data["folio"].'.zip">aqui</a></p>
+				<br>
 				<p style="font-size: 18px;">Próximamente nos pondremos en contacto con usted.
 				<br>
 				Para cualquier duda o aclaración o si desea recibir más información por favor marcar al teléfono (667) 7 15 17 14 o mande un E-mail a info@fundacionmarkoptic.org.mx
