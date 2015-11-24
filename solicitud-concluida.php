@@ -1,4 +1,5 @@
-<?php $titulo = "Solicitud Concluida"; ?>
+<?php require_once( 'cms/cms.php' ); ?>
+<cms:template title='Solicitud concluida' order='14'></cms:template>
 <?php require 'mod/head.php';?>
 
 </head>
@@ -19,10 +20,9 @@
                     <div class="panel-heading panel-heading-mark" id="rosado">Solicitud Concluida</div>
                     <div class="panel-body panel-body-mark">
                     <img class="img-responsive" src="img/solicitud-concluida.svg">
-                    <h4 style="text-align: justify;">
-                        Le agradecemos la confianza depositada en Fundación Markoptic A.C., en breve recibirá un correo donde podrá verificar su información, así como el folio con el que quedo registrada su solicitud.
-                        <br>En Fundación Markoptic A.C. trabajamos por el bienestar de las personas.
-                    </h4>   
+                       <p class="text-center">Le agradecemos la confianza depositada en Fundación Markoptic A.C., en breve recibirá un correo donde podrá verificar su información, así como el folio con el que quedo registrada su solicitud.</p>
+                        <p class="text-center"><strong>En Fundación Markoptic A.C. trabajamos por el bienestar de las personas.</strong></p>
+
                     </div>
                 </div>
                 <div style="margin:15px;"><center><a href="index" class="btn btn-success">Volver a la Pagina Principal</a></center></div>
@@ -44,3 +44,4 @@
     
 </body>
 </html>
+<?php COUCH::invoke(); ?>

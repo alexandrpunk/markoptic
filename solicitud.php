@@ -1,10 +1,9 @@
+<?php require_once( 'cms/cms.php' ); ?>
+<cms:template title='Solicitud' order='15'></cms:template>
 <?php
 require_once("inc/solicitud.repo.php");
-
 $paises = Paises(); 
-
 ?>
-<?php $titulo = "Solicitud"; ?>
 <?php require 'mod/head.php';?>
 
 
@@ -523,3 +522,4 @@ Fundación Markoptic A.C. iniciará un proceso de estudio de la solicitud y se c
     
 </body>
 </html>
+<?php COUCH::invoke(); ?>

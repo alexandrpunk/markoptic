@@ -1,5 +1,5 @@
-<?php $titulo = "Solicitud de Recibo deducible de Impuestos"; ?>
-
+<?php require_once( 'cms/cms.php' ); ?>
+<cms:template title='Solicitar Recibo' order='12'></cms:template>
 <?php require 'mod/head.php';?>
 
 </head>
@@ -86,3 +86,4 @@
     
 </body>
 </html>
+<?php COUCH::invoke(); ?>

@@ -1,4 +1,5 @@
-<?php $titulo = "Quiero Donar"; ?>
+<?php require_once( 'cms/cms.php' ); ?>
+<cms:template title='Gracias' order='16'></cms:template>
 <?php require 'mod/head.php';?>
 
 </head>
@@ -36,3 +37,4 @@
     
 </body>
 </html>
+<?php COUCH::invoke(); ?>

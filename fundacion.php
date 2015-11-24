@@ -1,7 +1,6 @@
-<?php $titulo = "Nuestra Fundacion"; ?>
+<?php require_once( 'cms/cms.php' ); ?>
+<cms:template title='fundacion' order='11'></cms:template>
 <?php require 'mod/head.php';?>
-
-
 <body>
     
 <?php require 'mod/navbar.php';?>
@@ -16,7 +15,7 @@
                 <?php require 'mod/menu.php';?>
                 
                 <div class="panel panel-default panel-mark  animated fadeIn">
-                    <div class="panel-heading panel-heading-mark" id="magenta">FUNDACIÓN MARKOPTIC A.C.</div>
+                    <div class="panel-heading panel-heading-mark " id="magenta">FUNDACIÓN MARKOPTIC A.C.</div>
                     <div  class="panel-body panel-body-mark">
                         <h2 style="margin:10px 8%;" class="decor text-center"><pan class="decor-span">Historia</pan></h2>
                         <p class="text-justify">Fundación Markoptic A.C. surge de la iniciativa de nuestro director el Lic. Manuel Gallardo Inzunza, quien al contar con el padecimiento de Glaucoma, cuenta con la sensibilidad y conocimiento de las grandes necesidades que presentan las personas con capacidades diferentes, y toma el reto de realizar un esfuerzo colectivo con la finalidad de disminuirlas o aliviarlas.<br><br>
@@ -78,16 +77,16 @@
                         <hr>
                         <h2 style="margin:10px 8%;" class="decor text-center"><pan class="decor-span">Transparencia</pan></h2>
                         <ul class="news text-justify">
-                            <li><strong>Donataria Autorizada: </strong><a href="files/sat.pdf" target="_blank">Formato de Autorización</a>.</li>
-                            <li><strong>Registro Federal de las Organizaciones de la Sociedad Civil: </strong><a href="files/cluni.pdf" target="_blank">CLUNI</a>.</li>
-                            <li><strong>Informe de Actividades 2015: </strong><a href="files/informe2015.pdf" target="_blank">Ejercicio 2014-2015</a>.</li>
-                            <li><strong>Certificación IIT Cemefi: </strong><a href="files/iit-cemefi.pdf" target="_blank">Certificado IIT</a>.</li>
+                            <li><strong>Donataria Autorizada:</strong><a href="files/sat.pdf" target="_blank">Formato de Autorización</a>.</li>
+                            <li><strong>Registro Federal de las Organizaciones de la Sociedad Civil:</strong><a href="files/cluni.pdf" target="_blank">CLUNI</a>.</li>
+                            <li><strong>Informe de Actividades 2015</strong>:<a href="files/informe2015.pdf" target="_blank">Ejercicio 2014-2015</a>.</li>
+                            <li><strong>Certificación IIT Cemefi:</strong><a href="files/iit-cemefi.pdf" target="_blank">Certificado IIT</a>.</li>
+                            <li><strong>Convenio de Colaboración:</strong><a href="files/conv_udeo.pdf" target="_blank">Fundación Markoptic A.C. - Universidad de Occidente.</a></li>
                         </ul>
                     </div>
                 </div>              
             </div>
-            
-            <div class="col-md-3">
+
                 
                 <?php require 'mod/lateral.php';?>
 
@@ -101,3 +100,4 @@
     
 </body>
 </html>
+<?php COUCH::invoke(); ?>
