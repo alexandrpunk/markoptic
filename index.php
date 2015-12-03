@@ -117,8 +117,7 @@
                     </div>
                     <hr/>
                     </cms:pages>
-                      
-                    <a class="btn btn-mark btn-block" href="noticias"><strong>Ver todas las noticias</strong></a>
+                    <center><h4 class="txt-mark oswald" ><a class="txt-mark"  href="noticias">Ver todas las noticias</a></h4></center>
 
                     </div>
                 </div>

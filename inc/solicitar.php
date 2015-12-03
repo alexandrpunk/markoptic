@@ -8,7 +8,18 @@ if(DEBUG == "true"){
     ini_set('display_errors', 0);
 }
 
+    session_start();
+    $nombre = '';
+    $email = '';
+    $direccion = '';
+    $rfc = '';
+    $monto = '';
+    $referencia = '';
+    $comentario = '';
+    $comprobante = '';
 
+if(isset($_POST['enviar']))
+{
     $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $direccion = filter_var($_POST['direccion'], FILTER_SANITIZE_STRING);
@@ -16,7 +27,7 @@ if(DEBUG == "true"){
     $monto = filter_var($_POST['monto'], FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
     $referencia = filter_var($_POST['referencia'], FILTER_SANITIZE_NUMBER_INT);
     $comentario = filter_var($_POST['comentario'], FILTER_SANITIZE_STRING);
-
+    
 /* CONECTAR CON BASE DE DATOS ****************/
 $con = mysqli_connect(SERVER, USER, PASS, DB);
 mysqli_set_charset ( $con , "utf8");
@@ -101,6 +112,7 @@ $cabeceras .= 'From: Donativo Fundacion Markoptic <donativo@fundacionmarkoptic.o
 mail($email, $titulo, $mensaje, $cabeceras);
 mail('donativo@fundacionmarkoptic.org.mx', 'Se acaba de recibir un donativo', $info, $cabeceras);
     header('Location: /gracias');    
+}
 }
 
 ?>

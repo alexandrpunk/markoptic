@@ -1,5 +1,9 @@
 <?php require_once( 'cms/cms.php' ); ?>
 <cms:template title='Solicitar Recibo' order='12'></cms:template>
+
+
+<?php require 'inc/solicitar.php';?>
+
 <?php require 'mod/head.php';?>
 
 </head>
@@ -16,11 +20,12 @@
                 
                 <?php require 'mod/menu.php';?>
                 
+                
                   <div class="panel panel-default panel-mark animated fadeIn">
                     <div class="panel-heading panel-heading-mark" id="militar">Solicitud de Recibo Deducible de Impuestos</div>
                     <div class="panel-body panel-body-mark">    
                         
-                        <form action="inc/solicitar"  method="POST" id="solicitud" class="news">
+                        <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>"  method="POST" id="solicitud" class="news" enctype="multipart/form-data">
                               <div class="form-group">
                                 <label for="nombre" data-toggle="tooltip" data-placement="right" title="Nombre completo de la persona o Razón Social a la cual se hará el recibo">Nombre o Razón Social</label>
                                 <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre completo" required autofocus  maxlength="254">
@@ -62,6 +67,11 @@
                             <div class="form-group">
                                 <label for="comentario" data-toggle="tooltip" data-placement="right" title="Si tiene algún comentario o indicación adicional puede hacerlo en este campo">Comentarios</label>
                                 <textarea id="comentario" name="comentario" class="form-control" placeholder="Déjanos tu comentario"></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="comprobante" data-toggle="tooltip" data-placement="right" title="Para hacer mas agil la solicitud de su recibo, puede adjuntarnos el comprobante de su deposito escaneado">Comprobante</label>
+                                <input type="file" name="comprobante">
                             </div>
 
                               <button type="submit" id="enviar" class="btn btn-info btn-block" name="enviar">Solicitar</button>
