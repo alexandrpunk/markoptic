@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include ("db_config.php");
 
 if(DEBUG == "true"){
@@ -8,7 +8,7 @@ if(DEBUG == "true"){
     ini_set('display_errors', 0);
 }
 
-    session_start();
+    $errors = '';
     $nombre = '';
     $email = '';
     $direccion = '';
@@ -20,6 +20,9 @@ if(DEBUG == "true"){
 
 if(isset($_POST['enviar']))
 {
+    
+
+    
     $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $direccion = filter_var($_POST['direccion'], FILTER_SANITIZE_STRING);
@@ -27,6 +30,42 @@ if(isset($_POST['enviar']))
     $monto = filter_var($_POST['monto'], FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
     $referencia = filter_var($_POST['referencia'], FILTER_SANITIZE_NUMBER_INT);
     $comentario = filter_var($_POST['comentario'], FILTER_SANITIZE_STRING);
+
+    
+    	///------------validacion del captcha-------------
+
+	if(empty($_SESSION['captcha'] ) ||
+	  strcasecmp($_SESSION['captcha'], $_POST['captcha']) != 0)
+	{
+	//Note: the captcha code is compared case insensitively.
+	//if you want case sensitive match, update the check above to
+	// strcmp()
+		$errors .= "¡El codigo de verificacion no coincide!\n";
+	}
+  
+    if ($_FILES['comprobante']['size']>2097152){
+        $errors .="El archivo es mayor que 2Mb, debes reduzcirlo antes de subirlo\n";
+    }
+    
+    $allowed =  array('gif','png' ,'jpg', 'pdf');
+    $filename = $_FILES['comprobante']['name'];
+    $ext = pathinfo($filename, PATHINFO_EXTENSION);
+    if(!in_array($ext,$allowed) ) {
+         $errors .="Tu archivo tiene que ser .jpg, .png, .gif o .pdf. Otros archivos no son permitidos\n";
+    }
+
+    $file_name=date('dmYhis').'-'.$referencia.'-'.$rfc.'.'.$ext;
+    $add='files/comprobantes/'.$file_name;
+    if (empty($errors)){
+        if ((move_uploaded_file($_FILES['comprobante']['tmp_name'],$add))) {
+           
+        } else {
+           $errors .="Ocurrio un error durante la subida del documento vuelva a intentarlo";
+        }
+    }
+
+
+if(empty($errors)){
     
 /* CONECTAR CON BASE DE DATOS ****************/
 $con = mysqli_connect(SERVER, USER, PASS, DB);
@@ -37,7 +76,7 @@ if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error());}
 
 
 //se guarda la informacion
-$sql = "INSERT INTO Donativos (nombre,email,direccion,rfc,monto,referencia,comentario) VALUES ('".$nombre."', '".$email."', '".$direccion."', '".$rfc."', '".$monto."', '".$referencia."', '".$comentario."');";
+$sql = "INSERT INTO Donativos (nombre,email,direccion,rfc,monto,referencia,comentario,comprobante) VALUES ('".$nombre."', '".$email."', '".$direccion."', '".$rfc."', '".$monto."', '".$referencia."', '".$comentario."', '".$file_name."');";
 
 
 $result = mysqli_query($con, $sql);
@@ -99,6 +138,7 @@ $info='
 <p><strong>Monto del Donativo: </strong>$'.$monto.'</p>
 <p><strong>No. de Referencia: </strong>'.$referencia.'</p>
 <p><strong>Comentario: </strong>'.$comentario.'</p>
+<a href="http://fundacionmarkoptic.org.mx/files/comprobantes/'.$file_name.'">Comprobante</a>
 </body>
 </html>
 ';
@@ -111,8 +151,11 @@ $cabeceras .= 'From: Donativo Fundacion Markoptic <donativo@fundacionmarkoptic.o
 // enviamos el correo!
 mail($email, $titulo, $mensaje, $cabeceras);
 mail('donativo@fundacionmarkoptic.org.mx', 'Se acaba de recibir un donativo', $info, $cabeceras);
-    header('Location: /gracias');    
-}
+$valido= (bool)true;
+$_SESSION['valido']=$valido;
+header('Location: /gracias');   
+        }
+    }
 }
 
 ?>

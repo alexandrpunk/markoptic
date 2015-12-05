@@ -17,18 +17,18 @@
 
 session_start();
 //Settings: You can customize the captcha here
-$image_width = 120;
-$image_height = 40;
-$characters_on_image = 6;
-$font = './monofont.ttf';
+$image_width = 150;
+$image_height = 50;
+$characters_on_image = 5;
+$font = '../css/fonts/monofont.ttf';
 
 //The characters that can be used in the CAPTCHA code.
 //avoid confusing characters (l 1 and i for example)
 $possible_letters = '23456789bcdfghjkmnpqrstvwxyz';
-$random_dots = 0;
-$random_lines = 20;
-$captcha_text_color="0x142864";
-$captcha_noice_color = "0x142864";
+$random_dots = 10;
+$random_lines = 12;
+$captcha_text_color="0x00A381";
+$captcha_noice_color = "0x142894";
 
 $code = '';
 
@@ -81,7 +81,7 @@ imagettftext($image, $font_size, 0, $x, $y, $text_color, $font , $code);
 header('Content-Type: image/jpeg');// defining the image type to be shown in browser widow
 imagejpeg($image);//showing the image
 imagedestroy($image);//destroying the image instance
-$_SESSION['6_letters_code'] = $code;
+$_SESSION['captcha'] = $code;
 
 function hexrgb ($hexstr)
 {

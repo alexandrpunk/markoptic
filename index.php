@@ -90,15 +90,17 @@
                 <div class="panel panel-default panel-mark">
                   <div class="panel-heading panel-heading-mark" id="rosado">¿A QUIÉN ESTOY AYUDANDO?</div>
                     <div class="panel-body panel-body-mark">
-                        
+                    <div class="row zero">
                     <cms:pages masterpage='historias.php' limit='3'>
-                        <div class="col-md-4 col-sm-4 well">
+                        <div class="col-md-4 col-sm-4 well" style="margin-bottom:0;">
                             <img class="img-quote center-block" src="<cms:show fotografia_thumb />">
                             <h4 class="txt-mark text-center oswald"><cms:show k_page_title /></h4>
                                 <p class="quote"><cms:show necesidad /></p>
                         </div>
                     </cms:pages>
+                    </div>
 
+                        <hr/>
                         
                         <center><h4 class="txt-mark oswald" ><a class="txt-mark"  href="historias">Conocer todas las historias</a></h4></center>
                     </div>

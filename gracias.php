@@ -1,5 +1,11 @@
+<?php session_start(); ?>
 <?php require_once( 'cms/cms.php' ); ?>
 <cms:template title='Gracias' order='16'></cms:template>
+<?php
+if(!$_SESSION['valido']){
+    header('Location: /index');   
+}
+?>
 <?php require 'mod/head.php';?>
 
 </head>
