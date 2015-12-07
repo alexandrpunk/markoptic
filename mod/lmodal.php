@@ -8,12 +8,15 @@
       </div>
         <div class="modal-body">
             <img class="img-responsive center-block" src="img/summon.png">
-            <p class="news"><strong>Fundación Markoptic A.C. te invita a que formes parte de nuestro equipo exiten diferentes formas de hacerlo:</strong>
-              <br>• Servicio Social.
-              <br>• Residencias Profesionales.
-              <br>• Voluntariado.
-              <br>• Verano Científico.
-              <br>• Bolsa de Trabajo. "Para conocer más puedes dar <a href="files/bolsa.pdf" target="_blank">Clic Aquí</a>".</p>
+            <p class="news text-justiy"><strong>Fundación Markoptic A.C. te invita a que formes parte de nuestro equipo exiten diferentes formas de hacerlo:</strong></p>
+                <ul>
+                    <li>Servicio Social</li>
+                    <li>Residencias Profesionales</li>
+                    <li>Voluntariado</li>
+                    <li>Verano Científico</li>
+                    <li>Bolsa de Trabajo</li>
+                </ul>
+<p class="text-center">"Para conocer más puedes dar <a href="files/bolsa.pdf" target="_blank">Clic Aquí</a>".</p>
       </div>
     </div>
   </div>

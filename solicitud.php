@@ -79,6 +79,8 @@ $paises = Paises();
                                     <center><a  href="#" data-toggle="modal" data-target="#solicitud_necesidad" class="btn btn-lg btn-success" id="">Cuéntanos</a></center>
                                 </div>
                             </div>
+                            <hr/>
+                            <p class="text-center"><strong>¿Tienes dudas de como llenar nuestro formulario? Puedes ver el videotutorial de como hacerlo <a href="https://www.youtube.com/watch?v=7HLG39tYBH8" target="_blank">aqui</a></strong></p>
                         </div>
 
                         <!--Informacion del beneficiario-->
