@@ -25,3 +25,16 @@
                             <i class="fa fa-2x fa-arrow-circle-up"></i>
                         </span>
                     </div>
+
+                    <!---Botton de ir a top-->
+                    <div class="play-wrapper hidden">
+                        <span class="play-inner">
+                            <i class="fa fa-2x fa-play"></i>
+                        </span>
+                    </div>
+
+                    <div class="pause-wrapper ">
+                        <span class="pause-inner">
+                            <i class="fa fa-2x fa-pause"></i>
+                        </span>
+                    </div>

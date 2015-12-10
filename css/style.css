@@ -973,3 +973,80 @@ margin: 0;
     text-align: justify !important;
     font-size: 1em !important;
 }
+
+
+
+.play-wrapper {
+  position: fixed;
+  opacity: 1.0;
+  visibility: visible;
+  overflow: hidden;
+  cursor:pointer;
+  text-align: center;
+  z-index: 99;
+  background-color: rgba(49, 164, 99, 0.76);
+  color: #fff;
+  width: 48px;
+  line-height: 48px;
+  left: 30px;
+  bottom: 30px;
+  padding-top: 2px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+    border: solid #fff 2px;
+        -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
+}
+.play-wrapper:hover {
+  background-color: #31a463;
+}
+.play-wrapper i.fa {
+  line-height: 48px;
+    vertical-align: middle;
+}
+
+
+.pause-wrapper {
+  position: fixed;
+  opacity: 1.0;
+  visibility: visible;
+  overflow: hidden;
+  cursor:pointer;
+  text-align: center;
+  z-index: 99;
+  background-color: rgba(49, 164, 99, 0.76);
+  color: #fff;
+  width: 48px;
+  line-height: 48px;
+  left: 30px;
+  bottom: 30px;
+  padding-top: 2px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+    border: solid #fff 2px;
+        -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
+}
+.pause-wrapper:hover {
+  background-color: #31a463;
+}
+.pause-wrapper i.fa {
+  line-height: 48px;
+    vertical-align: middle;
+}
