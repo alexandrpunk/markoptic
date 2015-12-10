@@ -33,7 +33,7 @@
                         </span>
                     </div>
 
-                    <div class="pause-wrapper ">
+                    <div class="pause-wrapper hidden">
                         <span class="pause-inner">
                             <i class="fa fa-2x fa-pause"></i>
                         </span>

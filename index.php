@@ -14,6 +14,7 @@
             <div class="col-md-9">
                 
                 <?php require 'mod/menu.php';?>
+                <audio id="player" src="audio/spot.mp3"></audio>
         
                 <?php require 'mod/carrousel.php';?>
                 
