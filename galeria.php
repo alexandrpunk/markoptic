@@ -33,7 +33,7 @@
                             </div>
                             <hr/>
                         </cms:pages>
-                        <center><h4 class="txt-mark oswald" ><a class="txt-mark"  href="testimonios">ver todas los testimonios</a></h4></center>
+                        <center><h4 class="txt-mark oswald" ><a class="txt-mark"  href="testimonios">ver todos los testimonios</a></h4></center>
 
                     <h2 style="margin:10px 8%;" class="text-center decor-gal"><span class="decor-span">Galería Fotografica</span></h2>                         <ul class="row image-list">
                             <cms:pages masterpage="fotografias.php" limit='17' >
