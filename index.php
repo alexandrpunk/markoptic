@@ -145,6 +145,8 @@
 	});
 </script>
 
+<script src="js/audio.js"></script>
+
 <?php require 'mod/checkCookie.php';?>
     
 </body>
