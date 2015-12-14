@@ -507,8 +507,8 @@ Fundación Markoptic A.C. iniciará un proceso de estudio de la solicitud y se c
         <h4 class="modal-title" id="noticia3">¿TIENES UNA NECESIDAD DIFERENTE?</h4>
       </div>
         <div class="modal-body">
-        <p class="news text-justify">Al ser Fundación Markoptic AC una organización que desarrolla tecnología para personas con discapacidad motriz, pone a su disposición la opción “otro dispositivo”, en donde se ofrece la oportunidad de que nos platique como mejorara su calidad de vida y la de su familia con el desarrollo tecnológico de un nuevo dispositivo o bien mejorar algún existente.</p>
-<p class="news text-justify">Dicho dispositivo debe cubrir necesidades de movilidad y ser de naturaleza externa del cuerpo, actualmente contamos con capacidad técnica y humana a su disposición y nuestro compromiso es el desarrollo de nuevas tecnologías en el campo de las discapacidades.</p>
+        <p class="news text-justify">Al ser Fundación Markoptic A.C. una organización que desarrolla tecnología para personas con discapacidad motriz, pone a su disposición la opción "otro dispositivo", en donde se ofrece la oportunidad de que nos platique como mejorara su calidad de vida y la de su familia con el desarrollo tecnológico de un nuevo dispositivo o bien mejorar algún existente.</p>
+<p class="news text-justify">Dicho dispositivo debe cubrir necesidades de movilidad y ser de naturaleza externa del cuerpo, <strong>no desarrollamos dispositivos de implantes médicos destinados a ser colocados en el interior del cuerpo y no realizamos donación de dispositivos existentes comercialmente</strong>, ya que actualmente contamos con capacidad técnica y humana a su disposición, donde nuestro compromiso es el desarrollo de nuevas tecnologías en el campo de las discapacidades.</p>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
