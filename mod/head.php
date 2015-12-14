@@ -17,7 +17,7 @@
             <cms:show k_template_title />
         </cms:if>
     </title>
-<?php include 'analytic.php';?> 
+<?php include_once("analyticstracking.php") ?> 
     
 <?php require 'style.php';?> 
 
