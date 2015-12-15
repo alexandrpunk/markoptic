@@ -3,6 +3,7 @@ $(document).ready(function(){
     {
     	var select = document.getElementById("peticion").value;
     	if (select == 'Protesis') {
+            $("#aviso_solicitud").modal('show');
     		document.getElementById("form-solicitud-seccion1-1").className= "form-group";
     	}
     	else{
