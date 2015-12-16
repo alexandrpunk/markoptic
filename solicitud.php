@@ -526,7 +526,7 @@ Fundación Markoptic A.C. iniciará un proceso de estudio de la solicitud y se c
         <h4 class="modal-title" id="noticia3">AVISO IMPORTANTE!</h4>
       </div>
         <div class="modal-body">
-            <p class="news text-justify">En Fundación Markoptic A.C. nos sentimos orgullosos de haber desarrollado una prótesis robótica de brazo y seguimos con la investigación de la prótesis mecánica de pierna. Si usted presenta esta necesidad puede solicitarla y formar parte de la lista 
+            <p class="news text-justify">En Fundación Markoptic A.C. nos sentimos orgullosos de haber desarrollado <b style="font-size:1.1em;">una prótesis robótica de brazo y seguimos con la investigación de la prótesis mecánica de pierna.</b> Si usted presenta esta necesidad puede solicitarla y formar parte de la lista 
             con la que definiremos las donaciones.</p>
             <p class="news text-justify">Fundación Markoptic A.C. <b style="font-size:1.1em;">no realiza donaciones de dispositivos visuales, auditivos, dentales o implantes médicos destinados a ser colocados en el interior del cuerpo y no realizamos donación de dispositivos existentes comercialmente.</b></p>
         </div>
