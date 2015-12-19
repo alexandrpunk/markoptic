@@ -12,7 +12,7 @@ if ($peticion == "Protesis") {
 	for ($n=0; $n < $num ; $n++) { 
 
 		$peticion = $_POST["peticion"];
-		$opcion_protesis = $arreglo_op[$n];
+		$descripcion = $arreglo_op[$n];
 		$porque = $_POST["porque"];
 		$medio_difusion = $_POST["medio_difusion"];
 
@@ -47,7 +47,7 @@ if ($peticion == "Protesis") {
 		$t_parentesco = $_POST["t_parentesco"];
 
 		$ds = array("peticion" => $peticion,
-					"opcion_protesis" => $opcion_protesis,
+					"descripcion" => $descripcion,
 					"porque" => $porque,
 					"medio_difusion" => $medio_difusion
 					);
@@ -64,7 +64,7 @@ if ($peticion == "Protesis") {
 			$folio_numero = str_pad($num_folio, 5, "0", STR_PAD_LEFT);
 			$folio = 'CA-'.$folio_numero;
 		}
-		elseif (($peticion == "Protesis") && ($opcion_protesis == "Superior Izquierda" || $opcion_protesis == "Superior Derecha")) {
+		elseif (($peticion == "Protesis") && ($descripcion == "Superior Izquierda" || $descripcion == "Superior Derecha")) {
 			$link = AbrirConexion();
 			$result_folio = $link->query("SELECT * FROM solicitud WHERE (folio LIKE 'PS%') ORDER BY id DESC LIMIT 1");
 			$row = $result_folio->fetch_array(MYSQLI_ASSOC);
@@ -74,7 +74,7 @@ if ($peticion == "Protesis") {
 			$folio_numero = str_pad($num_folio, 5, "0", STR_PAD_LEFT);
 			$folio = 'PS-'.$folio_numero;
 		}
-		elseif (($peticion == "Protesis") && ($opcion_protesis == "Inferior Derecha" || $opcion_protesis == "Inferior Izquierda")) {
+		elseif (($peticion == "Protesis") && ($descripcion == "Inferior Derecha" || $descripcion == "Inferior Izquierda")) {
 			$link = AbrirConexion();
 			$result_folio = $link->query("SELECT * FROM solicitud WHERE (folio LIKE 'PI%') ORDER BY id DESC LIMIT 1");
 			$row = $result_folio->fetch_array(MYSQLI_ASSOC);
@@ -112,7 +112,7 @@ if ($peticion == "Protesis") {
 			);
 
 		$data = array("peticion" => $peticion,
-						"opcion_protesis" => $opcion_protesis,
+						"descripcion" => $descripcion,
 						"porque" => $porque,
 						"medio_difusion" => $medio_difusion,
 						"nombre" => $nombre,
@@ -259,9 +259,18 @@ if ($peticion == "Protesis") {
 else{
 
 	$peticion = $_POST["peticion"];
-	$opcion_protesis = "";
 	$porque = $_POST["porque"];
 	$medio_difusion = $_POST["medio_difusion"];
+
+	if ($peticion == "Colchon Antiescaras") {
+		$descripcion = "";
+	}
+
+	else{
+		$descripcion =  $_POST["descripcion"];
+	}
+
+	
 
 
 
@@ -297,7 +306,7 @@ else{
 	$t_parentesco = $_POST["t_parentesco"];
 
 	$ds = array("peticion" => $peticion,
-				"opcion_protesis" => $opcion_protesis,
+				"descripcion" => $descripcion,
 				"porque" => $porque,
 				"medio_difusion" => $medio_difusion
 				);
@@ -315,7 +324,7 @@ else{
 		$folio_numero = str_pad($num_folio, 5, "0", STR_PAD_LEFT);
 		$folio = 'CA-'.$folio_numero;
 	}
-	elseif (($peticion == "Protesis") && ($opcion_protesis == "Superior Izquierda" || $opcion_protesis == "Superior Derecha")) {
+	elseif (($peticion == "Protesis") && ($descripcion == "Superior Izquierda" || $descripcion == "Superior Derecha")) {
 		$link = AbrirConexion();
 		$result_folio = $link->query("SELECT * FROM solicitud WHERE (folio LIKE 'PS%') ORDER BY id DESC LIMIT 1");
 		$row = $result_folio->fetch_array(MYSQLI_ASSOC);
@@ -325,7 +334,7 @@ else{
 		$folio_numero = str_pad($num_folio, 5, "0", STR_PAD_LEFT);
 		$folio = 'PS-'.$folio_numero;
 	}
-	elseif (($peticion == "Protesis") && ($opcion_protesis == "Inferior Derecha" || $opcion_protesis == "Inferior Izquierda")) {
+	elseif (($peticion == "Protesis") && ($descripcion == "Inferior Derecha" || $descripcion == "Inferior Izquierda")) {
 		$link = AbrirConexion();
 		$result_folio = $link->query("SELECT * FROM solicitud WHERE (folio LIKE 'PI%') ORDER BY id DESC LIMIT 1");
 		$row = $result_folio->fetch_array(MYSQLI_ASSOC);
@@ -363,7 +372,7 @@ else{
 		);
 
 	$data = array("peticion" => $peticion,
-					"opcion_protesis" => $opcion_protesis,
+					"descripcion" => $descripcion,
 					"porque" => $porque,
 					"medio_difusion" => $medio_difusion,
 					"nombre" => $nombre,

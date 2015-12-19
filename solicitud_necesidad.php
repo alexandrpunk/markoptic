@@ -25,7 +25,7 @@ $paises = Paises();
                     <div class="panel-body panel-body-mark">    
                         <form method="POST" action="inc/solicitud.post.php" enctype="multipart/form-data" onsubmit="return funcionEnviar()">
 
-                        
+                        <input type="hidden" name="peticion" value="Otro Dispositivo">
                         <!--seccion donde selecciona la ayuda-->
                         <div class="" id="form-solicitud-seccion1">
                             <h3 style="margin:20px 5%;" class="text-center decor-donar"><span class="decor-span">¿CON QUE TE PODEMOS AYUDAR?</span></h3>
@@ -33,7 +33,7 @@ $paises = Paises();
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="peticion">Describe Tu Necesidad</label>
-                                        <textarea type="textarea" class="form-control" id="peticion" name="peticion" placeholder="Describe tu necesidad.." rows="3"></textarea>
+                                        <textarea type="textarea" class="form-control" id="descripcion" name="descripcion" placeholder="Describe tu necesidad.." rows="3"></textarea>
                                     </div>
                                 </div>
 

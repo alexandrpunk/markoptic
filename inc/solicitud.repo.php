@@ -2,10 +2,10 @@
 
 function AbrirConexion() {
 	$dbhost = "localhost";
-	//$dbuser = "gallbo_markoptic";
-	//$dbpass = "markoptic2015";
-	$dbuser = "root";
-	$dbpass = "";
+	$dbuser = "gallbo_markoptic";
+	$dbpass = "markoptic2015";
+	//$dbuser = "root";
+	//$dbpass = "";
 	$db = "gallbo_markoptic";
 	$link = new mysqli($dbhost,$dbuser,$dbpass,$db);
 		if($link->connect_errno) {
@@ -72,7 +72,7 @@ function Localidades($id_estado) {
 }
 
 function Solicitud1($ds){
-	$query = "INSERT INTO solicitud (peticion, opcion_protesis, porque, medio_difusion) VALUES ('".$ds["peticion"]."', '".$ds["opcion_protesis"]."', '".$ds["porque"]."', '".$ds["medio_difusion"]."');";
+	$query = "INSERT INTO solicitud (peticion, descripcion, porque, medio_difusion) VALUES ('".$ds["peticion"]."', '".$ds["descripcion"]."', '".$ds["porque"]."', '".$ds["medio_difusion"]."');";
 	$link = AbrirConexion();
 	mysqli_set_charset($link, "utf8");
 	if($r = $link->query($query)){
@@ -152,7 +152,7 @@ function envioEmails($data){
 						<td>Solicitud:</td><td>'.$data["peticion"].'</td>
 					</tr>
 					<tr>
-						<td>Opción:</td> <td>'.$data["opcion_protesis"].'</td>
+						<td>Opción:</td> <td>'.$data["descripcion"].'</td>
 					</tr>
 					<tr>
 						<td>Porque la necesitas:</td> <td>'.$data["porque"].'</td>
