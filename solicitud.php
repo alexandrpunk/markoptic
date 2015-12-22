@@ -45,25 +45,25 @@ $paises = Paises();
                                         <div class="checkbox">
                                             <label>
                                                 <input type="checkbox" name="chk[]" id="chkop1" value="Superior Derecha">
-                                                Superior Derecha 
+                                                Brazo Derecho
                                             </label>
                                         </div>
                                         <div class="checkbox">
                                             <label>
                                                 <input type="checkbox" name="chk[]" id="chkop2" value="Superior Izquierda">
-                                                Superior Izquierda
+                                                Brazo Izquierdo
                                             </label>
                                         </div>
                                         <div class="checkbox">
                                             <label>
                                                 <input type="checkbox" name="chk[]" id="chkop3" value="Inferior Derecha">
-                                                Inferior Derecha
+                                                Pierna Derecha
                                             </label>
                                         </div>
                                         <div class="checkbox">
                                             <label>
                                                 <input type="checkbox" name="chk[]" id="chkop4" value="Inferior Izquierda">
-                                                Inferior Izquierda
+                                                Pierna Izquierda
                                             </label>
                                         </div>
                                         
