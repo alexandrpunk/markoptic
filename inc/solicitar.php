@@ -21,8 +21,6 @@ if(DEBUG == "true"){
 if(isset($_POST['enviar']))
 {
     
-
-    
     $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $direccion = filter_var($_POST['direccion'], FILTER_SANITIZE_STRING);
@@ -42,25 +40,28 @@ if(isset($_POST['enviar']))
 	// strcmp()
 		$errors .= "¡El codigo de verificacion no coincide!\n";
 	}
-  
-    if ($_FILES['comprobante']['size']>2097152){
-        $errors .="El archivo es mayor que 2Mb, debes reduzcirlo antes de subirlo\n";
-    }
     
-    $allowed =  array('gif','png' ,'jpg', 'pdf');
-    $filename = $_FILES['comprobante']['name'];
-    $ext = pathinfo($filename, PATHINFO_EXTENSION);
-    if(!in_array($ext,$allowed) ) {
-         $errors .="Tu archivo tiene que ser .jpg, .png, .gif o .pdf. Otros archivos no son permitidos\n";
-    }
+     
+    if (is_uploaded_file($_FILES['comprobante']['tmp_name'])){
+        if ($_FILES['comprobante']['size']>2097152){
+            $errors .="El archivo es mayor que 2Mb, debes reduzcirlo antes de subirlo\n";
+        }
 
-    $file_name=date('dmYhis').'-'.$referencia.'-'.$rfc.'.'.$ext;
-    $add='files/comprobantes/'.$file_name;
-    if (empty($errors)){
-        if ((move_uploaded_file($_FILES['comprobante']['tmp_name'],$add))) {
-           
-        } else {
-           $errors .="Ocurrio un error durante la subida del documento vuelva a intentarlo";
+        $allowed =  array('gif','png' ,'jpg', 'pdf');
+        $filename = $_FILES['comprobante']['name'];
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+        if(!in_array($ext,$allowed) ){
+             $errors .="Tu archivo tiene que ser .jpg, .png, .gif o .pdf. Otros archivos no son permitidos\n";
+        }
+
+        $file_name=date('dmYhis').'-'.$referencia.'-'.$rfc.'.'.$ext;
+        $add='files/comprobantes/'.$file_name;
+        if (empty($errors)){
+            if ((move_uploaded_file($_FILES['comprobante']['tmp_name'],$add))){
+
+            }else{
+               $errors .="Ocurrio un error durante la subida del documento vuelva a intentarlo";
+            }
         }
     }
 
@@ -122,26 +123,49 @@ h1 {
 </body>
 </html>
 ';
+    
+if (isset($file_name)) {
+    $info='
+        <html>
+        <head>
+        <title>Se acaba de recibir un donativo</title>
+        </head>
+        <body>
+        <h1>Se recibio un donativo</h1>
+        <p>Los datos del donante son los siguientes</p>
+        <p><strong>Nombre: </strong>'.$nombre.'</p>
+        <p><strong>email: </strong>'.$email.'</p>
+        <p><strong>direccion: </strong>'.$direccion.'</p>
+        <p><strong>rfc: </strong>'.$rfc.'</p>
+        <p><strong>Monto del Donativo: </strong>$'.$monto.'</p>
+        <p><strong>No. de Referencia: </strong>'.$referencia.'</p>
+        <p><strong>Comentario: </strong>'.$comentario.'</p>
+        <a href="http://fundacionmarkoptic.org.mx/files/comprobantes/'.$file_name.'">Comprobante</a>
+        </body>
+        </html>
+        ';
+}else{
+        $info='
+        <html>
+        <head>
+        <title>Se acaba de recibir un donativo</title>
+        </head>
+        <body>
+        <h1>Se recibio un donativo</h1>
+        <p>Los datos del donante son los siguientes</p>
+        <p><strong>Nombre: </strong>'.$nombre.'</p>
+        <p><strong>email: </strong>'.$email.'</p>
+        <p><strong>direccion: </strong>'.$direccion.'</p>
+        <p><strong>rfc: </strong>'.$rfc.'</p>
+        <p><strong>Monto del Donativo: </strong>$'.$monto.'</p>
+        <p><strong>No. de Referencia: </strong>'.$referencia.'</p>
+        <p><strong>Comentario: </strong>'.$comentario.'</p>
+        <p><strong>No se agrego ningun comprobante</strong></p>
+        </body>
+        </html>
+        ';
+}
 
-$info='
-<html>
-<head>
-<title>Se acaba de recibir un donativo</title>
-</head>
-<body>
-<h1>Se recibio un donativo</h1>
-<p>Los datos del donante son los siguientes</p>
-<p><strong>Nombre: </strong>'.$nombre.'</p>
-<p><strong>email: </strong>'.$email.'</p>
-<p><strong>direccion: </strong>'.$direccion.'</p>
-<p><strong>rfc: </strong>'.$rfc.'</p>
-<p><strong>Monto del Donativo: </strong>$'.$monto.'</p>
-<p><strong>No. de Referencia: </strong>'.$referencia.'</p>
-<p><strong>Comentario: </strong>'.$comentario.'</p>
-<a href="http://fundacionmarkoptic.org.mx/files/comprobantes/'.$file_name.'">Comprobante</a>
-</body>
-</html>
-';
 
 // Cabecera que especifica que es un HMTL
 $cabeceras  = 'MIME-Version: 1.0' . "\r\n";

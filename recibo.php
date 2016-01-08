@@ -74,7 +74,7 @@
                             </div>
                             
                             <div class="form-group">
-                                <label for="comprobante" data-toggle="tooltip" data-placement="right" title="Para hacer mas agil la solicitud de su recibo, puede adjuntarnos el comprobante de su deposito escaneado">Comprobante</label>
+                                <label for="comprobante" data-toggle="tooltip" data-placement="right" title="Para hacer mas agil la solicitud de su recibo, puede adjuntarnos el comprobante de su deposito escaneado">Comprobante <small>(opcional)</small></label>
                                 <input type="file" name="comprobante">
                             </div>
                             
