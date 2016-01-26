@@ -71,6 +71,114 @@ function Localidades($id_estado) {
 	return $localidades;
 }
 
+function Pais($id_pais) {
+	$query = "SELECT nombre FROM paises where id = '".$id_pais."' limit 1";
+	$link = AbrirConexion();
+	mysqli_set_charset($link, "utf8");
+	if($r = $link->query($query)){
+		while($row = $r->fetch_assoc()) {
+			$nombre_pais = $row['nombre'];
+		}		
+		$r->free();
+		$link->close();
+	}else {
+		die("Error: ". $link->error);
+		return array();
+	}
+	
+	return $nombre_pais;
+}
+
+function Estado($id_estado) {
+	$query = "SELECT nombre FROM regiones where id = '".$id_estado."' limit 1";
+	$link = AbrirConexion();
+	mysqli_set_charset($link, "utf8");
+	if($r = $link->query($query)){
+		while($row = $r->fetch_assoc()) {
+			$nombre_estado = $row['nombre'];
+		}		
+		$r->free();
+		$link->close();
+	}else {
+		die("Error: ". $link->error);
+		return array();
+	}
+	
+	return $nombre_estado;
+}
+
+function Localidad($id_localidad) {
+	$query = "SELECT nombre FROM localidades where id = '".$id_localidad."' limit 1";
+	$link = AbrirConexion();
+	mysqli_set_charset($link, "utf8");
+	if($r = $link->query($query)){
+		while($row = $r->fetch_assoc()) {
+			$nombre_localidad = $row['nombre'];
+		}		
+		$r->free();
+		$link->close();
+	}else {
+		die("Error: ". $link->error);
+		return array();
+	}
+	
+	return $nombre_localidad;
+}
+
+function TPais($id_pais) {
+	$query = "SELECT nombre FROM paises where id = '".$id_pais."' limit 1";
+	$link = AbrirConexion();
+	mysqli_set_charset($link, "utf8");
+	if($r = $link->query($query)){
+		while($row = $r->fetch_assoc()) {
+			$t_nombre_pais = $row['nombre'];
+		}		
+		$r->free();
+		$link->close();
+	}else {
+		die("Error: ". $link->error);
+		return array();
+	}
+	
+	return $t_nombre_pais;
+}
+
+function TEstado($id_estado) {
+	$query = "SELECT nombre FROM regiones where id = '".$id_estado."' limit 1";
+	$link = AbrirConexion();
+	mysqli_set_charset($link, "utf8");
+	if($r = $link->query($query)){
+		while($row = $r->fetch_assoc()) {
+			$t_nombre_estado = $row['nombre'];
+		}		
+		$r->free();
+		$link->close();
+	}else {
+		die("Error: ". $link->error);
+		return array();
+	}
+	
+	return $t_nombre_estado;
+}
+
+function TLocalidad($id_localidad) {
+	$query = "SELECT nombre FROM localidades where id = '".$id_localidad."' limit 1";
+	$link = AbrirConexion();
+	mysqli_set_charset($link, "utf8");
+	if($r = $link->query($query)){
+		while($row = $r->fetch_assoc()) {
+			$t_nombre_localidad = $row['nombre'];
+		}		
+		$r->free();
+		$link->close();
+	}else {
+		die("Error: ". $link->error);
+		return array();
+	}
+	
+	return $t_nombre_localidad;
+}
+
 function Solicitud1($ds){
 	$query = "INSERT INTO solicitud (peticion, descripcion, porque, medio_difusion) VALUES ('".$ds["peticion"]."', '".$ds["descripcion"]."', '".$ds["porque"]."', '".$ds["medio_difusion"]."');";
 	$link = AbrirConexion();
@@ -137,7 +245,7 @@ function update_adj($zip_file, $id_solicitud){
 
 function envioEmails($data){
 	$para = $data["email"] .', '. $data["t_email"];
-	$asunto = 'Solicitud Exitosa';
+	$asunto = 'Solicitud Exitosa - Folio: ' .$data["folio"];
 	$mensaje = '
 		<html>
 			<head>

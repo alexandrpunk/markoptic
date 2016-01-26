@@ -54,6 +54,14 @@ if ($peticion == "Protesis") {
 
 		$id_solicitud = Solicitud1($ds);
 
+		$nombre_pais = Pais($pais);
+		$nombre_estado = Estado($estado);
+		$nombre_ciudad = Localidad($ciudad);
+
+		$t_nombre_pais = TPais($t_pais);
+		$t_nombre_estado = TEstado($t_estado);
+		$t_nombre_ciudad = TLocalidad($t_ciudad);
+
 		if ($peticion == "Colchon Antiescaras") {
 			$link = AbrirConexion();
 			$result_folio = $link->query("SELECT * FROM solicitud WHERE (folio LIKE 'CA%') ORDER BY id DESC LIMIT 1");
@@ -121,9 +129,9 @@ if ($peticion == "Protesis") {
 						"sexo" => $sexo,
 						"fecha_nac" => $fecha_nac,
 						"edad" => $edad,
-						"pais" => $pais,
-						"estado" => $estado,
-						"ciudad" => $ciudad,
+						"pais" => $nombre_pais,
+						"estado" => $nombre_estado,
+						"ciudad" => $nombre_ciudad,
 						"direccion" => $direccion,
 						"colonia" => $colonia,
 						"cp" => $cp,
@@ -134,9 +142,9 @@ if ($peticion == "Protesis") {
 						"t_sexo" => $t_sexo,
 						"t_fecha_nac" => $t_fecha_nac,
 						"t_edad" => $t_edad,
-						"t_pais" => $t_pais,
-						"t_estado" => $t_estado,
-						"t_ciudad" => $t_ciudad,
+						"t_pais" => $t_nombre_pais,
+						"t_estado" => $t_nombre_estado,
+						"t_ciudad" => $t_nombre_ciudad,
 						"t_direccion" => $t_direccion,
 						"t_colonia" => $t_colonia,
 						"t_cp" => $t_cp,
@@ -311,6 +319,14 @@ else{
 				"medio_difusion" => $medio_difusion
 				);
 
+		$nombre_pais = Pais($pais);
+		$nombre_estado = Estado($estado);
+		$nombre_ciudad = Localidad($ciudad);
+
+		$t_nombre_pais = TPais($t_pais);
+		$t_nombre_estado = TEstado($t_estado);
+		$t_nombre_ciudad = TLocalidad($t_ciudad);
+
 	$id_solicitud = Solicitud1($ds);
 
 
@@ -381,18 +397,18 @@ else{
 					"sexo" => $sexo,
 					"fecha_nac" => $fecha_nac,
 					"edad" => $edad,
-					"pais" => $pais,
-					"estado" => $estado,
-					"ciudad" => $ciudad,
+					"pais" => $nombre_pais,
+					"estado" => $nombre_estado,
+					"ciudad" => $nombre_ciudad,
 					"direccion" => $direccion,
 					"colonia" => $colonia,
 					"cp" => $cp,
 					"telefono" => $telefono,
 					"email" => $email,
 					"t_nombre" => $t_nombre,
-					"t_apellido" => $t_apellido,
-					"t_sexo" => $t_sexo,
-					"t_fecha_nac" => $t_fecha_nac,
+					"t_pais" => $t_nombre_pais,
+					"t_estado" => $t_nombre_estado,
+					"t_ciudad" => $t_nombre_ciudad,
 					"t_edad" => $t_edad,
 					"t_pais" => $t_pais,
 					"t_estado" => $t_estado,
