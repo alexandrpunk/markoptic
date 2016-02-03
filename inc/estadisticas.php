@@ -1,6 +1,8 @@
 <?php
-$mysqli = mysqli_connect("localhost","root","root","markoptic");
-//$mysqli = mysqli_connect("localhost","root","","gallbo_markoptic");
+include ("db_config.php");
+
+$mysqli = mysqli_connect(SERVER, USER, PASS, DB);
+
 mysqli_set_charset($mysqli, "utf8");
 
 $query_od = mysqli_query($mysqli, "SELECT * FROM solicitud where peticion = 'Otro Dispositivo'");

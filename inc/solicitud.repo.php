@@ -1,13 +1,8 @@
 <?php
-
+include ("db_config.php");
 function AbrirConexion() {
-	$dbhost = "localhost";
-	$dbuser = "root";
-	$dbpass = "root";
-	//$dbuser = "root";
-	//$dbpass = "";
 	$db = "markoptic";
-	$link = new mysqli($dbhost,$dbuser,$dbpass,$db);
+	$link = new mysqli(SERVER, USER, PASS, DB);
 		if($link->connect_errno) {
 			die("Error " . $link->connect_error);
 		}
