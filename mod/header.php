@@ -9,7 +9,7 @@
 </div>
     
 <div class="col-md-4 col-sm-4 logo">
-    <a class="animated tada" href="donar"><img src="img/donar.svg" alt="Haz una donacion" style="position: absolute; top: 50%; left: 50%; width:266px; height: 86px; margin-top: -43px; margin-left: -133px;"></a>
+    <a href="donar"><img src="img/donar.svg" alt="Haz una donacion" style="position: absolute; top: 50%; left: 50%; width:266px; height: 86px; margin-top: -43px; margin-left: -133px;" class="animated tada"></a>
 </div>
     
 </div>

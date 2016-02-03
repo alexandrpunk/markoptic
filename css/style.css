@@ -871,9 +871,24 @@ margin: 0;
 .sbut{
     background: #31a463;
     height: 100px;
-    max-width: 23 5px;
-    border-radius: 5px 5px 0 0;
+    max-width: 235px;
+    border-radius: 5px;
     padding: 10px;
+    transition: all 0.3s ease 0s;
+}
+.sbut:hover{
+    text-decoration: none;
+    cursor: pointer;
+    background: #44af72; 
+}
+
+.sbut:active{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
+    transition: all 0.1s ease 0s;
+}
+
+.sbut:visited, .sbut:hover, .sbuta:active, .sbut:link{
+text-decoration: none;
 }
 
 .sbut span{
@@ -886,4 +901,31 @@ margin: 0;
 .sbut img{
     max-height: 80px;
     float: right;
+    
+}
+
+#counter{
+    background: #E92A6F;
+    height: auto;
+    text-align: center;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+#counter:hover{
+    text-decoration: none;
+    cursor: pointer;
+    background: #ef417f; 
+}
+#hist{
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.18em;
+    color: #25AAE3;
+    display:block;
+    transition: all 0.3s ease 0s;
+}
+
+#hist:visited{
+text-decoration: none;
 }

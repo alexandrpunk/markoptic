@@ -4,21 +4,14 @@
     <div class="panel panel-default panel-mark col-md-12 col-sm-6" >
     <div class="panel-heading panel-heading-mark" id="rosado">SOLICITA TU DONACION</div>
     <div class="panel-body panel-body-mark">
-        <div class="sbut center-block">
-            <img src="img/handy.png">
+        <a href="/solicitud" class="sbut center-block">
+            <img src="img/handy.png" class="animated tada">
             <span>Solicita aquí uno de nuestros dispositivos</span>
-        </div>
-        <!---<a href="solicitud" class="dlink">
-            <div class="img-thumbnail print text-center bg-mark center-block">
-                <h4 class="oswald"><strong>¿Necesitas una alguno de nuestros dispositivos médicos?</strong></h4>
-                <img style="max-height:150px;"  class="center-block" src="img/hands.svg" />
-                <h4 class="oswald"><strong>SOLICÍTALO AQUÍ</strong></h4>
-            </div>
         </a>
-        <h4 class="txt-rosado oswald text-center" style="margin-bottom:0;" ><a href="historias"><strong>Conoce a los solicitantes</strong></a></h4>
-        <a href="#contador" data-toggle="modal" class="dlink"><span class="center-block img-thumbnail text-center">
-            <h4 class="txt-mark oswald"><strong>Total de solicitudes: <?php echo $total; ?></strong></h4>
-        </span></a>-->
+        <a href="" data-toggle="modal" class="sbut center-block" id="counter">
+            <span><?php echo $total; ?> Solicitudes</span>
+        </a>
+        <a href="/historias" id="hist">Conoce a los solicitantes</a>
     </div>
 </div>
     
