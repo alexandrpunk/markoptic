@@ -141,7 +141,7 @@
 
     <script type="text/javascript">
 	$(document).ready(function(){
-		$("#itt").modal('show');
+		//$("#itt").modal('show');
 	});
 </script>
 

@@ -1,5 +1,5 @@
 <?php
-$mysqli = mysqli_connect("localhost","gallbo_markoptic","markoptic2015","gallbo_markoptic");
+$mysqli = mysqli_connect("localhost","root","root","markoptic");
 //$mysqli = mysqli_connect("localhost","root","","gallbo_markoptic");
 mysqli_set_charset($mysqli, "utf8");
 

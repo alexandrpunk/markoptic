@@ -1,10 +1,14 @@
-<?php include 'inc/estadisticas.php';?> 
+<?php include 'inc/estadisticas.php';?>
 
 <div class="col-md-3 zero">
     <div class="panel panel-default panel-mark col-md-12 col-sm-6" >
     <div class="panel-heading panel-heading-mark" id="rosado">SOLICITA TU DONACION</div>
     <div class="panel-body panel-body-mark">
-        <a href="solicitud" class="dlink">
+        <div class="sbut center-block">
+            <img src="img/handy.png">
+            <span>Solicita aquí uno de nuestros dispositivos</span>
+        </div>
+        <!---<a href="solicitud" class="dlink">
             <div class="img-thumbnail print text-center bg-mark center-block">
                 <h4 class="oswald"><strong>¿Necesitas una alguno de nuestros dispositivos médicos?</strong></h4>
                 <img style="max-height:150px;"  class="center-block" src="img/hands.svg" />
@@ -14,7 +18,7 @@
         <h4 class="txt-rosado oswald text-center" style="margin-bottom:0;" ><a href="historias"><strong>Conoce a los solicitantes</strong></a></h4>
         <a href="#contador" data-toggle="modal" class="dlink"><span class="center-block img-thumbnail text-center">
             <h4 class="txt-mark oswald"><strong>Total de solicitudes: <?php echo $total; ?></strong></h4>
-        </span></a>
+        </span></a>-->
     </div>
 </div>
     
