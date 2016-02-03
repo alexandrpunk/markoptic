@@ -108,3 +108,19 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="contador" tabindex="-1" role="dialog" aria-labelledby="Total de Solicitudes">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header modal-mark modal-morado">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="contador">Total de Solicitudes</h4>
+      </div>
+        <div class="modal-body">
+            <?php
+            echo $mensaje;
+            ?>
+        </div>
+    </div>
+  </div>
+</div>
