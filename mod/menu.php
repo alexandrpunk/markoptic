@@ -26,15 +26,19 @@
                         </span>
                     </div>
 
-                    <!---Botton de ir a top-->
-                    <div class="play-wrapper hidden">
+                    <!---Botton de play-->
+                    <!--<div class="play-wrapper hidden">
                         <span class="play-inner">
                             <i class="fa fa-2x fa-play"></i>
                         </span>
                     </div>
+                -->
 
+                    <!---Botton de pause-->
+                    <!--
                     <div class="pause-wrapper hidden">
                         <span class="pause-inner">
                             <i class="fa fa-2x fa-pause"></i>
                         </span>
                     </div>
+                    -->

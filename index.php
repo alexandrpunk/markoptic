@@ -14,7 +14,7 @@
             <div class="col-md-9">
                 
                 <?php require 'mod/menu.php';?>
-                <audio id="player" src="audio/spot.mp3"></audio>
+                <!--<audio id="player" src="audio/spot.mp3"></audio>-->
         
                 <?php require 'mod/carrousel.php';?>
                 
@@ -145,7 +145,7 @@
 	});
 </script>
 
-<script src="js/audio.js"></script>
+<!--<script src="js/audio.js"></script>-->
 
 <?php require 'mod/checkCookie.php';?>
     
