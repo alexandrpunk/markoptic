@@ -909,7 +909,7 @@ text-decoration: none;
     height: auto;
     text-align: center;
     border-radius: 5px;
-    margin: 5px 0;
+    margin: 5px auto;
 }
 #counter:hover{
     text-decoration: none;
