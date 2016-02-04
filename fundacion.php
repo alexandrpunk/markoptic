@@ -1,6 +1,7 @@
 <?php require_once( 'cms/cms.php' ); ?>
 <cms:template title='fundacion' order='11'></cms:template>
 <?php require 'mod/head.php';?>
+</head>
 <body>
     
 <?php require 'mod/navbar.php';?>
