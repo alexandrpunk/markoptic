@@ -4,14 +4,14 @@
     <div class="panel panel-default panel-mark col-md-12 col-sm-6" >
     <div class="panel-heading panel-heading-mark" id="rosado">SOLICITA TU DONACION</div>
     <div class="panel-body panel-body-mark">
-        <a href="/solicitud" class="sbut center-block">
+        <a href="solicitud" class="sbut center-block">
             <img src="img/handy.png" class="animated tada">
             <span>Solicita aquí uno de nuestros dispositivos</span>
         </a>
-        <a href="" data-toggle="modal" class="sbut center-block" id="counter">
+        <a href="estadisticas" class="sbut center-block" id="counter">
             <span><?php echo $total; ?> Solicitudes</span>
         </a>
-        <a href="/historias" id="hist">Conoce a los solicitantes</a>
+        <a href="historias" id="hist">Conoce a los solicitantes</a>
     </div>
 </div>
     
