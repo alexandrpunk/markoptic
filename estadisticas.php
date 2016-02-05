@@ -1,35 +1,47 @@
-<?php
-
-$mysqli = mysqli_connect('localhost', 'root', '', 'gallbo_markoptic');
-
-mysqli_set_charset($mysqli, "utf8");
-
-$query_od = mysqli_query($mysqli, "SELECT * FROM solicitud where peticion = 'Otro Dispositivo'");
-$num_od = mysqli_num_rows($query_od);
-
-$query_ca = mysqli_query($mysqli, "SELECT * FROM solicitud where peticion = 'Colchon Antiescaras'");
-$num_ca = mysqli_num_rows($query_ca);
-
-$query_p = mysqli_query($mysqli, "SELECT * FROM solicitud where peticion = 'Protesis'");
-$num_p = mysqli_num_rows($query_p);
-
-$query_psi = mysqli_query($mysqli, "SELECT * FROM solicitud where descripcion = 'Superior Izquierda'");
-$num_psi = mysqli_num_rows($query_psi);
-
-$query_psd = mysqli_query($mysqli, "SELECT * FROM solicitud where descripcion = 'Superior Derecha'");
-$num_psd = mysqli_num_rows($query_psd);
-
-$query_pii = mysqli_query($mysqli, "SELECT * FROM solicitud where descripcion = 'Inferior Izquierda'");
-$num_pii = mysqli_num_rows($query_pii);
-
-$query_pid = mysqli_query($mysqli, "SELECT * FROM solicitud where descripcion = 'Inferior Derecha'");
-$num_pid = mysqli_num_rows($query_pid);
-?>
-
+<?php require_once( 'cms/cms.php' ); ?>
+<cms:template title='Estadisticas' order='18'></cms:template>
 <?php require 'mod/head.php';?>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+    
+<?php require 'mod/navbar.php';?>
 
+    <div class="container">
+        
+        <?php require 'mod/header.php';?>
+        
+        <div class="row">
+            <div class="col-md-9">
+                
+                <?php require 'mod/menu.php';?>
+                
+                  <div class="panel panel-default panel-mark animated fadeIn ">
+                    <div class="panel-heading panel-heading-mark" id="rosado">Estadisticas de Solicitudes</div>
+                    <div class="panel-body panel-body-mark">
+
+                    <div id="columnchart_values" style=""></div>
+    
+
+
+                    </div>
+                </div>     
+            </div>
+            
+            <?php require 'mod/lateral.php';?>
+
+        </div>
+    </div>
+
+    
+<?php require 'mod/footer.php';?>
+    
+<?php require 'mod/mmodal.php';?>
+
+    
+<?php require 'mod/scripts.php';?>
+<script type="text/javascript" src="js/funciones.js"></script>
 <script type="text/javascript">
 
 
@@ -41,12 +53,12 @@ $num_pid = mysqli_num_rows($query_pid);
 
         var data = google.visualization.arrayToDataTable([
           ['Solicitud', 'Numero de Solicitudes', { role: 'style' } ],
-          ['Protesis Inferior Derecha',     <?php echo $num_pid; ?>, 'color: red'],
-          ['Protesis Inferior Izquierda',      <?php echo $num_pii; ?>, 'color: orange'],
-          ['Protesis Superior Derecha',  <?php echo $num_psd; ?>, 'color: blue'],
-          ['Protesis Superior Izquierda', <?php echo $num_psi; ?>, 'color: green'],
-          ['Colchon Antiescaras', <?php echo $num_ca; ?>, 'color: purple'],
-          ['Otros Dispositivos',    <?php echo $num_od; ?>, 'color: brown']
+          ['Protesis Inferior Derecha',     <?php echo $num_pid; ?>, 'color: #A17AB3'],
+          ['Protesis Inferior Izquierda',      <?php echo $num_pii; ?>, 'color: #FCCF14'],
+          ['Protesis Superior Derecha',  <?php echo $num_psd; ?>, 'color: #25AAE3'],
+          ['Protesis Superior Izquierda', <?php echo $num_psi; ?>, 'color: #63C62F'],
+          ['Colchon Antiescaras', <?php echo $num_ca; ?>, 'color: #F05B6F'],
+          ['Otros Dispositivos',    <?php echo $num_od; ?>, 'color: #FF8D2C']
         ]);
 
 
@@ -69,49 +81,7 @@ $num_pid = mysqli_num_rows($query_pid);
       }
 
     </script>
-
-
-
-</head>
-<body>
-    
-<?php require 'mod/navbar.php';?>
-
-    <div class="container">
-        
-        <?php require 'mod/header.php';?>
-        
-        <div class="row">
-            <div class="col-md-9">
-                
-                <?php require 'mod/menu.php';?>
-                
-                  <div class="panel panel-default panel-mark animated fadeIn ">
-                    <div class="panel-heading panel-heading-mark" id="rosado">Estadisticas de Solicitudes</div>
-                    <div class="panel-body panel-body-mark" style="background-color: #ffffff;">
-
-                    <div id="columnchart_values" style="width: 900px; height: 300px;"></div>
-    
-
-
-                    </div>
-                </div>     
-            </div>
-            
-            <?php require 'mod/lateral.php';?>
-
-        </div>
-    </div>
-
-    
-<?php require 'mod/footer.php';?>
-    
-<?php require 'mod/mmodal.php';?>
-
-    
-<?php require 'mod/scripts.php';?>
-<script type="text/javascript" src="js/funciones.js"></script>
-
     
 </body>
 </html>
+<?php COUCH::invoke(); ?>

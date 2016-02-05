@@ -93,8 +93,6 @@ Y de los estados de Mexico de la siguiente manera: <br>
 ".$estados."
 ";
 
-
-
 ?>
 
 
