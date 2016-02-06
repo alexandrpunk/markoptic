@@ -23,13 +23,13 @@
                     <div class="panel-heading panel-heading-mark" id="rosado">Estadisticas de Solicitudes</div>
                     <div class="panel-body panel-body-mark">
 
-                    <div id="columnchart_values" style=""></div>
-
-                    
-
-                    <div id="regions_div" style=""></div>
-
-                    <div id="chart_div" style=""></div>
+                    <div class="charts" id="columnchart_values" style=""></div>
+                    <hr/>
+                    <h3 class="text-center"><strong>Solicitudes a nivel mundial</strong></h3>
+                    <div class="charts" id="regions_div" style=""></div>
+                    <hr/>
+                    <h3 class="text-center"><strong>Solicitudes a nivel nacional</strong></h3>
+                    <div class="charts" id="chart_div" style=""></div>
 
     
 
@@ -116,7 +116,7 @@
           ]);
 
           var options = {
-            colorAxis: {colors: ['#00853f', '#e31b23']},
+            colorAxis: {colors: ['#F05B6F', '#63C62F','#FF8D2C','#25AAE3','#FCCF14']},
           };
 
           var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));

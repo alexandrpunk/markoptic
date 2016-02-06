@@ -5,7 +5,7 @@
             <ul>
                 <li><a href="https://www.facebook.com/fundacionmarkoptic" target="_blank"><i class="fa fa-facebook-square fa-fw fa-2x"></i></a></li>
                 <li><a href="https://twitter.com/fundmarkopticac" target="_blank"><i class="fa fa-twitter-square fa-fw fa-2x"></i></a></li>
-                <li><a href="https://www.youtube.com/user/markopticmx" target="_blank"><i class="fa fa-youtube-play fa-fw fa-2x"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCIh2HeU_uwMwDYnEw_IMvLQ" target="_blank"><i class="fa fa-youtube-play fa-fw fa-2x"></i></a></li>
                 <li><a href="https://plus.google.com/+FundacionMarkopticOrgMxAC" target="_blank"><i class="fa fa-google-plus-square fa-fw fa-2x" target="_blank"></i></a></li>
             </ul>
 
