@@ -60,38 +60,36 @@ foreach ($r_estados as $estado) {
 	$estados .= $estado["cantidadporestado"] ." son de ". $estado["nombre"] . "<br>";
 	}
 
+//consultas para mostrar los estados  y paises en el mapa ->>	
+
+$query_estados2 = mysqli_query($mysqli, "SELECT beneficiario_solicitud.estado, regiones.nombre, count(*) as cantidadporestado FROM `beneficiario_solicitud` inner join regiones on beneficiario_solicitud.estado = regiones.id where beneficiario_solicitud.pais= 42 group by estado order by cantidadporestado DESC;");
+while($r_estado2 = $query_estados2->fetch_array())
+{
+	$r_estados2[] = $r_estado2;
+}
+
+$estados2 = "";
+foreach ($r_estados2 as $estado2) {
+	$estados2 .= "['" .  $estado2["nombre"] . ", Mexico', 'Solicitudes: " . $estado2["cantidadporestado"] ."'],\n";
+	}
+
+$query_paises2 = mysqli_query($mysqli, "SELECT beneficiario_solicitud.pais, paises.nombre, count(*) as cantidadporpais FROM `beneficiario_solicitud` inner join paises on beneficiario_solicitud.pais = paises.id group by pais order by cantidadporpais DESC;");
+while($r_pais2 = $query_paises2->fetch_array())
+{
+	$r_paises2[] = $r_pais2;
+}
+
+$paises2 = "";
+foreach ($r_paises2 as $pais2) {
+	$paises2 .= "['" .  $pais2["nombre"] . "', " . $pais2["cantidadporpais"] ."],\n";
+	}
+
 
 
 
 $total = $num_od + $num_ca + $num_psi + $num_psd + $num_pii + $num_pid;
 $total_p =  $num_psi + $num_psd + $num_pii + $num_pid;
 
-
-
-$mensaje = "
-Total de solicitudes ".$total." <br>
-Divididos de la siguiente manera: <br>
-Colchón anti escaras ".$num_ca." <br>
-Otro dispositivo ".$num_od." <br> 
-Prótesis Total ".$total_p.", de las cuales están divididos de la siguiente manera: <br>
-Pierna derecha ".$num_pid." <br>
-Pierna izquierda ".$num_pii." <br>
-Brazo derecho ".$num_psd." <br>
-Brazo izquierdo ".$num_psi." <br>
-<br>
-Del total: <br>
-". $num_menores ." son menores <br>
-". $num_mayores ." son adultos <br>
-<br>
-".$num_mujeres." son mujeres <br>
-".$num_hombres." son hombres <br>
-<br>
-Divididos en los siguientes paises<br>"
-. $paises
-."<br>
-Y de los estados de Mexico de la siguiente manera: <br>
-".$estados."
-";
 
 ?>
 
