@@ -116,7 +116,7 @@
           ]);
 
           var options = {
-            colorAxis: {colors: ['#F05B6F', '#63C62F','#FF8D2C','#25AAE3','#FCCF14']},
+            colorAxis: {colors: ['#F05B6F','#25AAE3']},
           };
 
           var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
