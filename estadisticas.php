@@ -96,7 +96,7 @@
         function drawMap() {
           var data = google.visualization.arrayToDataTable([
             ['Ciudad',   'Solicitudes'],
-            <?php echo $estados2; ?>
+            <?php echo $estados; ?>
           ]);
 
           var options = {
@@ -112,7 +112,7 @@
 
           var data = google.visualization.arrayToDataTable([
             ['Pais', 'Solicitudes'],
-            <?php echo $paises2; ?>
+            <?php echo $paises; ?>
           ]);
 
           var options = {

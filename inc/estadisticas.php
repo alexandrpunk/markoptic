@@ -101,7 +101,7 @@ while($r_pais = $query_paises->fetch_array())
 
 $paises = "";
 foreach ($r_paises as $pais) {
-	$paises .= $pais["cantidadporpais"] ." son de ". $pais["nombre"] . "<br>";
+	$paises .= "['" .  $pais["nombre"] . "', " . $pais["cantidadporpais"] ."],\n";
 	}
 
 $query_estados = mysqli_query($mysqli, "SELECT beneficiario_solicitud.estado, regiones.nombre, count(*) as cantidadporestado FROM `beneficiario_solicitud` inner join regiones on beneficiario_solicitud.estado = regiones.id where beneficiario_solicitud.pais= 42 group by estado order by cantidadporestado DESC;");
@@ -112,7 +112,7 @@ while($r_estado = $query_estados->fetch_array())
 
 $estados = "";
 foreach ($r_estados as $estado) {
-	$estados .= $estado["cantidadporestado"] ." son de ". $estado["nombre"] . "<br>";
+	$estados .= "['" .  $estado["nombre"] . ", Mexico', 'Solicitudes: " . $estado["cantidadporestado"] ."'],\n";
 	}
 
 
