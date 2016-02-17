@@ -112,7 +112,7 @@ while($r_estado = $query_estados->fetch_array())
 
 $estados = "";
 foreach ($r_estados as $estado) {
-	$estados .= "['" .  $estado["nombre"] . ", Mexico', 'Solicitudes: " . $estado["cantidadporestado"] ."'],\n";
+	$estados .= "['" .  $estado["nombre"] . ", Mexico', '". $estado["nombre"].", Solicitudes: " . $estado["cantidadporestado"] ."'],\n";
 	}
 
 
