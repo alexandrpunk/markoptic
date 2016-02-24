@@ -10,8 +10,9 @@ function AbrirConexion() {
 }
 
 function Paises( ) {
-	$query = "SELECT id, nombre FROM paises";
+	$query = "SELECT id, nombre FROM paises order by nombre";
 	$link = AbrirConexion();
+	mysqli_set_charset($link, "utf8");
 	$paises = array();
 	
 	if($r = $link->query($query)){
@@ -31,6 +32,7 @@ function Paises( ) {
 function Estados($id_pais) {
 	$query = "SELECT id, id_pais, nombre FROM regiones WHERE id_pais = '".$id_pais."'";
 	$link = AbrirConexion();
+	mysqli_set_charset($link, "utf8");
 	$estados = array();
 	
 	if($r = $link->query($query)){
@@ -50,6 +52,7 @@ function Estados($id_pais) {
 function Localidades($id_estado) {
 	$query = "SELECT id, id_region, id_pais, nombre FROM localidades WHERE id_region = '".$id_estado."'";
 	$link = AbrirConexion();
+	mysqli_set_charset($link, "utf8");
 	$localidades = array();
 	
 	if($r = $link->query($query)){
