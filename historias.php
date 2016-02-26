@@ -55,6 +55,23 @@
                 <div class="panel panel-default panel-mark  animated fadeIn">
                     <div class="panel-heading panel-heading-mark" id="rosado">CONOCE A QUIENES NECESITAN TU APOYO</div>
                     <div  class="panel-body panel-body-mark">
+                    <cms:if k_is_page >
+                        <div class="row">
+                            <div class="col-md-3">
+                            <a href="<cms:show fotografia />" data-lightbox="image-1"><img class="img-thumbnail center-block" src="<cms:show fotografia_thumb />"></a>
+                            </div>
+                            <div class="col-md-9">
+                                    <div class="well">
+                                    <label class="txt-mark">Nombre:</label><p><strong><cms:show k_page_title /></strong></p>
+                                    <label class="txt-mark">Edad:</label><p><cms:show edad /></p>
+                                    <label class="txt-mark">Vive en:</label><p><cms:show vive /></p>
+                                    <label class="txt-mark">Necesidad:</label><p class="text-justify"><i><cms:show necesidad /></i></p>
+                                    </div>
+                                
+                            </div>
+                        </div> 
+                        
+                    <cms:else />                    
                     <cms:pages masterpage='historias.php' limit='10' paginate='1'>
                         <div class="row">
                             <div class="col-md-3">
@@ -80,9 +97,8 @@
                             <a class="btn btn-md btn-mark strong pull-left" href="<cms:show k_paginate_link_next />">publicaciones anteriores</a>
                         </cms:if>
                     </cms:if>
-
                     </cms:pages>
-
+                    </cms:if>
                   </div>
                 </div>
             </div>
