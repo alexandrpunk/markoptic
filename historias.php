@@ -5,25 +5,52 @@
                     desc='Edad del solicitante'
                     validator='non_negative_integer'
                     type='text'
+                    order='1'
     />
     
-    <cms:editable   name='vive'
-                    desc='donde vive'
+    <cms:editable   name='ciudad'
+                    desc='ciudad donde vive'
                     type='text'
+                    order='2'
     />
     
+    <cms:editable   name='estado'
+                    desc='estado donde vive'
+                    type='text'
+                    order='3'
+    />
     
+    <cms:editable   name='pais'
+                    desc='pais donde vive'
+                    type='text'
+                    order='4'
+    />
+    
+    <cms:editable   name='dispositivo'
+                    desc='Que dispositivo necesita'
+                    type='text'
+                    order='5'
+    />
+    
+    <cms:editable   name='descripcion'
+                    desc='descripcion del dispositivo solicitado'
+                    type='textarea'
+                    order='6'
+    />
+        
     <cms:editable   name='necesidad'
                     desc='Porque necesita la ayuda'
-                    type='text'
+                    type='textarea'
+                    order='7'
     />
-
+    
     <cms:editable   name='fotografia'
                     label='fotografia del solicitante'
                     desc='fotografia del solicitanten'
                     show_preview='1'
                     preview_height='200'
                     type='image'
+                    order='8'
     />
     
     <cms:editable   name="fotografia_thumb"
@@ -34,6 +61,7 @@
                     height='170'
                     crop='1'
                     type="thumbnail"
+                    order='9'
     />
 </cms:template>
 <?php require 'mod/head.php';?>
