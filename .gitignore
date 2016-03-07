@@ -2,3 +2,5 @@
 .htpasswd
 inc/db_config.php
 cms/config.php
+cms/uploads/
+adj-solicitudes/

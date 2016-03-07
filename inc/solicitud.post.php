@@ -186,6 +186,10 @@ if ($peticion == "Protesis") {
 					if (isset($_FILES['adjunto1']['name'])) {
 						if (!empty($_FILES['adjunto1']['name'])) {
 							$zip->addFile($_FILES['adjunto1']['tmp_name'], $_FILES['adjunto1']['name']);
+                            
+                            $path = $_FILES['adjunto1']['name'];
+                            $ext = pathinfo($path, PATHINFO_EXTENSION);
+                            move_uploaded_file($_FILES['adjunto1']['tmp_name'],'cms/uploads/'.$folio.'.'.$ext);
 						}
 					}
 					if (isset($_FILES['adjunto2']['name'])) {
