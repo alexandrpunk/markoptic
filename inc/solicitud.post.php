@@ -178,7 +178,7 @@ if ($peticion == "Protesis") {
 
 				if (tutor($dt)) {
 
-					$targetPath = "../adj-solicitudes/";
+					$targetPath = "adj-solicitudes/";
 					$zip_file = $targetPath . $folio . '.zip';
 					move_uploaded_file($folio, $targetPath);
 					$zip = new ZipArchive;
@@ -187,9 +187,11 @@ if ($peticion == "Protesis") {
 						if (!empty($_FILES['adjunto1']['name'])) {
 							$zip->addFile($_FILES['adjunto1']['tmp_name'], $_FILES['adjunto1']['name']);
                             
-                            $path = $_FILES['adjunto1']['name'];
-                            $ext = pathinfo($path, PATHINFO_EXTENSION);
-                            move_uploaded_file($_FILES['adjunto1']['tmp_name'],'cms/uploads/'.$folio.'.'.$ext);
+                            #Se guarda una copia de la primer fotografia subida para la publicacion de la historia automatica
+                            $convert = new Imagick($_FILES['adjunto1']['tmp_name']);
+                            $convert->setImageFormat('jpeg');
+                            $convert->writeImage( '../cms/uploads/image/'.$folio.'.jpg');
+
 						}
 					}
 					if (isset($_FILES['adjunto2']['name'])) {
@@ -207,7 +209,7 @@ if ($peticion == "Protesis") {
 					//if (file_exists($zip_file)) {
 				    	if(update_adj($zip_file,$id_solicitud)){
 				    		if (envioEmails($data)) {
-				    			header('Location: ../solicitud-concluida.php');
+				    			header('Location: solicitud-concluida');
 				    		}
 				    		else{
 				    			echo "error 1";
@@ -233,6 +235,13 @@ if ($peticion == "Protesis") {
 				if (isset($_FILES['adjunto1']['name'])) {
 					if (!empty($_FILES['adjunto1']['name'])) {
 						$zip->addFile($_FILES['adjunto1']['tmp_name'], $_FILES['adjunto1']['name']);
+                        
+                        #Se guarda una copia de la primer fotografia subida para la publicacion de la historia automatica
+                        $convert = new Imagick($_FILES['adjunto1']['tmp_name']);
+                        $convert->setImageFormat('jpeg');
+                        $convert->writeImage( '../cms/uploads/image/'.$folio.'.jpg');
+
+                        
 					}
 				}
 				if (isset($_FILES['adjunto2']['name'])) {
@@ -250,7 +259,7 @@ if ($peticion == "Protesis") {
 				//if (file_exists($zip_file)) {
 			    	if(update_adj($zip_file,$id_solicitud)){
 			    		if (envioEmails($data)) {
-			    			header('Location: ../solicitud-concluida.php');
+			    			header('Location: solicitud-concluida');
 			    		}
 			    		else{
 			    			echo "error 4";
@@ -450,7 +459,7 @@ else{
 
 			if (tutor($dt)) {
 
-				$targetPath = "../adj-solicitudes/";
+				$targetPath = "adj-solicitudes/";
 				$zip_file = $targetPath . $folio . '.zip';
 				move_uploaded_file($folio, $targetPath);
 				$zip = new ZipArchive;
@@ -458,6 +467,11 @@ else{
 				if (isset($_FILES['adjunto1']['name'])) {
 					if (!empty($_FILES['adjunto1']['name'])) {
 						$zip->addFile($_FILES['adjunto1']['tmp_name'], $_FILES['adjunto1']['name']);
+                        
+                        #Se guarda una copia de la primer fotografia subida para la publicacion de la historia automatica
+                        $convert = new Imagick($_FILES['adjunto1']['tmp_name']);
+                        $convert->setImageFormat('jpeg');
+                        $convert->writeImage( '../cms/uploads/image/'.$folio.'.jpg');
 					}
 				}
 				if (isset($_FILES['adjunto2']['name'])) {
@@ -475,7 +489,7 @@ else{
 				//if (file_exists($zip_file)) {
 			    	if(update_adj($zip_file,$id_solicitud)){
 			    		if (envioEmails($data)) {
-			    			header('Location: ../solicitud-concluida.php');
+			    			header('Location: solicitud-concluida');
 			    		}
 			    		else{
 			    			echo "error 1";
@@ -493,7 +507,7 @@ else{
 			}
 		}
 		else{
-			$targetPath = "../adj-solicitudes/";
+			$targetPath = "adj-solicitudes/";
 			$zip_file = $targetPath . $folio . '.zip';
 			move_uploaded_file($folio, $targetPath);
 			$zip = new ZipArchive;
@@ -501,6 +515,11 @@ else{
 			if (isset($_FILES['adjunto1']['name'])) {
 				if (!empty($_FILES['adjunto1']['name'])) {
 					$zip->addFile($_FILES['adjunto1']['tmp_name'], $_FILES['adjunto1']['name']);
+                    
+                        #Se guarda una copia de la primer fotografia subida para la publicacion de la historia automatica
+                        $convert = new Imagick($_FILES['adjunto1']['tmp_name']);
+                        $convert->setImageFormat('jpeg');
+                        $convert->writeImage( '../cms/uploads/image/'.$folio.'.jpg');
 				}
 			}
 			if (isset($_FILES['adjunto2']['name'])) {
@@ -518,7 +537,7 @@ else{
 			//if (file_exists($zip_file)) {
 		    	if(update_adj($zip_file,$id_solicitud)){
 		    		if (envioEmails($data)) {
-		    			header('Location: ../solicitud-concluida.php');
+		    			header('Location: solicitud-concluida');
 		    		}
 		    		else{
 		    			echo "error 4";

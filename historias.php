@@ -79,27 +79,32 @@
             <div class="col-md-9">
                 
                 <?php require 'mod/menu.php';?>
-                
+                <cms:if k_is_page >
                 <div class="panel panel-default panel-mark  animated fadeIn">
-                    <div class="panel-heading panel-heading-mark" id="rosado">CONOCE A QUIENES NECESITAN TU APOYO</div>
+                    <div class="panel-heading panel-heading-mark" id="rosado">CONOCE A: <cms:show k_page_title /></div>
                     <div  class="panel-body panel-body-mark">
-                    <cms:if k_is_page >
-                        <div class="row">
-                            <div class="col-md-3">
-                            <a href="<cms:show fotografia />" data-lightbox="image-1"><img class="img-thumbnail center-block" src="<cms:show fotografia_thumb />"></a>
-                            </div>
-                            <div class="col-md-9">
-                                    <div class="well">
+                        <div class="well sombra" style="margin:0;">
+                            <div class="row">
+                                <div class="col-md-3">
+                                <a href="<cms:show fotografia />" data-lightbox="image-1"><img class="img-thumbnail center-block sombra" src="<cms:show fotografia_thumb />"></a>
+                                </div>
+                                <div class="col-md-9">
                                     <label class="txt-mark">Nombre:</label><p><strong><cms:show k_page_title /></strong></p>
                                     <label class="txt-mark">Edad:</label><p><cms:show edad /></p>
-                                    <label class="txt-mark">Vive en:</label><p><cms:show vive /></p>
-                                    <label class="txt-mark">Necesidad:</label><p class="text-justify"><i><cms:show necesidad /></i></p>
-                                    </div>
-                                
+                                    <label class="txt-mark">Vive en:</label><p><cms:show ciudad />, <cms:show estado />, <cms:show pais/></p>
+                                    <label class="txt-mark">Solicito:</label><p class="text-justify"><i><cms:show dispositivo /></i></p>
+                                    <label class="txt-mark">Descripcion de su necesidad:</label><p class="text-justify"><i><cms:show descripcion /></i></p>
+                                    <label class="txt-mark">¿Por que lo necesita?:</label><p class="text-justify"><i><cms:show necesidad /></i></p>
+                                </div>
                             </div>
-                        </div> 
+                        </div>
+                    </div>
+                </div>
                         
-                    <cms:else />                    
+                    <cms:else />
+                    <div class="panel panel-default panel-mark  animated fadeIn">
+                    <div class="panel-heading panel-heading-mark" id="rosado">CONOCE A QUIENES NECESITAN TU APOYO</div>
+                    <div  class="panel-body panel-body-mark">                    
                     <cms:pages masterpage='historias.php' limit='10' paginate='1'>
                         <div class="row">
                             <div class="col-md-3">
@@ -119,16 +124,16 @@
                     
                     <cms:if k_paginated_bottom >
                         <cms:if k_paginate_link_prev >
-                            <a class="btn btn-md btn-mark pull-right" href="<cms:show k_paginate_link_prev />">publicaciones mas recientes</a>
+                            <a class="btn btn-md btn-mark pull-left" href="<cms:show k_paginate_link_prev />">publicaciones mas recientes</a>
                         </cms:if>
                         <cms:if k_paginate_link_next >
-                            <a class="btn btn-md btn-mark strong pull-left" href="<cms:show k_paginate_link_next />">publicaciones anteriores</a>
+                            <a class="btn btn-md btn-mark strong pull-right" href="<cms:show k_paginate_link_next />">publicaciones anteriores</a>
                         </cms:if>
                     </cms:if>
                     </cms:pages>
+                    </div>
+                    </div>
                     </cms:if>
-                  </div>
-                </div>
             </div>
 
                 <?php require 'mod/lateral.php';?>
