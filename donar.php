@@ -22,40 +22,41 @@
                     <img class="banerd center-block img-responsive" src="img/donar.svg">
                     <p class="text-center" style="margin-top:15px;">Agradecemos tu participación como donador, puedes seleccionar cualquiera de nuestras opciones y formar parte de esta gran causa.</p>
                     <div class="row text-center">
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                         <a class="don-a" href="#cheque" data-toggle="modal"><div class="don-btn"  id="verde">
-                        <img src="img/cheque.png">
-                        <p>Depósito en cheque</p>
-                        </div></a>                  
-                    </div>
-                        
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                        <a class="don-a" href="#transfer" data-toggle="modal"><div class="don-btn"  id="rosado">
-                        <img src="img/trasnferencia.png">
-                        <p>Transferencia Bancaria</p>
-                        </div></a> 
-                    </div>
-                        
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                        <a class="don-a" href="#efectivo" data-toggle="modal">
-                        <div class="don-btn"  id="naranja">
-                        <img src="img/deposito.png">
-                        <p>Depósito en efectivo</p>
-                        </div></a> 
-                    </div>
-                        
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                        <a class="don-a" href="#paypal" data-toggle="modal">
-                        <div class="don-btn"  id="cyan">
-                        <img src="img/paypal.png">
-                        <p>PayPal</p>
-                        </div></a>
-                    </div>
-                        
-                    </div>    
-                     <h3 style="margin:20px 5%;" class="text-center decor-donar"><span class="decor-span">¿Deseas tu recibo deducible de impuestos?</span></h3>
-                    <center><a class="btn btn-lg btn-success" href="recibo">Tramítalo aquí</a></center>
+                        <div class="col-md-3 col-sm-3 col-xs-6">
+                             <a class="don-a" href="#cheque" data-toggle="modal"><div class="don-btn"  id="verde">
+                            <img src="img/cheque.png">
+                            <p>Depósito en cheque</p>
+                            </div></a>                  
+                        </div>
+
+                        <div class="col-md-3 col-sm-3 col-xs-6">
+                            <a class="don-a" href="#transfer" data-toggle="modal"><div class="don-btn"  id="rosado">
+                            <img src="img/trasnferencia.png">
+                            <p>Transferencia Bancaria</p>
+                            </div></a> 
+                        </div>
+
+                        <div class="col-md-3 col-sm-3 col-xs-6">
+                            <a class="don-a" href="#efectivo" data-toggle="modal">
+                            <div class="don-btn"  id="naranja">
+                            <img src="img/deposito.png">
+                            <p>Depósito en efectivo</p>
+                            </div></a> 
+                        </div>
+
+                        <div class="col-md-3 col-sm-3 col-xs-6">
+                            <a class="don-a" href="#paypal" data-toggle="modal">
+                            <div class="don-btn"  id="cyan">
+                            <img src="img/paypal.png">
+                            <p>PayPal</p>
+                            </div></a>
+                        </div>
+                    </div> 
+                     <p class="text-center">Una ves hecho tu donativo tienes 2 opciones</p>
+                    <center><a class="btn btn-lg btn-primary" href="apadrinar">Apadrinar a un solicitante</a> <a class="btn btn-lg btn-success" href="recibo">Solicitar mi comprobante fiscal</a></center>
                      <p class="text-center" style="margin-top:15px;">"Unidos todos hacemos más. Tu donación desarrolla tecnología que transforma vidas".</p>
+                     
+                     
                     </div>
                 </div>     
             </div>

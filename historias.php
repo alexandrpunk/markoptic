@@ -85,10 +85,13 @@
                     <div  class="panel-body panel-body-mark">
                         <div class="well sombra" style="margin:0;">
                             <div class="row">
-                                <div class="col-md-3">
+                               
+                                <div class="col-md-3 col-sm-3">
                                 <a href="<cms:show fotografia />" data-lightbox="image-1"><img class="img-thumbnail center-block sombra" src="<cms:show fotografia_thumb />"></a>
+                                <a class="btn-pad" href="">apadrinar esta historia</a>
                                 </div>
-                                <div class="col-md-9">
+                                
+                                <div class="col-md-9 col-sm-9">
                                     <label class="txt-mark">Nombre:</label><p><strong><cms:show k_page_title /></strong></p>
                                     <label class="txt-mark">Edad:</label><p><cms:show edad /></p>
                                     <label class="txt-mark">Vive en:</label><p><cms:show ciudad />, <cms:show estado />, <cms:show pais/></p>
@@ -96,6 +99,7 @@
                                     <label class="txt-mark">Descripcion de su necesidad:</label><p class="text-justify"><i><cms:show descripcion /></i></p>
                                     <label class="txt-mark">¿Por que lo necesita?:</label><p class="text-justify"><i><cms:show necesidad /></i></p>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -107,10 +111,11 @@
                     <div  class="panel-body panel-body-mark">                    
                     <cms:pages masterpage='historias.php' limit='10' paginate='1'>
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-3 col-sm-3">
                             <a href="<cms:show fotografia />" data-lightbox="image-1"><img class="img-thumbnail center-block" src="<cms:show fotografia_thumb />"></a>
+                            <center><a  class="btn btn-default" href="">apadrinar</a></center>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-md-9 col-sm-9">
                                     <div class="well">
                                     <label class="txt-mark">Nombre:</label><p><strong><cms:show k_page_title /></strong></p>
                                     <label class="txt-mark">Edad:</label><p><cms:show edad /></p>
