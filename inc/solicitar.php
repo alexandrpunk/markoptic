@@ -32,15 +32,12 @@ if(isset($_POST['enviar']))
     
     	///------------validacion del captcha-------------
 
-	if(empty($_SESSION['captcha'] ) ||
-	  strcasecmp($_SESSION['captcha'], $_POST['captcha']) != 0)
-	{
+	if(empty($_SESSION['captcha'] ) || strcasecmp($_SESSION['captcha'], $_POST['captcha']) != 0){
 	//Note: the captcha code is compared case insensitively.
 	//if you want case sensitive match, update the check above to
 	// strcmp()
 		$errors .= "¡El codigo de verificacion no coincide!\n";
-	}
-    
+	}    
      
     if (is_uploaded_file($_FILES['comprobante']['tmp_name'])){
         if ($_FILES['comprobante']['size']>2097152){

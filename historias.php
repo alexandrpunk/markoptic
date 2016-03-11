@@ -83,12 +83,13 @@
                 <div class="panel panel-default panel-mark  animated fadeIn">
                     <div class="panel-heading panel-heading-mark" id="rosado">CONOCE A: <cms:show k_page_title /></div>
                     <div  class="panel-body panel-body-mark">
+                       
                         <div class="well sombra" style="margin:0;">
                             <div class="row">
                                
                                 <div class="col-md-3 col-sm-3">
                                 <a href="<cms:show fotografia />" data-lightbox="image-1"><img class="img-thumbnail center-block sombra" src="<cms:show fotografia_thumb />"></a>
-                                <a class="btn-pad" href="">apadrinar esta historia</a>
+                                <a href="" class="btn-pad" id='test' data-toggle="modal" OnClick="sethistoria('<cms:show k_page_id />')" data-target="#solicitar_email" >apadrinar esta historia</a>
                                 </div>
                                 
                                 <div class="col-md-9 col-sm-9">
@@ -101,7 +102,9 @@
                                 </div>
                                 
                             </div>
+                            
                         </div>
+                        
                     </div>
                 </div>
                         
@@ -113,7 +116,7 @@
                         <div class="row">
                             <div class="col-md-3 col-sm-3">
                             <a href="<cms:show fotografia />" data-lightbox="image-1"><img class="img-thumbnail center-block" src="<cms:show fotografia_thumb />"></a>
-                            <center><a  class="btn btn-default" href="">apadrinar</a></center>
+                            <a href="" class="btn-pad" id='test' data-toggle="modal" OnClick="sethistoria('<cms:show k_page_id />')" data-target="#solicitar_email" >apadrinar esta historia</a>
                             </div>
                             <div class="col-md-9 col-sm-9">
                                     <div class="well">
@@ -148,11 +151,41 @@
 
     
 <?php require 'mod/footer.php';?>
-    
-<?php require 'mod/modals.php';?>
+
+    <!-- moda de solicitud de email -->
+<div class="modal fade" id="solicitar_email" tabindex="-1" role="dialog" aria-labelledby="Correo electronico del padrino">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form id="apadrinar">
+            <input type="email" name="correo_padrino" id="correo_padrino" class="form-control" placeholder="Correo Electronico" required  maxlength="255">
+            <button type="submit" id="apadrinar" class="btn btn-mark" name="apadrinar"  OnClick="linkhistoria();"><strong>Apadrinar</strong></button>
+        </form>       
+        
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <?php require 'mod/scripts.php';?>
 <script src="js/lightbox.min.js"></script>
+
+    <script>
+
+        var id;
+        function sethistoria(id){
+            historia = id;
+        }
+
+        $('#apadrinar').submit(function(e){
+            e.preventDefault();
+            alert('apadrinar?ahijado='+historia+'&padrino='+document.getElementById('correo_padrino').value);
+            window.location.href = 'apadrinar?ahijado='+historia+'&padrino='+document.getElementById('correo_padrino').value;
+        });
+
+
+    </script>
     
 </body>
 </html>
