@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php require_once( 'cms/cms.php' ); ?>
 <cms:template title='Historias' clonable='1' order='2'>
       
@@ -70,7 +71,6 @@
 <body>
     
 <?php require 'mod/navbar.php';?>
-
     <div class="container">
         
         <?php require 'mod/header.php';?>
@@ -172,7 +172,6 @@
 <script src="js/lightbox.min.js"></script>
 
     <script>
-
         var id;
         function sethistoria(id){
             historia = id;
@@ -183,8 +182,14 @@
             alert('apadrinar?ahijado='+historia+'&padrino='+document.getElementById('correo_padrino').value);
             window.location.href = 'apadrinar?ahijado='+historia+'&padrino='+document.getElementById('correo_padrino').value;
         });
-
-
+        
+        <?php
+        if(isset($_SESSION['solicitante_no_valido'])){
+            echo 'alert("'.$_SESSION['solicitante_no_valido'].'");';
+            $_SESSION['solicitante_no_valido']=NULL;
+            
+        }
+        ?>      
     </script>
     
 </body>

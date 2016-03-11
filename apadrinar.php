@@ -3,38 +3,69 @@ require 'inc/solicitar.php';
 $title = 'Apadrinar';
 $telefono='';
 
-function validar_padrinos($email_padrino){
-
-//consulta para tratar de obtener los datos del padrino
-$con = mysqli_connect(SERVER, USER, PASS, DB);
-mysqli_set_charset ( $con , "utf8");
-
-if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error());}
-    
-    $sql = "select id from Padrinos where email = '".$email_padrino."';";
-    $result = $con->query($sql);
-    
-    if($result->num_rows > 0){
-        
-    }else{
-        echo " no se encontro el email";
-        echo $email_padrino;
-        echo '<br>Total results: ' . $result->num_rows;
-    }
-    
-}
-
 if(isset($_GET['ahijado']) && isset($_GET['padrino']) && $_GET['padrino']!= NULL &&  $_GET['ahijado']!= NULL){
-        $pagina_ahijado= $_GET['ahijado'];
-        $email_padrino= $_GET['padrino'];
         
-        validar_padrinos($email_padrino);
+        validar_ahijado($_GET['ahijado']);
+        validar_padrinos($_GET['padrino']);
     }
     else{
         header('Location:historias');
     }
 
+
+//revisa si el padrino ya esta registrado
+function validar_padrinos($email_padrino){
+$con = mysqli_connect(SERVER, USER, PASS, DB);
+mysqli_set_charset ( $con , "utf8");
+
+if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error());}
+    
+    $sql = "select * from Padrinos where email = '".$email_padrino."';";
+    $result = $con->query($sql);
+    
+    if($result->num_rows > 0){
+        echo 'registrado<br>';
+        $con->close();
+        print_r ($result);
+        // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "id: " . $row["id"]. " - Name: " . $row["nombre"]. " " . $row["email"]. "<br>";
+    }
+        return $existe = TRUE;
+        
+    }else{
+        echo 'no registrado';
+        $con->close();
+        return $existe = FALSE;
+    }
+    
+}
+
+function validar_ahijado($pagina_ahijado){
+$con = mysqli_connect(SERVER, USER, PASS, DB);
+mysqli_set_charset ( $con , "utf8");
+
+if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error());}
+    
+    $sql = "select id_page from solicitud where id_page = '".$pagina_ahijado."';";
+    $result = $con->query($sql);
+    
+    if($result->num_rows > 0){
+        echo 'ahijado valido<br>';
+        $con->close();
+        return $existe = TRUE;
+        
+    }else{
+        //al detectar que el ahijado no esta registrado en el sistema regresa al padrino a la pagina de historias con un mensaje
+        $con->close();
+        $_SESSION['solicitante_no_valido']='El solicitante que intenta apadrinar no es valido, intente de nuevo';
+        header('Location: /historias');   
+    }
+    
+}
 ;?>
+
+
 
 <?php require 'mod/head.php';?>
 
@@ -68,7 +99,7 @@ if(isset($_GET['ahijado']) && isset($_GET['padrino']) && $_GET['padrino']!= NULL
                             
                             <div class="form-group">
                                 <label for="email" data-toggle="tooltip" data-placement="right" title="E-mail al cual se enviara el recibo">Correo Electrónico</label>
-                                <input type="email" name="email" class="form-control" id="email" placeholder="Correo electrónico" required  maxlength="254" value='<?php echo htmlentities($email_padrino) ?>'>
+                                <input type="email" name="email" class="form-control" id="email" placeholder="Correo electrónico" required  maxlength="254" value='<?php echo htmlentities($_GET['padrino']) ?>'>
                             </div>
                                
                             <div class="form-group">

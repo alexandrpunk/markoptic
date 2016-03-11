@@ -74,7 +74,7 @@ if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error());}
 
 
 //se guarda la informacion
-$sql = "INSERT INTO Donativos (nombre,email,direccion,rfc,monto,referencia,comentario,comprobante) VALUES ('".$nombre."', '".$email."', '".$direccion."', '".$rfc."', '".$monto."', '".$referencia."', '".$comentario."', '".$file_name."');";
+$sql = "INSERT INTO Donativos (nombre,email,direccion,rfc,monto,referencia,comentario,doc_comprobacion) VALUES ('".$nombre."', '".$email."', '".$direccion."', '".$rfc."', '".$monto."', '".$referencia."', '".$comentario."', '".$file_name."');";
 
 
 $result = mysqli_query($con, $sql);
@@ -172,8 +172,7 @@ $cabeceras .= 'From: Donativo Fundacion Markoptic <donativo@fundacionmarkoptic.o
 // enviamos el correo!
 mail($email, $titulo, $mensaje, $cabeceras);
 mail('donativo@fundacionmarkoptic.org.mx', 'Se acaba de recibir un donativo', $info, $cabeceras);
-$valido= (bool)true;
-$_SESSION['valido']=$valido;
+$_SESSION['valido']=TRUE;
 header('Location: /gracias');   
         }
     }

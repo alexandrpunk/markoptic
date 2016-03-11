@@ -19,12 +19,12 @@
                 
                 <?php require 'mod/menu.php';?>
                 
-                                <?php
+                    <?php
                     if(!empty($errors)){
                     echo '<div class="alert alert-danger alert-dismissible fade in" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>'.nl2br($errors).'</strong></div>';
-                        
                     }
                 ?>
+                    
                   <div class="panel panel-default panel-mark animated fadeIn">
                     <div class="panel-heading panel-heading-mark" id="militar">Solicitud de Recibo Deducible de Impuestos</div>
                     <div class="panel-body panel-body-mark">    

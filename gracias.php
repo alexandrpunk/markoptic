@@ -3,7 +3,7 @@
 <cms:template title='Gracias' order='16'></cms:template>
 <?php
 if(!$_SESSION['valido']){
-    header('Location: /index');   
+    header('Location: /');   
 }
 ?>
 <?php require 'mod/head.php';?>
