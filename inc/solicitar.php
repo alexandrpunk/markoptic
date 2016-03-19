@@ -32,7 +32,8 @@ if(isset($_POST['enviar'])){
     if(filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
         $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     }else{$errors .="El Email n es valido\n";}
-    
+
+    $telefono = filter_var($_POST['telefono'], FILTER_SANITIZE_STRING);
     $direccion = filter_var($_POST['direccion'], FILTER_SANITIZE_STRING);
     $rfc = filter_var($_POST['rfc'], FILTER_SANITIZE_STRING);
     $monto = filter_var($_POST['monto'], FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
@@ -164,7 +165,6 @@ header('Location: /gracias');
     $metodo = $_POST['metodo'];
     $monto = filter_var($_POST['monto'], FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
     $referencia = filter_var($_POST['referencia'], FILTER_SANITIZE_NUMBER_INT);
-    $metodo = $_POST['metodo'];
     $comentario = filter_var($_POST['comentario'], FILTER_SANITIZE_STRING);
         
     }else{
@@ -179,8 +179,8 @@ header('Location: /gracias');
     $telefono = filter_var($_POST['telefono'], FILTER_SANITIZE_STRING);
     $direccion = filter_var($_POST['direccion'], FILTER_SANITIZE_STRING);
     $rfc = filter_var($_POST['rfc'], FILTER_SANITIZE_STRING);
+    $metodo = $_POST['metodo'];
     $monto = filter_var($_POST['monto'], FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
-    $referencia = filter_var($_POST['referencia'], FILTER_SANITIZE_NUMBER_INT);
     $referencia = filter_var($_POST['referencia'], FILTER_SANITIZE_NUMBER_INT);
     $comentario = filter_var($_POST['comentario'], FILTER_SANITIZE_STRING);
         
