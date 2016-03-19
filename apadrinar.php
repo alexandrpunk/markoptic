@@ -1,12 +1,20 @@
 <?php
 require 'inc/solicitar.php';
-$title = 'Apadrinar';
-$telefono='';
+$title = 'Apadrinar una historia';
+
 
 if(isset($_GET['ahijado']) && isset($_GET['padrino']) && $_GET['padrino']!= NULL &&  $_GET['ahijado']!= NULL){
         
         validar_ahijado($_GET['ahijado']);
-        validar_padrinos($_GET['padrino']);
+        $datos =  validar_padrinos($_GET['padrino']);
+        $nombre = $datos['nombre'];
+        $email = $datos['email'];
+        $rfc = $datos['rfc'];
+        $direccion = $datos['direccion'];
+        $telefono = $datos['telefono'];
+        $_SESSION ['ahijado'] = $_GET['ahijado'];
+        echo $_SESSION['id_donador'];
+    
     }
     else{
         header('Location:historias');
@@ -18,25 +26,29 @@ function validar_padrinos($email_padrino){
 $con = mysqli_connect(SERVER, USER, PASS, DB);
 mysqli_set_charset ( $con , "utf8");
 
-if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error());}
+if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error($con));}
     
-    $sql = "select * from Padrinos where email = '".$email_padrino."';";
+    $sql = "select * from Donadores where email = '".$email_padrino."';";
     $result = $con->query($sql);
     
     if($result->num_rows > 0){
         echo 'registrado<br>';
         $con->close();
-        print_r ($result);
-        // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["id"]. " - Name: " . $row["nombre"]. " " . $row["email"]. "<br>";
-    }
-        return $existe = TRUE;
+        $row = $result->fetch_assoc();
+        $nombre = $row["nombre"];
+        $email = $row["email"];
+        $telefono = $row["telefono"];
+        $rfc = $row["rfc"];
+        $direccion = $row["direccion"];
+        $_SESSION['id_donador'] = $row["id"];
+
+        
+        return array('existe' => TRUE,'nombre' => $nombre, 'email' => $email, 'rfc' => $rfc, 'direccion' => $direccion, 'telefono' => $telefono);
         
     }else{
         echo 'no registrado';
         $con->close();
-        return $existe = FALSE;
+        return array('existe' => FALSE,'nombre' => '', 'email' => $email_padrino, 'rfc' => '', 'direccion' => '', 'telefono' => '');
     }
     
 }
@@ -80,6 +92,7 @@ if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error());}
         <div class="row">
             <div class="col-md-9">
                 
+                
                 <?php require 'mod/menu.php';?>
                 
                     <?php
@@ -94,22 +107,22 @@ if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error());}
                      <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>"  method="POST" id="solicitud" class="news" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="nombre" data-toggle="tooltip" data-placement="right" title="Nombre completo de la persona o Razón Social a la cual se hará el recibo">Nombre o Razón Social del padrino</label>
-                                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre completo" required autofocus  maxlength="254" value='<?php echo htmlentities($nombre) ?>'>
+                                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre completo" required autofocus  maxlength="254" value='<?php echo htmlentities($nombre) ?>' <?php if($datos["existe"]){echo 'disabled';}?> >
                             </div>
                             
                             <div class="form-group">
                                 <label for="email" data-toggle="tooltip" data-placement="right" title="E-mail al cual se enviara el recibo">Correo Electrónico</label>
-                                <input type="email" name="email" class="form-control" id="email" placeholder="Correo electrónico" required  maxlength="254" value='<?php echo htmlentities($_GET['padrino']) ?>'>
+                                <input type="email" name="email" class="form-control" id="email" placeholder="Correo electrónico" required  maxlength="254" value='<?php echo htmlentities($email) ?>' <?php if($datos["existe"]){echo 'disabled';}?>>
                             </div>
                                
                             <div class="form-group">
                                 <label for="email" data-toggle="tooltip" data-placement="right" title="E-mail al cual se enviara el recibo">Telefono</label>
-                                <input type="tel" name="telefono" class="form-control" id="telefono" placeholder="Numero telefonico de contacto" required  maxlength="254" value='<?php echo htmlentities($telefono) ?>'>
+                                <input type="tel" name="telefono" class="form-control" id="telefono" placeholder="Numero telefonico de contacto" required  maxlength="254" value='<?php echo htmlentities($telefono) ?>' <?php if($datos["existe"]){echo 'disabled';}?>>
                             </div>
                             
                             <div class="form-group">
                                 <label for="direccion" data-toggle="tooltip" data-placement="right" title="Dirección Fiscal de facturación a la cual se hará el recibo">Domicilio</label>
-                                <textarea id="direccion" name="direccion" class="form-control" placeholder="Ingrese Calle, Número, Colonia, Código postal, Ciudad, Estado y País" required rows="4"><?php echo htmlentities($direccion) ?></textarea>
+                                <textarea id="direccion" name="direccion" class="form-control" placeholder="Ingrese Calle, Número, Colonia, Código postal, Ciudad, Estado y País" required rows="4" <?php if($datos["existe"]){echo 'disabled';}?>><?php echo htmlentities($direccion) ?></textarea>
                             </div>
                             
                             <div class="checkbox">
@@ -121,7 +134,7 @@ if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error());}
                             
                             <div class="form-group">
                                 <label for="rfc" data-toggle="tooltip" data-placement="right" title="Número del Registro Federal de Contribuyentes">R.F.C.</label>
-                                <input type="text" name="rfc" id="rfc" class="form-control" placeholder="Registro Federal del Contribuyente" required  maxlength="13" value='<?php echo htmlentities($rfc) ?>'>
+                                <input type="text" name="rfc" id="rfc" class="form-control" placeholder="Registro Federal del Contribuyente" required  maxlength="13" value='<?php echo htmlentities($rfc) ?>' <?php if($datos["existe"]){echo 'disabled';}?>>
                             </div>
                             
                             <div class="col-md-4 col-sm-4 zero">
@@ -143,7 +156,7 @@ if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error());}
                             
                             <div class="col-md-4 zero col-sm-4">
                                 <div class="form-group">
-                                <label for="referencia" data-toggle="tooltip" data-placement="right" title="Seleccione el motodo por el cual realizo su donativo">Metodo de pago</label>
+                                <label for="metodo" data-toggle="tooltip" data-placement="right" title="Seleccione el motodo por el cual realizo su donativo">Metodo de pago</label>
                                 <select class="form-control" name="metodo" class="form-control" id="metodo" placeholder="Metdo de pago" required value='<?php echo htmlentities($metodo) ?>'>
                                     <option value="1">Deposito</option>
                                     <option value="2">Transferencia bancaria</option>
@@ -158,8 +171,8 @@ if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error());}
                             </div>
                             
                             <div class="form-group">
-                                <label for="comprobante" data-toggle="tooltip" data-placement="right" title="Para hacer mas agil la solicitud de su recibo, puede adjuntarnos el comprobante de su deposito escaneado">Comprobante <small>(opcional)</small></label>
-                                <input type="file" name="comprobante">
+                                <label for="doc_comprobante" data-toggle="tooltip" data-placement="right" title="Para hacer mas agil la solicitud de su recibo, puede adjuntarnos el comprobante de su deposito escaneado">Comprobante <small>(opcional)</small></label>
+                                <input type="file" name="doc_comrpobante">
                             </div>
                             
                             <div class="form-group">
@@ -170,7 +183,7 @@ id="captchaimg" ></p>
                                 <small>¿No puedes leer la imagen? Haz click <a href='javascript: refreshCaptcha();'>aqui</a> Para refrescarla</small> <hr/>
                             </div>
 
-                              <button type="submit" id="enviar" class="btn btn-lg btn-mark center-block" name="enviar"><strong>Solicitar Recibo</strong></button>
+                              <button type="submit" id="apadrinar" class="btn btn-lg btn-mark center-block" name="apadrinar"><strong>Apadrinar</strong></button>
                         </form>
                     </div>
                 </div>     

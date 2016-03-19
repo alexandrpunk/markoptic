@@ -11,58 +11,37 @@ if(DEBUG == "true"){
     $errors = '';
     $nombre = '';
     $email = '';
+    $telefono='';
     $direccion = '';
+    $comprobante=0;
     $rfc = '';
     $monto = '';
     $referencia = '';
+    $metodo = '';
     $comentario = '';
-    $comprobante = '';
+    $comprobante_donativo = '';
 
-if(isset($_POST['enviar']))
-{
+
+if(isset($_POST['enviar'])){
+    
+    validar_formulario($_SESSION,$_POST);
     
     $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    
+    #se sanitiza y se valida el email
+    if(filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
+        $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    }else{$errors .="El Email n es valido\n";}
+    
     $direccion = filter_var($_POST['direccion'], FILTER_SANITIZE_STRING);
     $rfc = filter_var($_POST['rfc'], FILTER_SANITIZE_STRING);
     $monto = filter_var($_POST['monto'], FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
+    metodo = $_POST['metodo'];
     $referencia = filter_var($_POST['referencia'], FILTER_SANITIZE_NUMBER_INT);
     $comentario = filter_var($_POST['comentario'], FILTER_SANITIZE_STRING);
-
     
-    	///------------validacion del captcha-------------
 
-	if(empty($_SESSION['captcha'] ) || strcasecmp($_SESSION['captcha'], $_POST['captcha']) != 0){
-	//Note: the captcha code is compared case insensitively.
-	//if you want case sensitive match, update the check above to
-	// strcmp()
-		$errors .= "¡El codigo de verificacion no coincide!\n";
-	}    
-     
-    if (is_uploaded_file($_FILES['comprobante']['tmp_name'])){
-        if ($_FILES['comprobante']['size']>2097152){
-            $errors .="El archivo es mayor que 2Mb, debes reduzcirlo antes de subirlo\n";
-        }
-
-        $allowed =  array('gif','png' ,'jpg', 'pdf');
-        $filename = $_FILES['comprobante']['name'];
-        $ext = pathinfo($filename, PATHINFO_EXTENSION);
-        if(!in_array($ext,$allowed) ){
-             $errors .="Tu archivo tiene que ser .jpg, .png, .gif o .pdf. Otros archivos no son permitidos\n";
-        }
-
-        $file_name=date('dmYhis').'-'.$referencia.'-'.$rfc.'.'.$ext;
-        $add='files/comprobantes/'.$file_name;
-        if (empty($errors)){
-            if ((move_uploaded_file($_FILES['comprobante']['tmp_name'],$add))){
-
-            }else{
-               $errors .="Ocurrio un error durante la subida del documento vuelva a intentarlo";
-            }
-        }
-    }
-
-
+//se procesa y guarda la informacion del donativo
 if(empty($errors)){
     
 /* CONECTAR CON BASE DE DATOS ****************/
@@ -70,17 +49,16 @@ $con = mysqli_connect(SERVER, USER, PASS, DB);
 mysqli_set_charset ( $con , "utf8");
 
 
-if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error());}
+if ($con->connect_errno){die("ERROR DE CONEXION CON MYSQL:".  $con->connect_error);}
 
 
-//se guarda la informacion
-$sql = "INSERT INTO Donativos (nombre,email,direccion,rfc,monto,referencia,comentario,doc_comprobacion) VALUES ('".$nombre."', '".$email."', '".$direccion."', '".$rfc."', '".$monto."', '".$referencia."', '".$comentario."', '".$file_name."');";
+//se guarda la informacion del donativo
+$sql = "INSERT INTO Donativos (metodo, monto, referencia, comprobante_donativo, comprobante_fiscal, id_donador, comentario) VALUES (1, '".$monto."', '".$referencia."', '".$comprobante_donativo."', '".$comprobante."', 1, '".$comentario."');";
 
-
-$result = mysqli_query($con, $sql);
+$result = $con->query($sql) or die($con->error);
 
 if (! $result){
-echo "Hubo un error en la suscripcion.".mysql_error();
+echo "Hubo un error en la suscripcion.".$con->error;
 exit();
 }else {
     
@@ -176,6 +154,76 @@ $_SESSION['valido']=TRUE;
 header('Location: /gracias');   
         }
     }
+    
+}elseif(isset($_POST['apadrinar'])){
+    
+        
+    validar_formulario($_SESSION,$_POST);
+    
+    if(isset( $_SESSION['id_donador'])){
+    $metodo = $_POST['metodo'];
+    $monto = filter_var($_POST['monto'], FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
+    $referencia = filter_var($_POST['referencia'], FILTER_SANITIZE_NUMBER_INT);
+    $metodo = $_POST['metodo'];
+    $comentario = filter_var($_POST['comentario'], FILTER_SANITIZE_STRING);
+        
+    }else{
+        
+    $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
+        
+    #se sanitiza y se valida el email
+    if(filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
+        $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    }else{$errors .="El Email n es valido\n";}
+    
+    $telefono = filter_var($_POST['telefono'], FILTER_SANITIZE_STRING);
+    $direccion = filter_var($_POST['direccion'], FILTER_SANITIZE_STRING);
+    $rfc = filter_var($_POST['rfc'], FILTER_SANITIZE_STRING);
+    $monto = filter_var($_POST['monto'], FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
+    $referencia = filter_var($_POST['referencia'], FILTER_SANITIZE_NUMBER_INT);
+    $referencia = filter_var($_POST['referencia'], FILTER_SANITIZE_NUMBER_INT);
+    $comentario = filter_var($_POST['comentario'], FILTER_SANITIZE_STRING);
+        
+    }
+
+    
+
+}
+
+//revisa si el padrino ya esta registrado
+function validar_formulario($session, $post){
+
+	if(empty($session['captcha'] ) || strcasecmp($session['captcha'], $_POST['captcha']) != 0){
+	//Note: the captcha code is compared case insensitively.
+	//if you want case sensitive match, update the check above to
+	// strcmp()
+		$errors .= "¡El codigo de verificacion no coincide!\n";
+	}    
+     
+    if (is_uploaded_file($_FILES['comprobante']['tmp_name'])){
+        if ($_FILES['comprobante']['size']>2097152){
+            $errors .="El archivo es mayor que 2Mb, debes reduzcirlo antes de subirlo\n";
+        }
+
+        $allowed =  array('gif','png' ,'jpg', 'pdf');
+        $filename = $_FILES['comprobante']['name'];
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+        if(!in_array($ext,$allowed) ){
+             $errors .="Tu archivo tiene que ser .jpg, .png, .gif o .pdf. Otros archivos no son permitidos\n";
+        }
+
+        $file_name=date('dmYhis').'-'.$referencia.'-'.$rfc.'.'.$ext;
+        $add='files/comprobantes/'.$file_name;
+        if (empty($errors)){
+            if ((move_uploaded_file($_FILES['comprobante']['tmp_name'],$add))){
+
+            }else{
+               $errors .="Ocurrio un error durante la subida del documento vuelva a intentarlo\n";
+            }
+        }
+    }
+
+   return $errors; 
 }
 
 ?>

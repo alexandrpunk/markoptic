@@ -86,7 +86,7 @@ id="captchaimg" ></p>
                                 <small>¿No puedes leer la imagen? Haz click <a href='javascript: refreshCaptcha();'>aqui</a> Para refrescarla</small> <hr/>
                             </div>
 
-                              <button type="submit" id="enviar" class="btn btn-lg btn-mark center-block" name="enviar"><strong>Solicitar Recibo</strong></button>
+                              <button type="submit" id="solicitar" class="btn btn-lg btn-mark center-block" name="solicitar"><strong>Solicitar Recibo</strong></button>
                         </form>
 
                     </div>
