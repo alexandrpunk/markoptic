@@ -34,29 +34,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		$errors .= "¡El codigo de verificacion no coincide!\n";
 	}    
     
-    #se revisa si se subio algun documento para el comprobante de donativo y se revisa su tamaño
-    if (is_uploaded_file($_FILES['doc_comprobante']['tmp_name'])){
-        if ($_FILES['doc_comprobante']['size']>2097152){
-            $errors .="El archivo es mayor que 2Mb, debes reduzcirlo antes de subirlo\n";
-        }
-
-        $allowed =  array('gif','png' ,'jpg', 'pdf');
-        $filename = $_FILES['doc_comprobante']['name'];
-        $ext = pathinfo($filename, PATHINFO_EXTENSION);
-        if(!in_array($ext,$allowed) ){
-             $errors .="Tu archivo tiene que ser .jpg, .png, .gif o .pdf. Otros archivos no son permitidos\n";
-        }
-
-        $doc_comprobante=date('dmYhis').'-'.$_POST['referencia'].'-'.$_POST['rfc'].'.'.$ext;
-        $add='files/comprobantes/'.$doc_comprobante;
-        if (empty($errors)){
-            if (move_uploaded_file($_FILES['doc_comprobante']['tmp_name'],$add)){
-
-            }else{
-               $errors .="Ocurrio un error durante la subida del documento vuelva a intentarlo\n";
-            }
-        }
-    }
     
     /* CONECTAR CON BASE DE DATOS ****************/
     $con = mysqli_connect(SERVER, USER, PASS, DB);
@@ -70,6 +47,30 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $monto = filter_var($_POST['monto'], FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
     $referencia = filter_var($_POST['referencia'], FILTER_SANITIZE_NUMBER_INT);
     $comentario = filter_var($_POST['comentario'], FILTER_SANITIZE_STRING);
+        
+    #se revisa si se subio algun documento para el comprobante de donativo y se revisa su tamaño
+    if (is_uploaded_file($_FILES['doc_comprobante']['tmp_name'])){
+        if ($_FILES['doc_comprobante']['size']>2097152){
+            $errors .="El archivo es mayor que 2Mb, debes reduzcirlo antes de subirlo\n";
+        }
+        
+        #valida el formato del archivo
+        $allowed =  array('gif','png' ,'jpg', 'pdf');
+        $filename = $_FILES['doc_comprobante']['name'];
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+        if(!in_array($ext,$allowed) ){
+             $errors .="Tu archivo tiene que ser .jpg, .png, .gif o .pdf. Otros archivos no son permitidos\n";
+        }
+        
+        #se genera el nombre del archivo
+        $doc_comprobante=date('dmYhis').'-'.$_POST['referencia'].'-'.$_POST['rfc'].'.'.$ext;
+        $add='files/comprobantes/'.$doc_comprobante;#es la ruta donde se guardara ela rchivo
+        if (empty($errors)){
+            if (!move_uploaded_file($_FILES['doc_comprobante']['tmp_name'],$add)){ #se guarda el archivo
+               $errors .="Ocurrio un error durante la subida del documento vuelva a intentarlo\n";
+            }
+        }
+    }
     
     #se genera la consulta para guardar el donativo
     $sql = "INSERT INTO Donativos (metodo, monto, referencia, comprobante_donativo, comprobante_fiscal, id_donador, comentario) VALUES ('".$metodo.", '".$monto."', '".$referencia."', '".$doc_comprobante."', '".$comprobante."'," .$_SESSION['id_donador'].", '".$comentario."');";     
