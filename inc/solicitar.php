@@ -11,7 +11,7 @@ if(DEBUG == "true"){
     $errors = '';
     $nombre = '';
     $email = '';
-    $telefono='';
+    $telefono= '';
     $direccion = '';
     $comprobante=0;
     $rfc = '';
@@ -24,23 +24,48 @@ if(DEBUG == "true"){
 
 if(isset($_POST['enviar'])){
     
-    validar_formulario($_SESSION,$_POST);
     
     $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
     
     #se sanitiza y se valida el email
-    if(filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
-        $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    }else{$errors .="El Email n es valido\n";}
+    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+
 
     $telefono = filter_var($_POST['telefono'], FILTER_SANITIZE_STRING);
     $direccion = filter_var($_POST['direccion'], FILTER_SANITIZE_STRING);
     $rfc = filter_var($_POST['rfc'], FILTER_SANITIZE_STRING);
     $monto = filter_var($_POST['monto'], FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
-    metodo = $_POST['metodo'];
+    $metodo = $_POST['metodo'];
     $referencia = filter_var($_POST['referencia'], FILTER_SANITIZE_NUMBER_INT);
     $comentario = filter_var($_POST['comentario'], FILTER_SANITIZE_STRING);
+        
+}elseif(isset($_POST['apadrinar'])){
+        
+    if(isset( $_SESSION['id_donador'])){
+    $metodo = $_POST['metodo'];
+    $monto = filter_var($_POST['monto'], FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
+    $referencia = filter_var($_POST['referencia'], FILTER_SANITIZE_NUMBER_INT);
+    $comentario = filter_var($_POST['comentario'], FILTER_SANITIZE_STRING);
+        
+    }else{
+        
+    $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
+        
+    #se sanitiza y se valida el email
+    if(filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
+        $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    }else{$errors .="El Email n es valido\n";}
     
+    $telefono = filter_var($_POST['telefono'], FILTER_SANITIZE_STRING);
+    $direccion = filter_var($_POST['direccion'], FILTER_SANITIZE_STRING);
+    $rfc = filter_var($_POST['rfc'], FILTER_SANITIZE_STRING);
+    $metodo = $_POST['metodo'];
+    $monto = filter_var($_POST['monto'], FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
+    $referencia = filter_var($_POST['referencia'], FILTER_SANITIZE_NUMBER_INT);
+    $comentario = filter_var($_POST['comentario'], FILTER_SANITIZE_STRING);
+        
+    }
+$errors .= validar_formulario($errors,$_SESSION,$_POST);
 
 //se procesa y guarda la informacion del donativo
 if(empty($errors)){
@@ -48,7 +73,6 @@ if(empty($errors)){
 /* CONECTAR CON BASE DE DATOS ****************/
 $con = mysqli_connect(SERVER, USER, PASS, DB);
 mysqli_set_charset ( $con , "utf8");
-
 
 if ($con->connect_errno){die("ERROR DE CONEXION CON MYSQL:".  $con->connect_error);}
 
@@ -58,7 +82,7 @@ $sql = "INSERT INTO Donativos (metodo, monto, referencia, comprobante_donativo, 
 
 $result = $con->query($sql) or die($con->error);
 
-if (! $result){
+if (!$result){
 echo "Hubo un error en la suscripcion.".$con->error;
 exit();
 }else {
@@ -156,42 +180,13 @@ header('Location: /gracias');
         }
     }
     
-}elseif(isset($_POST['apadrinar'])){
-    
-        
-    validar_formulario($_SESSION,$_POST);
-    
-    if(isset( $_SESSION['id_donador'])){
-    $metodo = $_POST['metodo'];
-    $monto = filter_var($_POST['monto'], FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
-    $referencia = filter_var($_POST['referencia'], FILTER_SANITIZE_NUMBER_INT);
-    $comentario = filter_var($_POST['comentario'], FILTER_SANITIZE_STRING);
-        
-    }else{
-        
-    $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
-        
-    #se sanitiza y se valida el email
-    if(filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
-        $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    }else{$errors .="El Email n es valido\n";}
-    
-    $telefono = filter_var($_POST['telefono'], FILTER_SANITIZE_STRING);
-    $direccion = filter_var($_POST['direccion'], FILTER_SANITIZE_STRING);
-    $rfc = filter_var($_POST['rfc'], FILTER_SANITIZE_STRING);
-    $metodo = $_POST['metodo'];
-    $monto = filter_var($_POST['monto'], FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
-    $referencia = filter_var($_POST['referencia'], FILTER_SANITIZE_NUMBER_INT);
-    $comentario = filter_var($_POST['comentario'], FILTER_SANITIZE_STRING);
-        
-    }
-
-    
 
 }
 
+
+
 //revisa si el padrino ya esta registrado
-function validar_formulario($session, $post){
+function validar_formulario($errors,$session,$post){
 
 	if(empty($session['captcha'] ) || strcasecmp($session['captcha'], $_POST['captcha']) != 0){
 	//Note: the captcha code is compared case insensitively.
@@ -200,19 +195,19 @@ function validar_formulario($session, $post){
 		$errors .= "¡El codigo de verificacion no coincide!\n";
 	}    
      
-    if (is_uploaded_file($_FILES['comprobante']['tmp_name'])){
-        if ($_FILES['comprobante']['size']>2097152){
+    if (is_uploaded_file($_FILES['doc_comrpobante']['tmp_name'])){
+        if ($_FILES['doc_comrpobante']['size']>2097152){
             $errors .="El archivo es mayor que 2Mb, debes reduzcirlo antes de subirlo\n";
         }
 
         $allowed =  array('gif','png' ,'jpg', 'pdf');
-        $filename = $_FILES['comprobante']['name'];
+        $filename = $_FILES['doc_comrpobante']['name'];
         $ext = pathinfo($filename, PATHINFO_EXTENSION);
         if(!in_array($ext,$allowed) ){
              $errors .="Tu archivo tiene que ser .jpg, .png, .gif o .pdf. Otros archivos no son permitidos\n";
         }
 
-        $file_name=date('dmYhis').'-'.$referencia.'-'.$rfc.'.'.$ext;
+        $file_name=date('dmYhis').'-'.$_POST['referencia'].'-'.$_POST['rfc'].'.'.$ext;
         $add='files/comprobantes/'.$file_name;
         if (empty($errors)){
             if ((move_uploaded_file($_FILES['comprobante']['tmp_name'],$add))){

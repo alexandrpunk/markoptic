@@ -1,9 +1,123 @@
 <?php
-require 'inc/solicitar.php';
 $title = 'Apadrinar una historia';
 
+session_start();
+include ("inc/db_config.php");
 
-if(isset($_GET['ahijado']) && isset($_GET['padrino']) && $_GET['padrino']!= NULL &&  $_GET['ahijado']!= NULL){
+if(DEBUG == "true"){
+    ini_set('display_errors', 1);
+}else{
+    ini_set('display_errors', 0);
+}
+
+    $errors = '';
+    $nombre = '';
+    $email = '';
+    $telefono= '';
+    $direccion = '';
+    $comprobante=0;
+    $rfc = '';
+    $monto = '';
+    $referencia = '';
+    $metodo = '';
+    $comentario = '';
+    $doc_comprobante = '';
+
+#revisa si se esta enviando e formulario o si solo se visita la pagina para llenar la informacion
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    
+    #se comprueba si el cpatcha es valido
+    if(empty($session['captcha']) || strcasecmp($session['captcha'], $_POST['captcha']) != 0){
+	//Note: the captcha code is compared case insensitively.
+	//if you want case sensitive match, update the check above to
+	// strcmp()
+		$errors .= "¡El codigo de verificacion no coincide!\n";
+	}    
+    
+    #se revisa si se subio algun documento para el comprobante de donativo y se revisa su tamaño
+    if (is_uploaded_file($_FILES['doc_comprobante']['tmp_name'])){
+        if ($_FILES['doc_comprobante']['size']>2097152){
+            $errors .="El archivo es mayor que 2Mb, debes reduzcirlo antes de subirlo\n";
+        }
+
+        $allowed =  array('gif','png' ,'jpg', 'pdf');
+        $filename = $_FILES['doc_comprobante']['name'];
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+        if(!in_array($ext,$allowed) ){
+             $errors .="Tu archivo tiene que ser .jpg, .png, .gif o .pdf. Otros archivos no son permitidos\n";
+        }
+
+        $doc_comprobante=date('dmYhis').'-'.$_POST['referencia'].'-'.$_POST['rfc'].'.'.$ext;
+        $add='files/comprobantes/'.$doc_comprobante;
+        if (empty($errors)){
+            if (move_uploaded_file($_FILES['doc_comprobante']['tmp_name'],$add)){
+
+            }else{
+               $errors .="Ocurrio un error durante la subida del documento vuelva a intentarlo\n";
+            }
+        }
+    }
+    
+    /* CONECTAR CON BASE DE DATOS ****************/
+    $con = mysqli_connect(SERVER, USER, PASS, DB);
+    mysqli_set_charset ( $con , "utf8");
+    if ($con->connect_errno){die("ERROR DE CONEXION CON MYSQL: ".$con->connect_error);}
+    
+    #se revisa si es un donador existente o si es un donador nuevo
+    if(isset( $_SESSION['id_donador'])){
+    #donador existente
+    $metodo = $_POST['metodo'];
+    $monto = filter_var($_POST['monto'], FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
+    $referencia = filter_var($_POST['referencia'], FILTER_SANITIZE_NUMBER_INT);
+    $comentario = filter_var($_POST['comentario'], FILTER_SANITIZE_STRING);
+    
+    #se genera la consulta para guardar el donativo
+    $sql = "INSERT INTO Donativos (metodo, monto, referencia, comprobante_donativo, comprobante_fiscal, id_donador, comentario) VALUES ('".$metodo.", '".$monto."', '".$referencia."', '".$doc_comprobante."', '".$comprobante."'," .$_SESSION['id_donador'].", '".$comentario."');";     
+    
+    }
+    else{
+    #donador nuevo
+    $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
+        
+    #se sanitiza y se valida el email
+    if(filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
+        $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    }
+    else{$errors .="El Email n es valido\n";}
+        
+    $telefono = filter_var($_POST['telefono'], FILTER_SANITIZE_STRING);
+    $direccion = filter_var($_POST['direccion'], FILTER_SANITIZE_STRING);
+    $rfc = filter_var($_POST['rfc'], FILTER_SANITIZE_STRING);
+    $metodo = $_POST['metodo'];
+    $monto = filter_var($_POST['monto'], FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
+    $referencia = filter_var($_POST['referencia'], FILTER_SANITIZE_NUMBER_INT);
+    $comentario = filter_var($_POST['comentario'], FILTER_SANITIZE_STRING);
+    }
+        
+    if(empty($errors)){
+        
+        if(isset($_SESSION['id_donador'])){
+            
+        #se guarda el donativo
+        $con->query($sql) or die("Ocurrio un error al tratar de guardar el donativo: "$con->error);
+        $new_id= $con->insert_id; #se obtiene el id del donativo recien guardado
+        
+        #se crea la asociacion del donativo con la solicitud del beneficiario
+        $con->query("INSERT INTO Apadrinamientos (id_donativo, id_solicitud) VALUES ('".$new_id."', '".$_SESSION['id_solicitud']."');")
+             or die("Ocurrio un error al tratar de guardar el apadrinamiento: "$con->error);
+            
+        }
+         
+               
+    }
+
+    
+#header('Location: ' . $_SERVER['HTTP_REFERER']);
+#exit;
+}
+else{   
+        #se revisa  que enlace este correcto
+        if(isset($_GET['ahijado']) && isset($_GET['padrino']) && $_GET['padrino']!= NULL &&  $_GET['ahijado']!= NULL){
         
         validar_ahijado($_GET['ahijado']);
         $datos =  validar_padrinos($_GET['padrino']);
@@ -13,15 +127,15 @@ if(isset($_GET['ahijado']) && isset($_GET['padrino']) && $_GET['padrino']!= NULL
         $direccion = $datos['direccion'];
         $telefono = $datos['telefono'];
         $_SESSION ['ahijado'] = $_GET['ahijado'];
-        echo $_SESSION['id_donador'];
+        #echo $_SESSION['id_donador'];
     
     }
     else{
         header('Location:historias');
     }
+}
 
-
-//revisa si el padrino ya esta registrado
+//funcion que valida si existe el donador, si existe rescata su informacion de la base de datos
 function validar_padrinos($email_padrino){
 $con = mysqli_connect(SERVER, USER, PASS, DB);
 mysqli_set_charset ( $con , "utf8");
@@ -32,7 +146,7 @@ if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error($con));}
     $result = $con->query($sql);
     
     if($result->num_rows > 0){
-        echo 'registrado<br>';
+        #echo 'registrado<br>';
         $con->close();
         $row = $result->fetch_assoc();
         $nombre = $row["nombre"];
@@ -40,9 +154,11 @@ if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error($con));}
         $telefono = $row["telefono"];
         $rfc = $row["rfc"];
         $direccion = $row["direccion"];
+        
+        #se guarda el id del donador que ya esta registrado para poder usarlo despues
         $_SESSION['id_donador'] = $row["id"];
 
-        
+        #se regresan los datos del donador que ya estaba registrado
         return array('existe' => TRUE,'nombre' => $nombre, 'email' => $email, 'rfc' => $rfc, 'direccion' => $direccion, 'telefono' => $telefono);
         
     }else{
@@ -53,18 +169,21 @@ if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error($con));}
     
 }
 
+#revisa si el benificiario que quiere apadrinar existe
 function validar_ahijado($pagina_ahijado){
 $con = mysqli_connect(SERVER, USER, PASS, DB);
 mysqli_set_charset ( $con , "utf8");
 
 if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error());}
     
-    $sql = "select id_page from solicitud where id_page = '".$pagina_ahijado."';";
+    $sql = "select id from solicitud where id_page = '".$pagina_ahijado."';";
     $result = $con->query($sql);
+    $con->close();
     
     if($result->num_rows > 0){
-        echo 'ahijado valido<br>';
-        $con->close();
+        #se guarda el id de la solicitud que se va a apadrinar
+        $row = $result->fetch_assoc();
+        $_SESSION['id_solicitud'] = $row["id"];
         return $existe = TRUE;
         
     }else{
@@ -75,6 +194,8 @@ if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error());}
     }
     
 }
+
+
 ;?>
 
 
@@ -107,12 +228,12 @@ if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error());}
                      <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>"  method="POST" id="solicitud" class="news" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="nombre" data-toggle="tooltip" data-placement="right" title="Nombre completo de la persona o Razón Social a la cual se hará el recibo">Nombre o Razón Social del padrino</label>
-                                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre completo" required autofocus  maxlength="254" value='<?php echo htmlentities($nombre) ?>' <?php if($datos["existe"]){echo 'disabled';}?> >
+                                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre completo" required autofocus  maxlength="254" value='<?php echo htmlentities($nombre); ?>' <?php if($datos["existe"]){echo 'disabled';}?> >
                             </div>
                             
                             <div class="form-group">
                                 <label for="email" data-toggle="tooltip" data-placement="right" title="E-mail al cual se enviara el recibo">Correo Electrónico</label>
-                                <input type="email" name="email" class="form-control" id="email" placeholder="Correo electrónico" required  maxlength="254" value='<?php echo htmlentities($email) ?>' <?php if($datos["existe"]){echo 'disabled';}?>>
+                                <input type="email" name="email" class="form-control" id="email" placeholder="Correo electrónico" required  maxlength="254" value='<?php echo htmlentities($email); ?>' <?php if($datos["existe"]){echo 'disabled';}?>>
                             </div>
                                
                             <div class="form-group">
@@ -122,7 +243,7 @@ if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error());}
                             
                             <div class="form-group">
                                 <label for="direccion" data-toggle="tooltip" data-placement="right" title="Dirección Fiscal de facturación a la cual se hará el recibo">Domicilio</label>
-                                <textarea id="direccion" name="direccion" class="form-control" placeholder="Ingrese Calle, Número, Colonia, Código postal, Ciudad, Estado y País" required rows="4" <?php if($datos["existe"]){echo 'disabled';}?>><?php echo htmlentities($direccion) ?></textarea>
+                                <textarea id="direccion" name="direccion" class="form-control" placeholder="Ingrese Calle, Número, Colonia, Código postal, Ciudad, Estado y País" required rows="4" <?php if($datos["existe"]){echo 'disabled';}?>><?php echo htmlentities($direccion); ?></textarea>
                             </div>
                             
                             <div class="checkbox">
@@ -134,7 +255,7 @@ if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error());}
                             
                             <div class="form-group">
                                 <label for="rfc" data-toggle="tooltip" data-placement="right" title="Número del Registro Federal de Contribuyentes">R.F.C.</label>
-                                <input type="text" name="rfc" id="rfc" class="form-control" placeholder="Registro Federal del Contribuyente" required  maxlength="13" value='<?php echo htmlentities($rfc) ?>' <?php if($datos["existe"]){echo 'disabled';}?>>
+                                <input type="text" name="rfc" id="rfc" class="form-control" placeholder="Registro Federal del Contribuyente" required  maxlength="13" value='<?php echo htmlentities($rfc); ?>' <?php if($datos["existe"]){echo 'disabled';}?>>
                             </div>
                             
                             <div class="col-md-4 col-sm-4 zero">
@@ -142,7 +263,7 @@ if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error());}
                                 <label for="monto" data-toggle="tooltip" data-placement="right" title="Especifique el monto de su donativo en pesos mexicanos, en caso de ser en moneda extranjera especifíquela en el campo de comentarios">Monto del Donativo</label>
                                 <div class="input-group">
                                   <div class="input-group-addon">$</div>
-                                  <input type="number" name="monto" step="any" min="0" class="form-control" id="monto" placeholder="Monto del donativo" required value='<?php echo htmlentities($monto) ?>'>
+                                  <input type="number" name="monto" step="any" min="0" class="form-control" id="monto" placeholder="Monto del donativo" required value='<?php echo htmlentities($monto); ?>'>
                                 </div>
                                 </div>
                             </div>
@@ -172,7 +293,7 @@ if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error());}
                             
                             <div class="form-group">
                                 <label for="doc_comprobante" data-toggle="tooltip" data-placement="right" title="Para hacer mas agil la solicitud de su recibo, puede adjuntarnos el comprobante de su deposito escaneado">Comprobante <small>(opcional)</small></label>
-                                <input type="file" name="doc_comrpobante">
+                                <input type="file" name="doc_comprobante">
                             </div>
                             
                             <div class="form-group">

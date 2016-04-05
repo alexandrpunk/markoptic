@@ -870,7 +870,7 @@ margin: 0;
 
 .sbut{
     background: #31a463;
-    height: 100px;
+    min-height:  height: 100px;
     max-width: 235px;
     border-radius: 5px;
     padding: 10px;

@@ -1,10 +1,11 @@
-<?php session_start(); ?>
+<?php session_start();?>
 <?php require_once( 'cms/cms.php' ); ?>
 <cms:template title='Gracias' order='16'></cms:template>
 <?php
 if(!$_SESSION['valido']){
     header('Location: /');   
 }
+session_destroy();
 ?>
 <?php require 'mod/head.php';?>
 
