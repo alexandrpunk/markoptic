@@ -25,9 +25,9 @@ if(DEBUG == "true"){
 
 #revisa si se esta enviando e formulario o si solo se visita la pagina para llenar la informacion
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    
+
     #se comprueba si el cpatcha es valido
-    if(empty($session['captcha']) || strcasecmp($session['captcha'], $_POST['captcha']) != 0){
+    if(empty($_SESSION['captcha']) || strcasecmp($_SESSION['captcha'], $_POST['captcha']) != 0){
 	//Note: the captcha code is compared case insensitively.
 	//if you want case sensitive match, update the check above to
 	// strcmp()
@@ -41,7 +41,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if ($con->connect_errno){die("ERROR DE CONEXION CON MYSQL: ".$con->connect_error);}
     
     #se revisa si es un donador existente o si es un donador nuevo
-    if(isset( $_SESSION['id_donador'])){
+    if(isset($_SESSION['id_donador'])){
     #donador existente
     $metodo = $_POST['metodo'];
     $monto = filter_var($_POST['monto'], FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
@@ -58,7 +58,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $allowed =  array('gif','png' ,'jpg', 'pdf');
         $filename = $_FILES['doc_comprobante']['name'];
         $ext = pathinfo($filename, PATHINFO_EXTENSION);
-        if(!in_array($ext,$allowed) ){
+        if(!in_array($ext,$allowed)){
              $errors .="Tu archivo tiene que ser .jpg, .png, .gif o .pdf. Otros archivos no son permitidos\n";
         }
         
@@ -73,7 +73,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
     
     #se genera la consulta para guardar el donativo
-    $sql = "INSERT INTO Donativos (metodo, monto, referencia, comprobante_donativo, comprobante_fiscal, id_donador, comentario) VALUES ('".$metodo.", '".$monto."', '".$referencia."', '".$doc_comprobante."', '".$comprobante."'," .$_SESSION['id_donador'].", '".$comentario."');";     
+    $sql = "INSERT INTO Donativos (metodo, monto, referencia, comprobante_donativo, comprobante_fiscal, id_donador, comentario) VALUES ('".$metodo."', '".$monto."', '".$referencia."', '".$doc_comprobante."', '".$comprobante."', '" .$_SESSION['id_donador']."', '".$comentario."');";     
     
     }
     else{
@@ -97,15 +97,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         
     if(empty($errors)){
         
-        if(isset($_SESSION['id_donador'])){
+        if(!empty($_SESSION['id_donador'])){
             
         #se guarda el donativo
-        $con->query($sql) or die("Ocurrio un error al tratar de guardar el donativo: "$con->error);
+        $con->query($sql) or die("Ocurrio un error al tratar de guardar el donativo: ".$con->error);
         $new_id= $con->insert_id; #se obtiene el id del donativo recien guardado
         
         #se crea la asociacion del donativo con la solicitud del beneficiario
-        $con->query("INSERT INTO Apadrinamientos (id_donativo, id_solicitud) VALUES ('".$new_id."', '".$_SESSION['id_solicitud']."');")
-             or die("Ocurrio un error al tratar de guardar el apadrinamiento: "$con->error);
+       $con->query("INSERT INTO Apadrinamientos (id_donativo, id_solicitud) VALUES ('".$new_id."', '".$_SESSION['id_solicitud']."');")
+            or die("Ocurrio un error al tratar de guardar el apadrinamiento: ".$con->error);
             
         }
          
@@ -118,7 +118,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 }
 else{   
         #se revisa  que enlace este correcto
-        if(isset($_GET['ahijado']) && isset($_GET['padrino']) && $_GET['padrino']!= NULL &&  $_GET['ahijado']!= NULL){
+        if(!empty($_GET['padrino']) && !empty($_GET['ahijado'])){
         
         validar_ahijado($_GET['ahijado']);
         $datos =  validar_padrinos($_GET['padrino']);
@@ -131,8 +131,10 @@ else{
         #echo $_SESSION['id_donador'];
     
     }
-    else{
-        header('Location:historias');
+    elseif(empty($_GET['padrino']) && empty($_GET['ahijado'])){
+
+    }else{
+                header('Location:historias');
     }
 }
 
