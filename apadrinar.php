@@ -16,12 +16,13 @@ if(DEBUG == "true"){
     $telefono= '';
     $direccion = '';
     $comprobante=0;
-    $rfc = '';
+    $rfc = '1';
     $monto = '';
     $referencia = '';
     $metodo = '';
     $comentario = '';
     $doc_comprobante = '';
+    
 
 #revisa si se esta enviando e formulario o si solo se visita la pagina para llenar la informacion
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -41,8 +42,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if ($con->connect_errno){die("ERROR DE CONEXION CON MYSQL: ".$con->connect_error);}
     
     #se revisa si es un donador existente o si es un donador nuevo
-    if(isset($_SESSION['id_donador'])){
+    if(!empty($_SESSION['id_donador'])){
     #donador existente
+    $comprobante=$_POST['comprobante'];
     $metodo = $_POST['metodo'];
     $monto = filter_var($_POST['monto'], FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
     $referencia = filter_var($_POST['referencia'], FILTER_SANITIZE_NUMBER_INT);
@@ -73,26 +75,52 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
     
     #se genera la consulta para guardar el donativo
-    $sql = "INSERT INTO Donativos (metodo, monto, referencia, comprobante_donativo, comprobante_fiscal, id_donador, comentario) VALUES ('".$metodo."', '".$monto."', '".$referencia."', '".$doc_comprobante."', '".$comprobante."', '" .$_SESSION['id_donador']."', '".$comentario."');";     
-    
-    }
-    else{
+    $sql = "INSERT INTO Donativos (metodo, monto, referencia, comprobante_donativo, comprobante_fiscal, id_donador, comentario) VALUES ('".$metodo."', '".$monto."', '".$referencia."', '".$doc_comprobante."', ".$comprobante.", '" .$_SESSION['id_donador']."', '".$comentario."');";
+        
+    }else{
     #donador nuevo
     $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
         
     #se sanitiza y se valida el email
     if(filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
         $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    }
-    else{$errors .="El Email n es valido\n";}
+    }else{$errors .="El Email n es valido\n";}
         
     $telefono = filter_var($_POST['telefono'], FILTER_SANITIZE_STRING);
     $direccion = filter_var($_POST['direccion'], FILTER_SANITIZE_STRING);
     $rfc = filter_var($_POST['rfc'], FILTER_SANITIZE_STRING);
+    $comprobante=$_POST['comprobante'];
     $metodo = $_POST['metodo'];
     $monto = filter_var($_POST['monto'], FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
     $referencia = filter_var($_POST['referencia'], FILTER_SANITIZE_NUMBER_INT);
     $comentario = filter_var($_POST['comentario'], FILTER_SANITIZE_STRING);
+              
+    #se revisa si se subio algun documento para el comprobante de donativo y se revisa su tamaño
+    if (is_uploaded_file($_FILES['doc_comprobante']['tmp_name'])){
+        if ($_FILES['doc_comprobante']['size']>2097152){
+            $errors .="El archivo es mayor que 2Mb, debes reduzcirlo antes de subirlo\n";
+        }
+        
+        #valida el formato del archivo
+        $allowed =  array('gif','png' ,'jpg', 'pdf');
+        $filename = $_FILES['doc_comprobante']['name'];
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+        if(!in_array($ext,$allowed)){
+             $errors .="Tu archivo tiene que ser .jpg, .png, .gif o .pdf. Otros archivos no son permitidos\n";
+        }
+        
+        #se genera el nombre del archivo
+        $doc_comprobante=date('dmYhis').'-'.$_POST['referencia'].'-'.$_POST['rfc'].'.'.$ext;
+        $add='files/comprobantes/'.$doc_comprobante;#es la ruta donde se guardara ela rchivo
+        if (empty($errors)){
+            if (!move_uploaded_file($_FILES['doc_comprobante']['tmp_name'],$add)){ #se guarda el archivo
+               $errors .="Ocurrio un error durante la subida del documento vuelva a intentarlo\n";
+            }
+        }
+    }
+    
+    #se generan la consulta para guardar el donador
+    $sql = "INSERT INTO Donadores (nombre, email, telefono, rfc, direccion) VALUES ('".$nombre."', '".$email."', '".$telefono."', '".$rfc."', '".$direccion."');";
     }
         
     if(empty($errors)){
@@ -106,7 +134,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         #se crea la asociacion del donativo con la solicitud del beneficiario
        $con->query("INSERT INTO Apadrinamientos (id_donativo, id_solicitud) VALUES ('".$new_id."', '".$_SESSION['id_solicitud']."');")
             or die("Ocurrio un error al tratar de guardar el apadrinamiento: ".$con->error);
+        $_SESSION['id_donador']='';
             
+        }else{            
+        #se guarda el donador
+        $con->query($sql) or die("Ocurrio un error al tratar de guardar los datos del donador: ".$con->error);
+        $new_id= $con->insert_id; #se obtiene el id del donador recien guardado
+            
+        #se guarda el donativo
+       $con->query("INSERT INTO Donativos (metodo, monto, referencia, comprobante_donativo, comprobante_fiscal, id_donador, comentario) VALUES ('".$metodo."', '".$monto."', '".$referencia."', '".$doc_comprobante."', ".$comprobante.", '" .$new_id."', '".$comentario."');")
+            or die("Ocurrio un error al tratar de guardar el donativo: ".$con->error);
+        $new_id= $con->insert_id; #se obtiene el id del donativo recien guardado
+        
+        #se crea la asociacion del donativo con la solicitud del beneficiario
+       $con->query("INSERT INTO Apadrinamientos (id_donativo, id_solicitud) VALUES ('".$new_id."', '".$_SESSION['id_solicitud']."');")
+            or die("Ocurrio un error al tratar de guardar el apadrinamiento: ".$con->error);
         }
          
                
@@ -165,7 +207,6 @@ if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error($con));}
         return array('existe' => TRUE,'nombre' => $nombre, 'email' => $email, 'rfc' => $rfc, 'direccion' => $direccion, 'telefono' => $telefono);
         
     }else{
-        echo 'no registrado';
         $con->close();
         return array('existe' => FALSE,'nombre' => '', 'email' => $email_padrino, 'rfc' => '', 'direccion' => '', 'telefono' => '');
     }
@@ -231,26 +272,27 @@ if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error());}
                      <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>"  method="POST" id="solicitud" class="news" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="nombre" data-toggle="tooltip" data-placement="right" title="Nombre completo de la persona o Razón Social a la cual se hará el recibo">Nombre o Razón Social del padrino</label>
-                                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre completo" required autofocus  maxlength="254" value='<?php echo htmlentities($nombre); ?>' <?php if($datos["existe"]){echo 'disabled';}?> >
+                                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre completo" required autofocus  maxlength="254" value='<?php echo htmlentities($nombre); ?>' <?php if($datos["existe"]){echo 'readonly';}?> >
                             </div>
                             
                             <div class="form-group">
                                 <label for="email" data-toggle="tooltip" data-placement="right" title="E-mail al cual se enviara el recibo">Correo Electrónico</label>
-                                <input type="email" name="email" class="form-control" id="email" placeholder="Correo electrónico" required  maxlength="254" value='<?php echo htmlentities($email); ?>' <?php if($datos["existe"]){echo 'disabled';}?>>
+                                <input type="email" name="email" class="form-control" id="email" placeholder="Correo electrónico" required  maxlength="254" value='<?php echo htmlentities($email); ?>' <?php if($datos["existe"]){echo 'readonly';}?>>
                             </div>
                                
                             <div class="form-group">
                                 <label for="email" data-toggle="tooltip" data-placement="right" title="E-mail al cual se enviara el recibo">Telefono</label>
-                                <input type="tel" name="telefono" class="form-control" id="telefono" placeholder="Numero telefonico de contacto" required  maxlength="254" value='<?php echo htmlentities($telefono) ?>' <?php if($datos["existe"]){echo 'disabled';}?>>
+                                <input type="tel" name="telefono" class="form-control" id="telefono" placeholder="Numero telefonico de contacto" required  maxlength="254" value='<?php echo htmlentities($telefono) ?>' <?php if($datos["existe"]){echo 'readonly';}?>>
                             </div>
                             
                             <div class="form-group">
                                 <label for="direccion" data-toggle="tooltip" data-placement="right" title="Dirección Fiscal de facturación a la cual se hará el recibo">Domicilio</label>
-                                <textarea id="direccion" name="direccion" class="form-control" placeholder="Ingrese Calle, Número, Colonia, Código postal, Ciudad, Estado y País" required rows="4" <?php if($datos["existe"]){echo 'disabled';}?>><?php echo htmlentities($direccion); ?></textarea>
+                                <textarea id="direccion" name="direccion" class="form-control" placeholder="Ingrese Calle, Número, Colonia, Código postal, Ciudad, Estado y País" required rows="4" <?php if($datos["existe"]){echo 'readonly';}?>><?php echo htmlentities($direccion); ?></textarea>
                             </div>
                             
                             <div class="checkbox">
                               <label>
+                              <input name="comprobante" type="hidden" value="0" />
                                <input name="comprobante" id="comprobante" type="checkbox" value="1">
                                      <strong>Selecciones esta casilla si desea un recibo deducible de impuestos</strong>
                               </label>
@@ -258,7 +300,7 @@ if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error());}
                             
                             <div class="form-group">
                                 <label for="rfc" data-toggle="tooltip" data-placement="right" title="Número del Registro Federal de Contribuyentes">R.F.C.</label>
-                                <input type="text" name="rfc" id="rfc" class="form-control" placeholder="Registro Federal del Contribuyente" required  maxlength="13" value='<?php echo htmlentities($rfc); ?>' <?php if($datos["existe"]){echo 'disabled';}?>>
+                                <input type="text" name="rfc" id="rfc" class="form-control" placeholder="Registro Federal del Contribuyente" required  maxlength="13" value='<?php echo htmlentities($rfc); ?>' <?php if($datos["existe"]){echo 'readonly';}?>>
                             </div>
                             
                             <div class="col-md-4 col-sm-4 zero">
