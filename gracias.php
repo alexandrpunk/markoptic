@@ -2,7 +2,7 @@
 <?php require_once( 'cms/cms.php' ); ?>
 <cms:template title='Gracias' order='16'></cms:template>
 <?php
-if(!$_SESSION['valido']){
+if(!$_SESSION['donativo_valido']){
     header('Location: /');   
 }
 session_destroy();

@@ -53,7 +53,10 @@
                         </div>
                     </div> 
                      <p class="text-center">Una ves hecho tu donativo tienes 2 opciones</p>
-                    <center><a class="btn btn-lg btn-primary" href="apadrinar">Apadrinar a un solicitante</a> <a class="btn btn-lg btn-success" href="recibo">Solicitar mi comprobante fiscal</a></center>
+                    <center>
+                    <a class="btn btn-lg btn-primary" href="historias"><strong>Apadrinar a un solicitante</strong></a>
+                    <a class="btn btn-lg btn-success" data-toggle="modal" OnClick="sethistoria('<cms:show k_page_id />')" data-target="#solicitar_email"><strong>Solicitar mi comprobante fiscal</strong></a>
+                    </center>
                      <p class="text-center" style="margin-top:15px;">"Unidos todos hacemos más. Tu donación desarrolla tecnología que transforma vidas".</p>
                      
                      
@@ -70,9 +73,25 @@
 <?php require 'mod/footer.php';?>
     
 <?php require 'mod/mmodal.php';?>
+
+<!-- moda de solicitud de email -->
+<div class="modal fade" id="solicitar_email" tabindex="-1" role="dialog" aria-labelledby="Correo electronico del padrino">
+    <div class="modal-dialog modal-content" role="document">
+     <div class="modal-header"><strong>Solicitar Recibo deducible de impuestos</strong></div>
+      <div class="modal-body">
+        <form id="donar">
+           <p class="news" style="margin-top:0;">Para solicitar tu recibo deducible primero debes ingresar tu correo electronico.</p>
+            <input onload="focusOnInput()" type="email" name="correo_donador" id="correo_donador" class="form-control" placeholder="Correo Electronico" required  maxlength="255" autofocus>
+            <button type="submit" id="donar" class="btn btn-mark" style="margin-top:10px;" name="donar"><strong>Apadrinar esta historia</strong></button>
+        </form>       
+      </div>
+    </div>
+</div>
     
 <?php require 'mod/scripts.php';?>
-    
+
+<script src="js/donar.js"></script>
+
 </body>
 </html>
 <?php COUCH::invoke(); ?>
