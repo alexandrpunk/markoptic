@@ -21,19 +21,18 @@ $paises = Paises();
                 <?php require 'mod/menu.php';?>
                 
                   <div class="panel panel-default panel-mark animated fadeIn">
-                    <div class="panel-heading panel-heading-mark" id="rosado">Cuentanos tu Necesidad</div>
+                    <div class="panel-heading panel-heading-mark" id="rosado">Otro Dispositivo</div>
                     <div class="panel-body panel-body-mark">    
                         <form method="POST" action="inc/solicitud.post.php" enctype="multipart/form-data" onsubmit="return funcionEnviar()">
 
                         <input type="hidden" name="peticion" value="Otro Dispositivo">
                         <!--seccion donde selecciona la ayuda-->
                         <div class="" id="form-solicitud-seccion1">
-                            <h3 style="margin:20px 5%;" class="text-center decor-donar"><span class="decor-span">¿CON QUE TE PODEMOS AYUDAR?</span></h3>
                             <div class="form-horizontal">
                                 <div class="col-sm-12">
                                     <div class="form-group">
-                                        <label for="peticion">Describe Tu Necesidad</label>
-                                        <textarea type="textarea" class="form-control" id="descripcion" name="descripcion" placeholder="Describe tu necesidad.." rows="3"></textarea>
+                                        <label for="peticion">Describe El Dispositivo</label>
+                                        <textarea type="textarea" class="form-control" id="descripcion" name="descripcion" placeholder="Describe el dispositivo.." rows="3"></textarea>
                                     </div>
                                 </div>
 
@@ -43,8 +42,18 @@ $paises = Paises();
                                         <textarea type="textarea" class="form-control" id="porque" name="porque" placeholder="Como mejoraria tu calidad de vida.." rows="3"></textarea>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <center><a class="btn btn-lg btn-success" id="btn-cont-ss1">Continuar</a></center>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                    </div>
+                                    <div class="col-sm-3">
+                                        
+                                        <center><a type="button" class="btn btn-lg btn-primary btn-form" href="javascript:window.history.go(-1);">Volver</a></center>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <center><a class="btn btn-lg btn-success btn-form" id="btn-cont-ss1">Continuar</a></center>
+                                    </div>
+                                    <div class="col-sm-3">
+                                    </div>
                                 </div>
                             </div>
                         </div>

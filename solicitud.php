@@ -36,6 +36,7 @@ $paises = Paises();
                                             <option value="">Seleccioné Una Opción</option>
                                             <option value="Protesis">Prótesis</option>
                                             <option value="Colchon Antiescaras">Colchón Anti-escaras</option>
+                                            <option value="Otro Dispositivo">Otro Dispositivo</option>
                                         </select>
                                     </div>
                                 </div>
@@ -73,13 +74,7 @@ $paises = Paises();
                                     <center><a class="btn btn-lg btn-success" id="btn-cont-ss1">Continuar</a></center>
                                 </div>
                             </div>
-                            <h3 style="margin:50px 5% 20px 5%;" class="text-center decor-donar"><span class="decor-span">¿TIENES UNA NECESIDAD DIFERENTE?</span></h3>
-                            <div class="form-horizontal">
-                                <div class="form-group">
-                                    <center><a  href="#" data-toggle="modal" data-target="#solicitud_necesidad" class="btn btn-lg btn-success" id="">Cuéntanos</a></center>
-                                </div>
-                            </div>
-                            <hr/>
+                            
                             <p class="text-center"><strong>¿Tienes dudas de como llenar nuestro formulario? Puedes ver el videotutorial de como hacerlo <a href="https://www.youtube.com/watch?v=7HLG39tYBH8" target="_blank">aqui</a></strong></p>
                         </div>
 
@@ -504,15 +499,14 @@ Fundación Markoptic A.C. iniciará un proceso de estudio de la solicitud y se c
     <div class="modal-content">
       <div class="modal-header modal-mark modal-magenta">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="noticia3">¿TIENES UNA NECESIDAD DIFERENTE?</h4>
+        <h4 class="modal-title" id="noticia3">OTRO DISPOSITIVO</h4>
       </div>
         <div class="modal-body">
         <p class="news text-justify">Este espacio está dedicado para que nos platiques cómo el desarrollo de un nuevo dispositivo tecnológico puede mejorar tu calidad de vida.</p>
         <p class="news text-justify">En Fundación Markoptic A.C., desarrollamos nuevas tecnologías para personas con discapacidad motriz, por lo que no hacemos donaciones de medicinas, implantes, material terapéutico, prótesis internas, o dispositivos existentes comercialmente..</p>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-            <a type="button" class="btn btn-primary" href="solicitud_necesidad">Aceptar</a>
+            <a type="button" class="btn btn-primary btn-aceptar" data-dismiss="modal">Aceptar</a>
         </div>
     </div>
   </div>
