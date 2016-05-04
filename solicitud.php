@@ -36,7 +36,7 @@ $paises = Paises();
                                             <option value="">Seleccioné Una Opción</option>
                                             <option value="Protesis">Prótesis</option>
                                             <option value="Colchon Antiescaras">Colchón Anti-escaras</option>
-                                            <option value="Otro Dispositivo">Otro Dispositivo</option>
+                                            <!--<option value="Otro Dispositivo">Otro Dispositivo</option>-->
                                         </select>
                                     </div>
                                 </div>
