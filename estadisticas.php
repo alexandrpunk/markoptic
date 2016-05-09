@@ -69,8 +69,7 @@
             ['Protesis Inferior Izquierda',      <?php echo $num_pii; ?>, 'color: #FCCF14'],
             ['Protesis Superior Derecha',  <?php echo $num_psd; ?>, 'color: #25AAE3'],
             ['Protesis Superior Izquierda', <?php echo $num_psi; ?>, 'color: #63C62F'],
-            ['Colchon Antiescaras', <?php echo $num_ca; ?>, 'color: #F05B6F'],
-            ['Otros Dispositivos',    <?php echo $num_od; ?>, 'color: #FF8D2C']
+            ['Colchon Antiescaras', <?php echo $num_ca; ?>, 'color: #F05B6F']
           ]);
 
 

@@ -5,13 +5,13 @@ $mysqli = mysqli_connect(SERVER, USER, PASS, DB);
 
 mysqli_set_charset($mysqli, "utf8");
 
-$query_od = mysqli_query($mysqli, "SELECT solicitud.id, solicitud.folio, solicitud.peticion, solicitud.descripcion,
+/*$query_od = mysqli_query($mysqli, "SELECT solicitud.id, solicitud.folio, solicitud.peticion, solicitud.descripcion,
 									beneficiario_solicitud.nombre, beneficiario_solicitud.apellido, beneficiario_solicitud.sexo, beneficiario_solicitud.edad, beneficiario_solicitud.pais, beneficiario_solicitud.estado
 									FROM
 									solicitud INNER JOIN beneficiario_solicitud ON solicitud.id = beneficiario_solicitud.id_solicitud
 									where beneficiario_solicitud.pais != ''
 									&& (folio LIKE 'OD%')");
-$num_od = mysqli_num_rows($query_od);
+$num_od = mysqli_num_rows($query_od);*/
 
 $query_ca = mysqli_query($mysqli, "SELECT solicitud.id, solicitud.folio, solicitud.peticion, solicitud.descripcion,
 									beneficiario_solicitud.nombre, beneficiario_solicitud.apellido, beneficiario_solicitud.sexo, beneficiario_solicitud.edad, beneficiario_solicitud.pais, beneficiario_solicitud.estado
@@ -65,35 +65,45 @@ $query_menores = mysqli_query($mysqli, "SELECT solicitud.id, solicitud.folio, so
 									beneficiario_solicitud.nombre, beneficiario_solicitud.apellido, beneficiario_solicitud.sexo, beneficiario_solicitud.edad, beneficiario_solicitud.pais, beneficiario_solicitud.estado
 									FROM
 									solicitud INNER JOIN beneficiario_solicitud ON solicitud.id = beneficiario_solicitud.id_solicitud
-									where beneficiario_solicitud.pais != ''
-									&& beneficiario_solicitud.edad < 18");
+									where (beneficiario_solicitud.pais != ''
+									&& beneficiario_solicitud.edad < 18) 
+									&& solicitud.folio NOT LIKE 'OD%'");
 $num_menores = mysqli_num_rows($query_menores);
 
 $query_mayores = mysqli_query($mysqli, "SELECT solicitud.id, solicitud.folio, solicitud.peticion, solicitud.descripcion,
 									beneficiario_solicitud.nombre, beneficiario_solicitud.apellido, beneficiario_solicitud.sexo, beneficiario_solicitud.edad, beneficiario_solicitud.pais, beneficiario_solicitud.estado
 									FROM
 									solicitud INNER JOIN beneficiario_solicitud ON solicitud.id = beneficiario_solicitud.id_solicitud
-									where beneficiario_solicitud.pais != ''
-									&& beneficiario_solicitud.edad >= 18");
+									where (beneficiario_solicitud.pais != ''
+									&& beneficiario_solicitud.edad >= 18) 
+									&& solicitud.folio NOT LIKE 'OD%'");
 $num_mayores = mysqli_num_rows($query_mayores);
 
 $query_mujeres = mysqli_query($mysqli, "SELECT solicitud.id, solicitud.folio, solicitud.peticion, solicitud.descripcion,
 									beneficiario_solicitud.nombre, beneficiario_solicitud.apellido, beneficiario_solicitud.sexo, beneficiario_solicitud.edad, beneficiario_solicitud.pais, beneficiario_solicitud.estado
 									FROM
 									solicitud INNER JOIN beneficiario_solicitud ON solicitud.id = beneficiario_solicitud.id_solicitud
-									where beneficiario_solicitud.pais != ''
-									&& beneficiario_solicitud.sexo = 'F'");
+									where (beneficiario_solicitud.pais != ''
+									&& beneficiario_solicitud.sexo = 'F')
+									&& solicitud.folio NOT LIKE 'OD%'");
 $num_mujeres = mysqli_num_rows($query_mujeres);
 
 $query_hombres = mysqli_query($mysqli, "SELECT solicitud.id, solicitud.folio, solicitud.peticion, solicitud.descripcion,
 									beneficiario_solicitud.nombre, beneficiario_solicitud.apellido, beneficiario_solicitud.sexo, beneficiario_solicitud.edad, beneficiario_solicitud.pais, beneficiario_solicitud.estado
 									FROM
 									solicitud INNER JOIN beneficiario_solicitud ON solicitud.id = beneficiario_solicitud.id_solicitud
-									where beneficiario_solicitud.pais != ''
-									&& beneficiario_solicitud.sexo = 'M'");
+									where (beneficiario_solicitud.pais != ''
+									&& beneficiario_solicitud.sexo = 'M')
+									&& solicitud.folio NOT LIKE 'OD%'");
 $num_hombres = mysqli_num_rows($query_hombres);
 
-$query_paises = mysqli_query($mysqli, "SELECT beneficiario_solicitud.pais, paises.nombre, count(*) as cantidadporpais FROM `beneficiario_solicitud` inner join paises on beneficiario_solicitud.pais = paises.id group by pais order by cantidadporpais DESC;");
+$query_paises = mysqli_query($mysqli, "SELECT beneficiario_solicitud.pais, paises.nombre, count(*) as cantidadporpais 
+										FROM 
+										`beneficiario_solicitud` INNER JOIN paises on beneficiario_solicitud.pais = paises.id
+										INNER JOIN solicitud on solicitud.id = beneficiario_solicitud.id_solicitud 
+										where solicitud.folio NOT LIKE 'OD%' 
+										group by pais 
+										order by cantidadporpais DESC;");
 while($r_pais = $query_paises->fetch_array())
 {
 	$r_paises[] = $r_pais;
@@ -104,7 +114,14 @@ foreach ($r_paises as $pais) {
 	$paises .= "['" .  $pais["nombre"] . "', " . $pais["cantidadporpais"] ."],\n";
 	}
 
-$query_estados = mysqli_query($mysqli, "SELECT beneficiario_solicitud.estado, regiones.nombre, count(*) as cantidadporestado FROM `beneficiario_solicitud` inner join regiones on beneficiario_solicitud.estado = regiones.id where beneficiario_solicitud.pais= 42 group by estado order by cantidadporestado DESC;");
+$query_estados = mysqli_query($mysqli, "SELECT beneficiario_solicitud.estado, regiones.nombre, count(*) as cantidadporestado 
+										FROM 
+										`beneficiario_solicitud` INNER JOIN regiones on beneficiario_solicitud.estado = regiones.id
+										INNER JOIN solicitud on solicitud.id = beneficiario_solicitud.id_solicitud
+										where beneficiario_solicitud.pais= 42 
+										&& solicitud.folio NOT LIKE 'OD%' 
+										group by estado 
+										order by cantidadporestado DESC;");
 while($r_estado = $query_estados->fetch_array())
 {
 	$r_estados[] = $r_estado;
@@ -118,7 +135,7 @@ foreach ($r_estados as $estado) {
 
 
 
-$total = $num_od + $num_ca + $num_psi + $num_psd + $num_pii + $num_pid;
+$total = $num_ca + $num_psi + $num_psd + $num_pii + $num_pid;
 $total_p =  $num_psi + $num_psd + $num_pii + $num_pid;
 
 
