@@ -1,13 +1,15 @@
-<?php session_start();?>
-<?php require_once( 'cms/cms.php' ); ?>
-<cms:template title='Gracias' order='16'></cms:template>
 <?php
+session_start();
+
+$title = 'Gracias por tu aportacion';
+
 if(!$_SESSION['donativo_valido']){
     header('Location: /');   
 }
 session_destroy();
+
+require 'mod/head.php';
 ?>
-<?php require 'mod/head.php';?>
 
 </head>
 <body>
@@ -44,4 +46,4 @@ session_destroy();
     
 </body>
 </html>
-<?php COUCH::invoke(); ?>
+

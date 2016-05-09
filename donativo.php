@@ -2,45 +2,7 @@
 require 'inc/solicitar.php';
 
 $title = 'Apadrinar una historia';
-if(!$tipo['tipo']){
-$con = mysqli_connect(SERVER, USER, PASS, 'cms');
-mysqli_set_charset ( $con , "utf8");
 
-if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error());}
-
-$result = $con->query("select * from cmscouch_pages where id = ".$_SESSION ['ahijado'].";");
-$row = $result->fetch_assoc();
-$nombre_ahijado = $row['page_title'];
-    echo $nombre_ahijado;
-
-$result->free();
-
-$result = $con->query("select * from cmscouch_data_text where page_id = ".$_SESSION ['ahijado'].";");
-    
-$row = $result->fetch_all();
-
-$edad = $row[0][2];#edad 
-    echo $edad;
-$foto = $row[2][2];#foto
-$foto = substr($foto, 1);
-    echo $foto;
-
-$thumb = $row[3][2];#thumb 
-$thumb = substr($thumb, 1);
-    echo $thumb;
-    
-$solicito = $row[4][2];#que solicito
-    echo $solicito;
-$ubicacion = $row[5][2].", ".$row[6][2].", ".$row[7][2];
-    echo $ubicacion;
-    
-
-
-
-
-$result->free();
-$con->close();
-}
 ?>
 
 
@@ -71,6 +33,24 @@ $con->close();
                     <div class="panel-heading panel-heading-mark" id="militar">Solicitud de <?php echo $tipo['texto'];?> </div>
                     <div class="panel-body panel-body-mark">
                     
+      
+                     <?php
+                     if(!$tipo['tipo']){
+                        echo '<div class="well sombra" style="margin:0;">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <a href="cms/uploads/image/',$foto.'" data-lightbox="image-1"><img class="img-thumbnail center-block sombra" src="cms/uploads/image/'.$thumb.'"></a>
+                            </div>
+                            <div class="col-md-9">
+                                <label class="txt-mark">Nombre:</label><p><strong>'.$nombre_ahijado.'</strong></p>
+                                <label class="txt-mark">Edad:</label><p>'.$edad.'</p>
+                                <label class="txt-mark">Vive en:</label><p>'.$ubicacion.'</p>
+                                <label class="txt-mark">Solicito:</label><p class="text-justify"><i>'.$solicito.'</i></p>
+                            </div>
+                        </div>
+                    </div><hr />'; } 
+                    ?>
+                    
                      <form action="<?php echo htmlentities($_SERVER['PHP_SELF']) . '?'.http_build_query($_GET); ?>"  method="POST" id="solicitud" class="news" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="nombre" data-toggle="tooltip" data-placement="right" title="Nombre completo de la persona o Razón Social a la cual se hará el recibo">Nombre o Razón Social</label>
@@ -79,12 +59,12 @@ $con->close();
                             
                             <div class="form-group">
                                 <label for="email" data-toggle="tooltip" data-placement="right" title="E-mail al cual se enviara el recibo">Correo Electrónico</label>
-                                <input type="email" name="email" class="form-control" id="email" placeholder="Correo electrónico" required  maxlength="254" value='<?php echo htmlentities($email); ?>' <?php if($existe){echo 'readonly';}?>>
+                                <input type="email" name="email" class="form-control" id="email" placeholder="Correo electrónico" required  maxlength="254" value='<?php echo htmlentities($email); ?>' <?php if($existe){echo 'readonly';}?> autocomplete="off">
                             </div>
                                
                             <div class="form-group">
                                 <label for="email" data-toggle="tooltip" data-placement="right" title="E-mail al cual se enviara el recibo">Telefono</label>
-                                <input type="tel" name="telefono" class="form-control" id="telefono" placeholder="Numero telefonico de contacto" required  maxlength="254" value='<?php echo htmlentities($telefono) ?>' <?php if($existe){echo 'readonly';}?>>
+                                <input type="tel" name="telefono" class="form-control" id="telefono" placeholder="Numero telefonico de contacto" required  maxlength="254" value='<?php echo htmlentities($telefono) ?>' <?php if($existe){echo 'readonly';}?> >
                             </div>
                             
                             <div class="form-group">
@@ -102,22 +82,22 @@ $con->close();
                                 <label for="monto" data-toggle="tooltip" data-placement="right" title="Especifique el monto de su donativo en pesos mexicanos, en caso de ser en moneda extranjera especifíquela en el campo de comentarios">Monto del Donativo</label>
                                 <div class="input-group">
                                   <div class="input-group-addon">$</div>
-                                  <input type="number" name="monto" step="any" min="0" class="form-control" id="monto" placeholder="Monto del donativo" required value='<?php echo htmlentities($monto); ?>'>
+                                  <input type="number" name="monto" step="any" min="0" class="form-control" id="monto" placeholder="Monto del donativo" required value='<?php echo htmlentities($monto); ?>' autocomplete="off">
                                 </div>
                                 </div>
                             </div>
                             
                             <div class="col-md-4 zero col-sm-4">
                                 <div class="form-group">
-                                 <label for="referencia" data-toggle="tooltip" data-placement="right" title="Numero de referencia del depósito, transferencia bancaria o transferencia por PayPal">No. de Referencia</label>
-                                <input type="number" min="0" name="referencia" class="form-control" id="referencia" placeholder="Numero de Referencia" required value='<?php echo htmlentities($referencia) ?>'>
+                                 <label for="referencia" data-toggle="tooltip" data-placement="right" title="Numero de referencia del depósito, transferencia bancaria o transferencia por PayPal">Referencia</label>
+                                <input type="text" name="referencia" class="form-control" id="referencia" placeholder="Referencia del donativo" maxlength="45"  required value='<?php echo htmlentities($referencia) ?>' autocomplete="off">
                                 </div>
                             </div>
                             
                             <div class="col-md-4 zero col-sm-4">
                                 <div class="form-group">
                                 <label for="metodo" data-toggle="tooltip" data-placement="right" title="Seleccione el motodo por el cual realizo su donativo">Metodo de pago</label>
-                                <select class="form-control" name="metodo" class="form-control" id="metodo" placeholder="Metdo de pago" required value='<?php echo htmlentities($metodo) ?>'>
+                                <select class="form-control" name="metodo" class="form-control" id="metodo" placeholder="Metdo de pago" required value='<?php echo htmlentities($metodo) ?>' autocomplete="off">
                                     <option value="1">Deposito</option>
                                     <option value="2">Transferencia bancaria</option>
                                     <option value="3">Paypal</option>
@@ -127,7 +107,7 @@ $con->close();
                             
                             <div class="form-group">
                                 <label for="comentario" data-toggle="tooltip" data-placement="right" title="Si tiene algún comentario o indicación adicional puede hacerlo en este campo">Comentarios</label>
-                                <textarea rows="4" id="comentario" name="comentario" class="form-control" placeholder="Déjanos tu comentario"><?php echo htmlentities($comentario) ?></textarea>
+                                <textarea rows="4" id="comentario" name="comentario" class="form-control" placeholder="Déjanos tu comentario" autocomplete="off"><?php echo htmlentities($comentario) ?></textarea>
                             </div>
                             
                             <div class="form-group">
@@ -175,6 +155,7 @@ id="captchaimg" ></p>
 <?php require 'mod/scripts.php';?>
     
 <script src="js/form.js"></script>
+<?php  if(!$tipo['tipo']){echo '<script src="js/lightbox.min.js"></script>';} ?>
     
 <script language='JavaScript' type='text/javascript'>
 function refreshCaptcha()

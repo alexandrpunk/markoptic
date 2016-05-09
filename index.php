@@ -17,85 +17,16 @@
                 <!--<audio id="player" src="audio/spot.mp3"></audio>-->
         
                 <?php require 'mod/carrousel.php';?>
-                
-                <div class="panel panel-default panel-mark ">
-                    <div class="panel-heading panel-heading-mark" id="verde">¿PORQUÉ DONAR?</div>
-                    <div style="padding:0;" class="panel-body panel-body-mark">
-                        <div class="foo-center">
-                            
-                        <a class="foo" id="reflex" data-toggle="modal"href="#" data-target="#foo1"><span>
-                            <p>Dispositivos Donados a la Sociedad</p>
-                            <img src="img/disp.jpg">
-                            </span>
-                        </a>
-                            
-                        <a class="foo" id="cyan" data-toggle="modal" href="#" data-target="#foo2"><span>
-                            <p>Mejorar la Calidad <br>de Vida</p>
-                            <img src="img/qualitylife.jpg">
-                            </span>
-                        </a>
-                            
-                        <a class="foo" id="militar" data-toggle="modal" href="#" data-target="#foo3"><span>
-                            <p>Primera Fundación Tecnológica en México</p>
-                            <img src="img/arm.png">
-                            </span>
-                        </a>
-                        
-                        <a class="foo" id="morado" data-toggle="modal" href="#" data-target="#foo4"><span>
-                            <p>Desarrollo de Tecnología</p>
-                            <img src="img/development.jpg">
-                            </span>
-                        </a>
-                            
-                        <a id="amarillo" class="foo" data-toggle="modal" href="#" data-target="#foo5"><span>
-                            <p>Laboratorio de Clase Mundial</p>
-                            <img src="img/lab.jpg">
-                            </span>
-                        </a> 
-                            
-                        <a id="naranja" class="foo" data-toggle="modal" href="#" data-target="#foo6"><span>
-                            <p>Jóvenes en Actividades de Desarrollo Tecnológico</p>
-                            <img src="img/group.jpg">
-                            </span>
-                        </a>
-                        
-                        <a id="mark" class="foo" data-toggle="modal" href="#" data-target="#foo7"><span>
-                            <p>Oportunidad <br>de Trabajo</p>
-                            <img src="img/work.jpeg">
-                            </span>
-                        </a>
-                            
-                        <a id="aqua" class="foo" data-toggle="modal" href="#" data-target="#foo8"><span>
-                            <p>Tecnología para Donar a más Familias</p>
-                            <img src="img/family.png">
-                            </span>
-                        </a>
-                            
-                        <a id="rosado" class="foo" data-toggle="modal" href="#" data-target="#foo9"><span>
-                            <p>Se Dona a Quien más lo Necesita</p>
-                            <img src="img/charity.jpg">
-                            </span>
-                        </a>
-                            
-                        <a id="verde" class="foo" data-toggle="modal" href="#" data-target="#foo10"><span>
-                            <p>Vinculación con las Universidades Prestigiadas</p>
-                            <img src="img/university.png">
-                            </span>
-                        </a>
-                           
-                        </div>
-                    </div>
-                </div>     
-                
+
                                 <!-- Solicitudes recientes-->
                 <div class="panel panel-default panel-mark">
-                  <div class="panel-heading panel-heading-mark" id="rosado">¿A QUIÉN ESTOY AYUDANDO?</div>
+                  <div class="panel-heading panel-heading-mark">¿A QUIÉN ESTOY AYUDANDO?</div>
                     <div class="panel-body panel-body-mark">
                     <div class="row zero">
                     <cms:pages masterpage='historias.php' limit='3'>
                         <div class="col-md-4 col-sm-4 well" style="margin-bottom:0;">
                             <img class="img-quote center-block" src="<cms:show fotografia_thumb />">
-                            <h4 class="txt-mark text-center oswald"><cms:show k_page_title /></h4>
+                            <h4 class="txt-mark text-center oswald"><a href="<cms:show k_page_link />"><cms:show k_page_title /></a></h4>
                                 <p class="quote"><cms:show necesidad /></p>
                         </div>
                     </cms:pages>

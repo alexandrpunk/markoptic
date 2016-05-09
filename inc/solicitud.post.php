@@ -209,7 +209,7 @@ if ($peticion == "Protesis") {
 					//if (file_exists($zip_file)) {
 				    	if(update_adj($zip_file,$id_solicitud)){
 				    		if (envioEmails($data)) {
-				    			header('Location: solicitud-concluida');
+				    			header('Location: /solicitud-concluida');
 				    		}
 				    		else{
 				    			echo "error 1";
@@ -259,7 +259,7 @@ if ($peticion == "Protesis") {
 				//if (file_exists($zip_file)) {
 			    	if(update_adj($zip_file,$id_solicitud)){
 			    		if (envioEmails($data)) {
-			    			header('Location: solicitud-concluida');
+			    			header('Location: /solicitud-concluida');
 			    		}
 			    		else{
 			    			echo "error 4";
@@ -489,7 +489,7 @@ else{
 				//if (file_exists($zip_file)) {
 			    	if(update_adj($zip_file,$id_solicitud)){
 			    		if (envioEmails($data)) {
-			    			header('Location: solicitud-concluida');
+			    			header('Location: /solicitud-concluida');
 			    		}
 			    		else{
 			    			echo "error 1";
@@ -537,7 +537,7 @@ else{
 			//if (file_exists($zip_file)) {
 		    	if(update_adj($zip_file,$id_solicitud)){
 		    		if (envioEmails($data)) {
-		    			header('Location: solicitud-concluida');
+		    			header('Location: /solicitud-concluida');
 		    		}
 		    		else{
 		    			echo "error 4";
