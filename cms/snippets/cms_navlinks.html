@@ -1,0 +1,51 @@
+<cms:if k_template_is_clonable >
+
+      <!-- A FAIR BIT OF STYLING -->
+      <style>.panel { padding: 15px; border: 1px solid #ddd; border-radius: 2px;}.pull-right { float: right !important;}.pagination { padding: 0; margin-top:-11px ; border-radius: 3px;}.pagination > li { display: inline;} .pagination > li:first-child > a, .pagination > li:first-child > span { border-bottom-left-radius: 3px; border-top-left-radius: 3px;}.pagination > li > a, .pagination > li > span { position: relative; float: left; padding: 7px 12px; line-height: 2; text-decoration: none; color: #333333; background-color: #fff; border: 1px solid #ddd; margin-left: -1px;} .pagination > li:last-child > a, .pagination > li:last-child > span { border-bottom-right-radius: 3px; border-top-right-radius: 3px;} </style>
+
+          <cms:hide>FIND CURRENT POSITION OF OPENED PAGE IN CMS</cms:hide>
+          <cms:set edited_page_id = k_page_id />
+          <cms:pages paginate='0' limit='0' orderby='publish_date' order='desc' >
+            <cms:if k_page_id = edited_page_id >
+              <cms:set current_position = k_current_record scope='global' />
+            </cms:if>
+          </cms:pages>
+
+          <cms:set prev_page_num = "<cms:sub current_position '1' />" /><cms:hide>PREVIOUS PAGE POSITION</cms:hide>
+          <cms:set next_page_num = "<cms:add current_position '1' />" /><cms:hide>FOLLOWING PAGE POSITION</cms:hide>
+
+    <div class="panel">
+      <span>Pagination:&emsp;<cms:show total_pages /> Published Page<cms:if total_pages gt '1' >s</cms:if>. </span>
+        Template: <span><a href="<cms:show k_template_link />" target="_blank" >open</a></span> / 
+           Page: 
+          <cms:hide>'DELETE' IS AVAILABLE FOR SUPERADMIN ONLY</cms:hide>
+            <cms:if k_user_access_level = '10' >
+                <span><a href="<cms:admin_delete_link />"  >del</a></span> / 
+            </cms:if>
+          <span><a href="<cms:show k_page_link />" target="_blank" >open</a></span>
+
+      <ul class="pagination pull-right">
+
+        <cms:hide>CHECK ALL PAGES</cms:hide>  
+          <cms:pages paginate='0' limit='0' orderby='publish_date' order='desc'>
+
+            <cms:if k_current_record = prev_page_num ><cms:hide>SHOW LINK TO PREVIOUS PAGE</cms:hide>
+              <li><a href='<cms:pages masterpage=k_template_name offset="<cms:sub prev_page_num '1' />"  limit='1' ><cms:admin_link /><cms:set title=k_page_title scope="global" /></cms:pages>' >←&nbsp;<cms:excerpt count='20' truncate_chars='1'><cms:show title /></cms:excerpt></a></li>
+            </cms:if>  
+
+            <cms:if k_current_record = current_position ><cms:hide>SHOW LINK TO CURRENT PAGE</cms:hide>
+              <li><a href='<cms:pages masterpage=k_template_name offset=prev_page_num limit='1' ><cms:admin_link /></cms:pages>' ><cms:show current_position /></a></li>
+            </cms:if>
+
+
+            <cms:if k_current_record = next_page_num  ><cms:hide>SHOW LINK TO NEXT PAGE</cms:hide>
+              <li><a href='<cms:pages masterpage=k_template_name offset=current_position  limit='1' ><cms:admin_link /><cms:set title=k_page_title scope="global" /></cms:pages>' ><cms:excerpt count='20' truncate_chars='1'><cms:show title /></cms:excerpt>&nbsp;→</a></li>
+            </cms:if>  
+
+          </cms:pages>
+
+
+      </ul>
+      </div>
+
+</cms:if><cms:hide>/clonable</cms:hide>

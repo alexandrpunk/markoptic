@@ -390,10 +390,15 @@ function envioEmails($data){
 			</body>
 		</html>
 	';
-	$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
+	/*$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
 	$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 	$cabeceras .= 'From: info@fundacionmarkoptic.org.mx' . "\r\n";
-	$cabeceras .= 'Cc: info@fundacionmarkoptic.org.mx' . "\r\n";
+	$cabeceras .= 'Cc: info@fundacionmarkoptic.org.mx' . "\r\n";*/
+    
+    $cabeceras  = 'MIME-Version: 1.0' . "\r\n";
+	$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+	$cabeceras .= 'From: asandoval@markoptic.mx' . "\r\n";
+	$cabeceras .= 'Cc:  asandoval@markoptic.mx' . "\r\n";
 
 	if (mail($para, $asunto, utf8_decode($mensaje), $cabeceras)) {
 		return true;

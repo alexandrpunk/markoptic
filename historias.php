@@ -72,7 +72,7 @@ require_once( 'cms/cms.php' );
 
 </head>
 <body>
-    
+<cms:editable type='message' name='admin_navlinks' dynamic='default_data' order='-100'>cms_navlinks.html</cms:editable>
 <?php require 'mod/navbar.php';?>
     <div class="container">
         
@@ -123,10 +123,10 @@ require_once( 'cms/cms.php' );
                                
                                 <div class="col-md-4 col-sm-4">
                                 <a href="<cms:show fotografia />" data-lightbox="image-1"><img class="img-thumbnail center-block sombra" src="<cms:show fotografia_thumb />"></a>
-                                <label class="txt-mark">Nombre:</label><p><strong><cms:show k_page_title /></strong></p>
+                                <p class="text-capitalize"><strong><cms:show k_page_title /></strong></p>
                                 <label class="txt-mark">Edad:</label><p><cms:show edad /></p>
                                 <label class="txt-mark">Vive en:</label><p><cms:show ciudad />, <cms:show estado />, <cms:show pais/></p>
-                                <label class="txt-mark">Solicito:</label><p class="text-justify"><i><cms:show dispositivo /> <cms:show descripcion /></i></p>
+                                <label class="txt-mark">Solicito:</label><p class="text-justify "><i><cms:show dispositivo /> <cms:show descripcion /></i></p>
                                     
                                 <cms:ignore>
                                 <a href="" class="btn-pad" id="cyan" data-toggle="modal"  OnClick="setinfo('<cms:show k_page_id />', '<cms:show k_page_title />')" data-target="#solicitar_email" >Apadrinar</a>
@@ -135,7 +135,7 @@ require_once( 'cms/cms.php' );
                                 </div>
                                 
                                 <div class="col-md-8 col-sm-8">
-                                    <label class="txt-mark">¿Por que lo necesita?:</label><p class="text-justify scroll-box"><i><cms:show necesidad /></i></p>
+                                    <label class="txt-mark">¿Por que lo necesita?:</label><p class="text-justify text-lowercase scroll-box"><i><cms:show necesidad /></i></p>
                                 </div>
                                 
                             </div>

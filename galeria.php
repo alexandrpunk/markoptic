@@ -20,7 +20,7 @@
                     <div class="panel-heading panel-heading-mark" id="aqua">GALERÍA</div>
                      <div class="panel-body panel-body-mark"> 
                          
-                    <!--<h2 style="margin:10px 8%;" class="text-center decor-gal"><span class="decor-span">Testimonios</span></h2>         
+                    <h2 style="margin:10px 8%;" class="text-center decor-gal"><span class="decor-span">Testimonios</span></h2>         
                         <cms:pages masterpage="testimonios.php"  limit='2' >
                             <div class="row">
                             <div class="col-md-5">
@@ -33,8 +33,8 @@
                             </div>
                             <hr/>
                         </cms:pages>
-                        <center><h4 class="txt-mark oswald" ><a class="txt-mark"  href="testimonios">ver todos los testimonios</a></h4></center>-->
-
+                        <center><h4 class="txt-mark oswald" ><a class="txt-mark"  href="testimonios">ver todos los testimonios</a></h4></center>
+                    <cms:ignore>
                     <h2 style="margin:10px 8%;" class="text-center decor-gal"><span class="decor-span">Galería Fotografica</span></h2>                         <ul class="row image-list">
 
 <cms:folders masterpage='fotografias.php'>
@@ -42,7 +42,7 @@
     <a href="<cms:show k_folder_link />"><cms:show k_folder_title /></a> <br>
 </cms:folders>
                         </ul>
-                    <hr/>
+                        <hr/></cms:ignore>
                         
                         <h2 style="margin:10px 8%;" class="text-center decor-gal"><span class="decor-span">Videos</span></h2>
 

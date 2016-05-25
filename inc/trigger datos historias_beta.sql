@@ -8,7 +8,7 @@ CREATE TRIGGER trigger_beneficiario after insert
     
     #se crea la pagina nueva en el sistema cms
 	INSERT INTO gallbo_cms_b.cmscouch_pages(template_id,page_title)
-    VALUES(7, (SELECT CONCAT_WS(' ',b.nombre, b.apellido) as nombre
+    VALUES(7, (SELECT lower(CONCAT_WS(' ',b.nombre, b.apellido)) as nombre
 				FROM gallbo_markoptic_b.beneficiario_solicitud b
 				WHERE b.id = @new_id));
                 
@@ -79,33 +79,33 @@ CREATE TRIGGER trigger_beneficiario after insert
     
     #se rellena el campo de descripcion de la necesidad
     INSERT INTO gallbo_cms_b.cmscouch_data_text(page_id,field_id,value,search_value)
-    VALUES(@id,9,(SELECT s.porque
+    VALUES(@id,9,(SELECT lower(s.porque)
 					FROM gallbo_markoptic_b.beneficiario_solicitud b
                     join gallbo_markoptic_b.solicitud s on b.id_solicitud = s.id
                     WHERE b.id = @new_id),
-				 (SELECT s.porque
+				 (SELECT lower(s.porque)
 					FROM gallbo_markoptic_b.beneficiario_solicitud b
                     join gallbo_markoptic_b.solicitud s on b.id_solicitud = s.id
                     WHERE b.id = @new_id));
 	
     #se rellena el campo de fotografia
     INSERT INTO gallbo_cms_b.cmscouch_data_text(page_id,field_id,value,search_value)
-    VALUES(@id,10,(SELECT CONCAT(':',s.folio,'.jpg')
+    VALUES(@id,10,(SELECT CONCAT(':historias/',s.folio,'.jpg')
 					FROM gallbo_markoptic_b.beneficiario_solicitud b
                     join gallbo_markoptic_b.solicitud s on b.id_solicitud = s.id
                     WHERE b.id = @new_id),
-				  (SELECT CONCAT(':',s.folio,'.jpg')
+				  (SELECT CONCAT(':historias/',s.folio,'.jpg')
 					FROM gallbo_markoptic_b.beneficiario_solicitud b
                     join gallbo_markoptic_b.solicitud s on b.id_solicitud = s.id
                     WHERE b.id = @new_id));
     
     #se rellena el campo de la miniatura de la fotografia
     INSERT INTO gallbo_cms_b.cmscouch_data_text(page_id,field_id,value,search_value)
-    VALUES(@id,11,(SELECT CONCAT(':',s.folio,'-170x170.jpg')
+    VALUES(@id,11,(SELECT CONCAT(':historias/',s.folio,'-170x170.jpg')
 					FROM gallbo_markoptic_b.beneficiario_solicitud b
                     join gallbo_markoptic_b.solicitud s on b.id_solicitud = s.id
                     WHERE b.id = @new_id),
-				  (SELECT CONCAT(':',s.folio,'-170x170.jpg')
+				  (SELECT CONCAT(':historias/',s.folio,'-170x170.jpg')
 					FROM gallbo_markoptic_b.beneficiario_solicitud b
                     join gallbo_markoptic_b.solicitud s on b.id_solicitud = s.id
                     WHERE b.id = @new_id));

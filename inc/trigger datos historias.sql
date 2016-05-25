@@ -8,7 +8,7 @@ CREATE TRIGGER trigger_beneficiario after insert
     
     #se crea la pagina nueva en el sistema cms
 	INSERT INTO cms.cmscouch_pages(template_id,page_title)
-    VALUES(7, (SELECT CONCAT_WS(' ',b.nombre, b.apellido) as nombre
+    VALUES(7, (SELECT lower(CONCAT_WS(' ',b.nombre, b.apellido)) as nombre
 				FROM markoptic.beneficiario_solicitud b
 				WHERE b.id = @new_id));
                 
@@ -79,11 +79,11 @@ CREATE TRIGGER trigger_beneficiario after insert
     
     #se rellena el campo de descripcion de la necesidad
     INSERT INTO cms.cmscouch_data_text(page_id,field_id,value,search_value)
-    VALUES(@id,9,(SELECT s.porque
+    VALUES(@id,9,(SELECT lower(s.porque)
 					FROM markoptic.beneficiario_solicitud b
                     join markoptic.solicitud s on b.id_solicitud = s.id
                     WHERE b.id = @new_id),
-				 (SELECT s.porque
+				 (SELECT lower(s.porque)
 					FROM markoptic.beneficiario_solicitud b
                     join markoptic.solicitud s on b.id_solicitud = s.id
                     WHERE b.id = @new_id));

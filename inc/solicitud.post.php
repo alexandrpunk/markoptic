@@ -190,7 +190,7 @@ if ($peticion == "Protesis") {
                             #Se guarda una copia de la primer fotografia subida para la publicacion de la historia automatica
                             $convert = new Imagick($_FILES['adjunto1']['tmp_name']);
                             $convert->setImageFormat('jpeg');
-                            $convert->writeImage( '../cms/uploads/image/'.$folio.'.jpg');
+                            $convert->writeImage( '../cms/uploads/image/historias/'.$folio.'.jpg');
 
 						}
 					}
@@ -239,7 +239,7 @@ if ($peticion == "Protesis") {
                         #Se guarda una copia de la primer fotografia subida para la publicacion de la historia automatica
                         $convert = new Imagick($_FILES['adjunto1']['tmp_name']);
                         $convert->setImageFormat('jpeg');
-                        $convert->writeImage( '../cms/uploads/image/'.$folio.'.jpg');
+                        $convert->writeImage( '../cms/uploads/image/historias/'.$folio.'.jpg');
 
                         
 					}
@@ -471,7 +471,7 @@ else{
                         #Se guarda una copia de la primer fotografia subida para la publicacion de la historia automatica
                         $convert = new Imagick($_FILES['adjunto1']['tmp_name']);
                         $convert->setImageFormat('jpeg');
-                        $convert->writeImage( '../cms/uploads/image/'.$folio.'.jpg');
+                        $convert->writeImage( '../cms/uploads/image/historias/'.$folio.'.jpg');
 					}
 				}
 				if (isset($_FILES['adjunto2']['name'])) {
@@ -519,7 +519,7 @@ else{
                         #Se guarda una copia de la primer fotografia subida para la publicacion de la historia automatica
                         $convert = new Imagick($_FILES['adjunto1']['tmp_name']);
                         $convert->setImageFormat('jpeg');
-                        $convert->writeImage( '../cms/uploads/image/'.$folio.'.jpg');
+                        $convert->writeImage( '../cms/uploads/image/historias/'.$folio.'.jpg');
 				}
 			}
 			if (isset($_FILES['adjunto2']['name'])) {
