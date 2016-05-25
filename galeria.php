@@ -20,7 +20,7 @@
                     <div class="panel-heading panel-heading-mark" id="aqua">GALERÍA</div>
                      <div class="panel-body panel-body-mark"> 
                          
-                    <h2 style="margin:10px 8%;" class="text-center decor-gal"><span class="decor-span">Testimonios</span></h2>         
+                    <!--<h2 style="margin:10px 8%;" class="text-center decor-gal"><span class="decor-span">Testimonios</span></h2>         
                         <cms:pages masterpage="testimonios.php"  limit='2' >
                             <div class="row">
                             <div class="col-md-5">
@@ -33,17 +33,14 @@
                             </div>
                             <hr/>
                         </cms:pages>
-                        <center><h4 class="txt-mark oswald" ><a class="txt-mark"  href="testimonios">ver todos los testimonios</a></h4></center>
+                        <center><h4 class="txt-mark oswald" ><a class="txt-mark"  href="testimonios">ver todos los testimonios</a></h4></center>-->
 
                     <h2 style="margin:10px 8%;" class="text-center decor-gal"><span class="decor-span">Galería Fotografica</span></h2>                         <ul class="row image-list">
-                            <cms:pages masterpage="fotografias.php" limit='17' >
-                            <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
-                            <a href="<cms:show gg_image />" data-lightbox="image-1"><img src="<cms:show gg_thumb />"></a>
-                            </li>
-                            </cms:pages>
-                            <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
-                            <a href="fotografias"><img src="img/more.svg"></a>
-                            </li>
+
+<cms:folders masterpage='fotografias.php'>
+    <img src="<cms:show k_folder_image />">
+    <a href="<cms:show k_folder_link />"><cms:show k_folder_title /></a> <br>
+</cms:folders>
                         </ul>
                     <hr/>
                         

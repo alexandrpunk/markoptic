@@ -1,5 +1,5 @@
 <?php require_once( 'cms/cms.php' ); ?>
-<cms:template title='Publicaciones' clonable='1' dynamic_folders='1' order='1'>
+<cms:template title='Noticias' clonable='1' dynamic_folders='1' order='1'>
     <cms:editable name='contenido' type='richtext' toolbar='full' />
     <cms:editable name='publicacion_image'
                     label='Imagen de la publicacion'
@@ -36,7 +36,9 @@
                 
                 <?php require 'mod/menu.php';?>
                 
-                  <div class="panel panel-default panel-mark animated fadeIn">
+                <cms:if k_is_page >
+                
+                <div class="panel panel-default panel-mark animated fadeIn">
                     <div class="panel-body panel-body-mark pub">                
                         <h1 class="txt-mark oswald"><cms:show k_page_title /></h1>
                         <p><small><strong>publicado el: <cms:date k_page_date format='j/m/Y' /></strong></small></p>
@@ -50,6 +52,33 @@
                 
                 <h3>Comentarios</h3><hr />
                 <div class="fb-comments" data-href="<cms:show k_page_link />" data-width="100%" data-numposts="3"></div>
+
+                <cms:else />
+                <!--se muestra la lista de publicaciones-->
+                <div class="panel panel-default panel-mark  animated fadeIn">
+                    <div class="panel-heading panel-heading-mark" id="cyan">NOTICIAS</div>
+                    <div  class="panel-body panel-body-mark">
+                        <cms:pages masterpage='publicacion.php' limit='10' paginate='1'>
+                        <div class="postit">
+                            <a href="<cms:show k_page_link />"><img class="thumb-new pull-left" src="<cms:show publicacion_image />"></a>
+                            <h4 class="txt-mark"><a  href="<cms:show k_page_link />"><cms:show k_page_title /></a></h4>
+                            <p><small>Publicado el: <cms:date k_page_date format='j-m-Y'/></small></p>
+                            <p><cms:excerpt count='450'  truncate_chars='1' trail="&nbsp;<a href='<cms:show k_page_link />' class='badge btn-mark'>leer mas..</a>"><cms:do_shortcodes><cms:show contenido /></cms:do_shortcodes></cms:excerpt></p>
+                        </div>
+                        <hr/>
+
+                        <cms:if k_paginated_bottom >
+                            <cms:if k_paginate_link_prev >
+                                <a class="btn btn-md btn-mark pull-right" href="<cms:show k_paginate_link_prev />">publicaciones mas recientes</a>
+                            </cms:if>
+                            <cms:if k_paginate_link_next >
+                                <a class="btn btn-md btn-mark strong pull-left" href="<cms:show k_paginate_link_next />">publicaciones anteriores</a>
+                            </cms:if>
+                        </cms:if>
+                        </cms:pages>
+                    </div>
+                </div>
+                </cms:if>
             </div>
                         
                 <?php require 'mod/lateral.php';?>

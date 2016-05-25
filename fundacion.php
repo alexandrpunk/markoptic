@@ -1,6 +1,12 @@
-<?php require_once( 'cms/cms.php' ); ?>
-<cms:template title='fundacion' order='11'></cms:template>
-<?php require 'mod/head.php';?>
+<?php
+
+$title = 'Fundacions';
+
+require_once("inc/solicitud.repo.php");
+$paises = Paises(); 
+
+require 'mod/head.php';
+?>
 </head>
 <body>
     
@@ -19,7 +25,7 @@
                     <div class="panel-heading panel-heading-mark " id="magenta">FUNDACIÓN MARKOPTIC A.C.</div>
                     <div  class="panel-body panel-body-mark">
                         <h2 style="margin:10px 8%;" class="decor text-center"><pan class="decor-span">Historia</pan></h2>
-                        <p class="text-justify">Fundación Markoptic A.C. surge de la iniciativa de nuestro director el Lic. Manuel Gallardo Inzunza, quien al contar con el padecimiento de Glaucoma, cuenta con la sensibilidad y conocimiento de las grandes necesidades que presentan las personas con capacidades diferentes, y toma el reto de realizar un esfuerzo colectivo con la finalidad de disminuirlas o aliviarlas.<br><br>
+                        <p class="text-justify">Fundación Markoptic A.C. surge de la iniciativa de nuestro presidente el Lic. Manuel Gallardo Inzunza, quien al contar con el padecimiento de Glaucoma, cuenta con la sensibilidad y conocimiento de las grandes necesidades que presentan las personas con capacidades diferentes, y toma el reto de realizar un esfuerzo colectivo con la finalidad de disminuirlas o aliviarlas.<br><br>
                             Es así como en 2013 se inicia una ardua labor de investigación tecnológica en la que logramos una sinergia con tecnología de última generación y el desarrollo de dispositivos médicos tecnológicos; con la finalidad de satisfacer exclusivamente las necesidades de personas con capacidades diferentes, apoyándolos en el mejoramiento de su calidad de vida y el alcance de un más alto nivel de autoestima, independencia e inclusión social y laboral.<br><br>
                             Para el año 2014 se concluye la etapa de diseño y simulación de los principales dispositivos en desarrollo, siendo en este momento la prótesis robótica y el modelo de colchón automatizado anti-escaras.<br><br>
                             En el presente año 2015 hemos comenzado a trabajar en el ensamblaje, prueba y optimización de tecnologías, acercándonos a nuestra meta de contar finalmente con dispositivos funcionales, con bondades de adaptabilidad y la posibilidad de utilización recurrente por nuestros beneficiarios.<br><br>
@@ -103,4 +109,3 @@
     
 </body>
 </html>
-<?php COUCH::invoke(); ?>

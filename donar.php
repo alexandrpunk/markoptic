@@ -1,6 +1,10 @@
-<?php require_once( 'cms/cms.php' ); ?>
-<cms:template title='Quiero donar' order='17'></cms:template>
-<?php require 'mod/head.php';?>
+<?php
+
+$title = 'Quiero Donar';
+
+require 'mod/head.php';
+
+?>
 
 </head>
 <body>
@@ -94,4 +98,3 @@
 
 </body>
 </html>
-<?php COUCH::invoke(); ?>

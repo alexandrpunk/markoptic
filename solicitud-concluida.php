@@ -1,6 +1,12 @@
-<?php require_once( 'cms/cms.php' ); ?>
-<cms:template title='Solicitud concluida' order='14'></cms:template>
-<?php require 'mod/head.php';?>
+<?php
+
+$title = 'Formulario para solicitud de necesidad';
+
+require_once("inc/solicitud.repo.php");
+$paises = Paises(); 
+
+require 'mod/head.php';
+?>
 
 </head>
 <body>
@@ -44,4 +50,3 @@
     
 </body>
 </html>
-<?php COUCH::invoke(); ?>

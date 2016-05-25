@@ -12,7 +12,7 @@
                                 <li id="verde"><a href="/"><i class="fa fa-home fa-lg"></i>&nbsp;Inicio</a></li>
                                 <li id="magenta"><a href="fundacion">Fundación</a></li>
                                 <li id="naranja"><a href="proyectos">Proyectos</a></li>
-                                <li id="cyan"><a href="noticias">Noticias</a></li>
+                                <li id="cyan"><a href="publicacion">Noticias</a></li>
                                 <li id="amarillo"><a href="colaboradores">Colaboradores</a></li>
                                 <li id="aqua"><a href="galeria">Galería</a></li>
                             </ul>

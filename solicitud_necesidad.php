@@ -1,10 +1,13 @@
-<?php require_once( 'cms/cms.php' ); ?>
-<cms:template title='Solicitud de necesidad' order='13'></cms:template>
 <?php
+
+$title = 'Formulario para solicitud de necesidad';
+
 require_once("inc/solicitud.repo.php");
 $paises = Paises(); 
+
+require 'mod/head.php';
 ?>
-<?php require 'mod/head.php';?>
+
 
 </head>
 <body>

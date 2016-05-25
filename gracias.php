@@ -6,7 +6,7 @@ $title = 'Gracias por tu aportacion';
 if(!$_SESSION['donativo_valido']){
     header('Location: /');   
 }
-session_destroy();
+$_SESSION['donativo_valido'] = FALSE;
 
 require 'mod/head.php';
 ?>

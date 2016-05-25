@@ -1,5 +1,5 @@
 <?php require_once( 'cms/cms.php' ); ?>
-<cms:template title='Incio' order='10'></cms:template>
+<cms:template title='Inicio' order='10'></cms:template>
 <?php require 'mod/head.php';?>
 </head>
 <body>  

@@ -41,6 +41,9 @@
                     <div class="panel-heading panel-heading-mark" id="aqua">GALERIA FOTOGRAFICA</div>
                     <div class="panel-body panel-body-mark">  
                         <ul class="image-list">
+                            <cms:folders>
+    <cms:show k_folder_title /> <br>
+</cms:folders>
                         <cms:pages masterpage="fotografias.php" limit='42' paginate='1'>
                             <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
                                 <a href="<cms:show gg_image />" data-lightbox="image-1"><img src="<cms:show gg_thumb />"></a>

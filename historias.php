@@ -92,7 +92,9 @@ require_once( 'cms/cms.php' );
                                
                                 <div class="col-md-3 col-sm-3">
                                 <a href="<cms:show fotografia />" data-lightbox="image-1"><img class="img-thumbnail center-block sombra" src="<cms:show fotografia_thumb />"></a>
+                                <cms:ignore>
                                 <a href="" class="btn-pad" id="cyan" data-toggle="modal" OnClick="setinfo('<cms:show k_page_id />', '<cms:show k_page_title />')" data-target="#solicitar_email">Apadrinar</a>
+                                </cms:ignore>
                                 </div>
                                 
                                 <div class="col-md-9 col-sm-9">
@@ -119,17 +121,21 @@ require_once( 'cms/cms.php' );
                         <div class="well sombra">
                             <div class="row">
                                
-                                <div class="col-md-3 col-sm-3">
+                                <div class="col-md-4 col-sm-4">
                                 <a href="<cms:show fotografia />" data-lightbox="image-1"><img class="img-thumbnail center-block sombra" src="<cms:show fotografia_thumb />"></a>
-                                <a href="<cms:show k_page_link />" class="btn-pad" id="verde">Conoce su historia</a>
+                                <label class="txt-mark">Nombre:</label><p><strong><cms:show k_page_title /></strong></p>
+                                <label class="txt-mark">Edad:</label><p><cms:show edad /></p>
+                                <label class="txt-mark">Vive en:</label><p><cms:show ciudad />, <cms:show estado />, <cms:show pais/></p>
+                                <label class="txt-mark">Solicito:</label><p class="text-justify"><i><cms:show dispositivo /> <cms:show descripcion /></i></p>
+                                    
+                                <cms:ignore>
                                 <a href="" class="btn-pad" id="cyan" data-toggle="modal"  OnClick="setinfo('<cms:show k_page_id />', '<cms:show k_page_title />')" data-target="#solicitar_email" >Apadrinar</a>
+                                </cms:ignore>
+                                    
                                 </div>
                                 
-                                <div class="col-md-9 col-sm-9">
-                                    <label class="txt-mark">Nombre:</label><p><strong><cms:show k_page_title /></strong></p>
-                                    <label class="txt-mark">Edad:</label><p><cms:show edad /></p>
-                                    <label class="txt-mark">Vive en:</label><p><cms:show ciudad />, <cms:show estado />, <cms:show pais/></p>
-                                    <label class="txt-mark">Solicito:</label><p class="text-justify"><i><cms:show dispositivo /></i></p>
+                                <div class="col-md-8 col-sm-8">
+                                    <label class="txt-mark">¿Por que lo necesita?:</label><p class="text-justify scroll-box"><i><cms:show necesidad /></i></p>
                                 </div>
                                 
                             </div>

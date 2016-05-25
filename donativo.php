@@ -3,11 +3,9 @@ require 'inc/solicitar.php';
 
 $title = 'Apadrinar una historia';
 
+require 'mod/head.php';
+
 ?>
-
-
-
-<?php require 'mod/head.php';?>
 
 </head>
 <body>

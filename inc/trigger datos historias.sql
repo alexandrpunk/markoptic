@@ -90,22 +90,22 @@ CREATE TRIGGER trigger_beneficiario after insert
 	
     #se rellena el campo de fotografia
     INSERT INTO cms.cmscouch_data_text(page_id,field_id,value,search_value)
-    VALUES(@id,10,(SELECT CONCAT(':',s.folio,'.jpg')
+    VALUES(@id,10,(SELECT CONCAT(':historias/',s.folio,'.jpg')
 					FROM markoptic.beneficiario_solicitud b
                     join markoptic.solicitud s on b.id_solicitud = s.id
                     WHERE b.id = @new_id),
-				  (SELECT CONCAT(':',s.folio,'.jpg')
+				  (SELECT CONCAT(':historias/',s.folio,'.jpg')
 					FROM markoptic.beneficiario_solicitud b
                     join markoptic.solicitud s on b.id_solicitud = s.id
                     WHERE b.id = @new_id));
     
     #se rellena el campo de la miniatura de la fotografia
     INSERT INTO cms.cmscouch_data_text(page_id,field_id,value,search_value)
-    VALUES(@id,11,(SELECT CONCAT(':',s.folio,'-170x170.jpg')
+    VALUES(@id,11,(SELECT CONCAT(':historias/',s.folio,'-170x170.jpg')
 					FROM markoptic.beneficiario_solicitud b
                     join markoptic.solicitud s on b.id_solicitud = s.id
                     WHERE b.id = @new_id),
-				  (SELECT CONCAT(':',s.folio,'-170x170.jpg')
+				  (SELECT CONCAT(':historias/',s.folio,'-170x170.jpg')
 					FROM markoptic.beneficiario_solicitud b
                     join markoptic.solicitud s on b.id_solicitud = s.id
                     WHERE b.id = @new_id));

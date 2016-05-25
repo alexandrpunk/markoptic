@@ -1,10 +1,12 @@
-<?php require_once( 'cms/cms.php' ); ?>
-<cms:template title='Solicitud' order='15'></cms:template>
 <?php
+
+$title = 'Formulario para solicitud protesis/colchon';
+
 require_once("inc/solicitud.repo.php");
 $paises = Paises(); 
+
+require 'mod/head.php';
 ?>
-<?php require 'mod/head.php';?>
 
 </head>
 <body>

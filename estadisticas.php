@@ -1,6 +1,10 @@
-<?php require_once( 'cms/cms.php' ); ?>
-<cms:template title='Estadisticas' order='18'></cms:template>
-<?php require 'mod/head.php';?>
+<?php
+
+$title = 'estadisticas de solicitudes';
+
+require 'mod/head.php';
+
+?>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -128,4 +132,3 @@
     
 </body>
 </html>
-<?php COUCH::invoke(); ?>
