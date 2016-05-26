@@ -6,10 +6,6 @@ $(document).ready(function(){
             $("#aviso_solicitud").modal('show');
     		document.getElementById("form-solicitud-seccion1-1").className= "form-group";
     	}
-        else if (select == 'Otro Dispositivo') {
-            $("#solicitud_necesidad").modal('show');
-            document.getElementById("form-solicitud-seccion1-1").className= "form-group hidden";
-        }
     	else{
     		document.getElementById("form-solicitud-seccion1-1").className= "form-group hidden";
     	}
@@ -269,10 +265,6 @@ function validacion1(){
 
     if(peticion == 'Protesis' && !document.getElementById('chkop1').checked && !document.getElementById('chkop2').checked && !document.getElementById('chkop3').checked && !document.getElementById('chkop4').checked) {
         alert("Seleccione al menos una opcion de protesis");
-        return false;
-    }
-    if (peticion == 'Otro Dispositivo') {
-        window.location.href = "solicitud_necesidad";
         return false;
     }
     return true;

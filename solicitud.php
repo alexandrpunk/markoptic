@@ -38,7 +38,6 @@ require 'mod/head.php';
                                             <option value="">Seleccioné Una Opción</option>
                                             <option value="Protesis">Prótesis</option>
                                             <option value="Colchon Antiescaras">Colchón Anti-escaras</option>
-                                            <!--<option value="Otro Dispositivo">Otro Dispositivo</option>-->
                                         </select>
                                     </div>
                                 </div>
@@ -495,24 +494,6 @@ Fundación Markoptic A.C. iniciará un proceso de estudio de la solicitud y se c
 <?php require 'mod/footer.php';?>
     
 <?php require 'mod/mmodal.php';?>
-
-<div class="modal fade" id="solicitud_necesidad" tabindex="-1" role="dialog" aria-labelledby="Otro Dispositivo">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header modal-mark modal-magenta">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="noticia3">OTRO DISPOSITIVO</h4>
-      </div>
-        <div class="modal-body">
-        <p class="news text-justify">Este espacio está dedicado para que nos platiques cómo el desarrollo de un nuevo dispositivo tecnológico puede mejorar tu calidad de vida.</p>
-        <p class="news text-justify">En Fundación Markoptic A.C., desarrollamos nuevas tecnologías para personas con discapacidad motriz, por lo que no hacemos donaciones de medicinas, implantes, material terapéutico, prótesis internas, o dispositivos existentes comercialmente..</p>
-        </div>
-        <div class="modal-footer">
-            <a type="button" class="btn btn-primary btn-aceptar" data-dismiss="modal">Aceptar</a>
-        </div>
-    </div>
-  </div>
-</div>
 
 <div class="modal fade" id="aviso_solicitud" tabindex="-1" role="dialog" aria-labelledby="AVISO">
   <div class="modal-dialog" role="document">

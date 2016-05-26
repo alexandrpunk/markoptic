@@ -92,16 +92,6 @@ if ($peticion == "Protesis") {
 			$folio_numero = str_pad($num_folio, 5, "0", STR_PAD_LEFT);
 			$folio = 'PI-'.$folio_numero;
 		}
-		elseif (($peticion != "Protesis") && ($peticion != "Colchon Antiescaras")) {
-			$link = AbrirConexion();
-			$result_folio = $link->query("SELECT * FROM solicitud WHERE (folio LIKE 'OD%') ORDER BY id DESC LIMIT 1");
-			$row = $result_folio->fetch_array(MYSQLI_ASSOC);
-			$ultimo_folio = $row["folio"];
-			$s = explode("-", $ultimo_folio);
-			$num_folio = $s[1]+1;
-			$folio_numero = str_pad($num_folio, 5, "0", STR_PAD_LEFT);
-			$folio = 'OD-'.$folio_numero;
-		}
 
 		$db = array("nombre" => $nombre,
 					"apellido" => $apellido,
@@ -287,15 +277,6 @@ else{
 		$descripcion = "";
 	}
 
-	else{
-		$descripcion =  $_POST["descripcion"];
-	}
-
-	
-
-
-
-
 	$nombre = $_POST["nombre"];
 	$apellido = $_POST["apellido"];
 	$sexo = $_POST["sexo"];
@@ -373,16 +354,7 @@ else{
 		$folio_numero = str_pad($num_folio, 5, "0", STR_PAD_LEFT);
 		$folio = 'PI-'.$folio_numero;
 	}
-	elseif (($peticion != "Protesis") && ($peticion != "Colchon Antiescaras")) {
-		$link = AbrirConexion();
-		$result_folio = $link->query("SELECT * FROM solicitud WHERE (folio LIKE 'OD%') ORDER BY id DESC LIMIT 1");
-		$row = $result_folio->fetch_array(MYSQLI_ASSOC);
-		$ultimo_folio = $row["folio"];
-		$s = explode("-", $ultimo_folio);
-		$num_folio = $s[1]+1;
-		$folio_numero = str_pad($num_folio, 5, "0", STR_PAD_LEFT);
-		$folio = 'OD-'.$folio_numero;
-	}
+
 
 	$db = array("nombre" => $nombre,
 				"apellido" => $apellido,
