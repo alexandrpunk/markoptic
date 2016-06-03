@@ -14,7 +14,7 @@
             <div class="col-md-9">
                 
                 <?php require 'mod/menu.php';?>
-                <!--<audio id="player" src="audio/spot.mp3"></audio>-->
+                <cms:ignore><audio id="player" src="audio/spot.mp3"></audio></cms:ignore>
         
                 <?php require 'mod/carrousel.php';?>
 
@@ -23,11 +23,17 @@
                   <div class="panel-heading panel-heading-mark">¿A QUIÉN ESTOY AYUDANDO?</div>
                     <div class="panel-body panel-body-mark">
                     <div class="row zero">
-                    <cms:pages masterpage='historias.php' limit='3'>
-                        <div class="col-md-4 col-sm-4 well" style="margin-bottom:0;">
+                    <cms:pages masterpage='historias.php' limit='3' folder='NOT sin-fotografia'>
+                        
+                        <div class="col-md-4 col-sm-4 zero">
+                        <a href="<cms:show k_page_link />" class="hist-box sombra" style="height: 326px;">
+
                             <img class="img-quote center-block" src="<cms:show fotografia_thumb />">
-                            <h4 class="txt-mark text-center oswald"><a href="<cms:show k_page_link />"><cms:show k_page_title /></a></h4>
-                                <p class="quote"><cms:show necesidad /></p>
+                            <h4 class="txt-mark text-center oswald text-capitalize"><cms:show k_page_title /></h4>
+                            <p><strong>Edad: </strong><cms:show edad /></p>
+                            <p><strong>Vive en: </strong><cms:show ciudad />, <cms:show estado />, <cms:show pais/></p>
+                            <p><strong>Necesidad: </strong><cms:show dispositivo /> <cms:show descripcion /></p>
+                          </a>
                         </div>
                     </cms:pages>
                     </div>
@@ -51,7 +57,7 @@
                     </div>
                     <hr/>
                     </cms:pages>
-                    <center><h4 class="txt-mark oswald" ><a class="txt-mark"  href="noticias">Ver todas las noticias</a></h4></center>
+                    <center><h4 class="txt-mark oswald" ><a class="txt-mark"  href="publicacion">Ver todas las noticias</a></h4></center>
 
                     </div>
                 </div>
@@ -66,15 +72,14 @@
     
 <?php require 'mod/footer.php';?>
     
-<?php require 'mod/modals.php';?>
 
 <?php require 'mod/scripts.php';?>
 
-    <script type="text/javascript">
+    <cms:ignore><script type="text/javascript">
 	$(document).ready(function(){
-		//$("#itt").modal('show');
+		$("#itt").modal('show');
 	});
-</script>
+</script></cms:ignore>
 
 <!--<script src="js/audio.js"></script>-->
 

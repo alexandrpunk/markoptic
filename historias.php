@@ -67,6 +67,7 @@ require_once( 'cms/cms.php' );
                     type="thumbnail"
                     order='9'
     />
+    <cms:folder name="sin-fotografia" title="sin fotografia" />
 </cms:template>
 <?php require 'mod/head.php';?>
 
@@ -87,60 +88,86 @@ require_once( 'cms/cms.php' );
                     <div class="panel-heading panel-heading-mark" id="rosado">CONOCE A: <cms:show k_page_title /></div>
                     <div  class="panel-body panel-body-mark">
                        
-                        <div class="well sombra" style="margin:0;">
-                            <div class="row">
-                               
-                                <div class="col-md-3 col-sm-3">
-                                <a href="<cms:show fotografia />" data-lightbox="image-1"><img class="img-thumbnail center-block sombra" src="<cms:show fotografia_thumb />"></a>
-                                <cms:ignore>
-                                <a href="" class="btn-pad" id="cyan" data-toggle="modal" OnClick="setinfo('<cms:show k_page_id />', '<cms:show k_page_title />')" data-target="#solicitar_email">Apadrinar</a>
-                                </cms:ignore>
-                                </div>
-                                
-                                <div class="col-md-9 col-sm-9">
-                                    <label class="txt-mark">Nombre:</label><p><strong><cms:show k_page_title /></strong></p>
-                                    <label class="txt-mark">Edad:</label><p><cms:show edad /></p>
-                                    <label class="txt-mark">Vive en:</label><p><cms:show ciudad />, <cms:show estado />, <cms:show pais/></p>
-                                    <label class="txt-mark">Solicito:</label><p class="text-justify"><i><cms:show dispositivo /></i></p>
-                                    <label class="txt-mark">Descripcion de su necesidad:</label><p class="text-justify"><i><cms:show descripcion /></i></p>
-                                    <label class="txt-mark">¿Por que lo necesita?:</label><p class="text-justify"><i><cms:show necesidad /></i></p>
-                                </div>
-                                
-                            </div>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-                        
-                    <cms:else />
-                    <div class="panel panel-default panel-mark  animated fadeIn">
-                    <div class="panel-heading panel-heading-mark" id="rosado">CONOCE A QUIENES NECESITAN TU APOYO</div>
-                    <div  class="panel-body panel-body-mark">                    
-                    <cms:pages masterpage='historias.php' limit='10' paginate='1'>
-                        <div class="well sombra">
-                            <div class="row">
+                        <div class="row hist-box sombra">      
                                
                                 <div class="col-md-4 col-sm-4">
-                                <a href="<cms:show fotografia />" data-lightbox="image-1"><img class="img-thumbnail center-block sombra" src="<cms:show fotografia_thumb />"></a>
-                                <p class="text-capitalize"><strong><cms:show k_page_title /></strong></p>
-                                <label class="txt-mark">Edad:</label><p><cms:show edad /></p>
-                                <label class="txt-mark">Vive en:</label><p><cms:show ciudad />, <cms:show estado />, <cms:show pais/></p>
-                                <label class="txt-mark">Solicito:</label><p class="text-justify "><i><cms:show dispositivo /> <cms:show descripcion /></i></p>
-                                    
-                                <cms:ignore>
-                                <a href="" class="btn-pad" id="cyan" data-toggle="modal"  OnClick="setinfo('<cms:show k_page_id />', '<cms:show k_page_title />')" data-target="#solicitar_email" >Apadrinar</a>
-                                </cms:ignore>
-                                    
+                                    <a href="<cms:show fotografia />" data-lightbox="image-1"><img class="img-thumbnail center-block sombra" src="<cms:show fotografia_thumb />"></a>
+                                    <h3 class="text-capitalize text-center"><strong><cms:show k_page_title /></strong></h3>
                                 </div>
                                 
                                 <div class="col-md-8 col-sm-8">
-                                    <label class="txt-mark">¿Por que lo necesita?:</label><p class="text-justify text-lowercase scroll-box"><i><cms:show necesidad /></i></p>
+                                    <dl class="dl-horizontal">
+                                        <dt  class="txt-mark">Solicito:</dt>
+                                        <dd><i><cms:show dispositivo /> <cms:show descripcion /></i></dd>
+                                    
+                                        <dt class="txt-mark">Edad:</dt>
+                                        <dd><i><cms:show edad /></i></dd>
+                                        
+                                        <dt class="txt-mark">Vive en:</dt>
+                                        <dd><i><cms:show ciudad />, <cms:show estado />, <cms:show pais/></i></dd>
+                                        
+                                        <dt class="txt-mark">¿Porque lo necesita?</dt>
+                                        <dd class="text-lowercase"><i><cms:show necesidad /></i></dd>
+                                    </dl>
+                                    
+                                    <cms:ignore><center>
+                                    <a href="" class="btn btn-pad" id="cyan" data-toggle="modal"  OnClick="setinfo('<cms:show k_page_id />', '<cms:show k_page_title />')" data-target="#solicitar_email" >Apadrinar</a> 
+                                        </center></cms:ignore>
                                 </div>
                                 
-                            </div>
-                            
                         </div>
+                    
+                    </div>
+                </div>
+                        
+                <cms:else />
+                    <div class="panel panel-default panel-mark  animated fadeIn">
+                    <div class="panel-heading panel-heading-mark" id="rosado">CONOCE A QUIENES NECESITAN TU APOYO</div>
+                    <div  class="panel-body panel-body-mark">                    
+                    <cms:pages masterpage='historias.php' limit='5' paginate='1'>
+
+                            <div class="row hist-box sombra">
+                               
+                                <div class="col-md-4 col-sm-4">
+                                    <a href='
+                                    <cms:if "<cms:exists "<cms:show fotografia/>" />" >
+                                        <cms:show fotografia />
+                                    </cms:if>' data-lightbox="image-1">
+                                    <img class="img-thumbnail center-block sombra" src='
+                                    <cms:if "<cms:exists "<cms:show fotografia_thumb />" />" >
+                                        <cms:show fotografia_thumb />
+                                    <cms:else />
+                                        img/placeholder.jpg
+                                    </cms:if>'>
+                                    </a>
+                                    <cms:show fotografia_thumb />
+                                    <h3 class="text-capitalize text-center"><strong><cms:show k_page_title /></strong></h3>                             
+                                </div>
+                                
+                                <div class="col-md-8 col-sm-8">
+                                    <dl class="dl-horizontal">
+                                        <dt  class="txt-mark">Solicito:</dt>
+                                        <dd><i><cms:show dispositivo /> <cms:show descripcion /></i></dd>
+                                    
+                                        <dt class="txt-mark">Edad:</dt>
+                                        <dd><i><cms:show edad /></i></dd>
+                                        
+                                        <dt class="txt-mark">Vive en:</dt>
+                                        <dd><i><cms:show ciudad />, <cms:show estado />, <cms:show pais/></i></dd>
+                                        
+                                        <dt class="txt-mark">¿Porque lo necesita?</dt>
+                                        <dd class="text-lowercase scroll-box"><i><cms:show necesidad /></i></dd>
+                                    </dl>
+                                    <center>
+                                        <a class="btn btn-pad" id="verde" href="<cms:show k_page_link />" role="button">Conoce la historia</a> 
+                                        <cms:ignore><a href="" class="btn btn-pad" id="cyan" data-toggle="modal"  OnClick="setinfo('<cms:show k_page_id />', '<cms:show k_page_title />')" data-target="#solicitar_email" >Apadrinar</a></cms:ignore>
+                                    </center>
+                                </div>
+                                
+                               
+                                
+                            </div>
+
                     
                     
                     <cms:if k_paginated_bottom >
