@@ -9,7 +9,7 @@ CKEDITOR.editorConfig = function( config )
     // config.language = 'fr';
     // config.uiColor = '#AADC6E';
 
-    config.language = 'en';
+    config.language = 'es';
 
     // Uncomment the following line if your users tend to frequently paste in contents from, say, MS-Word.
     // config.forcePasteAsPlainText = true;

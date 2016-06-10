@@ -106,7 +106,7 @@
          // General settings
          runtimes : 'html5,silverlight,flash,html4',
          url : '<?php echo $upload_link; ?>',
-         max_file_size : '2mb',
+         max_file_size : '10mb',
 	 file_data_name : 'NewFile',
          chunk_size : '1mb',
          unique_names : false,

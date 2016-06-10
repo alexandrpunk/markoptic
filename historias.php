@@ -87,12 +87,23 @@ require_once( 'cms/cms.php' );
                 <div class="panel panel-default panel-mark  animated fadeIn">
                     <div class="panel-heading panel-heading-mark" id="rosado">CONOCE A: <cms:show k_page_title /></div>
                     <div  class="panel-body panel-body-mark">
-                       
-                        <div class="row hist-box sombra">      
+
+                        <cms:set img_val="<cms:php> echo(substr('<cms:show fotografia/>', 25));</cms:php>" />
+                            <div class="row hist-box sombra">
                                
                                 <div class="col-md-4 col-sm-4">
-                                    <a href="<cms:show fotografia />" data-lightbox="image-1"><img class="img-thumbnail center-block sombra" src="<cms:show fotografia_thumb />"></a>
-                                    <h3 class="text-capitalize text-center"><strong><cms:show k_page_title /></strong></h3>
+                                    <a href='
+                                    <cms:if "<cms:exists "../<cms:show img_val />" />" >
+                                        <cms:show fotografia />
+                                    </cms:if>' data-lightbox="image-1">
+                                    <img class="img-thumbnail center-block sombra" src='
+                                   <cms:if "<cms:exists "../<cms:show img_val />" />" >
+                                        <cms:show fotografia_thumb />
+                                    <cms:else />
+                                        img/placeholder.jpg
+                                    </cms:if>'>
+                                    </a>
+                                    <h3 class="text-capitalize text-center"><strong><cms:show k_page_title /></strong></h3>                             
                                 </div>
                                 
                                 <div class="col-md-8 col-sm-8">
@@ -125,22 +136,22 @@ require_once( 'cms/cms.php' );
                     <div class="panel-heading panel-heading-mark" id="rosado">CONOCE A QUIENES NECESITAN TU APOYO</div>
                     <div  class="panel-body panel-body-mark">                    
                     <cms:pages masterpage='historias.php' limit='5' paginate='1'>
-
+                    
+                        <cms:set img_val="<cms:php> echo(substr('<cms:show fotografia/>', 25));</cms:php>" />
                             <div class="row hist-box sombra">
                                
                                 <div class="col-md-4 col-sm-4">
                                     <a href='
-                                    <cms:if "<cms:exists "<cms:show fotografia/>" />" >
+                                    <cms:if "<cms:exists "../<cms:show img_val />" />" >
                                         <cms:show fotografia />
                                     </cms:if>' data-lightbox="image-1">
                                     <img class="img-thumbnail center-block sombra" src='
-                                    <cms:if "<cms:exists "<cms:show fotografia_thumb />" />" >
+                                   <cms:if "<cms:exists "../<cms:show img_val />" />" >
                                         <cms:show fotografia_thumb />
                                     <cms:else />
                                         img/placeholder.jpg
                                     </cms:if>'>
                                     </a>
-                                    <cms:show fotografia_thumb />
                                     <h3 class="text-capitalize text-center"><strong><cms:show k_page_title /></strong></h3>                             
                                 </div>
                                 

@@ -59,6 +59,18 @@
     </div>
 </div>
     
+<div class="col-md-12 col-sm-6">
+    <div class="panel panel-default panel-mark">
+        <div class="panel-heading panel-heading-mark" id="amarillo">VINCULACIONES</div>
+        <div style="padding:10px;" class="panel-body panel-body-mark">
+                        <a href="#vinculo" data-toggle="modal" class="dlink"><span class="center-block img-thumbnail text-center">
+                <img class="img-responsive center-block" style="height:150px;" src="img/universidades.jpg" />
+                <h4 class="txt-mark oswald"><strong>Nuestras vinculaciones</strong></h4>
+            </span></a>
+        </div>
+    </div>
+</div>
+    
 </div>
 
-    <?php include 'lmodal.php';?> 
+<?php include 'lmodal.php';?> 

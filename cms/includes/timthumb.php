@@ -46,7 +46,7 @@ function k_resize_image( $src, $dest=0, $new_width=0, $new_height=0, $zoom_crop=
     // get mime type of src
     $mime_type = mime_type($src);
 
-    ini_set('memory_limit', "50M");
+    ini_set('memory_limit', "70M");
 
     // make sure that the src is gif/jpg/png
     if(!valid_src_mime_type($mime_type)) {

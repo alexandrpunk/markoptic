@@ -170,4 +170,25 @@ EOS;
       
    }
    
+//[carrusel][img_carrusel http://www.direccion_de_la_imagen.com1][/carrusel]
+$FUNCS->register_shortcode( 'carrusel', 'carrusel_handler' );
+//[img_carrusel http://www.direccion_de_la_imagen.com1]
+$FUNCS->register_shortcode( 'img_carrusel', 'img_carrusel_handler' );
+
+function carrusel_handler( $params, $content=null ){
+    if( is_null($content) ) return '';
+
+    return '<div class="carrusel">' . $content . '</div>';
+}
+
+function img_carrusel_handler( $params, $content=null ){
+    global $FUNCS;
+
+    extract( $FUNCS->get_named_vars(array(
+       'src' => ''
+    ), $params) );
+    
+    return '<div class="carousel-cell"><a href="'.$src.'" data-lightbox="image-1"/><img class="carousel-cell-image" src="'.$src.'" /></a></div>';
+
+}
 

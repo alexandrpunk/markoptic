@@ -7,8 +7,8 @@
         <h4 class="modal-title" id="summon">Unete a Nuestro Equipo</h4>
       </div>
         <div class="modal-body">
-            <img class="img-responsive center-block" src="img/summon.png">
-            <p class="news text-justiy"><strong>Fundación Markoptic A.C. te invita a que formes parte de nuestro equipo exiten diferentes formas de hacerlo:</strong></p>
+            <img class="img-responsive center-block" src="img/universidades.jpg">
+            <p class="news text-justiy">Fundación Markoptic A.C. te invita a que formes parte de nuestro equipo, existen diferentes formas de hacerlo:</p>
                 <ul>
                     <li>Servicio Social</li>
                     <li>Residencias Profesionales</li>
@@ -16,7 +16,7 @@
                     <li>Verano Científico</li>
                     <li>Bolsa de Trabajo</li>
                 </ul>
-<p class="text-center">"Para conocer más puedes dar <a href="files/bolsa.pdf" target="_blank">Clic Aquí</a>".</p>
+            <p class="news text-center">Puedes solicitar informacion o enviarnos tu solicitud al siguiente correo <a href="mailto:ctorres@fundacionmarkoptic.org.mx" target="_blank">ctorres@fundacionmarkoptic.org.mx</a></p>
       </div>
     </div>
   </div>
@@ -107,4 +107,27 @@
                 </div>
         </div>
     </div>
+</div>
+
+<div class="modal fade" id="vinculo" tabindex="-1" role="dialog" aria-labelledby="Vinculación con las Universidades Prestigiadas">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header modal-mark modal-verde">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="foo10">Vinculación con las Universidades Prestigiadas</h4>
+      </div>
+        <div class="modal-body">
+            <img class="img-responsive center-block" src="img/universidades.jpg">
+            <p class="news">La gran diversidad educativa con la que cuenta México hoy en día, nos permite tener vinculación con diferentes instituciones las cuales son:</p>
+            <ul class="news">
+                <li>Instituto Tecnológico de Culiacán</li>
+                <li>Universidad de Occidente</li>
+                <li>Universidad Autónoma de Sinaloa</li>
+                <li>Universidad Politécnica de Sinaloa</li>
+                <li>Benemérita Universidad Autónoma de Puebla.</li>
+            </ul>
+<p class="news">Y contar con la valiosa participación de maestros y doctores que gozan de gran reconocimiento en las áreas que representan.</p>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,5 +1,5 @@
 <?php require_once( 'cms/cms.php' ); ?>
-<cms:template title='Noticias' clonable='1' dynamic_folders='1' order='1'>
+<cms:template title='Noticias' clonable='1' order='1'>
     <cms:editable name='contenido' type='richtext' toolbar='full' />
     <cms:editable name='publicacion_image'
                     label='Imagen de la publicacion'
@@ -8,6 +8,7 @@
                     preview_height='200'
                     type='image'
     />
+     <cms:folder name="importantes" title="importantes" />
 </cms:template>
 
 <?php require 'mod/head.php';?>
@@ -15,6 +16,7 @@
 <link rel="stylesheet" href="css/jssocials.css">
 <link rel="stylesheet" href="css/jssocials-theme-classic.css">
 <link rel="stylesheet" href="css/flexslider.css">
+<link rel="stylesheet" href="https://npmcdn.com/flickity@1.2/dist/flickity.min.css">
 
   
 <meta property="og:url"                content="<cms:show k_page_link />" />
@@ -54,27 +56,33 @@
                 <div class="fb-comments" data-href="<cms:show k_page_link />" data-width="100%" data-numposts="3"></div>
 
                 <cms:else />
+                    
                 <!--se muestra la lista de publicaciones-->
                 <div class="panel panel-default panel-mark  animated fadeIn">
                     <div class="panel-heading panel-heading-mark" id="cyan">NOTICIAS</div>
                     <div  class="panel-body panel-body-mark">
                         <cms:pages masterpage='publicacion.php' limit='10' paginate='1'>
-                        <div class="postit">
-                            <a href="<cms:show k_page_link />"><img class="thumb-new pull-left" src="<cms:show publicacion_image />"></a>
-                            <h4 class="txt-mark"><a  href="<cms:show k_page_link />"><cms:show k_page_title /></a></h4>
-                            <p><small>Publicado el: <cms:date k_page_date format='j-m-Y'/></small></p>
-                            <p><cms:excerpt count='450'  truncate_chars='1' trail="&nbsp;<a href='<cms:show k_page_link />' class='badge btn-mark'>leer mas..</a>"><cms:do_shortcodes><cms:show contenido /></cms:do_shortcodes></cms:excerpt></p>
-                        </div>
+                            <div class="row">
+                                <div class="col-md-3 col-sm-3">
+                                    <a href="<cms:show k_page_link />"><img class="img-thumbnail center-block sombra" src="<cms:show publicacion_image />"></a>
+                                </div>
+                                <div class="col-md-9 col-sm-9">
+                                <h3 class="txt-mark oswald"><a href="<cms:show k_page_link />"><cms:show k_page_title /></a></h3>
+                                <p><small>Publicado el: <cms:date k_page_date format='j-m-Y'/></small></p>
+                                <p><cms:excerpt count='450'  truncate_chars='1' trail="&nbsp;<a href='<cms:show k_page_link />' class='badge btn-mark'>leer mas..</a>"><cms:do_shortcodes><cms:show contenido /></cms:do_shortcodes></cms:excerpt></p>
+                                </div>
+                            </div>
                         <hr/>
-
-                        <cms:if k_paginated_bottom >
-                            <cms:if k_paginate_link_prev >
-                                <a class="btn btn-md btn-mark pull-right" href="<cms:show k_paginate_link_prev />">publicaciones mas recientes</a>
-                            </cms:if>
-                            <cms:if k_paginate_link_next >
-                                <a class="btn btn-md btn-mark strong pull-left" href="<cms:show k_paginate_link_next />">publicaciones anteriores</a>
-                            </cms:if>
+                            
+                    <cms:if k_paginated_bottom >
+                       <hr/>
+                        <cms:if k_paginate_link_prev >
+                            <a class="btn btn-md btn-mark pull-left" href="<cms:show k_paginate_link_prev />">Publicaciones recientes</a>
                         </cms:if>
+                        <cms:if k_paginate_link_next >
+                            <a class="btn btn-md btn-mark strong pull-right" href="<cms:show k_paginate_link_next />">Publicaciones anteriores</a>
+                        </cms:if>
+                    </cms:if>
                         </cms:pages>
                     </div>
                 </div>
@@ -95,6 +103,7 @@
 <script src="js/jssocials.min.js"></script>
 <script src="js/jquery.flexslider-min.js"></script>
 <script src="js/flex.js"></script>
+<script src="https://npmcdn.com/flickity@1.2/dist/flickity.pkgd.min.js"></script>
 
         <script>
         $("#share").jsSocials({
@@ -102,8 +111,18 @@
             showCount: "inside",
             shares: ["twitter", "facebook", "googleplus", "email", "pinterest"],
         });
+        
+        $('.carrusel').flickity({
+        // options
+        cellAlign: 'left',
+        wrapAround: true,
+        freeScroll: true,
+        prevNextButtons: true,
+        pageDots: false,
+        imagesLoaded: true
+        });
     </script>
-    
+
 </body>
 </html>
 <?php COUCH::invoke(); ?>

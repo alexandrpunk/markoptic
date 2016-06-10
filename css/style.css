@@ -392,54 +392,7 @@ font-size: 0.75em;
     background-color: #31a463;
 }
 
-/*Botones de donacion*/
-.foo{
-    width: 150px;
-    height: 150px;
-    margin: 6px;
-    display: inline-table;
-    border-radius: 3px;
-    padding: 5px;
-    text-align: center;
-    font-size: 1.05em;
-    font-weight: 600;
-    font-family: 'Oswald', sans-serif;
-    color: #fff;
-    list-style-type: none;
-}
-.foo:hover{
-    text-decoration: none;
-    cursor:pointer;
-    -webkit-box-shadow: 0px 1px 15px 0px rgba(0, 152, 219, 0.86);
-    -moz-box-shadow:  0px 1px 15px 0px rgba(0, 152, 219, 0.86);
-    box-shadow: 0px 1px 15px 0px rgba(0, 152, 219, 0.86);
-}
-.foo:visited, .foo:hover, .foo:active, .foo:link{
-    color: inherit;
-    text-decoration: none;
-}
-.foo img{
-    width: auto;
-    max-width: 120px;
-    height: 80px;
-    max-height: 80px;
-    margin-top: 10px;
-    text-decoration: none;
-    list-style-type: none;
-}
-.foo p{
-    color: #fff;
-    height: 45px;
-    font-size: 1em;
-}
 
-.foo-center{
-    overflow: hidden;
-    text-align: center;
-    width:100%;
-    margin:10px auto;
-    padding: 0;
-}
 
 .bannerd{
     width:300px;
@@ -448,32 +401,7 @@ font-size: 0.75em;
     float: right;
 }
 
-/*estilo de la lista de articulos*/
 
-.postit {
- overflow: hidden;
-}
-.postit h4 {
-    font-size: 1.5em;
-    font-weight: 600;
-    margin-bottom: 0;
-}
-.postit p {
-    text-align: justify;
-    font-size: 1em;
-    font-weight: 500;
-}
-
-.thumb-new {
-    margin-right: 10px;
-    max-width: 180px;
-    background-color: #fff;
-    border: solid 3px #fff;
-    -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.3);
-    -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.3);
-    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.3);
-    border-radius: 3px;
-}
 
 hr {
     border-top-color: #d6d6d6;
@@ -575,15 +503,6 @@ hr {
 .modal-militar{background: #9AAE3B;}
 .modal-amarillo{background: #fccf14;}
 .modal-cafe{background: #cd853f;}
-
-.news{
-    color:#6D6E71;
-    font-size: 1em;
-    margin-top: 10px;
-}
-.note-img{
-margin: 8px;
-}
 
 
 @media (max-width : 768px) {
@@ -726,6 +645,7 @@ margin: 8px;
     vertical-align: middle;
 }
 
+/*botones de las formas de doancion*/
 .don-btn{
     height: 145px;
     min-height: 145px;
@@ -763,6 +683,7 @@ margin: 8px;
 text-decoration: none;
 }
 
+
 input[type='number'] {
     -moz-appearance:textfield;
 }
@@ -796,15 +717,9 @@ margin: 0;
     box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.3);
     border-radius: 1000px;
     width: 120px;
-    height: 120px;
-    margin-bottom: 10px;
+    height: 120px !important;
+    margin: 0 auto 10px !important;
 }
-.quote{
-    font-style: italic!important;
-    text-align: justify !important;
-    font-size: 1em !important;
-}
-
 
 
 .play-wrapper {
@@ -869,6 +784,7 @@ margin: 0;
     vertical-align: middle;
 }
 
+/*propiedades de lso botones de solicitudy del contador*/
 .sbut{
     background: #31a463;
     min-height:  height: 100px;
@@ -930,6 +846,8 @@ text-decoration: none;
 #hist:visited{
 text-decoration: none;
 }
+
+/*estilos de las graficas*/
 .charts{
     width:100%;
     height: 350px;
@@ -943,6 +861,7 @@ text-decoration: none;
 }
 
 #chart_div{border-color: #25AAE3;}
+
 
 .sombra{
     -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.3);
@@ -966,10 +885,8 @@ text-decoration: none;
     -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.4);
     box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.4);
       -webkit-filter: brightness(110%);
-      filter: brightness(110%);
-    
+      filter: brightness(110%); 
 }
-
 
 .btn-pad:active{
     color: #fff;
@@ -1038,6 +955,7 @@ article.accordion section h2{
 	transition: all 0.5s ease;
 }
 
+/*estilos de las historias*/
 .scroll-box{
     max-height: 150px;
     overflow: scroll;
@@ -1050,9 +968,13 @@ article.accordion section h2{
     background: #f8f8f8;
     display: block;
     border-radius: 3px;
+    transition: all 0.5s ease;
 }
 a.hist-box:focus, a.hist-box:hover{
     text-decoration: none;
+    -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.4);
+    box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.4);
 }
 
 .hist-box dl{
@@ -1078,3 +1000,8 @@ a.hist-box:focus, a.hist-box:hover{
     line-height: 1.4em;
     text-align: center;
     }
+
+.carousel-cell img {
+  height: 250px;
+  margin-right: 10px;
+}

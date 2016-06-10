@@ -10,9 +10,6 @@ $(function(){
 			$('.scroll-top-wrapper').removeClass('show');
 		}
 	});
- 
-	
-
 
 });
 

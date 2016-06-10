@@ -1,6 +1,7 @@
 <?php require_once( 'cms/cms.php' ); ?>
 <cms:template title='Inicio' order='10'></cms:template>
 <?php require 'mod/head.php';?>
+<link rel="stylesheet" href="https://npmcdn.com/flickity@1.2/dist/flickity.min.css">
 </head>
 <body>  
  
@@ -23,9 +24,11 @@
                   <div class="panel-heading panel-heading-mark">¿A QUIÉN ESTOY AYUDANDO?</div>
                     <div class="panel-body panel-body-mark">
                     <div class="row zero">
-                    <cms:pages masterpage='historias.php' limit='3' folder='NOT sin-fotografia'>
                         
-                        <div class="col-md-4 col-sm-4 zero">
+                    <div class="main-carousel">
+                    <cms:pages masterpage='historias.php' limit='5' folder='NOT sin-fotografia' orderby='random'>
+                        
+                        <div class="carousel-cell col-md-4 col-sm-4 zero">
                         <a href="<cms:show k_page_link />" class="hist-box sombra" style="height: 326px;">
 
                             <img class="img-quote center-block" src="<cms:show fotografia_thumb />">
@@ -36,9 +39,11 @@
                           </a>
                         </div>
                     </cms:pages>
-                    </div>
+                    </div><!--fin del div del carrousel-->
+                        
+               s     </div>
 
-                        <hr/>
+                    <hr/>
                         
                         <center><h4 class="txt-mark oswald" ><a class="txt-mark"  href="historias">Conocer todas las historias</a></h4></center>
                     </div>
@@ -49,11 +54,15 @@
                   <div class="panel-heading panel-heading-mark" id="cyan">NOTICIAS RECIENTES</div>
                   <div class="panel-body panel-body-mark">
                     <cms:pages masterpage='publicacion.php' limit='4'>
-                    <div class="postit">
-                        <a href="<cms:show k_page_link />"><img class="thumb-new pull-left" src="<cms:show publicacion_image />"></a>
-                        <h4 class="txt-mark"><a  href="<cms:show k_page_link />"><cms:show k_page_title /></a></h4>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3">
+                            <a href="<cms:show k_page_link />"><img class="img-thumbnail center-block sombra" src="<cms:show publicacion_image />"></a>
+                        </div>
+                        <div class="col-md-9 col-sm-9">
+                        <h3 class="txt-mark oswald"><a href="<cms:show k_page_link />"><cms:show k_page_title /></a></h3>
                         <p><small>Publicado el: <cms:date k_page_date format='j-m-Y'/></small></p>
                         <p><cms:excerpt count='450'  truncate_chars='1' trail="&nbsp;<a href='<cms:show k_page_link />' class='badge btn-mark'>leer mas..</a>"><cms:do_shortcodes><cms:show contenido /></cms:do_shortcodes></cms:excerpt></p>
+                        </div>
                     </div>
                     <hr/>
                     </cms:pages>
@@ -74,16 +83,24 @@
     
 
 <?php require 'mod/scripts.php';?>
+<script src="https://npmcdn.com/flickity@1.2/dist/flickity.pkgd.min.js"></script>
 
-    <cms:ignore><script type="text/javascript">
+
+    <script type="text/javascript">
 	$(document).ready(function(){
-		$("#itt").modal('show');
+		//$("#itt").modal('show');
 	});
-</script></cms:ignore>
+        
+    $('.main-carousel').flickity({
+        // options
+        cellAlign: 'left',
+        wrapAround: true,
+        freeScroll: true,
+        prevNextButtons: true,
+        pageDots: false
+    });
+    </script>
 
-<!--<script src="js/audio.js"></script>-->
-
-<?php require 'mod/checkCookie.php';?>
     
 </body>
 </html>
