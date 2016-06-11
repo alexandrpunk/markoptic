@@ -39,26 +39,22 @@
                 
                 <div class="panel panel-default panel-mark ">
                     <div class="panel-heading panel-heading-mark" id="aqua">GALERIA FOTOGRAFICA</div>
-                    <div class="panel-body panel-body-mark">  
-                        <ul class="image-list">
+                    <div class="panel-body panel-body-mark"> 
+                        <h2 style="margin:10px 8%;" class="text-center decor-gal"><span class="decor-span">Eventos</span></h2>  
+                        <div class="row">
                             <cms:folders>
-    <cms:show k_folder_title /> <br>
-</cms:folders>
-                        <cms:pages masterpage="fotografias.php" limit='42' paginate='1'>
-                            <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
-                                <a href="<cms:show gg_image />" data-lightbox="image-1"><img src="<cms:show gg_thumb />"></a>
-                            </li>
-                            
-                            <cms:if k_paginated_bottom >
-                                    <cms:if k_paginate_link_prev >
-                                        <a class="btn btn-md btn-mark pull-right" href="<cms:show k_paginate_link_prev />">fotografias recientes</a>
-                                    </cms:if>
-                                    <cms:if k_paginate_link_next >
-                                        <a class="btn btn-md btn-mark strong pull-left" href="<cms:show k_paginate_link_next />">fotografias anteriores</a>
-                                    </cms:if>
-                                </cms:if>
-                        </cms:pages>
-                        </ul>
+                                <div class="col-md-4 col-sm-4">
+                                    <a class="gal-folder sombra" href="<cms:show k_folder_link />" >
+                                        <div>
+                                            <img class="img-responsive" src="<cms:show k_folder_image />" />
+                                            <h4><cms:show k_folder_title /></4>
+                                            <p><cms:show k_folder_pagecount /> Fotografias</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </cms:folders>
+                        </div>
+                        <hr />
                     </div>
                 </div> 
             </div>
