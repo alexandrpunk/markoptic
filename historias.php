@@ -121,9 +121,9 @@ require_once( 'cms/cms.php' );
                                         <dd class="text-lowercase"><i><cms:show necesidad /></i></dd>
                                     </dl>
                                     
-                                    <cms:ignore><center>
+                                    <center>
                                     <a href="" class="btn btn-pad" id="cyan" data-toggle="modal"  OnClick="setinfo('<cms:show k_page_id />', '<cms:show k_page_title />')" data-target="#solicitar_email" >Apadrinar</a> 
-                                        </center></cms:ignore>
+                                    </center>
                                 </div>
                                 
                         </div>
@@ -171,7 +171,7 @@ require_once( 'cms/cms.php' );
                                     </dl>
                                     <center>
                                         <a class="btn btn-pad" id="verde" href="<cms:show k_page_link />" role="button">Conoce la historia</a> 
-                                        <cms:ignore><a href="" class="btn btn-pad" id="cyan" data-toggle="modal"  OnClick="setinfo('<cms:show k_page_id />', '<cms:show k_page_title />')" data-target="#solicitar_email" >Apadrinar</a></cms:ignore>
+                                        <a href="" class="btn btn-pad" id="cyan" data-toggle="modal"  OnClick="setinfo('<cms:show k_page_id />', '<cms:show k_page_title />')" data-target="#solicitar_email" >Apadrinar</a>
                                     </center>
                                 </div>
                                 
@@ -207,41 +207,20 @@ require_once( 'cms/cms.php' );
 <!-- moda de solicitud de email -->
 <div class="modal fade" id="solicitar_email" tabindex="-1" role="dialog" aria-labelledby="Correo electronico del padrino">
     <div class="modal-dialog modal-content" role="document">
-        <div class="modal-header modal-mark modal-morado text-center" ><strong><h4 class="zero oswald">Apadrina la historia de <span id='nombre'>&nbsp;</span></h4></strong></div>
-        <div class="modal-body">
-        <h4 class="text-center oswald">¿Qué debo hace para apadrinar esta historia?</h4>
-        <p class="news">Tu donativo puede ayudar a mejorar una vida, si quieres apadrinar esta historia primero debes realizar un donativo mediante alguna de las tres formas que te mencionamos a continuacion.</p>
-        
-            <article class="accordion">
-                <section id="deposito" class="modal-verde" style="color:#63c62f;">
-                    <h2 class="oswald"><a href="#deposito">Deposito <i class="fa fa-money" aria-hidden="true"></i></a></h2>
-                     <p class="news">Si desea hacer su donativo mediante depósito en efectivo o cheque a nombre de Fundación Markoptic AC puede hacerlo en nuestra Cuenta autorizada en <strong>Banamex 7007-3742542</strong> (Las Donaciones en efectivo solo serán recibidas mediante depósito Bancario).</p>
-                </section>
-                <section id="transferencia" class="modal-rosado" style="color:#F05B6F;">
-                    <h2 class="oswald"><a href="#transferencia">Trasnferencia Electronica <i class="fa fa-credit-card" aria-hidden="true"></i></a></h2>
-                    <p class="news">Si desea hacernos llegar su donativo mediante Transferencia Bancaria Electrónica nuestra <strong>Clabe Interbancaria</strong> es <strong>002730700737425429</strong> en Banamex.</p>
-                </section>
-                <section id="paypal" class="modal-cyan" style="color:#25AAE3;">
-                    <h2 class="oswald"> <a href="#paypal">Paypal <i class="fa fa-cc-paypal" aria-hidden="true"></i></a></h2>
-                    <p class="news">En caso de que usted cuente con una cuenta PayPal y desee hacernos llegar su donativo por este medio, solo debe hacer clic en el siguiente botón.</p>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-                    <input type="hidden" name="cmd" value="_s-xclick">
-                    <input type="hidden" name="hosted_button_id" value="YDDHME7ZN8YRL">
-                    <input class="center-block" style="margin-bottom:5px;" type="image" src="https://www.paypalobjects.com/es_XC/MX/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal, la forma más segura y rápida de pagar en línea.">
-                    <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
-                    </form>
-                </section>
-            </article>
-            
-            <h4 class="text-center oswald">Ya hice mi donativo, ¿qué hago ahora?</h4>
-            <p class="news">Una vez hecho el donativo ingresa tu correo electronico para que llenes el formulario de apadrinamiento, ademas podras solicitar un recbo deducible de impuestos en caso de necesitarlo.</p>
-            <form id="donar">
-                <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
-                     <input onload="focusOnInput()" type="email" name="correo_donador" id="correo_donador" class="form-control" placeholder="Correo Electronico" required  maxlength="255" autofocus autocomplete="off">
-                </div>                
-                <center><button type="submit" id="donar" class="btn btn-mark" style="margin-top:10px;" name="donar"><strong>Apadrinar esta historia</strong></button></center>
-            </form>       
+        <div class="modal-header modal-mark modal-morado text-center" ><h4 class="zero oswald">Apadrina la historia de <span class='nombre_hist'>&nbsp;</span></h4></div>
+        <div class="modal-body"> 
+            <p class="news">Gracias por su interes en apadrinar la historia de <span class='nombre_hist'>&nbsp;</span>, para inciar el proceso primero debe proporcionarnos su nombre y correo electronico.</p>
+            <form action="" method="post">
+                <div class="form-group">
+                    <label class="control-label" for="nombre">Nombre:</label>
+                    <input class="form-control" type="text" id="nombre" autofocus name="nombre" placeholder="Nombre completo" required>
+                </div>
+                <div class="form-group">
+                    <label class="control-label"  for="correo">Correo Electronico:</label>
+                    <input class="form-control" type="email" name="correo" id="correo" placeholder="Correo@electronico" required>
+                </div>
+                <input class="btn btn-success" type="submit" href="javascript:;" value="Siguiente" id="registro">
+            </form>
       </div>
     </div>
 </div>
@@ -250,6 +229,27 @@ require_once( 'cms/cms.php' );
 <?php require 'mod/scripts.php';?>
 <script src="js/lightbox.min.js"></script>
 <script src="js/donar.js"></script>
+
+<script>
+function registrar(nombre, correo, page, historia){
+        var parametros = {
+                "proceso" : 1,
+                "nombre"  : nombre,
+                "correo"  : correo,
+                "page"    : page,
+                "historia": historia
+                
+        };
+        $.ajax({
+                data:  parametros,
+                url:   'inc/solicitar.php',
+                type:  'post',
+                success:  function (response) {
+                        console.log("Response: "+response);
+                }
+        });
+}
+</script> 
     
 </body>
 </html>

@@ -300,10 +300,9 @@ font-size: 1.2em;
     max-height: 115px;
     margin: 10px;
 }
-.panel-default > .panel-heading-mark{
-    background-color: #31a463;
+.panel-heading-mark{
     border-radius: 0;
-    color: #fff;
+    color: #fff !important;
     height: 42px;
     line-height: 42px; 
     padding:0;
@@ -313,8 +312,17 @@ font-size: 1.2em;
     font-weight: bold;
     font-size: 1.4em;
     border: 0 solid;
-    
 }
+
+.panel-heading-mark a{
+    color: #fff;
+    margin: 0 10px;
+}
+
+.panel-heading-mark a:hover, .panel-heading-mark a:focus{
+    text-decoration: none;   
+    }
+
 .panel-default > .panel-body-mark{
     background-color: #E7E8EA;
     color: #000;

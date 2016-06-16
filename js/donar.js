@@ -1,18 +1,22 @@
-// Every time a modal is shown, if it has an autofocus element, focus on it.
+// hace que funcione el autofocus en le modal
 var historia;
 $('.modal').on('shown.bs.modal', function() {
     $(this).find('[autofocus]').focus();
 });
-        
+ 
+//pone el id y el nombre de la historia en los enlaces y el modal
 function setinfo(id,nombre){
     historia = id;
     nombre = nombre;
-    document.getElementById('nombre').firstChild.data = nombre;
+
+    x = document.getElementsByClassName("nombre_hist");
+    for (i = 0; i < x.length; i++) {
+        x[i].innerHTML = nombre;
+    }
+    document.getElementById('registro').onclick = function(){registrar($('#nombre').val(), $('#correo').val(), id, nombre); return false; } ;
 }
         
-function focusOnInput() {
-    document.getElementById('correo_donador').focus();
-}
+
 
 $('#donar').submit(function(e){
     e.preventDefault();
@@ -24,4 +28,4 @@ $('#donar').submit(function(e){
         window.location.href = 'donativo?donador='+document.getElementById('correo_donador').value;
     }
 
-}); 
+});

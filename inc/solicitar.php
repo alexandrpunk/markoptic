@@ -1,3 +1,4 @@
+
 <?php
 
 session_start();
@@ -20,8 +21,40 @@ include ("inc/db_config.php");
     $_SESSION ['errors']='';
 
 #revisa si se esta enviando e formulario o si solo se visita la pagina para llenar la informacion
-if($_SERVER['REQUEST_METHOD'] == 'POST'){ 
+
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
     
+    if (isset($_POST['proceso'])){#este es el registro de los interesados en apadrinar
+        include ("./db_config.php");
+        $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
+        
+        #se sanitiza y se valida el email
+        if(filter_var($_POST['correo'],FILTER_VALIDATE_EMAIL)){
+            $email = filter_var($_POST['correo'], FILTER_SANITIZE_EMAIL);
+        }else{$_SESSION ['errors'] .="El Email n es valido\n";}
+        
+        $ahijado = $_POST['page'];
+        $historia = $_POST['historia'];
+        
+        validar_ahijado($ahijado);
+        $datos =  validar_donador($email);
+        
+        $existe = $datos['existe'];
+        
+        if($existe){
+            echo "el interesado ya esta registrado";
+        }else{
+            echo"se v aa registrar el interesado";
+        }
+        
+        /* CONECTAR CON BASE DE DATOS ****************
+        $con = mysqli_connect(SERVER, USER, PASS, DB);
+        mysqli_set_charset ( $con , "utf8");
+        if ($con->connect_errno){die("ERROR DE CONEXION CON MYSQL: ".$con->connect_error);}**/
+        echo $_SERVER['DOCUMENT_ROOT'];
+        exit("proceso terminado");
+        
+    }else{    
      #se revisa  que enlace este correcto
     if(!empty($_GET['donador']) && !empty($_GET['ahijado'])){
         
@@ -40,11 +73,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 exit();
     }
 
- 
     /* CONECTAR CON BASE DE DATOS ****************/
     $con = mysqli_connect(SERVER, USER, PASS, DB);
     mysqli_set_charset ( $con , "utf8");
-    if ($con->connect_errno){die("ERROR DE CONEXION CON MYSQL: ".$con->connect_error);}
+    if ($con->connect_errno){die("ERROR DE CONEXION CON MYSQL 1: ".$con->connect_error);}
     
     #se guardan los datos del formulario en las variables correspondientes
     $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
@@ -123,11 +155,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         
         if(!$tipo['tipo']){#se genera el correo  enviar en caso de ser apadrinamiento
                  
-            $con = mysqli_connect(SERVER, USER, PASS, 'gallbo_cms_b');
-            #$con = mysqli_connect(SERVER, USER, PASS, 'cms');
+            #$con = mysqli_connect(SERVER, USER, PASS, 'gallbo_cms_b');
+            $con = mysqli_connect(SERVER, USER, PASS, 'cms');
             mysqli_set_charset ( $con , "utf8");
 
-            if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error());}
+            if (!$con){die("ERROR DE CONEXION CON MYSQL 2:". mysql_error());}
 
             $result = $con->query('select * from cmscouch_pages where id = '.$_SESSION ['ahijado'].';');
             $row = $result->fetch_assoc();
@@ -222,7 +254,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     </html>';
             }
             
-        }else{#en caso de solo ser una solicitud de recibo se envian los datos al correo
+        }
+        else{#en caso de solo ser una solicitud de recibo se envian los datos al correo
             $titulo = 'Fundacion Markoptic - Gracias por tu Donativo';
             $titulo_b = 'se acaba de recibir una solicitud de recibo por un donativo';
                  // Cuerpo o mensaje
@@ -319,6 +352,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     }
 
+    }
 }
 else{ #se formatea el formulario a ser llenado y se recupera la informacion pertinenete en caso de estar disponible   
     
@@ -351,48 +385,49 @@ else{ #se formatea el formulario a ser llenado y se recupera la informacion pert
         header('Location:historias');
         exit();
     }
-
-}
-
-if(!$tipo['tipo']){
-        #$con = mysqli_connect(SERVER, USER, PASS, 'gallbo_cms_b');
-        $con = mysqli_connect(SERVER, USER, PASS, 'cms');
-        mysqli_set_charset ( $con , "utf8");
-
-        if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error());}
-
-        $result = $con->query("select * from cmscouch_pages where id = ".$_SESSION ['ahijado'].";");
-        $row = $result->fetch_assoc();
-        $nombre_ahijado = $row['page_title'];
-        $result->free();
-
-        $result = $con->query("select * from cmscouch_data_text where page_id = ".$_SESSION ['ahijado'].";");
-
-        while($data = $result->fetch_assoc()){
-            $row[] = $data;
-        }
-
-        $edad = $row[0]['value'];#edad
-
-        $foto = $row[2]['value'];#foto
-        $foto = substr($foto, 1);
-
-        $thumb = $row[3]['value'];#thumb 
-        $thumb = substr($thumb, 1);
-
-        $solicito = $row[4]['value'];#que solicito
-        $ubicacion = $row[5]['value'].", ".$row[6]['value'].", ".$row[7]['value'];
-        $result->free();
-        $con->close();
     
+    if(!$tipo['tipo']){
+            #$con = mysqli_connect(SERVER, USER, PASS, 'gallbo_cms_b');
+            $con = mysqli_connect(SERVER, USER, PASS, 'cms');
+            mysqli_set_charset ( $con , "utf8");
+
+            if (!$con){die("ERROR DE CONEXION CON MYSQL3:". mysql_error());}
+
+            $result = $con->query("select * from cmscouch_pages where id = ".$_SESSION ['ahijado'].";");
+            $row = $result->fetch_assoc();
+            $nombre_ahijado = $row['page_title'];
+            $result->free();
+
+            $result = $con->query("select * from cmscouch_data_text where page_id = ".$_SESSION ['ahijado'].";");
+
+            while($data = $result->fetch_assoc()){
+                $row[] = $data;
+            }
+
+            $edad = $row[0]['value'];#edad
+
+            $foto = $row[2]['value'];#foto
+            $foto = substr($foto, 1);
+
+            $thumb = $row[3]['value'];#thumb 
+            $thumb = substr($thumb, 1);
+
+            $solicito = $row[4]['value'];#que solicito
+            $ubicacion = $row[5]['value'].", ".$row[6]['value'].", ".$row[7]['value'];
+            $result->free();
+            $con->close();
+
+    }
+
 }
+
 
 //funcion que valida si existe el donador, si existe rescata su informacion de la base de datos
 function validar_donador($email_donador){
 $con = mysqli_connect(SERVER, USER, PASS, DB);
 mysqli_set_charset ( $con , "utf8");
 
-if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error($con));}
+if (!$con){die("ERROR DE CONEXION CON MYSQL4:". mysql_error($con));}
     
     $sql = "select * from Donadores where email = '".$email_donador."';";
     $result = $con->query($sql);
@@ -426,7 +461,7 @@ function validar_ahijado($pagina_ahijado){
 $con = mysqli_connect(SERVER, USER, PASS, DB);
 mysqli_set_charset ( $con , "utf8");
 
-if (!$con){die("ERROR DE CONEXION CON MYSQL:". mysql_error());}
+if (!$con){die("ERROR DE CONEXION CON MYSQL5:". mysql_error());}
     
     $sql = "select id from solicitud where id_page = '".$pagina_ahijado."';";
     $result = $con->query($sql);

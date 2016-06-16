@@ -1,6 +1,11 @@
-<?php require_once( 'cms/cms.php' ); ?>
-<cms:template title='Inicio' order='10'></cms:template>
-<?php require 'mod/head.php';?>
+<?php
+require_once( 'cms/cms.php' );
+
+$title = 'Inicio';
+
+require 'mod/head.php';
+?>
+
 <link rel="stylesheet" href="https://npmcdn.com/flickity@1.2/dist/flickity.min.css">
 </head>
 <body>  
@@ -15,13 +20,12 @@
             <div class="col-md-9">
                 
                 <?php require 'mod/menu.php';?>
-                <cms:ignore><audio id="player" src="audio/spot.mp3"></audio></cms:ignore>
         
                 <?php require 'mod/carrousel.php';?>
 
                                 <!-- Solicitudes recientes-->
                 <div class="panel panel-default panel-mark">
-                  <div class="panel-heading panel-heading-mark">¿A QUIÉN ESTOY AYUDANDO?</div>
+                  <div class="panel-heading panel-heading-mark" id="mark">¿A QUIÉN ESTOY AYUDANDO?</div>
                     <div class="panel-body panel-body-mark">
                     <div class="row zero">
                         
@@ -41,7 +45,7 @@
                     </cms:pages>
                     </div><!--fin del div del carrousel-->
                         
-               s     </div>
+                    </div>
 
                     <hr/>
                         

@@ -59,7 +59,7 @@ require 'mod/head.php';
                      <p class="text-center">Una ves hecho tu donativo tienes 2 opciones</p>
                     <center>
                     <a class="btn btn-lg btn-primary" href="historias"><strong>Apadrinar a un solicitante</strong></a>
-                    <a class="btn btn-lg btn-success" data-toggle="modal" OnClick="sethistoria('<cms:show k_page_id />')" data-target="#solicitar_email"><strong>Solicitar mi comprobante fiscal</strong></a>
+                    <a class="btn btn-lg btn-success" data-toggle="modal" data-target="#solicitar_email"><strong>Solicitar mi comprobante fiscal</strong></a>
                     </center>
                      <p class="text-center" style="margin-top:15px;">"Unidos todos hacemos más. Tu donación desarrolla tecnología que transforma vidas".</p>
                      
