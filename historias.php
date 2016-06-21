@@ -210,14 +210,14 @@ require_once( 'cms/cms.php' );
         <div class="modal-header modal-mark modal-morado text-center" ><h4 class="zero oswald">Apadrina la historia de <span class='nombre_hist'>&nbsp;</span></h4></div>
         <div class="modal-body"> 
             <p class="news">Gracias por su interes en apadrinar la historia de <span class='nombre_hist'>&nbsp;</span>, para inciar el proceso primero debe proporcionarnos su nombre y correo electronico.</p>
-            <form action="" method="post">
-                <div class="form-group">
-                    <label class="control-label" for="nombre">Nombre:</label>
-                    <input class="form-control" type="text" id="nombre" autofocus name="nombre" placeholder="Nombre completo" required>
-                </div>
+            <form action="" method="post" autocomplete="off">
                 <div class="form-group">
                     <label class="control-label"  for="correo">Correo Electronico:</label>
-                    <input class="form-control" type="email" name="correo" id="correo" placeholder="Correo@electronico" required>
+                    <input class="form-control" type="email" name="correo" id="correo" placeholder="Correo@electronico" required  oninput="verificar()">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="nombre">Nombre:</label>
+                    <input class="form-control" type="text" id="nombre" autofocus name="nombre" placeholder="Nombre completo" disabled required>
                 </div>
                 <input class="btn btn-success" type="submit" href="javascript:;" value="Siguiente" id="registro">
             </form>
@@ -231,9 +231,35 @@ require_once( 'cms/cms.php' );
 <script src="js/donar.js"></script>
 
 <script>
-function registrar(nombre, correo, page, historia){
+function verificar(){
+    
         var parametros = {
                 "proceso" : 1,
+                "correo"  : document.getElementById("correo").value
+        };
+    
+        if(parametros.correo.length >= 6){
+            document.getElementById("nombre").disabled = false;
+            $.ajax({
+                    data:  parametros,
+                    dataType: 'json',
+                    url:   'inc/solicitar.php',
+                    type:  'post',
+                    success:  function (data) {
+                        if(data.hasOwnProperty('nombre')){
+                        document.getElementById("nombre").value = data.nombre;
+                        console.log("se proceso la informacion\n");
+                        console.log("nombre del donador: "+data.nombre);
+                        }
+
+                    }
+            });
+        }
+}
+    
+function registrar(nombre, correo, page, historia){
+        var parametros = {
+                "proceso" : 2,
                 "nombre"  : nombre,
                 "correo"  : correo,
                 "page"    : page,
@@ -244,11 +270,13 @@ function registrar(nombre, correo, page, historia){
                 data:  parametros,
                 url:   'inc/solicitar.php',
                 type:  'post',
-                success:  function (response) {
-                        console.log("Response: "+response);
+                dataType: 'json',
+                success:  function (data) {
+                        console.log("Response: "+data.message);
                 }
         });
 }
+    
 </script> 
     
 </body>

@@ -16,8 +16,6 @@ function setinfo(id,nombre){
     document.getElementById('registro').onclick = function(){registrar($('#nombre').val(), $('#correo').val(), id, nombre); return false; } ;
 }
         
-
-
 $('#donar').submit(function(e){
     e.preventDefault();
     if(historia){

@@ -24,38 +24,85 @@ include ("inc/db_config.php");
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     
-    if (isset($_POST['proceso'])){#este es el registro de los interesados en apadrinar
+    if (isset($_POST['proceso'])){
+        
+        #este es el registro de los interesados en apadrinar
         include ("./db_config.php");
-        $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
-        
-        #se sanitiza y se valida el email
-        if(filter_var($_POST['correo'],FILTER_VALIDATE_EMAIL)){
-            $email = filter_var($_POST['correo'], FILTER_SANITIZE_EMAIL);
-        }else{$_SESSION ['errors'] .="El Email n es valido\n";}
-        
-        $ahijado = $_POST['page'];
-        $historia = $_POST['historia'];
-        
-        validar_ahijado($ahijado);
-        $datos =  validar_donador($email);
-        
-        $existe = $datos['existe'];
-        
-        if($existe){
-            echo "el interesado ya esta registrado";
-        }else{
-            echo"se v aa registrar el interesado";
+        $data = array('error_message'=> '', 'message'=>'');
+        switch ($_POST['proceso']) {
+                
+            case 1: #aqui se revisa si el interesado ya esta geistrado y se rellenan los campos de forma auomatica
+                
+                #se sanitiza y se valida el email
+                if(filter_var($_POST['correo'],FILTER_VALIDATE_EMAIL)){
+                    $email = filter_var($_POST['correo'], FILTER_SANITIZE_EMAIL);
+                }else{
+                    $data['error'] = TRUE;
+                    $data['error_message'] .= "el correo es incorrecto\n";                    
+                }
+                
+                        
+                $datos =  validar_donador($email);
+                if($datos['existe']){
+                    $data['nombre'] = $datos["nombre"];
+                }
+
+                break;
+                
+            case 2: #se guarda el nuevo interesado en apadrinar
+
+                #se sanitiza y se valida el email
+                if(filter_var($_POST['correo'],FILTER_VALIDATE_EMAIL)){
+                    $email = filter_var($_POST['correo'], FILTER_SANITIZE_EMAIL);
+                }else{
+                    $data['error'] = TRUE;
+                    $data['error_message'] .= "el correo es incorrecto\n";                    
+                }
+                
+                $datos =  validar_donador($email);
+                
+                if($datos['existe']){
+                    $data['message'] .= "El interesado ya esta registrado\n";  
+                }else{
+                    
+                    $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
+
+                    $ahijado = $_POST['page'];
+                    $historia = $_POST['historia'];
+
+                    validar_ahijado($ahijado);
+                    
+                    $data['message'] .= "se va a registrar el interesado\n";  
+
+                    #se registran los datos y la relacion
+                    $con = mysqli_connect(SERVER, USER, PASS, DB);
+                    mysqli_set_charset ( $con , "utf8");
+                    if ($con->connect_errno){die("ERROR DE CONEXION CON MYSQL 1: ".$con->connect_error);}
+                    
+                    $con->query("INSERT INTO Donadores (nombre, email) VALUES ('".$nombre."', '".$email."');")
+                        or die("Ocurrio un error al tratar de guardar el donador nuevo: ".$con->error);
+                    
+                    $data['message'] .= "INSERT INTO Donadores (nombre, email) VALUES ('".$nombre."', '".$email."');\n";  
+                    
+                    $new_id = $con->insert_id; #se obtiene el id del donador recien guardado
+                    $data['message'] .= "id del nuevo donador".$new_id."\n";  
+                    
+                    $con->query("INSERT INTO Relaciones (id_donador, id_page) VALUES ('".$new_id."', '".$ahijado."');")
+                        or die("Ocurrio un error al tratar de guardar la relacion nueva: ".$con->error);
+                    $data['message'] .= "INSERT INTO Relaciones (id_donador, id_page) VALUES ('".$new_id."', '".$ahijado."');\n";
+                    $con ->close();
+                }
+
+                break;
+               
         }
-        
-        /* CONECTAR CON BASE DE DATOS ****************
-        $con = mysqli_connect(SERVER, USER, PASS, DB);
-        mysqli_set_charset ( $con , "utf8");
-        if ($con->connect_errno){die("ERROR DE CONEXION CON MYSQL: ".$con->connect_error);}**/
-        echo $_SERVER['DOCUMENT_ROOT'];
-        exit("proceso terminado");
-        
-    }else{    
-     #se revisa  que enlace este correcto
+        exit(json_encode($data));
+
+         
+    #fin del procesod e registro de interesado en apadrinar    
+    }else{
+    #proceso de registro del donador y del apadrinamiento
+    #se revisa que enlace este correcto
     if(!empty($_GET['donador']) && !empty($_GET['ahijado'])){
         
         validar_ahijado($_GET['ahijado']);
@@ -91,7 +138,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $rfc = filter_var($_POST['rfc'], FILTER_SANITIZE_STRING);
     $comprobante=$_POST['comprobante'];
     $metodo = $_POST['metodo'];
-    $monto = filter_var($_POST['monto'], FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
+        if($_POST['monto'] > 0){
+            $monto = filter_var($_POST['monto'], FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
+        }else{$_SESSION ['errors'] .="El monto no puede ser 0\n";}
+    
     $referencia = filter_var($_POST['referencia'], FILTER_SANITIZE_NUMBER_INT);
     $comentario = filter_var($_POST['comentario'], FILTER_SANITIZE_STRING);
         
