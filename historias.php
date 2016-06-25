@@ -122,7 +122,7 @@ require_once( 'cms/cms.php' );
                                     </dl>
                                     
                                     <center>
-                                    <a href="" class="btn btn-pad" id="cyan" data-toggle="modal"  OnClick="setinfo('<cms:show k_page_id />', '<cms:show k_page_title />')" data-target="#solicitar_email" >Apadrinar</a> 
+                                    <a href="" class="btn btn-pad" id="cyan" data-toggle="modal"  OnClick="setinfo('<cms:show k_page_title />', '<cms:show k_page_id />')" data-target="#solicitar_email" >Apadrinar</a> 
                                     </center>
                                 </div>
                                 
@@ -171,7 +171,7 @@ require_once( 'cms/cms.php' );
                                     </dl>
                                     <center>
                                         <a class="btn btn-pad" id="verde" href="<cms:show k_page_link />" role="button">Conoce la historia</a> 
-                                        <a href="" class="btn btn-pad" id="cyan" data-toggle="modal"  OnClick="setinfo('<cms:show k_page_id />', '<cms:show k_page_title />')" data-target="#solicitar_email" >Apadrinar</a>
+                                        <a href="" class="btn btn-pad" id="cyan" data-toggle="modal"  OnClick="setinfo('<cms:show k_page_title />', '<cms:show k_page_id />')" data-target="#solicitar_email" >Apadrinar</a>
                                     </center>
                                 </div>
                                 
@@ -209,8 +209,10 @@ require_once( 'cms/cms.php' );
     <div class="modal-dialog modal-content" role="document">
         <div class="modal-header modal-mark modal-morado text-center" ><h4 class="zero oswald">Apadrina la historia de <span class='nombre_hist'>&nbsp;</span></h4></div>
         <div class="modal-body"> 
+            
             <p class="news">Gracias por su interes en apadrinar la historia de <span class='nombre_hist'>&nbsp;</span>, para inciar el proceso primero debe proporcionarnos su nombre y correo electronico.</p>
-            <form action="" method="post" autocomplete="off">
+            
+            <form action="" method="post" autocomplete="off" id="preregistro">
                 <div class="form-group">
                     <label class="control-label"  for="correo">Correo Electronico:</label>
                     <input class="form-control" type="email" name="correo" id="correo" placeholder="Correo@electronico" required  oninput="verificar()">
@@ -221,6 +223,11 @@ require_once( 'cms/cms.php' );
                 </div>
                 <input class="btn btn-success" type="submit" href="javascript:;" value="Siguiente" id="registro">
             </form>
+            
+            <div style="display:none;" id="info">
+                <a class="btn btn-success">Apadrinar a <span class='nombre_hist'>&nbsp;</span></a>
+            </div>
+            
       </div>
     </div>
 </div>
@@ -228,11 +235,30 @@ require_once( 'cms/cms.php' );
 
 <?php require 'mod/scripts.php';?>
 <script src="js/lightbox.min.js"></script>
-<script src="js/donar.js"></script>
 
 <script>
-function verificar(){
+   //variables globales 
+historia='';
+id='';
     
+// hace que funcione el autofocus en le modal
+
+$('.modal').on('shown.bs.modal', function(){$(this).find('[autofocus]').focus();});
+
+//pone nombre de la historia en los enlaces y el modal
+function setinfo(nombre_hist,id_hist){
+    historia = nombre_hist;
+    id = id_hist;
+
+    x = document.getElementsByClassName("nombre_hist");
+    console.log("id a apadrinar: "+id);
+    for (i = 0; i < x.length; i++) {
+        x[i].innerHTML = historia;
+    }
+};
+
+        
+function verificar(){
         var parametros = {
                 "proceso" : 1,
                 "correo"  : document.getElementById("correo").value
@@ -246,12 +272,22 @@ function verificar(){
                     url:   'inc/solicitar.php',
                     type:  'post',
                     success:  function (data) {
-                        if(data.hasOwnProperty('nombre')){
-                        document.getElementById("nombre").value = data.nombre;
-                        console.log("se proceso la informacion\n");
-                        console.log("nombre del donador: "+data.nombre);
+                        
+                        if(data.hasOwnProperty('error')){
+                            console.log("nombre del donador: "+data.error_message);
+                        }else{
+                            if(data.hasOwnProperty('nombre')){
+                            document.getElementById("nombre").value = data.nombre;
+                            console.log("se proceso la informacion\n");
+                            console.log("nombre del donador: "+data.nombre);
+                            console.log("id a apadrinar: "+id);
+                            }else{
+                            document.getElementById('registro').onclick =
+                                                                function(){
+                                                                    registrar();
+                                                                };
+                            }
                         }
-
                     }
             });
         }
@@ -273,6 +309,8 @@ function registrar(nombre, correo, page, historia){
                 dataType: 'json',
                 success:  function (data) {
                         console.log("Response: "+data.message);
+                        $( "#preregistro" ).fadeOut();
+                        $( "#info" ).fadeIn();
                 }
         });
 }

@@ -38,7 +38,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     $email = filter_var($_POST['correo'], FILTER_SANITIZE_EMAIL);
                 }else{
                     $data['error'] = TRUE;
-                    $data['error_message'] .= "el correo es incorrecto\n";                    
+                    $data['error_message'] .= "el correo es incorrecto\n";  
+                    break;
                 }
                 
                         
