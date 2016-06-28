@@ -208,11 +208,11 @@ require_once( 'cms/cms.php' );
 <div class="modal fade" id="solicitar_email" tabindex="-1" role="dialog" aria-labelledby="Correo electronico del padrino">
     <div class="modal-dialog modal-content" role="document">
         <div class="modal-header modal-mark modal-morado text-center" ><h4 class="zero oswald">Apadrina la historia de <span class='nombre_hist'>&nbsp;</span></h4></div>
-        <div class="modal-body"> 
+        <div class="modal-body" id="preregistro"> 
             
-            <p class="news">Gracias por su interes en apadrinar la historia de <span class='nombre_hist'>&nbsp;</span>, para inciar el proceso primero debe proporcionarnos su nombre y correo electronico.</p>
+            <p class="news">Gracias por su interes en apadrinar la historia de <strong><span class='nombre_hist'>&nbsp;</span></strong>, para inciar el proceso primero debe proporcionarnos su nombre y correo electronico.</p>
             
-            <form action="" method="post" autocomplete="off" id="preregistro">
+            <form method="post" id="registro">
                 <div class="form-group">
                     <label class="control-label"  for="correo">Correo Electronico:</label>
                     <input class="form-control" type="email" name="correo" id="correo" placeholder="Correo@electronico" required  oninput="verificar()">
@@ -221,14 +221,13 @@ require_once( 'cms/cms.php' );
                     <label class="control-label" for="nombre">Nombre:</label>
                     <input class="form-control" type="text" id="nombre" autofocus name="nombre" placeholder="Nombre completo" disabled required>
                 </div>
-                <input class="btn btn-success" type="submit" href="javascript:;" value="Siguiente" id="registro">
-            </form>
-            
-            <div style="display:none;" id="info">
+                <input class="btn btn-success" type="submit" value="Siguiente">
+            </form>            
+        </div>
+        
+        <div style="display:none;" id="info" class="modal-body">
                 <a class="btn btn-success">Apadrinar a <span class='nombre_hist'>&nbsp;</span></a>
-            </div>
-            
-      </div>
+        </div>
     </div>
 </div>
 
@@ -259,60 +258,78 @@ function setinfo(nombre_hist,id_hist){
 
         
 function verificar(){
-        var parametros = {
-                "proceso" : 1,
-                "correo"  : document.getElementById("correo").value
-        };
+    var parametros = {
+        "proceso" : 1,
+        "correo"  : $('#correo').val()
+    };
     
-        if(parametros.correo.length >= 6){
-            document.getElementById("nombre").disabled = false;
-            $.ajax({
-                    data:  parametros,
-                    dataType: 'json',
-                    url:   'inc/solicitar.php',
-                    type:  'post',
-                    success:  function (data) {
-                        
-                        if(data.hasOwnProperty('error')){
-                            console.log("nombre del donador: "+data.error_message);
+    if(parametros.correo.length >= 6){
+        $('#nombre').attr('disabled', false);
+        
+        $.ajax({
+            data:  parametros,
+            dataType: 'json',
+            url:   'inc/solicitar.php',
+            type:  'post',
+            success:  function (data) {                   
+                if(data.hasOwnProperty('error')){
+                    console.log("nombre del donador: "+data.error_message);
+                }else{
+                    if(data.hasOwnProperty('nombre')){
+                        document.getElementById("nombre").value = data.nombre;
+                        console.log("se proceso la informacion\n");
+                        console.log("nombre del donador: "+data.nombre);
+                        console.log("id a apadrinar: "+id);
+                        registro = false;
                         }else{
-                            if(data.hasOwnProperty('nombre')){
-                            document.getElementById("nombre").value = data.nombre;
-                            console.log("se proceso la informacion\n");
-                            console.log("nombre del donador: "+data.nombre);
-                            console.log("id a apadrinar: "+id);
-                            }else{
-                            document.getElementById('registro').onclick =
-                                                                function(){
-                                                                    registrar();
-                                                                };
-                            }
-                        }
-                    }
-            });
+                        registro = true;                     
+                        }                    
+                }
+            }
+        });
+    }
+    $('#registro').on('submit',function(event){
+        if(!registro){
+            console.log("solo se muestra la nueva ventana");
+            mostrar_metodos();
+        }else{
+            registrar();
         }
+        event.preventDefault();
+        event.stopImmediatePropagation();
+    });
 }
     
-function registrar(nombre, correo, page, historia){
-        var parametros = {
-                "proceso" : 2,
-                "nombre"  : nombre,
-                "correo"  : correo,
-                "page"    : page,
-                "historia": historia
-                
-        };
-        $.ajax({
-                data:  parametros,
-                url:   'inc/solicitar.php',
-                type:  'post',
-                dataType: 'json',
-                success:  function (data) {
-                        console.log("Response: "+data.message);
-                        $( "#preregistro" ).fadeOut();
-                        $( "#info" ).fadeIn();
-                }
+function registrar(){
+      
+    $('#nombre').attr('readonly', true);
+    $('#correo').attr('readonly', true);
+    var parametros = {
+        "proceso" : 2,
+        "nombre"  : $('#nombre').val(),
+        "correo"  : $('#correo').val()
+    };
+        
+    console.log("se declararon las variables a guardar");
+    console.log(parametros);
+    console.log("se ejecutara el registro");
+    $.ajax({
+            data:  parametros,
+            url:   'inc/solicitar.php',
+            type:  'post',
+            dataType: 'json',
+            success:  function (data) {
+                        "success: "+console.log(data);
+                        mostrar_metodos();
+                       }
         });
+    console.log("se registro");
+    return false;
+}
+    
+function mostrar_metodos(){
+    $("#preregistro").fadeOut();
+    $("#info").fadeIn();
 }
     
 </script> 
