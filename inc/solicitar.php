@@ -57,7 +57,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     $email = filter_var($_POST['correo'], FILTER_SANITIZE_EMAIL);
                 }else{
                     $data['error'] = TRUE;
-                    $data['error_message'] .= "el correo es incorrecto\n";                    
+                    $data['error_message'] .= "el correo es incorrecto\n"; 
+                    break;
                 }
                 
                 $datos =  validar_donador($email);
@@ -78,18 +79,29 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     #se registran los datos y la relacion
                     $con = mysqli_connect(SERVER, USER, PASS, DB);
                     mysqli_set_charset ( $con , "utf8");
-                    if ($con->connect_errno){die("ERROR DE CONEXION CON MYSQL 1: ".$con->connect_error);}
+                    if ($con->connect_errno){
+                    $data['error'] = TRUE;
+                    $data['error_message'] .= "no se pudo conectar a la base de datos\n"; 
+                    break;
+                    }
                     
-                    $con->query("INSERT INTO Donadores (nombre, email) VALUES ('".$nombre."', '".$email."');")
-                        or die("Ocurrio un error al tratar de guardar el donador nuevo: ".$con->error);
+                    if(!$con->query("INSERT INTO Donadores (nombre, email) VALUES ('".$nombre."', '".$email."');")){
+                        $data['error'] = TRUE;
+                        $data['error_message'] .= "no se pudo insertar el nuevo donador: ".$con->error."\n"; 
+                        break;
+                    }
                     
                     $data['message'] .= "INSERT INTO Donadores (nombre, email) VALUES ('".$nombre."', '".$email."');\n";  
                     
                     $new_id = $con->insert_id; #se obtiene el id del donador recien guardado
                     $data['message'] .= "id del nuevo donador".$new_id."\n";  
                     
-                    $con->query("INSERT INTO Relaciones (id_donador, id_page) VALUES ('".$new_id."', '".$ahijado."');")
-                        or die("Ocurrio un error al tratar de guardar la relacion nueva: ".$con->error);
+                    if(!$con->query("INSERT INTO Relaciones (id_donador, id_page) VALUES ('".$new_id."', '".$ahijado."');")){
+                        $data['error'] = TRUE;
+                        $data['error_message'] .= "Ocurrio un error al tratar de guardar la relacion nueva: ".$con->error."\n"; 
+                        break;
+                    }
+                    
                     $data['message'] .= "INSERT INTO Relaciones (id_donador, id_page) VALUES ('".$new_id."', '".$ahijado."');\n";
                     $con ->close();
                 }

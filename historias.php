@@ -212,7 +212,7 @@ require_once( 'cms/cms.php' );
             
             <p class="news">Gracias por su interes en apadrinar la historia de <strong><span class='nombre_hist'>&nbsp;</span></strong>, para inciar el proceso primero debe proporcionarnos su nombre y correo electronico.</p>
             
-            <form method="post" id="registro">
+            <form method="post" id="registro" action="inc/solicitar.php">
                 <div class="form-group">
                     <label class="control-label"  for="correo">Correo Electronico:</label>
                     <input class="form-control" type="email" name="correo" id="correo" placeholder="Correo@electronico" required  oninput="verificar()">
@@ -221,7 +221,7 @@ require_once( 'cms/cms.php' );
                     <label class="control-label" for="nombre">Nombre:</label>
                     <input class="form-control" type="text" id="nombre" autofocus name="nombre" placeholder="Nombre completo" disabled required>
                 </div>
-                <input class="btn btn-success" type="submit" value="Siguiente">
+                <input class="btn btn-success" type="submit" value="Siguiente" >
             </form>            
         </div>
         
@@ -234,7 +234,7 @@ require_once( 'cms/cms.php' );
 
 <?php require 'mod/scripts.php';?>
 <script src="js/lightbox.min.js"></script>
-
+    
 <script>
    //variables globales 
 historia='';
@@ -283,12 +283,12 @@ function verificar(){
                         registro = false;
                         }else{
                         registro = true;                     
-                        }                    
+                        }                  
                 }
             }
         });
     }
-    $('#registro').on('submit',function(event){
+   $('#registro').on('submit',function(event){
         if(!registro){
             console.log("solo se muestra la nueva ventana");
             mostrar_metodos();
@@ -307,24 +307,21 @@ function registrar(){
     var parametros = {
         "proceso" : 2,
         "nombre"  : $('#nombre').val(),
-        "correo"  : $('#correo').val()
+        "correo"  : $('#correo').val(),
+        "page"    : id,
+        "historia": historia
     };
-        
-    console.log("se declararon las variables a guardar");
-    console.log(parametros);
-    console.log("se ejecutara el registro");
+    
+
     $.ajax({
             data:  parametros,
-            url:   'inc/solicitar.php',
-            type:  'post',
             dataType: 'json',
-            success:  function (data) {
-                        "success: "+console.log(data);
-                        mostrar_metodos();
-                       }
-        });
-    console.log("se registro");
-    return false;
+            url:   $('#registro').attr('action'),
+            type:  'post'
+    }).done(function (data) {
+        console.log("salida:"+data.message);
+        mostrar_metodos();
+    });
 }
     
 function mostrar_metodos(){
