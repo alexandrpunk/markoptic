@@ -109,16 +109,16 @@ require_once( 'cms/cms.php' );
                                 <div class="col-md-8 col-sm-8">
                                     <dl class="dl-horizontal">
                                         <dt  class="txt-mark">Solicito:</dt>
-                                        <dd><i><cms:show dispositivo /> <cms:show descripcion /></i></dd>
+                                        <dd class="txt-grisToo many subscribe attempts for this email address. Please try again in about 5 minutes. (#8613)"><i><cms:show dispositivo /> <cms:show descripcion /></i></dd>
                                     
                                         <dt class="txt-mark">Edad:</dt>
-                                        <dd><i><cms:show edad /></i></dd>
+                                        <dd class="txt-gris"><i><cms:show edad /></i></dd>
                                         
                                         <dt class="txt-mark">Vive en:</dt>
-                                        <dd><i><cms:show ciudad />, <cms:show estado />, <cms:show pais/></i></dd>
+                                        <dd class="txt-gris"><i><cms:show ciudad />, <cms:show estado />, <cms:show pais/></i></dd>
                                         
                                         <dt class="txt-mark">¿Porque lo necesita?</dt>
-                                        <dd class="text-lowercase"><i><cms:show necesidad /></i></dd>
+                                        <dd class="txt-gris text-lowercase"><i><cms:show necesidad /></i></dd>
                                     </dl>
                                     
                                     <center>
@@ -140,7 +140,7 @@ require_once( 'cms/cms.php' );
                         <cms:set img_val="<cms:php> echo(substr('<cms:show fotografia/>', 25));</cms:php>" />
                             <div class="row hist-box sombra">
                                
-                                <div class="col-md-4 col-sm-4">
+                                <div class="col-md-4 col-sm-4">￼
                                     <a href='
                                     <cms:if "<cms:exists "../<cms:show img_val />" />" >
                                         <cms:show fotografia />
@@ -158,16 +158,16 @@ require_once( 'cms/cms.php' );
                                 <div class="col-md-8 col-sm-8">
                                     <dl class="dl-horizontal">
                                         <dt  class="txt-mark">Solicito:</dt>
-                                        <dd><i><cms:show dispositivo /> <cms:show descripcion /></i></dd>
+                                        <dd class="txt-gris"><i><cms:show dispositivo /> <cms:show descripcion /></i></dd>
                                     
                                         <dt class="txt-mark">Edad:</dt>
-                                        <dd><i><cms:show edad /></i></dd>
+                                        <dd class="txt-gris"><i><cms:show edad /></i></dd>
                                         
                                         <dt class="txt-mark">Vive en:</dt>
-                                        <dd><i><cms:show ciudad />, <cms:show estado />, <cms:show pais/></i></dd>
+                                        <dd class="txt-gris"><i><cms:show ciudad />, <cms:show estado />, <cms:show pais/></i></dd>
                                         
                                         <dt class="txt-mark">¿Porque lo necesita?</dt>
-                                        <dd class="text-lowercase scroll-box"><i><cms:show necesidad /></i></dd>
+                                        <dd class="txt-gris text-lowercase scroll-box"><i><cms:show necesidad /></i></dd>
                                     </dl>
                                     <center>
                                         <a class="btn btn-pad" id="verde" href="<cms:show k_page_link />" role="button">Conoce la historia</a> 
@@ -210,23 +210,51 @@ require_once( 'cms/cms.php' );
         <div class="modal-header modal-mark modal-morado text-center" ><h4 class="zero oswald">Apadrina la historia de <span class='nombre_hist'>&nbsp;</span></h4></div>
         <div class="modal-body" id="preregistro"> 
             
-            <p class="news">Gracias por su interes en apadrinar la historia de <strong><span class='nombre_hist'>&nbsp;</span></strong>, para inciar el proceso primero debe proporcionarnos su nombre y correo electronico.</p>
+            <p class="txt-gris">Gracias por su interes en apadrinar la historia de <strong><span class='nombre_hist'>&nbsp;</span></strong>, para inciar el proceso primero debe proporcionarnos su nombre y correo electronico.</p>
             
             <form method="post" id="registro" action="inc/solicitar.php">
                 <div class="form-group">
                     <label class="control-label"  for="correo">Correo Electronico:</label>
-                    <input class="form-control" type="email" name="correo" id="correo" placeholder="Correo@electronico" required  oninput="verificar()">
+                    <input class="form-control" type="email" name="correo" id="correo" placeholder="Correo@electronico" required  onblur="verificar()">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="nombre">Nombre:</label>
-                    <input class="form-control" type="text" id="nombre" autofocus name="nombre" placeholder="Nombre completo" disabled required>
+                    <input class="form-control" type="text" id="nombre" autofocus name="nombre" placeholder="Nombre completo" required>
                 </div>
                 <input class="btn btn-success" type="submit" value="Siguiente" >
             </form>            
         </div>
+
         
         <div style="display:none;" id="info" class="modal-body">
-                <a class="btn btn-success">Apadrinar a <span class='nombre_hist'>&nbsp;</span></a>
+            <h4 class="text-center oswald">¿Qué debo hace para apadrinar esta historia?</h4>
+            <p class="txt-gris">Tu donativo puede ayudar a mejorar una vida, si quieres apadrinar esta historia primero debes realizar un donativo mediante alguna de las tres formas que te mencionamos a continuacion.</p>
+        
+            <article class="accordion">
+                <section id="deposito" class="modal-verde" style="color:#63c62f;">
+                    <h2 class="oswald"><a href="#deposito">Deposito <i class="fa fa-money" aria-hidden="true"></i></a></h2>
+                     <p class="txt-gris">Si desea hacer su donativo mediante depósito en efectivo o cheque a nombre de Fundación Markoptic AC puede hacerlo en nuestra Cuenta autorizada en <strong>Banamex 7007-3742542</strong> (Las Donaciones en efectivo solo serán recibidas mediante depósito Bancario).</p>
+                </section>
+                <section id="transferencia" class="modal-rosado" style="color:#F05B6F;">
+                    <h2 class="oswald"><a href="#transferencia">Trasnferencia Electronica <i class="fa fa-credit-card" aria-hidden="true"></i></a></h2>
+                    <p class="txt-gris">Si desea hacernos llegar su donativo mediante Transferencia Bancaria Electrónica nuestra <strong>Clabe Interbancaria</strong> es <strong>002730700737425429</strong> en Banamex.</p>
+                </section>
+                <section id="paypal" class="modal-cyan" style="color:#25AAE3;">
+                    <h2 class="oswald"> <a href="#paypal">Paypal <i class="fa fa-cc-paypal" aria-hidden="true"></i></a></h2>
+                    <p class="txt-gris">En caso de que usted cuente con una cuenta PayPal y desee hacernos llegar su donativo por este medio, solo debe hacer clic en el siguiente botón.</p>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="hosted_button_id" value="YDDHME7ZN8YRL">
+                    <input class="center-block" style="margin-bottom:5px;" type="image" src="https://www.paypalobjects.com/es_XC/MX/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal, la forma más segura y rápida de pagar en línea.">
+                    <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
+                    </form>
+                </section>
+            </article>
+            
+            <h4 class="text-center oswald">Ya hice mi donativo, ¿qué hago ahora?</h4>
+            <p class="txt-gris">Una vez hecho el donativo solo haz click en el siguiente boton para llenar el formulario de apadrinamiento, ademas podras solicitar un recbo deducible de impuestos en caso de necesitarlo.</p>
+            
+            <div class="text-center"><a id="rlink" class="btn btn-success"><strong>Apadrinar a <span class='nombre_hist'>&nbsp;</span></strong></a></div>
         </div>
     </div>
 </div>
@@ -236,12 +264,11 @@ require_once( 'cms/cms.php' );
 <script src="js/lightbox.min.js"></script>
     
 <script>
-   //variables globales 
+//variables globales 
 historia='';
 id='';
     
-// hace que funcione el autofocus en le modal
-
+//hace que funcione el autofocus en le modal
 $('.modal').on('shown.bs.modal', function(){$(this).find('[autofocus]').focus();});
 
 //pone nombre de la historia en los enlaces y el modal
@@ -264,46 +291,48 @@ function verificar(){
     };
     
     if(parametros.correo.length >= 6){
-        $('#nombre').attr('disabled', false);
         
         $.ajax({
             data:  parametros,
             dataType: 'json',
-            url:   'inc/solicitar.php',
+            url:   $('#registro').attr('action'),
             type:  'post',
+            beforeSend:function(){
+                $('#nombre').prop('readonly', true);
+            },
             success:  function (data) {                   
                 if(data.hasOwnProperty('error')){
-                    console.log("nombre del donador: "+data.error_message);
+                    console.log("correo incorrecto: "+data.error_message);
                 }else{
                     if(data.hasOwnProperty('nombre')){
                         document.getElementById("nombre").value = data.nombre;
                         console.log("se proceso la informacion\n");
                         console.log("nombre del donador: "+data.nombre);
+                        console.log("id del donador: "+data.id);
                         console.log("id a apadrinar: "+id);
-                        registro = false;
+                        registro = true;
                         }else{
-                        registro = true;                     
+                        registro = false; 
+                        $('#nombre').prop('readonly', false);
                         }                  
                 }
             }
         });
     }
-   $('#registro').on('submit',function(event){
-        if(!registro){
-            console.log("solo se muestra la nueva ventana");
-            mostrar_metodos();
-        }else{
-            registrar();
-        }
+    $('#registro').on('submit',function(event){
+       
+        console.log("solo se muestra la nueva ventana");
+        registrar(registro);
+       
         event.preventDefault();
         event.stopImmediatePropagation();
     });
 }
     
-function registrar(){
-      
+function registrar(registro){
     $('#nombre').attr('readonly', true);
     $('#correo').attr('readonly', true);
+    
     var parametros = {
         "proceso" : 2,
         "nombre"  : $('#nombre').val(),
@@ -312,19 +341,24 @@ function registrar(){
         "historia": historia
     };
     
-
-    $.ajax({
+    if(!registro){
+        $.ajax({
             data:  parametros,
             dataType: 'json',
             url:   $('#registro').attr('action'),
-            type:  'post'
-    }).done(function (data) {
-        console.log("salida:"+data.message);
-        mostrar_metodos();
-    });
+            type:  'post',
+            success: function (data) {
+                console.log("salida:"+data.message);
+                alert("salida:"+data.message);
+                mostrar_metodos();
+            }
+        }); 
+    }
+    
 }
     
 function mostrar_metodos(){
+    $("#rlink").attr("href", 'donativo?ahijado='+id+'&donador='+$('#correo').val());
     $("#preregistro").fadeOut();
     $("#info").fadeIn();
 }

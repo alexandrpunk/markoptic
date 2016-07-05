@@ -45,6 +45,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                         
                 $datos =  validar_donador($email);
                 if($datos['existe']){
+                    $data['id'] = $datos["id_donador"];
                     $data['nombre'] = $datos["nombre"];
                 }
 
@@ -112,7 +113,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         exit(json_encode($data));
 
          
-    #fin del procesod e registro de interesado en apadrinar    
+    #fin del proceso de registro de interesado en apadrinar    
     }else{
     #proceso de registro del donador y del apadrinamiento
     #se revisa que enlace este correcto
@@ -191,12 +192,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             move_uploaded_file($_FILES['doc_comprobante']['tmp_name'],$add) or die("Ocurrio un error al tratar de guardar su documento");
         }
         
-        if(!empty($_SESSION['id_donador'])){
+        if($existe){
         $con->query("INSERT INTO Donativos (metodo, monto, referencia, comprobante_donativo, comprobante_fiscal, id_donador, comentario)
-            VALUES ('".$metodo."', '".$monto."', '".$referencia."', '".$doc_comprobante."', ".$comprobante.", '" .$_SESSION['id_donador']."', '".$comentario."');")
+            VALUES ('".$metodo."', '".$monto."', '".$referencia."', '".$doc_comprobante."', ".$comprobante.", '" .$datos['id_donador']."', '".$comentario."');")
             or die("Ocurrio un error al tratar de guardar el donativo: ".$con->error);    
         $new_id= $con->insert_id; #se obtiene el id del donativo recien guardado
-        $_SESSION['id_donador']=''; #se vacia la variable global del id del donador
         }else{
         $con->query("INSERT INTO Donadores (nombre, email, telefono, rfc, direccion) VALUES ('".$nombre."', '".$email."', '".$telefono."', '".$rfc."', '".$direccion."');")
             or die("Ocurrio un error al tratar de guardar el donador nuevo: ".$con->error); 
@@ -421,15 +421,18 @@ else{ #se formatea el formulario a ser llenado y se recupera la informacion pert
     
     #se revisa  que enlace este correcto
     if(!empty($_GET['donador']) && !empty($_GET['ahijado'])){
-        
+                
         validar_ahijado($_GET['ahijado']);
         $datos =  validar_donador($_GET['donador']);
+        
+        if($datos['existe']){        
         $nombre = $datos['nombre'];
         $email = $datos['email'];
         $rfc = $datos['rfc'];
         $direccion = $datos['direccion'];
         $telefono = $datos['telefono'];
         $_SESSION ['ahijado'] = $_GET['ahijado'];
+        }
         $existe = $datos['existe'];
         $tipo = array('tipo' => 0,'texto' => 'Apadrinamiento');
     
@@ -496,7 +499,6 @@ if (!$con){die("ERROR DE CONEXION CON MYSQL4:". mysql_error($con));}
     $result = $con->query($sql);
     
     if($result->num_rows > 0){
-        #echo 'registrado<br>';
         $con->close();
         $row = $result->fetch_assoc();
         $nombre = $row["nombre"];
@@ -506,15 +508,15 @@ if (!$con){die("ERROR DE CONEXION CON MYSQL4:". mysql_error($con));}
         $direccion = $row["direccion"];
         
         #se guarda el id del donador que ya esta registrado para poder usarlo despues
-        $_SESSION['id_donador'] = $row["id"];
+
 
         #se regresan los datos del donador que ya estaba registrado
-        return array('existe' => TRUE,'nombre' => $nombre, 'email' => $email, 'rfc' => $rfc, 'direccion' => $direccion, 'telefono' => $telefono);
+        return array('existe' => TRUE, 'id_donador' => $row["id"],'nombre' => $nombre, 'email' => $email, 'rfc' => $rfc, 'direccion' => $direccion, 'telefono' => $telefono);
         
     }else{
-        $_SESSION['id_donador'] = '';
         $con->close();
-        return array('existe' => FALSE,'nombre' => '', 'email' => $email_donador, 'rfc' => '', 'direccion' => '', 'telefono' => '');
+        return array('existe' => FALSE);
+        #return array('existe' => FALSE,'nombre' => '', 'email' => $email_donador, 'rfc' => '', 'direccion' => '', 'telefono' => '');
     }
     
 }

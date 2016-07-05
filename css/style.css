@@ -1026,3 +1026,7 @@ a.hist-box:focus, a.hist-box:hover{
   height: 250px;
   margin-right: 10px;
 }
+
+.txt-gris{
+    color: #5a5a5a;
+}
