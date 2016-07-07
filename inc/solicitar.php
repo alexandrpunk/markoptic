@@ -33,7 +33,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 
             case 1: #aqui se revisa si el interesado ya esta geistrado y se rellenan los campos de forma auomatica
                 
-                #se sanitiza y se valida el email
+                #se sanitiza y se valida el email 
                 if(filter_var($_POST['correo'],FILTER_VALIDATE_EMAIL)){
                     $email = filter_var($_POST['correo'], FILTER_SANITIZE_EMAIL);
                 }else{
@@ -51,7 +51,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                 break;
                 
-            case 2: #se guarda el nuevo interesado en apadrinar
+            case 2: #se guarda el nuevo interesado en apadrinar y la relacion
 
                 #se sanitiza y se valida el email
                 if(filter_var($_POST['correo'],FILTER_VALIDATE_EMAIL)){
@@ -108,6 +108,38 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 }
 
                 break;
+            case 3: #solo se guarda al relacion en caso de que ya exista el interesado a apadrinar
+                $data['message'] .= "Se va a guardar solo la relacion\n";
+                
+                #se sanitiza y se valida el email
+                if(filter_var($_POST['correo'],FILTER_VALIDATE_EMAIL)){
+                    $email = filter_var($_POST['correo'], FILTER_SANITIZE_EMAIL);
+                }else{
+                    $data['error'] = TRUE;
+                    $data['error_message'] .= "el correo es incorrecto\n"; 
+                    break;
+                }
+                
+                $datos =  validar_donador($email);
+                
+                #se registran los datos y la relacion
+                    $con = mysqli_connect(SERVER, USER, PASS, DB);
+                    mysqli_set_charset ( $con , "utf8");
+                    if ($con->connect_errno){
+                    $data['error'] = TRUE;
+                    $data['error_message'] .= "no se pudo conectar a la base de datos\n"; 
+                    break;
+                    }
+                    
+                    if(!$con->query("INSERT INTO Relaciones (id_donador, id_page) VALUES ('".$datos['id_donador']."', '".$_POST['page']."');")){
+                        $data['error'] = TRUE;
+                        $data['error_message'] .= "Ocurrio un error al tratar de guardar la relacion nueva: ".$con->error."\n"; 
+                        break;
+                    }
+                    
+                    $data['message'] .= "INSERT INTO Relaciones (id_donador, id_page) VALUES ('".$datos['id_donador']."', '".$_POST['page']."');\n";
+                    $con ->close();
+                break;
                
         }
         exit(json_encode($data));
@@ -122,6 +154,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         validar_ahijado($_GET['ahijado']);
         $datos =  validar_donador($_GET['donador']);
         $existe = $datos['existe'];
+        $data_hist = get_historia($_SESSION ['ahijado']);
         $tipo = array('tipo' => 0,'texto' => 'Apadrinamiento');
     
     }
@@ -430,12 +463,13 @@ else{ #se formatea el formulario a ser llenado y se recupera la informacion pert
         $email = $datos['email'];
         $rfc = $datos['rfc'];
         $direccion = $datos['direccion'];
-        $telefono = $datos['telefono'];
-        $_SESSION ['ahijado'] = $_GET['ahijado'];
+        $telefono = $datos['telefono'];    
         }
+        $_SESSION ['ahijado'] = $_GET['ahijado'];
+        $data_hist = get_historia($_SESSION ['ahijado']);
         $existe = $datos['existe'];
         $tipo = array('tipo' => 0,'texto' => 'Apadrinamiento');
-    
+            
     }
     elseif(!empty($_GET['donador']) && !isset($_GET['ahijado'])){
         $datos =  validar_donador($_GET['donador']);
@@ -450,39 +484,6 @@ else{ #se formatea el formulario a ser llenado y se recupera la informacion pert
     }else{
         header('Location:historias');
         exit();
-    }
-    
-    if(!$tipo['tipo']){
-            #$con = mysqli_connect(SERVER, USER, PASS, 'gallbo_cms_b');
-            $con = mysqli_connect(SERVER, USER, PASS, 'cms');
-            mysqli_set_charset ( $con , "utf8");
-
-            if (!$con){die("ERROR DE CONEXION CON MYSQL3:". mysql_error());}
-
-            $result = $con->query("select * from cmscouch_pages where id = ".$_SESSION ['ahijado'].";");
-            $row = $result->fetch_assoc();
-            $nombre_ahijado = $row['page_title'];
-            $result->free();
-
-            $result = $con->query("select * from cmscouch_data_text where page_id = ".$_SESSION ['ahijado'].";");
-
-            while($data = $result->fetch_assoc()){
-                $row[] = $data;
-            }
-
-            $edad = $row[0]['value'];#edad
-
-            $foto = $row[2]['value'];#foto
-            $foto = substr($foto, 1);
-
-            $thumb = $row[3]['value'];#thumb 
-            $thumb = substr($thumb, 1);
-
-            $solicito = $row[4]['value'];#que solicito
-            $ubicacion = $row[5]['value'].", ".$row[6]['value'].", ".$row[7]['value'];
-            $result->free();
-            $con->close();
-
     }
 
 }
@@ -507,9 +508,6 @@ if (!$con){die("ERROR DE CONEXION CON MYSQL4:". mysql_error($con));}
         $rfc = $row["rfc"];
         $direccion = $row["direccion"];
         
-        #se guarda el id del donador que ya esta registrado para poder usarlo despues
-
-
         #se regresan los datos del donador que ya estaba registrado
         return array('existe' => TRUE, 'id_donador' => $row["id"],'nombre' => $nombre, 'email' => $email, 'rfc' => $rfc, 'direccion' => $direccion, 'telefono' => $telefono);
         
@@ -518,6 +516,42 @@ if (!$con){die("ERROR DE CONEXION CON MYSQL4:". mysql_error($con));}
         return array('existe' => FALSE);
         #return array('existe' => FALSE,'nombre' => '', 'email' => $email_donador, 'rfc' => '', 'direccion' => '', 'telefono' => '');
     }
+    
+}
+
+function get_historia($page_id){
+    
+        #$con = mysqli_connect(SERVER, USER, PASS, 'gallbo_cms_b');
+        $con = mysqli_connect(SERVER, USER, PASS, 'cms');
+        mysqli_set_charset ( $con , "utf8");
+
+        if (!$con){die("ERROR DE CONEXION CON MYSQL3:". mysql_error());}
+
+        $result = $con->query("select * from cmscouch_pages where id = ".$_SESSION ['ahijado'].";");
+        $row = $result->fetch_assoc();
+        $nombre_ahijado = $row['page_title'];
+        $result->free();
+
+        $result = $con->query("select * from cmscouch_data_text where page_id = ".$_SESSION ['ahijado'].";");
+
+        while($data = $result->fetch_assoc()){
+            $row[] = $data;
+        }
+
+        $edad = $row[0]['value'];#edad
+
+        $foto = $row[2]['value'];#foto
+        $foto = substr($foto, 1);
+
+        $thumb = $row[3]['value'];#thumb 
+        $thumb = substr($thumb, 1);
+
+        $solicito = $row[4]['value'];#que solicito
+        $ubicacion = $row[5]['value'].", ".$row[6]['value'].", ".$row[7]['value'];
+        $result->free();
+        $con->close();
+    
+        return array('nombre' => $nombre_ahijado,'edad' => $edad, 'foto' => $foto, 'thumb' => $thumb, 'solicito' => $solicito, 'ubicacion' => $ubicacion);
     
 }
 
@@ -536,8 +570,6 @@ if (!$con){die("ERROR DE CONEXION CON MYSQL5:". mysql_error());}
         #se guarda el id de la solicitud que se va a apadrinar
         $row = $result->fetch_assoc();
         $_SESSION['id_solicitud'] = $row["id"];
-        return $existe = TRUE;
-        
     }else{
         //al detectar que el ahijado no esta registrado en el sistema regresa al donador a la pagina de historias con un mensaje
         $con->close();

@@ -37,17 +37,17 @@ require 'mod/head.php';
                     
       
                      <?php
-                     if(!$tipo['tipo']){
+                     if(isset($data_hist)){
                         echo '<div class="well sombra" style="margin:0;">
                         <div class="row">
                             <div class="col-md-3">
-                                <a href="cms/uploads/image/',$foto.'" data-lightbox="image-1"><img class="img-thumbnail center-block sombra" src="cms/uploads/image/'.$thumb.'"></a>
+                                <a href="cms/uploads/image/',$data_hist['foto'].'" data-lightbox="image-1"><img class="img-thumbnail center-block sombra" src="cms/uploads/image/'.$data_hist['thumb'].'"></a>
                             </div>
                             <div class="col-md-9">
-                                <label class="txt-mark">Nombre:</label><p><strong>'.$nombre_ahijado.'</strong></p>
-                                <label class="txt-mark">Edad:</label><p>'.$edad.'</p>
-                                <label class="txt-mark">Vive en:</label><p>'.$ubicacion.'</p>
-                                <label class="txt-mark">Solicito:</label><p class="text-justify"><i>'.$solicito.'</i></p>
+                                <label class="txt-mark">Nombre:</label><p><strong>'.$data_hist['nombre'].'</strong></p>
+                                <label class="txt-mark">Edad:</label><p>'.$data_hist['edad'].'</p>
+                                <label class="txt-mark">Vive en:</label><p>'.$data_hist['ubicacion'].'</p>
+                                <label class="txt-mark">Solicito:</label><p class="text-justify"><i>'.$data_hist['solicito'].'</i></p>
                             </div>
                         </div>
                     </div><hr />'; } 

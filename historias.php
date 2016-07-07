@@ -320,8 +320,6 @@ function verificar(){
         });
     }
     $('#registro').on('submit',function(event){
-       
-        console.log("solo se muestra la nueva ventana");
         registrar(registro);
        
         event.preventDefault();
@@ -342,6 +340,7 @@ function registrar(registro){
     };
     
     if(!registro){
+         console.log("Se registra el nuevo donador y se guarda la relacion");
         $.ajax({
             data:  parametros,
             dataType: 'json',
@@ -349,10 +348,27 @@ function registrar(registro){
             type:  'post',
             success: function (data) {
                 console.log("salida:"+data.message);
-                alert("salida:"+data.message);
                 mostrar_metodos();
             }
         }); 
+    }else{
+        parametros.proceso = 3;
+        console.log("Se registra la relacion");
+
+        $.ajax({
+            data:  parametros,
+            dataType: 'json',
+            url:   $('#registro').attr('action'),
+            type:  'post',
+            success: function (data) {
+                if(data.hasOwnProperty('error')){
+                    console.log("Ocurrio un error: "+data.error_message);
+                }else{
+                    console.log("salida:"+data.message);
+                    mostrar_metodos();
+                }
+            }
+        });        
     }
     
 }
