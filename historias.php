@@ -221,7 +221,7 @@ require_once( 'cms/cms.php' );
                     <label class="control-label" for="nombre">Nombre:</label>
                     <input class="form-control" type="text" id="nombre" autofocus name="nombre" placeholder="Nombre completo" required>
                 </div>
-                <input class="btn btn-success" type="submit" value="Siguiente" >
+                <input class="btn btn-success" type="submit" id="btn-siguiente" value="Siguiente" disabled>
             </form>            
         </div>
 
@@ -241,13 +241,8 @@ require_once( 'cms/cms.php' );
                 </section>
                 <section id="paypal" class="modal-cyan" style="color:#25AAE3;">
                     <h2 class="oswald"> <a href="#paypal">Paypal <i class="fa fa-cc-paypal" aria-hidden="true"></i></a></h2>
-                    <p class="txt-gris">En caso de que usted cuente con una cuenta PayPal y desee hacernos llegar su donativo por este medio, solo debe hacer clic en el siguiente botón.</p>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-                    <input type="hidden" name="cmd" value="_s-xclick">
-                    <input type="hidden" name="hosted_button_id" value="YDDHME7ZN8YRL">
-                    <input class="center-block" style="margin-bottom:5px;" type="image" src="https://www.paypalobjects.com/es_XC/MX/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal, la forma más segura y rápida de pagar en línea.">
-                    <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
-                    </form>
+                    <p class="txt-gris">En caso de que usted cuente con una cuenta PayPal y desee hacernos llegar su donativo por este medio, solo debe hacer clic en el siguiente enlace.</p>
+                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YDDHME7ZN8YRL">donar con Paypal</a>
                 </section>
             </article>
             
@@ -300,7 +295,8 @@ function verificar(){
             beforeSend:function(){
                 $('#nombre').prop('readonly', true);
             },
-            success:  function (data) {                   
+            success:  function (data) {
+                $('#btn-siguiente').prop('disabled', false);
                 if(data.hasOwnProperty('error')){
                     console.log("correo incorrecto: "+data.error_message);
                 }else{
