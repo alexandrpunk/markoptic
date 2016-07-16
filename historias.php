@@ -84,24 +84,27 @@ require_once( 'cms/cms.php' );
                 
                 <?php require 'mod/menu.php';?>
                 <cms:if k_is_page >
+                    <cms:set image="<cms:php> 
+                        $len = strlen($_SERVER['HTTP_HOST'])+8;
+                        $str='<cms:show fotografia />';
+                        $str = substr($str, $len);
+                        if(file_exists($str)){echo '<cms:show fotografia />';}else{echo 'img/placeholder.jpg';}
+                    </cms:php>" />
+                            
+                    <cms:set thumb="<cms:php> 
+                        $len = strlen($_SERVER['HTTP_HOST'])+8;
+                        $str='<cms:show fotografia />';
+                        $str = substr($str, $len);
+                        if(file_exists($str)){echo '<cms:show fotografia_thumb />';}else{echo 'img/placeholder.jpg';}
+                    </cms:php>" />
                 <div class="panel panel-default panel-mark  animated fadeIn">
                     <div class="panel-heading panel-heading-mark" id="rosado">CONOCE A: <cms:show k_page_title /></div>
                     <div  class="panel-body panel-body-mark">
-
-                        <cms:set img_val="<cms:php> echo(substr('<cms:show fotografia/>', 25));</cms:php>" />
-                            <div class="row hist-box sombra">
+                        <div class="row hist-box sombra">
                                
                                 <div class="col-md-4 col-sm-4">
-                                    <a href='
-                                    <cms:if "<cms:exists "../<cms:show img_val />" />" >
-                                        <cms:show fotografia />
-                                    </cms:if>' data-lightbox="image-1">
-                                    <img class="img-thumbnail center-block sombra" src='
-                                   <cms:if "<cms:exists "../<cms:show img_val />" />" >
-                                        <cms:show fotografia_thumb />
-                                    <cms:else />
-                                        img/placeholder.jpg
-                                    </cms:if>'>
+                                    <a href="<cms:show image />" data-lightbox="image-1">
+                                        <img src="<cms:show thumb />" class="img-thumbnail center-block sombra">
                                     </a>
                                     <h3 class="text-capitalize text-center"><strong><cms:show k_page_title /></strong></h3>                             
                                 </div>
@@ -109,7 +112,7 @@ require_once( 'cms/cms.php' );
                                 <div class="col-md-8 col-sm-8">
                                     <dl class="dl-horizontal">
                                         <dt  class="txt-mark">Solicito:</dt>
-                                        <dd class="txt-grisToo many subscribe attempts for this email address. Please try again in about 5 minutes. (#8613)"><i><cms:show dispositivo /> <cms:show descripcion /></i></dd>
+                                        <dd class="txt-gris"><i><cms:show dispositivo /> <cms:show descripcion /></i></dd>
                                     
                                         <dt class="txt-mark">Edad:</dt>
                                         <dd class="txt-gris"><i><cms:show edad /></i></dd>
@@ -136,21 +139,24 @@ require_once( 'cms/cms.php' );
                     <div class="panel-heading panel-heading-mark" id="rosado">CONOCE A QUIENES NECESITAN TU APOYO</div>
                     <div  class="panel-body panel-body-mark">                    
                     <cms:pages masterpage='historias.php' limit='5' paginate='1'>
-                    
-                        <cms:set img_val="<cms:php> echo(substr('<cms:show fotografia/>', 25));</cms:php>" />
+                            <cms:set image="<cms:php> 
+                            $len = strlen($_SERVER['HTTP_HOST'])+8;
+                            $str='<cms:show fotografia />';
+                            $str = substr($str, $len);
+                            if(file_exists($str)){echo '<cms:show fotografia />';}else{echo 'img/placeholder.jpg';}
+                            </cms:php>" />
+                            
+                            <cms:set thumb="<cms:php> 
+                            $len = strlen($_SERVER['HTTP_HOST'])+8;
+                            $str='<cms:show fotografia />';
+                            $str = substr($str, $len);
+                            if(file_exists($str)){echo '<cms:show fotografia_thumb />';}else{echo 'img/placeholder.jpg';}
+                            </cms:php>" />
+
                             <div class="row hist-box sombra">
-                               
-                                <div class="col-md-4 col-sm-4">￼
-                                    <a href='
-                                    <cms:if "<cms:exists "../<cms:show img_val />" />" >
-                                        <cms:show fotografia />
-                                    </cms:if>' data-lightbox="image-1">
-                                    <img class="img-thumbnail center-block sombra" src='
-                                   <cms:if "<cms:exists "../<cms:show img_val />" />" >
-                                        <cms:show fotografia_thumb />
-                                    <cms:else />
-                                        img/placeholder.jpg
-                                    </cms:if>'>
+                                <div class="col-md-4 col-sm-4">
+                                    <a href="<cms:show image />" data-lightbox="image-1">
+                                        <img src="<cms:show thumb />" class="img-thumbnail center-block sombra">
                                     </a>
                                     <h3 class="text-capitalize text-center"><strong><cms:show k_page_title /></strong></h3>                             
                                 </div>

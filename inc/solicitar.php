@@ -19,6 +19,7 @@ include ("inc/db_config.php");
     $existe = FALSE;
     $tipo = '';
     $_SESSION ['errors']='';
+    $correo_fundacion = 'asandoval@markoptic.mx';
 
 #revisa si se esta enviando e formulario o si solo se visita la pagina para llenar la informacion
 
@@ -105,9 +106,112 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     
                     $data['message'] .= "INSERT INTO Relaciones (id_donador, id_page) VALUES ('".$new_id."', '".$ahijado."');\n";
                     $con ->close();
+                    
+                                    
+                    #se envia el correo electronico con la informacion al interesado
+                    $cabeceras  = 'MIME-Version: 1.0' . "\r\n";
+                    $cabeceras .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
+                    $cabeceras .= 'From: Donativo Fundacion Markoptic <donativo@fundacionmarkoptic.org.mx>' . "\r\n";
+                    
+                    #cuerpo del mensaje
+                    $titulo="Gracias por su interes en apadrinar a: ".$historia;
+                    $link="http://".$_SERVER['HTTP_HOST']."/donativo?ahijado=".$ahijado."&donador=".$email;
+                    $data['message'].= $link."\n";
+                    $data['message'].= $titulo."\n";
+                    $mensaje='
+                    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ <title>Gracias por su interes en apadrinar a'.$historia.'</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ </head>
+<body style="margin: 0; padding: 0; font-family:Tahoma, Geneva, sans-serif;color:#454545;background:#fff;">
+<table align="center" cellpadding="0" cellspacing="0" style="max-width:600px; border-top:10px solid #31a463;">
+    <tr>
+        <td><h2 style="margin:10px;text-align:center; font-size:1.35em;">Gracias por su interes en apadrinar a'.$historia.'</h2></td>
+        <td>
+            <a href="http://www.fundacionmarkoptic.org.mx" target="_blank"><img style="margin:10px 0;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALkAAABaCAYAAADkffdwAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH4AcLDRwymcl1vQAAIVJJREFUeNrtnXm8XEWVx7/9+uUlIRsJIRtgWKNsgbCLOoIIQXDADQQBMeYziIqizow6OIgjKmpGQUEdEQZGFkdAUNRBEVAEERAMiyyCLI+EQCBAEiHbW3r++NV599zqut398l6SfqHP59Of7r5L3bpVvzp1tjpVYiOmWZfOTR0uhU9b+K4AveEDwPzjL0yVUQJGAZOAyeEzEdgM2Dx8jwPGAGOB0cBIYET4tANlYFh4NkAP8ArwDPAYcA5wUzjf6+vRorWn9g1dgcGiGoA2MINAVSEDdtwWk4DNZl06d3NgBrCTHUOAngCMR2BvY+BUBjqATcOzfo1AXhpAmS2KaMg2ZgGo28jAl+POjkYD2yAQzwB2B7YApgLTENftL3UBLwMvAs8DL4Xfi8LvpcAKYFU4340G2tJwrAt4LlwD5GeTFg2MhgzIGwC1cWlPY4BdEZBnArsA2yPu3N93X45AuxB4EngKeAJ4BAF6OQJ0l93QCFCj92qjQGxq0dpTU4M8AWwvfsSgbgN2APYA9gyfXZCYEVN3uL8NycieehGA/wo8DMwHHgzHloT7gAyEUT2tjkXtW6nxuxKX3aKBU9OBPAFs49YVHMBC3V8DHAC8Pnx2RnKupx4y7joscf454F7gDuBuBOzHgTUFVfSzB2TgrLj/VdQC7YajpgB5DWDHcvU4YBZwJHAQ4tyxDG1cGvKWDBAAnwRuBf6IQP0gkqeL6mD39brfOWoBuLlpg4G8QBQpUw3srYCDgSOANyELhydT4ioIlLHF6EngD8BvgduBR6nm0n62iDlzH7XAPDRpvYO8hvzqRZFtgUMRx/4H8tzaDwIDdjn8LgF/R2D+PXA9cA/VoC6Tt5HnAN0C88ZF6wXkNcQRrzxOAN4OnAC8mbxC2O3qWyHPeUtIIbwRuDZ8L3bXQgZqA3QL1K8iWqcgT4DblD7j2h1IcXw/cDhyihhwu8m8k71k4oydfxo5T34K3IxMeKlB0OLUr3JaJyBPiCRl8lx7OgL2B5BoYsA18Ht7sQf2M8AvgKuQ8rjCPadM2rTYAvWrnAYV5HXA3Q7MBk4G3komZ5uMbUqnXWvAXoqA/b/A71Csh5Fd1+LWLSqkQQF5gVhi4BuF5OyPofgMA6M5Y0rutymhK1AMx5XA/yGZ20SRFrBb1C8aMMgTbmkDbTswBzgdmQE9ML1s7i0dfwJ+CFyDXOil6PoWsFvUb1prkNfh3gcA30LxInbMzIVePCkhR8xPgO8gkPvyWjJ2iwZMawXyGtx7CvAN4H3hXA8ZuM0tb+B9DjgPuAAplD7OuyqCsAXsFq0t9RvkEcC9sjgXmIfirXvceciDfSHwTeBiFLVX5BBqAbtFg0INg7zActINbAn8AHkoUzI34f9yBO5vIq9kkRt/vYB7+rTJ8bukqE9U6ly0eF0825Rtc3YN6Dmu3Bx1Llocn2snavfBfL9mo4ZAXkM8eRcC+ATUUXHEoFlCLkIK6CLS3s4W1x4gRSCOmYynXMz6xgxuo7ogLxBPQKLJP1PNvf3/+4APA7eRdgptMHBPnzbZLDebAh9FYpanNqQzPE4EDNd2lcT/+HiKrB12A/ZGegmJ8qlTVvIaD9wC7n4S8Gfgrujd/Dvkyh3Kg6EmyBMA70FguAI5dDz3hkyx7Aa+HD5dJKbHDc25p0+bbO9zEHAD8AKZ7tCLnFXvQA6odvKDMwZByX17S1LMSc0CZSLKmYhRjAvtVHIfL+rFptO4/LJ7bi/wKbRY5DTyoQ69yIr1EeB44DLXr5APo0g+eyiCvXAhcwTwdtQpr0VBUDNQp1gQlRdPHgBORLHaZTLQ99GGBngBHYK4W7lz0eKeiAOmmEE7bqmb+z+MLKbdc3UfIDbcXdNLfpCYydUYgznK4gFlDMV+Q8ZsXod0Jbvent2Bgt8+gQDeTn4g2juYmBk/e0hScsV5AcD3QXHZM8L/FMAvRdPv3eQ7CRC4mxTg4IAcAG5tMwa4H8W0Gx2KRLGx4f+B4f/1yFu7EMXl2NRvQNkLuBOFJjyIoi5XkV98vRUKY3gFrR39MhmYbRCMQSLO8vC5BGUUsLZeghZM2z29aAb+L7Ro+3Ph/k3IADw51O06NKstDc+utZRvSFAVJy8A+L4o4m8cGaAhm9ba0RR5Ngnu3cTAhqzzrgVWo1wpTyHOvgwB+bVoJb/RFohbjkEgmxT+dwD/ipbiXRTK+xEC0gzgFiTjfwwtAHkviqb0A+omBMjPIcCfhvK6nEQmolwZ6ndm6IN/QyLkz0M5M1FGAshAfDWKzT8z9JeVPzucH4sWfK9E+tYm4dmjEOdPiV9DgnIgT8jg3Ygz/4oM4F7BbEOc61gEklh2bXaA4+r6R+SUGoWsQKuj86kFyPH3Mchrew4C2SkI5CCQltAAWIZk4xJwmCv3CGA7BLZ7w7HFiKN+HngWLdQ+BDgKRWOWgbOQmGHytX1A/bQv8kIfifqJUP4VaMH33e4dPgOcG36XkPz+mdAejSjVTUdFMrk11q5o+tqUahmwjKbEw5CWPoy8jDoUAA5Zp32FvExuHN5mpE3cPZtEZVi7POeOPY3WoBqNQ+Be5tp3cSjf2m1MQTkgTvssGoSE30Y2IL1Y48WL0Yl7nonO2fWL3DULyLKArWaIUp9MHqVD60FT8NVksp7n4Abwg0kAvMll75isc23At0+fNrndnXsOLac7Hc1qr0eimW+Torb1QPsxEju+i5TC45DYcoVru1+F9r0YiUgHIy7u63kXEqcuIEu9cQ2wH9VWEqPbEcAvRAvB9wr3LySLF+qNnmPvEB8bctQGSW8mSKbcHnGaWERZgqbMe4msDEMI3EbGoWwBRhfZ4mhrixNQCMKdaLHGBCSLd0dl+LWkq8KH0EY3AKcCH0JJiS5Fq5o+Fa4po0XX70CAfRjpQSA5ucv9fgfirnehVBpvIB9nvypcZ89+BYlC49Bs9Sdk4TnCvfcady/uWWuIZuihRiXIgdwUzdOBL4bfxtWs01ciG/lt7npgaAHcmQg7kNL4AIETRm5wk0OHIedNLwLj1HAPSHzZDllh7PotEJAeJ2/G2xzYEXHWR6g2M5r1ZCYSbR4PZf+FvLOpI9SnhJjN6hrPtv4bHu6phHvWkHcA7YqyGdgAGYuUU3vPIWknLzmAm7NgP2QF8PIdZFz8vWiKrRJRhhIVxXlAMtbDm/gGQt7xYuXGC6tjB0xK2Yvva8Q7mrrHO34aoqEIcq94mqx9NpmVxIBuHP1z9BPgtcDURI1W5baPgO4XUvv/Xo6NAZM6FocepwDW457l88n4a1P1qdR5duqe+Pnxc9ZqIKxPSuDL6tw3oI2TG4c5BZmPvJhiYL8GBWTluFEM8ISnMFbAPFU1dAz6gkESO7GSyYCaYQANkUE+2O+5XmJfCrDmZ8oy0FOadelcQ/0EJKdtSV72KyEtfG8kR/aNdg/wxANzwVg1goaSgVsR+cHSXeOaZOjuhgJSQuTxot+Qjgep8Z4pHWOdvGekNxlZ1uKnkAm0zXY/6EaLHrYkrWz+CwJ4n6JZA+A2zXYjRWcPYOb0aZO3QebI1cg+bOarB8kCvVJTowHXx2dMQfZia8ClyOLTHdWh1+rXBEBq2il/kKmCbO8V8hafdUVeWf82UsgXINPq7cDpBtoRyCMH1RGFv0Q23lxwv1EC4D0IgCcjb5nPqxJTLwL5BSiuYjV5cch+D0Mmy2PQoNk61NlA/jLajuQ24PvIEuFniA0C9CDX28y3E9J3liMP4uNAW+eixRsL+K2tD0BrdnuQh/WPpEOVB5suQNaq+Qjw5yIr4Tzj2G9EbN4sKFZpgC/FpRkXT6w26UbmxR8gIFaQgmomOC+rdYVn7Yzc4HNQeMBD5D2rB4Xzu5AXo3yjjUXg3wMNrJ8Cn0RT1gYDugv06kVM5JBw6t7Qrm3Tp03uTdWpnvWnxnXeEZRMJ12vDerpEQVkzzyOLCnrUTiQN/JO/Xy2te3BaNb4FWIgPwmf2cDPDOQHhm8DuXHxqxDL7wNKAcBN5PkIiskAceVhZNGKS1F0WxnFOps72UJOdwvPehviyABfAM4InbSGLGtt0ZI1u+Zd4Z2OQZGBVUBvUEGO87t4ZdwnG/XiVFyWfY925caJ/+tR7rkJIMSrrWLdJpf5wO6vo+T7NvZlpnb2sHboRmEARhb+YOKjz7Xj2zcFbp+qxJhbvPeTgXxb5OR6BcUMHYOC1ZYBy6zx9ok6xL7/u4EOMAAdhwBuMdLDw0MuQWbHB8jiNjZFDpG5wNHh2jWII1+DuPaJCOBmquwI5d6Gch8uQANpRHixt6FZwQbEeCRqHQb8hgjoUf37QJrgKCWysOFYXPNKrp99vIbfX0CnwNZd43J7L6vHWBQ224ZEo8XkB2CjA77HnhvNHL2JsvwgTwWyxQFjtShmGkVcvuzK70T9fy/y8SwkW+k1pTTr0rlTUCz05uTtsk8i0KwIL1RJKJs2krZGI2k82cKBa9DSt74Ms1Fl7d5ZaMbYlkzp/VvoqDHu2M9R6Odf/MtHi4IPRaLNDgjoHSjAaU+qM916G7ApyG8i47jLyBL1rw51+BBSnr+HYnf2Qy7261GILMh1flBouxIa4A8jhjEnXPNFNIDbge4Cjuo9rV8Knf4l1x/2zj1ox41/QtP2tqGOJcTZnkV6z5WhnVdR7ZQy8m0yESVh3Rt5XG2gL0FBe1eThQTMDO9kHtWp4fjTAXijgPOBy1FMzn+G53+KvFfW3qcNhSq8E4nRIwOuFqDwiOvJGKbNtL8kC4W4Hq242hHoaQ8dZQD3KdtsAUBRg+Aqd2oA+Orwolcgz6hxwQrVMlkpdOB8JFr8AVl3ekKj+sUYZ6JQU+MybQ4MRr0opdytoRP2D/XZAg2OU10j+unSQklfE72btUcn8FnEIc8L54Yjx9hVofwTgXejfDPvI0vLUQ7AexP9J6vrEcCnw7Hu0A6e230CRVCOdHU2bjk6gGS7UM4ZaKDelOhXG1QjkZj4ofDOsdGgEt7xq6HdLgtteyR5yxxku+q1hXpcjvSut4fzj4R38+LMO4H/QCEGqWefhOKIvoWC16zeJ4f+GRvwtD1ibKe2o6g6A0nZFXqTKzzl1bQBMQL4R9f5z4eGt44qmmptChuGFMSPI+7g3c9lNNisY+2+oilvGJqij0Uc2DbFOj50yjNkM8hYNBhnO8B4Od/AMj10Tg/ZIJ6KOPakcHwimibbovshmzYbisNO2H7f7E5vFrXruciB1002c9n5mNagjr8RiZaXkwHdgDIRKW97kulKse5TQlx1Kgoym4pmCl9nT/beC8O3l9ntd1uon72PiYHxexjmxqCBuCsZM12IGM1eaDa7BgXUtbWHg1aAX3VvYkFV5zhxoweJG9uRiSmXITDlgrdqKDkW7H8N2vLkQPLrHue523pS5UVl2aA5B03vq5G2PxuFsBoXvDwcMwW5jMSkzlD3iShwC6o5lJ9evfvdnv8S0kGeIFPE64arRjOTPfMt7pgBZQ2agU4Jv23T21uQWPIYWTThDMT9ZpENhAuRFWs++TWcFyKAr0LMqwvpM/NDO41Flrh9yAbBPCQqvRuJLe9C4APt9vEdNKP8NtEO9nsN4t6nuP7oQSLIjchosQVa/PFWpNCuCs88B4Usmzh1e/hgfd2O7Lfxw18iC6qv5YWE/MIAkMiQuy9lskpE+oFMfweGF+xA09nvw7neBsuygXANkhMNnPsjkHcFgBxOxpnvQVPvTWTJ/ytIvjzb1Smubxx73YVEm/PJsoN5C0WSCsS4NUgu3ZkM8LZaaBLw7+F3BwLBnNB+ffpPKPcm5IP4LNkKohGIARwe6teFFPQjwnMtjPcDaLDG6TaOQjqGLeA4A61muhrNFgbyv6LZ0ixicTsYp94FiS2mHz2BDBJ3JZ69I/Lb7BrqfUr4f2t4F7+dfI89xKZA32F+B7V6EYYmyw5DC2//HP4XgtLInbMXfyi65C9knKrmdJ8o61Gk1BjItg7fo5ANndCgtyK95HryJi4LYX0LGrg+50xM9swTga8hkcm4fK3tyduij+dsY8hmsfbwLreE/0ciMcFmyvchgNuMVA4pN8rh3nYkrn2DjEvORuAy69UHw3dHaLvZCODtrhz7vhKJPCa62CIQq6uRX5CSmsmsbeaQ5au3eHlbjBM/+yE0OJ939x/vntfbuWhxT+eixb2dixbTuWhxcrc0X7lGaHP3exlKAQf0K1bBQGJLvazyT/j61CsvnDeRqwsXB41CAUDc0RxfIC18NZk8a/KgWTZAitUK0uZAs0b9GnGUYWT2327SA6MUPcs/cywyh92MLBu2ION817a2LrQdDcDryCJDjUHZx9fh3PAeNgBNIR6HBrrRVxDD6gj3+4/pUdcisFubmDIZRz5Sox2MkVo92pAj8b7w7C6qn29u+6+TMbCaS/OK1njmlk/NunRuLW7udzx+iswh05AbNxI1VpGJC5DJoP0lu3+5O2YNsr9r0DsIygnpzWlNX/gbmvbfnniGTaXXuv/13n0OAlWs6I5BStME8vE/1yGzm103w91ny9eS4mFoW1PiOpF8/YZw2sSKKWTMagmShe39437y7/djJLqAxIjcPQ2QzUTT3TFbDZXTvxxGrJ/OQc7FUUgMBehJMcKiqXQcGXiLuHrsBQTJhrXu6S+tGOD9SxLHvA5hynVfO9gU58je5c6CNrB77w7f9cQ0S5J6MBKF7HMgMgKYr8Hk8D+gwWXtPYz8QurcRrvxc91/e48X3Wnr423IZrKXwqeqjAKR0Mjkcz/A61mULG5qXPjfhfSwvnsTzzbqRUs0zyMLBEt5g2kjv6bPTDRFCulQo5WJY557FnKdRKPWW62+ksEhUzyt3bdBnNvvXerBM87fHHey+2/3jHKnjYn42XgkGeDr0XD3ezBSVZRp3ENcKfhdRTaF+Qvt+43hO14HGlNsrF8ntJaBVamV5z7lwnZF9U5whJ2oTX3PqlPXdpRf8Vi0A94JSHE6EYU0fxtZJcwEOw3ZrrcI93eRWb4g66dc3e3j6taLxKBd3KUPuPOEa6agdZ19x62cyLsM8hIbvRC+a2UwiKmMmKyJlW1kZtuiZ1tdN0MRp5cgy46vV1WD3xEKNmeQXXgIMqvVipuIqd9xGuuRfEoHo9cjq8uT4d17EgsdupGs/OZEWZ76M8B/h3azy7n1o448FVlDupDM+k3k+ADZnPcP5w5Aos9vEAf2zjLvIV6DvJiTyEShm8N1dn0X4s7vQd5EM2VWEgCHzKoBCoGA/mHArn2ETCc4Dpl/+5YIRu3SgWbVT5IPDz+OAl2wjcyu3ea+zUb8D+FYGWpycyOraLPESPtp17xrN5DJpaORLR2yneX8x8B8GhoMg5Vgx+rSTsjzEnK92KeMFKszyBKImrMFFE5g5k6Q4rUXAZDITm4KYk84PgeFR5g4+hsyPSMOMvtsKM8yAJj5zp7XjeJO3kimCHrFu1Gy8iy93ZrwnseRZfk1C6CZWFcjhmNWMcjrBsmH3ICsGD54yV76ww1U1HO1ZuPksaw5HiULsujKVUhc+H44781vxu3OQp3uvcEDJYu37i74WPtfgJR5A77NJveg2I0y6uipyN7/PcScJk6fNnkSstQcgRKI2jtbH38tUS/DwGgkIh2POLu1SS8KnPsW2SzTgaQBA2p/GJxZUC5CZkGbiS5Gzq6RZAPV0ml/FFl/OkLdliCzI8hGXvWQdsTVrkaxIzbKrTOPQtOkmdl6Z106lxc//YuiSg+2TD7Q8mIFyjrgy8hi8ToE9JNQ/M0NyEa7Esl5hyBnly3w8GbD/tbNX5+rVw2T37PIuWaufdMh2tHA2xHZ1M3UeXJ4F7O4bEJm/fLx+J9H7vIO8qZTH6Q3Dsm785Ao8jJSgvcI5VqIwArkQbZy+gNyu/Y55Jr/qXv+mSgG6m7kP5mC/AYTyaxPw0I7PI0TN2OgWwN8NzSOLSmzB5XRdH5og503GCD3ZrmBUmzOsv9LUYzFdUje7QqNeEKiLub8sDh1876aMtfmrq1FfsZ7uegiZxM2+fIBMpAPd2V1Iy49D8nv3v1tKaX9QgVzrnwcOYWKds+wBQkWCzIZRQbGbdKBnFNHo4FoA6aeISIVuzIc+Bny3F6IOHgPmvEOie43RlxCYuSFuIjKIjt5O9Lmz3eF4G6cjQJwLDE8I96wTSMduTZk95tpbzBTBa8gnxjzIRSMdAnFbmeTRy9DIo2B7BU0UCw+5e9k+cCLwO6TeC6icfIOsWXRMypIAdsNiSqd0b0m03aG8zMRwItCFMrIy3wgCnPIOQXJBtGq0CazkFjjy3vcXX9f4hneQfdU+DaG+iPkoLqEfHavmH6HvKRnUTsUHMjvNHAWEk+mupcxLjUPyXwPAeVRR+/Ws+q2J0tUKqDUaOb18m74/nB1u3YJmqLNhPVodL6/dC9ZTMW9ZFO2cbeXkBnvLDSYZ5LF1j8X3u23obMmIFl1LAI8yPp0OpJRc+k6oI8r2//vIfGoi0w+rtU5du4CBOKtQxmQhQCYRex+JDJ0oEUJY9255YiJeSWy1nNLKIpvdqjv3miWM87+KHJQ2SKUOEb/G2jQv4h214a8F/s7oS6vIFnc3tV0nsdDn5yGLEdTyfwGC5HoZA6j3LsUmW7j5EJzQgekkgvdjawtK4C2Rcdf2DtiyiRoKw0PQJoYKv080UqgehSthJmJpsdbkdy4NmUZlZE5bEvEHZ4jPwD9Tna5hipYatVwqEKijLrXF7xDI2Rmwlxoc71tDcls8cei0GNQmO5OZAvQi8orapPCvCsJSp1P9klBDpu6ALeXhIyzXYQUmaPIgG4LVPdEI/M9ANMum1tqG79J5YWTr1pT6e41zpQKp2yUbPa4n2ya6++MEFMviq8oqpt1kF9tVImuN+3euKDJ4sYp/eLvWuRnxjitW44SYcg+5js10Kw+Jl6UIk+nxcEUPSOui+esOacMGbBrva/hKuVj8eHHqTJSfZJ619y71CIfd2IvejKaHmeQcXEb8e9G5p0P0FNpY00PK556pjJyiyntQXQZqAxtSmfVfkONUqLz/Er1qoZx1ox6XLpCdX16ou9cgyfqUvU+DcxQ/blvbaw+tag32Nv7Q1UDqp/n+57NIPlbYpe9iS17oMUKlqXKuJpx94uRaFOV7XWoZbd9NVNwQHWjFA627ctjSK7vAUprAfKmo9hUZ+aZP6NVIVCdd6QrnPsfqj1ljXhFW9R85C0ovQzcStZU1AZV3Ne49VXIdRsn4zQ38/uR52k0+R3hWkAfOmR9uio63ixhGYNCfZy8AOhnI49SvKubTXOHIXPSdmQeqD4RqAX2picD8y1ITAE5ZUypHvKiCiSmpYJ9PG0RrO0fFMvoLyFv4S8p0JxbsnrzUWS1mIDs6wuo4T0cilTlPi/g6F9FxvnY6mEcfhwKAprnjuUW8ba4elNTCTGqJ3Hcey0TfzYdFSoYBRx9DvJYWcRebDduR6m6PoaCnbyHra/xWly9OSiRCsNn3wI2Dm5eU4suAPqOyHu4J/k4F3MSmDfqJ2gL7ieozroKtMDeovVDdU1Fia3IzZJyBtrT3TyinqubE2YFUl6/TpaLpAX2Fq1XasgeGgHdxw3shQLWdycPbsjvdPYMUlwvQLHaLbC3aL1Rw0b/xK7NxsHb0VKk05GHNBZhTAm1DLFfRzEyKymQ2aEF+BYNHvXbs5UQX0Ag3RqtInqnO2ac3Li8zQKdiLP/kDzYq+IVWmBv0UBprdy3Ca7ugfxWlO1pNzJltBbYz0OxMEvINPyWKNOiQaMBxSjUkNXLyO3/BbRG0i/DSoF9KbLYnEcWEN/i7i0aFBpwIE7CyePNiaPQ2tFPo9UlKc7uk/93o4US30U58Wy5Wlt0fR+1AN+iejRo0WYFiqmBciwC+ydRRii/oiSloIKWQf0YhYDe78puAb5F/aJBD6ksALvJ16ORGPMJlHjTgvw9N/fWGch2fLsc5fbwOWKsfCujZaFpcioI7/D92Ghe/IZpncUN1wF7B0qn8HGUhckHfMWzgOfuK9FijqtR2MDj0WNjh1QL9BuYEqD2xgVwBoZ11T/rPDi+DthBDqWPojwoli/Eb4zkQeuX661BK/BvRID/E/l0B5Df8LTF6dcDFYC6aouTiCainOkjyNbkNj8nr/PyKcvJJJSo5oMon4dRI4AHmSBvR6C/GSXliRPrmzxfiT591AJ+49QfLu2oA+30sSfaYOuNaLndSJSX83AS+8YOhNb7MqcCa4w1CKGB9kHZlI5AGa58xiq/Kt1A2reyO1AF2eDvQos6bkE5Y1JJ/ePtrZOLgV/t4C+Qpf3+SkVcegpKM7I3mrV3RWZly0pWQnlhvoC4+KCLLhtsLV8BF4hFmeEoRfHRKHfhltE9dm0Mei/HGz2LxJs7w+c+lEMv1TF+0NQEP2w8A6BODnrPoYsAPQxx6T0QqPdDu9eNdtdYfy1HWbouQuZi86MM+qL4pliwWsDdzW5uNBJxgkOQV3VX8rsmQB70kIEyBfrVaJHAfUien4+WgC3CpWief/yFqVCGOHWaHwA1l4xtiAFRZ8FKyX2XomNFYAYBchoSNXZHgN4DzbxF2X+Xo7a+Onyedc+zWKhBb6umALlRHaUlztUxGYH+UPJynScv88eZnVId0YVA/giKg78HAX9h+PydxHSaqLfPgFsvYX/RoOjv+spSA7992VXZr2q806YIvK9F4Ro7ht/bkm1NmKIelFbuVmQcuJkM2JBmZoPOCJoK5J7qAD5WaEpou5G9USLIfVGqs00TRaeUIaiW6z31otx+ixH4O1H48KPh98toO5GXiGaBZqSobUcgcWIUyjs4GXHoHVCCqa1C227WYPELkF/jFgTqh8jPBuvdmde0II+pn6AHJdzfHU2h+yIOtC3pbR39PpqpZzSSSvoVNBBeCt/LkHXn+XCuB1mAXgjnbK+cleRFrDUolqeLxvunF+UMHx/+j0HmWNsXdNPwPR5ZN6aFz1iyBcyb0P9NFEzBvwMl4rwNeafjFBc+HeF6t2YNGZB7qqHp1zJdlRHId0bZWndBpsptqBZzjCoUc37I50ccTFpF/0BeQUp6o7u2pSgOmoupG4kaD6OtIe8Jn4ep3mYmXvubo/U9ww1JkKdoLZ0QZTQ9b4um5h0Q198e2e2HU5+84um3IfTfcTv7/ZnicwPpE1+PuC5+Vqo1M3WjGWcBskbdj/SSh5E1alXinqZ2um00II+phqPCmxuLsst2IJC/JnxmoARKWyEFbGK4ppbSNRBa26Q+jfTnaiQymY7xGBKpOpH8vCD8L9oo2A+SIRE+sdGCPEUNAN/k+5ytNqGobYYUtfFIaRsXjk0Mv8eTBRyNC8dt+h6HZOTucN2kQXxFM4u+gLju8vD5G7IOvYgA/Gw4nluUUuCVNkoC2u5tZvp/Vb+sxrS9tboAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTYtMDctMTFUMTM6Mjg6NTAtMDQ6MDAR3dp1AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE2LTA3LTExVDEzOjI4OjUwLTA0OjAwYIBiyQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAASUVORK5CYII="></a>
+        </td>
+    </tr>
+    <tr>
+        <td align="center" valign="top" colspan="2">
+            <h3 style="margin:10px;color:#31a463;">¿Qué debo hace para apadrinar esta historia?</h3>
+            <p style="font-size:0.95em;">
+            Tu donativo puede ayudar a mejorar una vida, si quieres apadrinar esta historia primero debes realizar un donativo mediante alguna de las tres formas que te mencionamos a continuacion.
+            </p>
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr align="center" valign="middle">
+                        <td style="background:#63c62f;color:#fff;width:33%;border:solid 1px #54a729;">
+                            <h4 style="margin:5px;">Deposito</h4>
+                        </td>
+                        <td style="background:#F05B6F;color:#fff;width:33%;border:solid 1px #d44d60;">
+                            <h4 style="margin:5px;">Trasnferencia Electronica</h4>
+                        </td>
+                        <td style="background:#25AAE3;color:#fff;width:33%;border:solid 1px #208dbc;">
+                            <h4 style="margin:5px;">Paypal</h4>
+                        </td>
+                    </tr>
+                    <tr align="center" valign="top" style="font-size:0.95em;">
+                        <td style="padding:8px;width:33%;background:#f5f5f5;border:solid 1px #dedede; border-top:none;">
+                            <p>Si desea hacer su donativo mediante depósito en efectivo o cheque anombre de  <b>Fundación Markoptic AC</b> puede hacerlo en nuestra Cuenta autorizada en <b>Banamex 7007-3742542</b> (Las Donaciones en efectivo solo serán recibidas mediante depósito Bancario).</p>
+                        </td>
+                        <td style="padding:8px;width:34%;background:#eaeaea;border-bottom:solid 1px #dedede; border-top:none;">
+                            <p>Si desea hacernos llegar su donativo mediante Transferencia Bancaria Electrónica nuestra Clabe Interbancaria es <b>002730700737425429</b> en <b>Banamex.</b></p>
+                        </td>
+                        <td style="padding:8px;width:33%;background:#f5f5f5;border:solid 1px #dedede; border-top:none;">
+                            <p>En caso de que usted cuente con una cuenta PayPal y desee hacernos llegar su donativo por este medio, solo debe hacer clic en el siguiente enlace.</p>
+                            <a style="padding:5px;margin:10%;display:block;background:#25AAE3;color:#fff;text-decoration:none;font-weight:bold;border-radius:3px;font-size:0.9em" target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YDDHME7ZN8YRL">donar con Paypal</a>
+
+                        </td>
+                    </tr>
+                </table>
+            
+            <h3 style="margin:10px;color:#31a463;">Ya hice mi donativo, ¿qué hago ahora?</h3>
+
+            <p>Una vez hecho el donativo solo haz click en el siguiente enlace para llenar el formulario de apadrinamiento, ademas podras solicitar un recbo deducible de impuestos en caso de necesitarlo.</p>
+            <a href="'.$link.'" target="_blank" style="padding:5px;margin:10px;display:block;width:35%;background:#2db1a1;color:#fff;text-decoration:none;font-weight:bold;border-radius:5px;font-size:0.95em">Registrar mi donativo de apadrinamiento</a>
+        </td>
+    </tr>
+    <tr align="center" valign="middle" style="background:#31a463; color:#fff; font-family:sans-serif; font-weight:bolder;">
+        <td colspan="2"><a style="margin:5px;display:block;color:#fff;text-decoration:none;" href="http://www.fundacionmarkoptic.org.mx" target="_blank">Fundacion Markoptic A.C.</a></td>
+    </tr>
+ 
+</table>
+ </body>
+</html>';
+                    // enviamos el correo al interesado!
+                    mail($email, $titulo, $mensaje, $cabeceras);
+                    
+                    #se genera el correo a enviar a la fundacion con los datos del interesado
+                    
+                    $titulo= 'Se aregistrado a '.$nombre.' como interesado en apadrinar una historia';
+                    $link="http://".$_SERVER['HTTP_HOST']."/historias?p=".$ahijado;
+                    $data['message'].= $titulo."\n";
+                    $data['message'].= $link."\n";
+                    $mensaje='
+                    <html>
+                    <head>
+                    <title>Se aregistrado a '.$nombre.' como interesado en apadrinar una historia</title>
+                    </head>
+                    <body>
+                    <h1>Se registro un nuevo interesado en donar</h1>
+                    <p>Los datos del interesado son los siguientes</p>
+                    <p><strong>Nombre: </strong>'.$nombre.'</p>
+                    <p><strong>email: </strong>'.$email.'</p>
+                    <br>
+                    <h2>Esta interesado en apadrinar a:</h2>
+                    <p><strong>Nombre:</strong> <a href="'.$link.'" target="_blank">'.$historia.'</a></p>
+                    </body>
+                    </html>';
+                
+                    //envamos la informacion del interesado a la fundacion
+                    mail($correo_fundacion,$titulo,$mensaje,$cabeceras);
+                    
                 }
 
                 break;
+                
             case 3: #solo se guarda al relacion en caso de que ya exista el interesado a apadrinar
                 $data['message'] .= "Se va a guardar solo la relacion\n";
                 
@@ -130,7 +234,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     $data['error_message'] .= "no se pudo conectar a la base de datos\n"; 
                     break;
                     }
-                    
+                
+                    $ahijado = $_POST['page'];
+                    $historia = $_POST['historia'];
+                
                     if(!$con->query("INSERT INTO Relaciones (id_donador, id_page) VALUES ('".$datos['id_donador']."', '".$_POST['page']."');")){
                         $data['error'] = TRUE;
                         $data['error_message'] .= "Ocurrio un error al tratar de guardar la relacion nueva: ".$con->error."\n"; 
@@ -139,6 +246,108 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     
                     $data['message'] .= "INSERT INTO Relaciones (id_donador, id_page) VALUES ('".$datos['id_donador']."', '".$_POST['page']."');\n";
                     $con ->close();
+                
+                    #se envia el correo electronico con la informacion al interesado
+                    $cabeceras  = 'MIME-Version: 1.0' . "\r\n";
+                    $cabeceras .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
+                    $cabeceras .= 'From: Donativo Fundacion Markoptic <donativo@fundacionmarkoptic.org.mx>' . "\r\n";
+                    
+                    #cuerpo del mensaje
+                    $titulo="Gracias por su interes en apadrinar a: ".$historia;
+                    $link="http://".$_SERVER['HTTP_HOST']."/donativo?ahijado=".$ahijado."&donador=".$email;
+                    $data['message'].= $link."\n";
+                    $data['message'].= $titulo."\n";
+                    $mensaje='
+                    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ <title>Gracias por su interes en apadrinar a'.$historia.'</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ </head>
+<body style="margin: 0; padding: 0; font-family:Tahoma, Geneva, sans-serif;color:#454545;background:#fff;">
+<table align="center" cellpadding="0" cellspacing="0" style="max-width:600px; border-top:10px solid #31a463;">
+    <tr>
+        <td><h2 style="margin:10px;text-align:center; font-size:1.35em;">Gracias por su interes en apadrinar a'.$historia.'</h2></td>
+        <td>
+            <a href="http://www.fundacionmarkoptic.org.mx" target="_blank"><img style="margin:10px 0;" src="data:image/png;base64,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"></a>
+        </td>
+    </tr>
+    <tr>
+        <td align="center" valign="top" colspan="2">
+            <h3 style="margin:10px;color:#31a463;">¿Qué debo hace para apadrinar esta historia?</h3>
+            <p style="font-size:0.95em;">
+            Tu donativo puede ayudar a mejorar una vida, si quieres apadrinar esta historia primero debes realizar un donativo mediante alguna de las tres formas que te mencionamos a continuacion.
+            </p>
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr align="center" valign="middle">
+                        <td style="background:#63c62f;color:#fff;width:33%;border:solid 1px #54a729;">
+                            <h4 style="margin:5px;">Deposito</h4>
+                        </td>
+                        <td style="background:#F05B6F;color:#fff;width:33%;border:solid 1px #d44d60;">
+                            <h4 style="margin:5px;">Trasnferencia Electronica</h4>
+                        </td>
+                        <td style="background:#25AAE3;color:#fff;width:33%;border:solid 1px #208dbc;">
+                            <h4 style="margin:5px;">Paypal</h4>
+                        </td>
+                    </tr>
+                    <tr align="center" valign="top" style="font-size:0.95em;">
+                        <td style="padding:8px;width:33%;background:#f5f5f5;border:solid 1px #dedede; border-top:none;">
+                            <p>Si desea hacer su donativo mediante depósito en efectivo o cheque anombre de  <b>Fundación Markoptic AC</b> puede hacerlo en nuestra Cuenta autorizada en <b>Banamex 7007-3742542</b> (Las Donaciones en efectivo solo serán recibidas mediante depósito Bancario).</p>
+                        </td>
+                        <td style="padding:8px;width:34%;background:#eaeaea;border-bottom:solid 1px #dedede; border-top:none;">
+                            <p>Si desea hacernos llegar su donativo mediante Transferencia Bancaria Electrónica nuestra Clabe Interbancaria es <b>002730700737425429</b> en <b>Banamex.</b></p>
+                        </td>
+                        <td style="padding:8px;width:33%;background:#f5f5f5;border:solid 1px #dedede; border-top:none;">
+                            <p>En caso de que usted cuente con una cuenta PayPal y desee hacernos llegar su donativo por este medio, solo debe hacer clic en el siguiente enlace.</p>
+                            <a style="padding:5px;margin:10%;display:block;background:#25AAE3;color:#fff;text-decoration:none;font-weight:bold;border-radius:3px;font-size:0.9em" target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YDDHME7ZN8YRL">donar con Paypal</a>
+
+                        </td>
+                    </tr>
+                </table>
+            
+            <h3 style="margin:10px;color:#31a463;">Ya hice mi donativo, ¿qué hago ahora?</h3>
+
+            <p>Una vez hecho el donativo solo haz click en el siguiente enlace para llenar el formulario de apadrinamiento, ademas podras solicitar un recbo deducible de impuestos en caso de necesitarlo.</p>
+            <a href="'.$link.'" target="_blank" style="padding:5px;margin:10px;display:block;width:35%;background:#2db1a1;color:#fff;text-decoration:none;font-weight:bold;border-radius:5px;font-size:0.95em">Registrar mi donativo de apadrinamiento</a>
+        </td>
+    </tr>
+    <tr align="center" valign="middle" style="background:#31a463; color:#fff; font-family:sans-serif; font-weight:bolder;">
+        <td colspan="2"><a style="margin:5px;display:block;color:#fff;text-decoration:none;" href="http://www.fundacionmarkoptic.org.mx" target="_blank">Fundacion Markoptic A.C.</a></td>
+    </tr>
+ 
+</table>
+ </body>
+</html>';
+                    // enviamos el correo al interesado!
+                    mail($email, $titulo, $mensaje, $cabeceras);
+                    
+                    #se genera el correo a enviar a la fundacion con los datos del interesado
+                    
+                    $titulo= 'Se aregistrado a '.$datos['nombre'].' como interesado en apadrinar una historia';
+                    $link="http://".$_SERVER['HTTP_HOST']."/historias?p=".$ahijado;
+                    $data['message'].= $titulo."\n";
+                    $data['message'].= $link."\n";
+                    $mensaje='
+                    <html>
+                    <head>
+                    <title>Se aregistrado a '.$datos['nombre'].' como interesado en apadrinar una historia</title>
+                    </head>
+                    <body>
+                    <h1>Se registro un nuevo interesado en donar</h1>
+                    <p>Los datos del interesado son los siguientes</p>
+                    <p><strong>Nombre: </strong>'.$datos['nombre'].'</p>
+                    <p><strong>email: </strong>'.$email.'</p>
+                    <br>
+                    <h2>Esta interesado en apadrinar a:</h2>
+                    <p><strong>Nombre:</strong> <a href="'.$link.'" target="_blank">'.$historia.'</a></p>
+                    </body>
+                    </html>';
+                
+                    //envamos la informacion del interesado a la fundacion
+                    mail('asandoval@markoptic.mx',$titulo,$mensaje,$cabeceras);
+                    
+                
                 break;
                
         }
@@ -152,15 +361,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(!empty($_GET['donador']) && !empty($_GET['ahijado'])){
         
         validar_ahijado($_GET['ahijado']);
-        $datos =  validar_donador($_GET['donador']);
-        $existe = $datos['existe'];
-        $data_hist = get_historia($_SESSION ['ahijado']);
+        $data_donador =  validar_donador($_GET['donador']);
+        if($data_donador['existe'])
+            $existe_donativo=check_donativos($data_donador['id_donador']);
+        
+        $data_hist = get_historia($_GET['ahijado']);
         $tipo = array('tipo' => 0,'texto' => 'Apadrinamiento');
     
     }
     elseif(!empty($_GET['donador']) && empty($_GET['ahijado'])){
-        $datos =  validar_donador($_GET['donador']);
-        $existe = $datos['existe'];
+        $data_donador =  validar_donador($_GET['donador']);
         $tipo = array('tipo' => 1,'texto' => 'Recibo deducible de Impuestos');
     }else{
                 header('Location:historias');
@@ -169,8 +379,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     /* CONECTAR CON BASE DE DATOS ****************/
     $con = mysqli_connect(SERVER, USER, PASS, DB);
-    mysqli_set_charset ( $con , "utf8");
     if ($con->connect_errno){die("ERROR DE CONEXION CON MYSQL 1: ".$con->connect_error);}
+    mysqli_set_charset ( $con , "utf8");
     
     #se guardan los datos del formulario en las variables correspondientes
     $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
@@ -179,7 +389,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
         $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     }else{$_SESSION ['errors'] .="El Email n es valido\n";}
-        
+    
+    #se sanitizn los demas datos
     $telefono = filter_var($_POST['telefono'], FILTER_SANITIZE_STRING);
     $direccion = filter_var($_POST['direccion'], FILTER_SANITIZE_STRING);
     $rfc = filter_var($_POST['rfc'], FILTER_SANITIZE_STRING);
@@ -225,51 +436,40 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             move_uploaded_file($_FILES['doc_comprobante']['tmp_name'],$add) or die("Ocurrio un error al tratar de guardar su documento");
         }
         
-        if($existe){
-        $con->query("INSERT INTO Donativos (metodo, monto, referencia, comprobante_donativo, comprobante_fiscal, id_donador, comentario)
-            VALUES ('".$metodo."', '".$monto."', '".$referencia."', '".$doc_comprobante."', ".$comprobante.", '" .$datos['id_donador']."', '".$comentario."');")
-            or die("Ocurrio un error al tratar de guardar el donativo: ".$con->error);    
-        $new_id= $con->insert_id; #se obtiene el id del donativo recien guardado
+        if(!$data_donador['existe']){#se valida si el donador existe 
+            #si no existe se registra el nuevo donador
+            $con->query("INSERT INTO Donadores (nombre, email, telefono, rfc, direccion) VALUES ('".$nombre."', '".$email."', '".$telefono."', '".$rfc."', '".$direccion."');")
+                or die("Ocurrio un error al tratar de guardar el donador nuevo: ".$con->error); 
+            $id_donador= $con->insert_id; #se obtiene el id del donador recien guardado
+
         }else{
-        $con->query("INSERT INTO Donadores (nombre, email, telefono, rfc, direccion) VALUES ('".$nombre."', '".$email."', '".$telefono."', '".$rfc."', '".$direccion."');")
-            or die("Ocurrio un error al tratar de guardar el donador nuevo: ".$con->error); 
-        $new_id= $con->insert_id; #se obtiene el id del donador recien guardado
-            
-        $con->query("INSERT INTO Donativos (metodo, monto, referencia, comprobante_donativo, comprobante_fiscal, id_donador, comentario)
-            VALUES ('".$metodo."', '".$monto."', '".$referencia."', '".$doc_comprobante."', ".$comprobante.", '" .$new_id."', '".$comentario."');")
-            or die("Ocurrio un error al tratar de guardar el donativo: ".$con->error);
-        $new_id= $con->insert_id; #se obtiene el id del donativo recien guardado
+            if(!$existe_donativo){#si el donador ya esta registrado pero no tiene algun donativo previo se actualizan los datos faltantes y se registra el donativo
+                $con->query("UPDATE Donadores SET telefono= '".$telefono."', rfc= '".$rfc."', direccion= '".$direccion."' WHERE id=".$data_donador['id_donador'].";")or die("Ocurrio un error al tratar de actualizar los datos del donador: ".$con->error);
+            }
+             $id_donador=$data_donador['id_donador'];
         }
         
-        if(!empty($_SESSION['id_solicitud'])){ #se revisa si esta seteado el valor de id para apadrinar a alguien se guarda al relacion de apadrinamiento
-        $con->query("INSERT INTO Apadrinamientos (id_donativo, id_solicitud) VALUES ('".$new_id."', '".$_SESSION['id_solicitud']."');")
+        $con->query("INSERT INTO Donativos (metodo, monto, referencia, comprobante_donativo, comprobante_fiscal, id_donador, comentario)
+        VALUES ('".$metodo."', '".$monto."', '".$referencia."', '".$doc_comprobante."', ".$comprobante.", '" .$id_donador."', '".$comentario."');")
+            or die("Ocurrio un error al tratar de guardar el donativo: ".$con->error);    
+        $id_donativo= $con->insert_id; #se obtiene el id del donativo recien guardado
+        
+        #se revisa el tipo de dondatio, si el tipo es 1 (true en el if) es una donativo, si es un 0 (false) es una apadrinamineto
+        if(!$tipo['tipo']){
+        $con->query("INSERT INTO Apadrinamientos (id_donativo, id_solicitud) VALUES ('".$id_donativo."', '".$_SESSION['id_solicitud']."');")
             or die("Ocurrio un error al tratar de guardar el apadrinamiento: ".$con->error);
-        $_SESSION['id_solicitud'] = '';  #se vacia la variable global del solicitante que se va a apadrinar
-            
-        $con->close();
+        $_SESSION['id_solicitud'] = '';  #se vacia la variable global de la solcitud que se va a apadrinar
         }
         
         if(!$tipo['tipo']){#se genera el correo  enviar en caso de ser apadrinamiento
-                 
-            #$con = mysqli_connect(SERVER, USER, PASS, 'gallbo_cms_b');
-            $con = mysqli_connect(SERVER, USER, PASS, 'cms');
-            mysqli_set_charset ( $con , "utf8");
 
-            if (!$con){die("ERROR DE CONEXION CON MYSQL 2:". mysql_error());}
-
-            $result = $con->query('select * from cmscouch_pages where id = '.$_SESSION ['ahijado'].';');
-            $row = $result->fetch_assoc();
-            $nombre_ahijado = $row['page_title'];
-            $result->free();
-            $con->close();
-            
             if($comprobante){
                 $comp = '<p><strong>solicito recibo deducible de impuestos: </strong></p>';
             }else{
                 $comp = '<p><strong>No solicito recibo deducible de impuestos: </strong></p>';
             }
         
-            $titulo = 'Fundacion Markoptic - Haz apadrinado a: '.$nombre_ahijado;
+            $titulo = 'Fundacion Markoptic - Haz apadrinado a: '.$data_hist['nombre'];
             $titulo_b = 'se acaba de recibir una solicitud de apadrinamiento';
             
             // Cuerpo o mensaje
@@ -299,8 +499,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                 <h1>¡MUCHAS GRACIAS POR TU DONATIVO!</h1>
                     <p><strong>Estimado(a) '.$nombre.'</strong></p>
-                    <p>Felicidades, su apoyo ayudara a mejorar la calidad de vida de '.$nombre_ahijado.',</p>
-                    <a href="http://beta.markoptic.mx/historias.php?p='.$_SESSION['ahijado'].'">Lee su historia de nuevo</a>
+                    <p>Felicidades, su apoyo ayudara a mejorar la calidad de vida de '.$data_hist['nombre'].',</p>
+                    <a href="http://'.$_SERVER['HTTP_HOST'].'/historias.php?p='.$_SESSION['ahijado'].'" target="_blank">Lee su historia de nuevo</a>
                     <p>ahora usted es parte de la Conciencia Social,</p>
                     <p>le agradecemos su confianza.</p>
                 <h3>Bienvenido al Club &quot;Dar Para Donar&quot;.</h3>
@@ -324,8 +524,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     <p><strong>Monto del Donativo: </strong>$'.$monto.'</p>
                     <p><strong>-Codigo Referencia: </strong>'.$referencia.'</p>
                     <p><strong>Comentario: </strong>'.$comentario.'</p>'.$comp.'
-                    <a href="http://fundacionmarkoptic.org.mx/files/comprobantes/'.$doc_comprobante.'">Comprobante</a>
-                    <a href="http://beta.markoptic.mx/historias.php?p='.$_SESSION['ahijado'].'"><p><strong>Se a apadrino a:'.$nombre_ahijado.'</strong></p></a>
+                    <a href="http://'.$_SERVER['HTTP_HOST'].'/files/comprobantes/'.$doc_comprobante.'" target="_blank">Comprobante</a>
+                    <a href="http://'.$_SERVER['HTTP_HOST'].'/historias.php?p='.$data_hist['id_page'].'" target="_blank"><p><strong>Se a apadrino a:'.$data_hist['nombre'].'</strong></p></a>
                     </body>
                     </html>';
             }else{
@@ -345,7 +545,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     <p><strong>Codigo Referencia: </strong>'.$referencia.'</p>
                     <p><strong>Comentario: </strong>'.$comentario.'</p>'.$comp.'
                     <p><strong>No se agrego ningun comprobante</strong></p>
-                    <a href="http://beta.markoptic.mx/historias.php?p='.$_SESSION['ahijado'].'"><p><strong>Se a apadrino a: '.$nombre_ahijado.'</strong></p></a>
+                    <a href="http://'.$_SERVER['HTTP_HOST'].'/historias.php?p='.$_SESSION['ahijado'].'" target="_blank"><p><strong>Se a apadrino a: '.$data_hist['nombre'].'</strong></p></a>
                     </body>
                     </html>';
             }
@@ -405,7 +605,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     <p><strong>Monto del Donativo: </strong>$'.$monto.'</p>
                     <p><strong>-Codigo Referencia: </strong>'.$referencia.'</p>
                     <p><strong>Comentario: </strong>'.$comentario.'</p>
-                    <a href="http://fundacionmarkoptic.org.mx/files/comprobantes/'.$doc_comprobante.'">Comprobante</a>
+                    <a href="http://'.$_SERVER['HTTP_HOST'].'/files/comprobantes/'.$doc_comprobante.'" target="_blank">Comprobante</a>
                     </body>
                     </html>';
             }else{
@@ -450,37 +650,38 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     }
 }
+#######################
+##### seccion GET #####
+#######################
 else{ #se formatea el formulario a ser llenado y se recupera la informacion pertinenete en caso de estar disponible   
     
     #se revisa  que enlace este correcto
     if(!empty($_GET['donador']) && !empty($_GET['ahijado'])){
                 
         validar_ahijado($_GET['ahijado']);
-        $datos =  validar_donador($_GET['donador']);
+        $data_donador =  validar_donador($_GET['donador']);
+        if($data_donador['existe'])
+            $existe_donativo=check_donativos($data_donador['id_donador']);
         
-        if($datos['existe']){        
-        $nombre = $datos['nombre'];
-        $email = $datos['email'];
-        $rfc = $datos['rfc'];
-        $direccion = $datos['direccion'];
-        $telefono = $datos['telefono'];    
+        if($data_donador['existe']){        
+        $nombre = $data_donador['nombre'];
+        $email = $data_donador['email'];
+        $rfc = $data_donador['rfc'];
+        $direccion = $data_donador['direccion'];
+        $telefono = $data_donador['telefono'];    
         }
-        $_SESSION ['ahijado'] = $_GET['ahijado'];
-        $data_hist = get_historia($_SESSION ['ahijado']);
-        $existe = $datos['existe'];
+        $data_hist = get_historia($_GET['ahijado']);
         $tipo = array('tipo' => 0,'texto' => 'Apadrinamiento');
             
     }
     elseif(!empty($_GET['donador']) && !isset($_GET['ahijado'])){
-        $datos =  validar_donador($_GET['donador']);
-        $nombre = $datos['nombre'];
-        $email = $datos['email'];
-        $rfc = $datos['rfc'];
-        $direccion = $datos['direccion'];
-        $telefono = $datos['telefono'];
-        $existe = $datos['existe'];
+        $data_donador =  validar_donador($_GET['donador']);
+        $nombre = $data_donador['nombre'];
+        $email = $data_donador['email'];
+        $rfc = $data_donador['rfc'];
+        $direccion = $data_donador['direccion'];
+        $telefono = $data_donadors['telefono'];
         $tipo = array('tipo' => 1,'texto' => 'Recibo deducible de Impuestos');
-        unset($_SESSION ['ahijado']);
     }else{
         header('Location:historias');
         exit();
@@ -488,7 +689,9 @@ else{ #se formatea el formulario a ser llenado y se recupera la informacion pert
 
 }
 
-
+###################
+##### METODOS #####
+################### 
 //funcion que valida si existe el donador, si existe rescata su informacion de la base de datos
 function validar_donador($email_donador){
 $con = mysqli_connect(SERVER, USER, PASS, DB);
@@ -527,12 +730,12 @@ function get_historia($page_id){
 
         if (!$con){die("ERROR DE CONEXION CON MYSQL3:". mysql_error());}
 
-        $result = $con->query("select * from cmscouch_pages where id = ".$_SESSION ['ahijado'].";");
+        $result = $con->query("select * from cmscouch_pages where id = ".$page_id.";");
         $row = $result->fetch_assoc();
         $nombre_ahijado = $row['page_title'];
         $result->free();
 
-        $result = $con->query("select * from cmscouch_data_text where page_id = ".$_SESSION ['ahijado'].";");
+        $result = $con->query("select * from cmscouch_data_text where page_id = ".$page_id.";");
 
         while($data = $result->fetch_assoc()){
             $row[] = $data;
@@ -556,13 +759,13 @@ function get_historia($page_id){
 }
 
 #revisa si el benificiario que quiere apadrinar existe
-function validar_ahijado($pagina_ahijado){
+function validar_ahijado($page_id){
 $con = mysqli_connect(SERVER, USER, PASS, DB);
 mysqli_set_charset ( $con , "utf8");
 
 if (!$con){die("ERROR DE CONEXION CON MYSQL5:". mysql_error());}
     
-    $sql = "select id from solicitud where id_page = '".$pagina_ahijado."';";
+    $sql = "select id from solicitud where id_page = '".$page_id."';";
     $result = $con->query($sql);
     $con->close();
     
@@ -574,6 +777,27 @@ if (!$con){die("ERROR DE CONEXION CON MYSQL5:". mysql_error());}
         //al detectar que el ahijado no esta registrado en el sistema regresa al donador a la pagina de historias con un mensaje
         $con->close();
         header('Location: /historias');   
+    }
+    
+}
+
+#revisa si el donador ya tiene algun donativo registrado
+function check_donativos($id_donador){
+$con = mysqli_connect(SERVER, USER, PASS, DB);
+mysqli_set_charset ( $con , "utf8");
+
+if (!$con){die("ERROR DE CONEXION CON MYSQL5:". mysql_error());}
+    
+    $sql = "select id from Donativos where id_donador = '".$id_donador."';";
+    $result = $con->query($sql);
+    $con->close();
+    
+    if($result->num_rows > 0){
+        $result->free();
+        return true;
+    }else{
+        $result->free();
+        return false;
     }
     
 }

@@ -56,27 +56,27 @@ require 'mod/head.php';
                      <form action="<?php echo htmlentities($_SERVER['PHP_SELF']) . '?'.http_build_query($_GET); ?>"  method="POST" id="solicitud" class="news" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="nombre" data-toggle="tooltip" data-placement="right" title="Nombre completo de la persona o Razón Social a la cual se hará el recibo">Nombre o Razón Social</label>
-                                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre completo" required autofocus  maxlength="254" value='<?php echo htmlentities($nombre); ?>' <?php if($existe){echo 'readonly';}?> >
+                                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre completo" required autofocus  maxlength="254" value='<?php echo htmlentities($nombre); ?>' <?php if($data_donador['existe']){echo 'readonly';}?> >
                             </div>
                             
                             <div class="form-group">
                                 <label for="email" data-toggle="tooltip" data-placement="right" title="E-mail al cual se enviara el recibo">Correo Electrónico</label>
-                                <input type="email" name="email" class="form-control" id="email" placeholder="Correo electrónico" required  maxlength="254" value='<?php echo htmlentities($email); ?>' <?php if($existe){echo 'readonly';}?> autocomplete="off">
+                                <input type="email" name="email" class="form-control" id="email" placeholder="Correo electrónico" required  maxlength="254" value='<?php echo htmlentities($email); ?>' <?php if($data_donador['existe']){echo 'readonly';}?> autocomplete="off">
                             </div>
                                
                             <div class="form-group">
-                                <label for="email" data-toggle="tooltip" data-placement="right" title="E-mail al cual se enviara el recibo">Telefono</label>
-                                <input type="tel" name="telefono" class="form-control" id="telefono" placeholder="Numero telefonico de contacto" required  maxlength="254" value='<?php echo htmlentities($telefono) ?>' <?php if($existe){echo 'readonly';}?> >
+                                <label for="email" data-toggle="tooltip" data-placement="right" title="Numero telefonico personal">Telefono</label>
+                                <input type="tel" name="telefono" class="form-control" id="telefono" placeholder="Numero telefonico de contacto" required  maxlength="254" value='<?php echo htmlentities($telefono) ?>' <?php if($existe_donativo){echo 'readonly';}?>>
                             </div>
                             
                             <div class="form-group">
                                 <label for="direccion" data-toggle="tooltip" data-placement="right" title="Dirección Fiscal de facturación a la cual se hará el recibo">Domicilio</label>
-                                <textarea id="direccion" name="direccion" class="form-control" placeholder="Ingrese Calle, Número, Colonia, Código postal, Ciudad, Estado y País" required rows="4" <?php if($existe){echo 'readonly';}?>><?php echo htmlentities($direccion); ?></textarea>
+                                <textarea id="direccion" name="direccion" class="form-control" placeholder="Ingrese Calle, Número, Colonia, Código postal, Ciudad, Estado y País" required rows="4" <?php if($existe_donativo){echo 'readonly';}?>><?php echo htmlentities($direccion); ?></textarea>
                             </div>
                             
                             <div class="form-group">
                                 <label for="rfc" data-toggle="tooltip" data-placement="right" title="Número del Registro Federal de Contribuyentes">R.F.C.</label>
-                                <input type="text" name="rfc" id="rfc" class="form-control" placeholder="Registro Federal del Contribuyente" required  maxlength="13" value='<?php echo htmlentities($rfc); ?>' <?php if($existe){echo 'readonly';}?>>
+                                <input type="text" name="rfc" id="rfc" class="form-control" placeholder="Registro Federal del Contribuyente" required  maxlength="13" value='<?php echo htmlentities($rfc); ?>' <?php if($existe_donativo){echo 'readonly';}?>>
                             </div>
                             
                             <div class="col-md-4 col-sm-4 zero">
