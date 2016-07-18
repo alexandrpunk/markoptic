@@ -19,6 +19,7 @@ include ("inc/db_config.php");
     $existe = FALSE;
     $tipo = '';
     $_SESSION ['errors']='';
+    $existe_donativo=false;
     $correo_fundacion = 'asandoval@markoptic.mx';
 
 #revisa si se esta enviando e formulario o si solo se visita la pagina para llenar la informacion
@@ -362,6 +363,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         
         validar_ahijado($_GET['ahijado']);
         $data_donador =  validar_donador($_GET['donador']);
+        
         if($data_donador['existe'])
             $existe_donativo=check_donativos($data_donador['id_donador']);
         
@@ -371,6 +373,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
     elseif(!empty($_GET['donador']) && empty($_GET['ahijado'])){
         $data_donador =  validar_donador($_GET['donador']);
+        
+        if($data_donador['existe'])
+            $existe_donativo=check_donativos($data_donador['id_donador']);
+        
         $tipo = array('tipo' => 1,'texto' => 'Recibo deducible de Impuestos');
     }else{
                 header('Location:historias');
@@ -660,15 +666,17 @@ else{ #se formatea el formulario a ser llenado y se recupera la informacion pert
                 
         validar_ahijado($_GET['ahijado']);
         $data_donador =  validar_donador($_GET['donador']);
+        
         if($data_donador['existe'])
             $existe_donativo=check_donativos($data_donador['id_donador']);
+
         
         if($data_donador['existe']){        
-        $nombre = $data_donador['nombre'];
-        $email = $data_donador['email'];
-        $rfc = $data_donador['rfc'];
-        $direccion = $data_donador['direccion'];
-        $telefono = $data_donador['telefono'];    
+            $nombre = $data_donador['nombre'];
+            $email = $data_donador['email'];
+            $rfc = $data_donador['rfc'];
+            $direccion = $data_donador['direccion'];
+            $telefono = $data_donador['telefono'];    
         }
         $data_hist = get_historia($_GET['ahijado']);
         $tipo = array('tipo' => 0,'texto' => 'Apadrinamiento');
@@ -676,11 +684,20 @@ else{ #se formatea el formulario a ser llenado y se recupera la informacion pert
     }
     elseif(!empty($_GET['donador']) && !isset($_GET['ahijado'])){
         $data_donador =  validar_donador($_GET['donador']);
-        $nombre = $data_donador['nombre'];
-        $email = $data_donador['email'];
-        $rfc = $data_donador['rfc'];
-        $direccion = $data_donador['direccion'];
-        $telefono = $data_donadors['telefono'];
+        
+        if($data_donador['existe'])
+            $existe_donativo=check_donativos($data_donador['id_donador']);
+
+        if($data_donador['existe']){        
+            $nombre = $data_donador['nombre'];
+            $email = $data_donador['email'];
+            $rfc = $data_donador['rfc'];
+            $direccion = $data_donador['direccion'];
+            $telefono = $data_donador['telefono'];    
+        }else{
+            $email = $_GET['donador'];
+        }
+        
         $tipo = array('tipo' => 1,'texto' => 'Recibo deducible de Impuestos');
     }else{
         header('Location:historias');

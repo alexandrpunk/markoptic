@@ -85,7 +85,7 @@ require 'mod/head.php';
       <div class="modal-body">
         <form id="donar">
            <p class="news" style="margin-top:0;">Para solicitar tu recibo deducible primero debes ingresar tu correo electronico.</p>
-            <input onload="focusOnInput()" type="email" name="correo_donador" id="correo_donador" class="form-control" placeholder="Correo Electronico" required  maxlength="255" autofocus>
+            <input type="email" name="correo_donador" id="correo" class="form-control" placeholder="Correo Electronico" required  maxlength="255" autofocus>
             <button type="submit" id="donar" class="btn btn-mark" style="margin-top:10px;" name="donar"><strong>Apadrinar esta historia</strong></button>
         </form>       
       </div>

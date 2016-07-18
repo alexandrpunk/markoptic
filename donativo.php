@@ -158,14 +158,6 @@ id="captchaimg" ></p>
     
 <script src="js/form.js"></script>
 <?php  if(!$tipo['tipo']){echo '<script src="js/lightbox.min.js"></script>';} ?>
-    
-<script language='JavaScript' type='text/javascript'>
-function refreshCaptcha()
-{
-	var img = document.images['captchaimg'];
-	img.src = img.src.substring(0,img.src.lastIndexOf("?"))+"?rand="+Math.random()*1000;
-}
-</script>
 
     
 </body>
