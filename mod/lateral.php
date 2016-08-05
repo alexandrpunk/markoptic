@@ -9,10 +9,11 @@
                 <img src="img/handy.png" class="animated tada">
                 <span>Solicita aquí uno de nuestros dispositivos</span>
             </a>
-            <a href="estadisticas" class="sbut center-block" id="counter">
+            <a href="historias" class="sbut center-block" id="counter">
                 <span><?php echo $total; ?> Solicitudes</span>
+                <p>Conoce a las historias aqui</p>
+                <a href="estadisticas" id="hist">Estadisticas</a>
             </a>
-            <a href="historias" id="hist">Conoce a los solicitantes</a>
         </div>
     </div>
 </div>

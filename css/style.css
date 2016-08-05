@@ -813,6 +813,7 @@ margin: 0;
     border-radius: 5px;
     padding: 10px;
     transition: all 0.3s ease 0s;
+    font-family: 'Oswald', sans-serif;
 }
 .sbut:hover{
     text-decoration: none;
@@ -830,9 +831,8 @@ text-decoration: none;
 }
 
 .sbut span{
-    color: #fff;
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.78em;
+    color: #fff;    
+    font-size: 1.7em;
     line-height: 1em;
     font-weight: bold;
 }
@@ -840,6 +840,12 @@ text-decoration: none;
     max-height: 80px;
     float: right;
     
+}
+.sbut p{
+    color:#fff;
+    font-size: 0.6e;
+    margin: 0;
+    font-weight: 600;
 }
 
 #counter{

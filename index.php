@@ -49,7 +49,7 @@ require 'mod/head.php';
 
                     <hr/>
                         
-                        <center><h4 class="txt-mark oswald" ><a class="txt-mark"  href="historias">Conocer todas las historias</a></h4></center>
+                    <div class="text-center"><a class="btn btn-mark oswald" href="historias" style="font-size:1.15em">Conocer todas las historias</a></div>
                     </div>
                 </div>
                 
@@ -57,21 +57,28 @@ require 'mod/head.php';
                 <div class="panel panel-default panel-mark" id="Noticias">
                   <div class="panel-heading panel-heading-mark" id="cyan">NOTICIAS RECIENTES</div>
                   <div class="panel-body panel-body-mark">
-                    <cms:pages masterpage='publicacion.php' limit='4'>
-                    <div class="row">
-                        <div class="col-md-3 col-sm-3">
-                            <a href="<cms:show k_page_link />"><img class="img-thumbnail center-block sombra" src="<cms:show publicacion_image />"></a>
+                      <cms:pages masterpage='publicacion.php' limit='4'>
+                          <div class="row">
+                              <div class="col-md-3 col-sm-3">
+                                  <a href="<cms:show k_page_link />">
+                                      <img class="img-thumbnail center-block sombra" src="<cms:show publicacion_image />">
+                                  </a>
+                              </div>
+                              <div class="col-md-9 col-sm-9">
+                                  <h3 class="txt-mark oswald">
+                                      <a href="<cms:show k_page_link />">
+                                          <cms:show k_page_title />
+                                      </a>
+                                  </h3>
+                                  <p><small>Publicado el: <cms:date k_page_date format='j-m-Y'/></small></p>
+                                  <p><cms:excerpt count='450'  truncate_chars='1' trail="&nbsp;<a href='<cms:show k_page_link />' class='badge btn-mark'>leer mas..</a>"><cms:do_shortcodes><cms:show contenido /></cms:do_shortcodes></cms:excerpt></p>
+                              </div>
+                          </div>
+                          <hr/>
+                      </cms:pages>
+                      <div class="text-center">
+                            <a class="btn btn-mark oswald" style="font-size:1.15em" href="publicacion">Ver todas las noticias</a>
                         </div>
-                        <div class="col-md-9 col-sm-9">
-                        <h3 class="txt-mark oswald"><a href="<cms:show k_page_link />"><cms:show k_page_title /></a></h3>
-                        <p><small>Publicado el: <cms:date k_page_date format='j-m-Y'/></small></p>
-                        <p><cms:excerpt count='450'  truncate_chars='1' trail="&nbsp;<a href='<cms:show k_page_link />' class='badge btn-mark'>leer mas..</a>"><cms:do_shortcodes><cms:show contenido /></cms:do_shortcodes></cms:excerpt></p>
-                        </div>
-                    </div>
-                    <hr/>
-                    </cms:pages>
-                    <center><h4 class="txt-mark oswald" ><a class="txt-mark"  href="publicacion">Ver todas las noticias</a></h4></center>
-
                     </div>
                 </div>
             

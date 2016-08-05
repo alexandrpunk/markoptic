@@ -65,8 +65,8 @@ require 'mod/head.php';
                             </div>
                                
                             <div class="form-group">
-                                <label for="email" data-toggle="tooltip" data-placement="right" title="Numero telefonico personal">Telefono</label>
-                                <input type="tel" name="telefono" class="form-control" id="telefono" placeholder="Numero telefonico de contacto" required  maxlength="254" value='<?php echo htmlentities($telefono) ?>' <?php if($existe_donativo){echo 'readonly';}?>>
+                                <label for="telefono" data-toggle="tooltip" data-placement="right" title="Numero telefonico personal">Telefono</label>
+                                <input type="tel" pattern="[\d\.\-\s\+\(\)]{3,}" title='el numero telefonico debe contener 3 numeros minimo y solo puede contener numeros, espacios y los siguientes singos: "+-()."' name="telefono" class="form-control" id="telefono" placeholder="Numero telefonico de contacto" required  maxlength="20" value='<?php echo htmlentities($telefono) ?>' <?php if($existe_donativo){echo 'readonly';}?>>
                             </div>
                             
                             <div class="form-group">
@@ -115,6 +115,7 @@ require 'mod/head.php';
                             <div class="form-group">
                                 <label for="doc_comprobante" data-toggle="tooltip" data-placement="right" title="Para hacer mas agil la solicitud de su recibo, puede adjuntarnos el comprobante de su deposito escaneado">Comprobante <small>(opcional)</small></label>
                                 <input type="file" name="doc_comprobante">
+                                <small>debe ser una imagen en formato jpg, gif, png o pdf no mayor a 2Mb.</small>
                             </div>
                             
                             <div class="form-group">
@@ -133,13 +134,11 @@ id="captchaimg" ></p>
                               <label>
                               <input name="comprobante" type="hidden" value="0" />
                                <input name="comprobante" id="comprobante" type="checkbox" value="1">
-                                     <strong>Selecciones esta casilla si desea un recibo deducible de impuestos</strong>
+                                     <strong>Seleccione esta casilla si desea un recibo deducible de impuestos</strong>
                               </label>
                             </div>';
                         }
-                        ?>         
-                        
-
+                        ?>                        
                               <button type="submit" id="apadrinar" class="btn btn-lg btn-mark center-block" name="apadrinar"><strong>Apadrinar</strong></button>
                         </form>
                     </div>

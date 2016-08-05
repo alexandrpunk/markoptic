@@ -1,7 +1,7 @@
 <?php
 include ("db_config.php");
+
 function AbrirConexion() {
-	$db = "markoptic";
 	$link = new mysqli(SERVER, USER, PASS, DB);
 		if($link->connect_errno) {
 			die("Error " . $link->connect_error);
@@ -242,6 +242,7 @@ function update_adj($zip_file, $id_solicitud){
 }
 
 function envioEmails($data){
+    $correo_fundacion="mfelix@fundacionmarkoptic.org.mx";
 	$para = $data["email"] .', '. $data["t_email"];
 	$asunto = 'Solicitud Exitosa - Folio: ' .$data["folio"];
 	$mensaje = '
@@ -381,7 +382,7 @@ function envioEmails($data){
 						<td>'.$data["t_parentesco"].'</td>
 					</tr>
 				</table>
-				<p style="font-size: 17px;">Puedes descargar tus archivos anexados <a href="http://fundacionmarkoptic.org.mx/adj-solicitudes/'.$data["folio"].'.zip">aqui</a></p>
+				<p style="font-size: 17px;">Puedes descargar tus archivos anexados <a href="http://'.$_SERVER['HTTP_HOST'].'/adj-solicitudes/'.$data["folio"].'.zip">aqui</a></p>
 				<br>
 				<p style="font-size: 18px;">Próximamente nos pondremos en contacto con usted.
 				<br>
@@ -393,7 +394,7 @@ function envioEmails($data){
 	$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
 	$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 	$cabeceras .= 'From: info@fundacionmarkoptic.org.mx' . "\r\n";
-	$cabeceras .= 'Cc: info@fundacionmarkoptic.org.mx' . "\r\n";
+	$cabeceras .= 'Cc: '.$correo_fundacion."\r\n";
 
 
 	if (mail($para, $asunto, utf8_decode($mensaje), $cabeceras)) {
