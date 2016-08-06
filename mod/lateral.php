@@ -3,7 +3,7 @@
 <div class="col-md-3 zero">
 <div class="col-md-12 col-sm-6">
     <div class="panel panel-default panel-mark">
-        <div class="panel-heading panel-heading-mark" id="rosado">SOLICITA TU DONACION</div>
+        <div class="panel-heading panel-heading-mark" id="rosado">FORMULARIO DE SOLICITUD</div>
         <div class="panel-body panel-body-mark">
             <a href="solicitud" class="sbut center-block">
                 <img src="img/handy.png" class="animated tada">
@@ -11,8 +11,8 @@
             </a>
             <a href="historias" class="sbut center-block" id="counter">
                 <span><?php echo $total; ?> Solicitudes</span>
-                <p>Conoce a las historias aqui</p>
-                <a href="estadisticas" id="hist">Estadisticas</a>
+                <p>Conoce las historias aqui</p>
+                <a href="estadisticas" id="hist">Estadísticas</a>
             </a>
         </div>
     </div>

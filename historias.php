@@ -185,13 +185,8 @@ require_once( 'cms/cms.php' );
                                         </a>
                                     </div>
                                 </div>
-                                
-                               
-                                
                             </div>
-
-                    
-                    
+                        
                     <cms:if k_paginated_bottom >
                        <hr/>
                         <cms:if k_paginate_link_prev >
@@ -212,7 +207,6 @@ require_once( 'cms/cms.php' );
         </div>
     </div>
 
-    
 <?php require 'mod/footer.php';?>
 
 <!-- moda de solicitud de email -->
@@ -232,19 +226,18 @@ require_once( 'cms/cms.php' );
                     <label class="control-label" for="nombre">Nombre:</label>
                     <input class="form-control" type="text" id="nombre" autofocus name="nombre" placeholder="Nombre completo" required>
                 </div>
-                <input class="btn btn-success" type="submit" id="btn-siguiente" value="Siguiente" disabled>
+                <input class="btn btn-success oswald" type="submit" id="btn-siguiente" value="Siguiente" disabled>
             </form>            
         </div>
-
         
         <div style="display:none;" id="info" class="modal-body">
-            <h4 class="text-center oswald">¿Qué debo hace para apadrinar esta historia?</h4>
+            <h4 class="text-center oswald">¿Qué debo hacer para apadrinar esta historia?</h4>
             <p class="txt-gris">Tu donativo puede ayudar a mejorar una vida, si quieres apadrinar esta historia primero debes realizar un donativo mediante alguna de las tres formas que te mencionamos a continuación.</p>
         
                 <article class="accordion">
                     <section id="deposito" class="modal-verde" style="color:#63c62f;">
-                        <h2 class="oswald"><a href="#deposito">Deposito <i class="fa fa-money" aria-hidden="true"></i></a></h2>
-                        <p class="txt-gris text-center">Puede hacer su donativo mediante depósito en efectivo o cheque en nuestra cuenta bancaria (las donaciones en efectivo solo serán recibidas mediante depósito bancario):</p>
+                        <h2 class="oswald"><a href="#deposito">Depósito <i class="fa fa-money" aria-hidden="true"></i></a></h2>
+                        <p class="txt-gris text-center">Puedes hacer tu donativo mediante depósito en efectivo o cheque en nuestra cuenta bancaria (las donaciones en efectivo solo serán recibidas mediante depósito bancario):</p>
                             <dl class="txt-gris text-center">
                                 <dt>Banco:</dt>
                                 <dd>Banco Bajio</dd>
@@ -255,8 +248,8 @@ require_once( 'cms/cms.php' );
                             </dl>
                     </section>
                     <section id="transferencia" class="modal-rosado" style="color:#F05B6F;">
-                        <h2 class="oswald"><a href="#transferencia">Trasnferencia Electronica <i class="fa fa-credit-card" aria-hidden="true"></i></a></h2>
-                        <p class="txt-gris text-center">Si desea hacerner su donativo mediante Transferencia Electrónica Bancaria los datos son los siguientes.</p>
+                        <h2 class="oswald"><a href="#transferencia">Transferencia Electrónica <i class="fa fa-credit-card" aria-hidden="true"></i></a></h2>
+                        <p class="txt-gris">Si deseas hacer tu donativo mediante Transferencia Electrónica Bancaria los datos son los siguientes.</p>
                             <dl class="txt-gris text-center">
                                 <dt>Banco:</dt>
                                 <dd>Banco Bajio</dd>
@@ -268,7 +261,7 @@ require_once( 'cms/cms.php' );
                     </section>
                     <section id="paypal" class="modal-cyan" style="color:#25AAE3;">
                         <h2 class="oswald"> <a href="#paypal">Paypal <i class="fa fa-cc-paypal" aria-hidden="true"></i></a></h2>
-                        <p class="txt-gris text-center">También puede hacer su donativo a través de Paypal, solo debe hacer clic en el siguiente enlace.</p>
+                        <p class="txt-gris text-center">También puedes hacer tu donativo a través de Paypal, solo debe hacer clic en el siguiente enlace.</p>
                         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
                             <input type="hidden" name="cmd" value="_s-xclick">
                             <input type="hidden" name="hosted_button_id" value="YDDHME7ZN8YRL">
@@ -281,11 +274,14 @@ require_once( 'cms/cms.php' );
             <h4 class="text-center oswald">Ya hice mi donativo, ¿Qué hago ahora?</h4>
             <p class="txt-gris">Una vez hecho el donativo solo haz click en el siguiente enlace para llenar el formulario de apadrinamiento, además podrás solicitar un recibo deducible de impuestos en caso de necesitarlo.</p>
             
-            <div class="text-center"><a id="rlink" class="btn btn-success"><strong>Apadrinar a <span class='nombre_hist'>&nbsp;</span></strong></a></div>
+            <div class="text-center">
+                <a id="rlink" class="btn btn-success oswald">Apadrinar a <span class='nombre_hist'>&nbsp;</span></a>
+            </div>
+            
+            <p class="txt-gris text-center" style="margin:5px 0 0;"><small><strong>Nota: </strong>Hemos enviado esta información a tu correo electrónico para que puedas consultarla, si no lo ves en tu bandeja de entrada revisa el spam o el correo no deseado.</small></p>
         </div>
     </div>
 </div>
-
 
 <?php require 'mod/scripts.php';?>
 <script src="js/lightbox.min.js"></script>

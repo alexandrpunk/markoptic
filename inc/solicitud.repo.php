@@ -242,9 +242,15 @@ function update_adj($zip_file, $id_solicitud){
 }
 
 function envioEmails($data){
-    $correo_fundacion="mfelix@fundacionmarkoptic.org.mx";
+    $correo_fundacion= MAILFUNDACION;
 	$para = $data["email"] .', '. $data["t_email"];
-	$asunto = 'Solicitud Exitosa - Folio: ' .$data["folio"];
+	$asunto = 'Fundación Markoptic: Solicitud Exitosa - Folio: ' .$data["folio"];
+	$asunto = "=?UTF-8?B?".base64_encode($asunto)."=?=";
+    if(preg_match('#^Inferior#', $data['descripcion']) === 1){
+        $nota='<p style="font-size:1.5em;"><b>Nota:</b> la prótesis para miembro inferior aún se encuentra en proceso de desarrollo por lo cual te pedimos paciencia, una vez concluido el desarrollo y tu historia haya sido aprobada como apta para donación nosotros nos comunicaremos contigo.</p>';
+    }else{
+        $nota="";
+    }
 	$mensaje = '
 		<html>
 			<head>
@@ -382,11 +388,10 @@ function envioEmails($data){
 						<td>'.$data["t_parentesco"].'</td>
 					</tr>
 				</table>
-				<p style="font-size: 17px;">Puedes descargar tus archivos anexados <a href="http://'.$_SERVER['HTTP_HOST'].'/adj-solicitudes/'.$data["folio"].'.zip">aqui</a></p>
-				<br>
-				<p style="font-size: 18px;">Próximamente nos pondremos en contacto con usted.
-				<br>
-				Para cualquier duda o aclaración o si desea recibir más información por favor marcar al teléfono (667) 7 15 17 14 o mande un E-mail a info@fundacionmarkoptic.org.mx
+				<p style="font-size: 17px;">Puedes descargar tus archivos anexados <a href="http://'.$_SERVER['HTTP_HOST'].'/adj-solicitudes/'.$data["folio"].'.zip">aqui</a></p>'
+                .$nota.
+				'<p style="font-size: 18px;">Tus datos han quedado registrados y has entrado en nuestra lista de espera.</p>
+				<p style="font-size: 18px;">Para cualquier duda o aclaración o si desea recibir más información por favor marcar al teléfono (667) 7 15 17 14 o mande un E-mail a info@fundacionmarkoptic.org.mx
 				</p>
 			</body>
 		</html>

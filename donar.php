@@ -36,7 +36,7 @@ require 'mod/head.php';
                         <div class="col-md-3 col-sm-3 col-xs-6">
                             <a class="don-a" href="#transfer" data-toggle="modal"><div class="don-btn"  id="rosado">
                             <img src="img/trasnferencia.png">
-                            <p>Transferencia Bancaria</p>
+                            <p>Transferencia Electrónica</p>
                             </div></a> 
                         </div>
 
@@ -57,10 +57,10 @@ require 'mod/head.php';
                         </div>
                     </div> 
                      <p class="text-center">Una ves hecho tu donativo tienes 2 opciones</p>
-                    <center>
-                    <a class="btn btn-lg btn-primary" href="historias"><strong>Apadrinar a un solicitante</strong></a>
-                    <a class="btn btn-lg btn-success" data-toggle="modal" data-target="#solicitar_email"><strong>Solicitar mi comprobante fiscal</strong></a>
-                    </center>
+                    <div class="text-center oswald">
+                    <a class="btn btn-lg btn-primary" href="historias">Apadrinar a un solicitante</a>
+                    <a class="btn btn-lg btn-success" data-toggle="modal" data-target="#solicitar_email">Solicitar mi comprobante fiscal</a>
+                    </div>
                      <p class="text-center" style="margin-top:15px;">"Unidos todos hacemos más. Tu donación desarrolla tecnología que transforma vidas".</p>
                      
                      
@@ -86,7 +86,7 @@ require 'mod/head.php';
         <form id="donar">
            <p class="news" style="margin-top:0;">Para solicitar tu recibo deducible primero debes ingresar tu correo electronico.</p>
             <input type="email" name="correo_donador" id="correo" class="form-control" placeholder="Correo Electronico" required  maxlength="255" autofocus>
-            <button type="submit" id="donar" class="btn btn-mark" style="margin-top:10px;" name="donar"><strong>Apadrinar esta historia</strong></button>
+            <button type="submit" id="donar" class="btn btn-mark" style="margin-top:10px;" name="donar"><strong>Solicitar mi recibo</strong></button>
         </form>       
       </div>
     </div>

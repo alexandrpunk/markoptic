@@ -1,13 +1,7 @@
 <?php
-
+include ("db_config.php");
 function AbrirConexion() {
-	$dbhost = "localhost";
-	$dbuser = "gallbo_markoptic";
-	$dbpass = "markoptic2015";
-	//$dbuser = "root";
-	//$dbpass = "";
-	$db = "gallbo_markoptic";
-	$link = new mysqli($dbhost,$dbuser,$dbpass,$db);
+	$link = new mysqli(SERVER, USER, PASS, DB);
 		if($link->connect_errno) {
 			die("Error " . $link->connect_error);
 		}
@@ -28,7 +22,7 @@ function contacto($data){
 }
 
 function envioCorreo($data){
-	$para = 'info@fundacionmarkoptic.org.mx';
+	$para = MAILFUNDACION;
 	$asunto = 'Nuevo Mensaje de Contacto';
 	$mensaje = '
 		<html>

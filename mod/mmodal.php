@@ -32,7 +32,7 @@
       </div>
         <div class="modal-body">
             <img class="img-responsive center-block" style="margin-bottom:10px;" src="img/transferencia_c.png">
-            <p class="txt-gris text-center">Si desea hacerner su donativo mediante Transferencia Electrónica Bancaria los datos son los siguientes.</p>
+            <p class="txt-gris text-center">Si desea hacer su donativo mediante Transferencia Electrónica Bancaria los datos son los siguientes.</p>
                 <dl class="txt-gris text-center">
                     <dt>Banco:</dt>
                     <dd>Banco Bajio</dd>

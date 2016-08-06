@@ -65,7 +65,7 @@ require 'mod/head.php';
                             </div>
                                
                             <div class="form-group">
-                                <label for="telefono" data-toggle="tooltip" data-placement="right" title="Numero telefonico personal">Telefono</label>
+                                <label for="telefono" data-toggle="tooltip" data-placement="right" title="Numero telefonico personal">Teléfono</label>
                                 <input type="tel" pattern="[\d\.\-\s\+\(\)]{3,}" title='el numero telefonico debe contener 3 numeros minimo y solo puede contener numeros, espacios y los siguientes singos: "+-()."' name="telefono" class="form-control" id="telefono" placeholder="Numero telefonico de contacto" required  maxlength="20" value='<?php echo htmlentities($telefono) ?>' <?php if($existe_donativo){echo 'readonly';}?>>
                             </div>
                             
@@ -98,7 +98,7 @@ require 'mod/head.php';
                             
                             <div class="col-md-4 zero col-sm-4">
                                 <div class="form-group">
-                                <label for="metodo" data-toggle="tooltip" data-placement="right" title="Seleccione el motodo por el cual realizo su donativo">Metodo de pago</label>
+                                <label for="metodo" data-toggle="tooltip" data-placement="right" title="Seleccione el motodo por el cual realizo su donativo">Método de pago</label>
                                 <select class="form-control" name="metodo" class="form-control" id="metodo" placeholder="Metdo de pago" required value='<?php echo htmlentities($metodo) ?>' autocomplete="off">
                                     <option value="1">Deposito</option>
                                     <option value="2">Transferencia bancaria</option>
@@ -119,11 +119,11 @@ require 'mod/head.php';
                             </div>
                             
                             <div class="form-group">
-                                <label for="captcha" data-toggle="tooltip" data-placement="right" title="Introdusca el codigo de seguridad de letras y numeros que aparecen en la siguiente imagen">Introduzca el codigo de verificacion:</label>
+                                <label for="captcha" data-toggle="tooltip" data-placement="right" title="Introdusca el codigo de seguridad de letras y numeros que aparecen en la siguiente imagen">Introduzca el código de verificación:</label>
                                 <p><img src="inc/captcha_code_file.php?rand=<?php echo rand(); ?>"
 id="captchaimg" ></p>
                                 <input class="form-control" id="captcha" name="captcha" type="text" style="width:300px;" required autocomplete="off">
-                                <small>¿No puedes leer la imagen? Haz click <a href='javascript: refreshCaptcha();'>aqui</a> Para refrescarla</small> <hr/>
+                                <small>¿No puedes leer la imagen? Haz click <a href='javascript: refreshCaptcha();'>aquí</a> para refrescarla</small> <hr/>
                             </div>
                               
                         <?php

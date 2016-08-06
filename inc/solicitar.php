@@ -20,7 +20,7 @@ include ("inc/db_config.php");
     $tipo = '';
     $_SESSION ['errors']='';
     $existe_donativo=false;
-    $correo_fundacion = 'asandoval@markoptic.mx';
+    $correo_fundacion = MAILFUNDACION;
 
 #revisa si se esta enviando e formulario o si solo se visita la pagina para llenar la informacion
 
@@ -29,7 +29,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if (isset($_POST['proceso'])){
         
         #este es el registro de los interesados en apadrinar
-        include ("./db_config.php");
+        include ("db_config.php");
         $data = array('error_message'=> '', 'message'=>'');
         switch ($_POST['proceso']) {
                 
@@ -67,7 +67,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $datos =  validar_donador($email);
                 
                 if($datos['existe']){
-                    $data['message'] .= "El interesado ya esta registrado\n";  
+                    break;
                 }else{
                     
                     $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
@@ -109,12 +109,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     $con ->close();
                 }
                 #se envian los correos electronicos
-                enviar_correo_interes($correo_fundacion, $historia, $nombre, $ahijado, $email);
+                enviar_correo_interes($historia, $nombre, $ahijado, $email);
                 break;
                 
             case 3: #solo se guarda al relacion en caso de que ya exista el interesado a apadrinar
-                $data['message'] .= "Se va a guardar solo la relacion\n";
-                
+            
                 #se sanitiza y se valida el email
                 if(filter_var($_POST['correo'],FILTER_VALIDATE_EMAIL)){
                     $email = filter_var($_POST['correo'], FILTER_SANITIZE_EMAIL);
@@ -147,7 +146,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     $data['message'] .= "INSERT INTO Relaciones (id_donador, id_page) VALUES ('".$datos['id_donador']."', '".$_POST['page']."');\n";
                     $con ->close();
                 #en envian los correos electronicos
-                enviar_correo_interes($correo_fundacion, $historia, $datos['nombre'], $ahijado, $email);
+                enviar_correo_interes($historia, $datos['nombre'], $ahijado, $email);
                 break;               
         }
         exit(json_encode($data));
@@ -448,7 +447,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                     // enviamos el correo!
                     mail($email, $titulo, $mensaje, $cabeceras);
-                    mail($correo_fundacion, $titulo_b, $info, $cabeceras);
+                    mail(MAILFUNDACION, $titulo_b, $info, $cabeceras);
 
         
         $_SESSION['donativo_valido']=TRUE;
@@ -621,7 +620,7 @@ if (!$con){die("ERROR DE CONEXION CON MYSQL5:". mysql_error());}
     
 }
 
-function enviar_correo_interes($correo_fundacion, $historia, $nombre, $ahijado, $email){
+function enviar_correo_interes($historia, $nombre, $ahijado, $email){
     #se envia el correo electronico con la informacion al interesado
     $cabeceras  = 'MIME-Version: 1.0' . "\r\n";
     $cabeceras .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
@@ -650,17 +649,17 @@ function enviar_correo_interes($correo_fundacion, $historia, $nombre, $ahijado, 
     </tr>
     <tr>
         <td align="center" valign="top" colspan="2">
-            <h3 style="margin:10px;color:#31a463;">¿Qué debo hace para apadrinar esta historia?</h3>
+            <h3 style="margin:10px;color:#31a463;">¿Qué debo hacer para apadrinar esta historia?</h3>
             <p style="font-size:0.95em;">
             Tu donativo puede ayudar a mejorar una vida, si quieres apadrinar esta historia primero debes realizar un donativo mediante alguna de las tres formas que te mencionamos a continuacion.
             </p>
                 <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
                     <tr align="center" valign="middle">
                         <td style="background:#63c62f;color:#fff;width:33%;border:solid 1px #54a729;">
-                            <h4 style="margin:5px;">Deposito</h4>
+                            <h4 style="margin:5px;">Depósito</h4>
                         </td>
                         <td style="background:#F05B6F;color:#fff;width:33%;border:solid 1px #d44d60;">
-                            <h4 style="margin:5px;">Trasnferencia Electronica</h4>
+                            <h4 style="margin:5px;">Transferencia Electrónica</h4>
                         </td>
                         <td style="background:#25AAE3;color:#fff;width:33%;border:solid 1px #208dbc;">
                             <h4 style="margin:5px;">Paypal</h4>
@@ -668,7 +667,7 @@ function enviar_correo_interes($correo_fundacion, $historia, $nombre, $ahijado, 
                     </tr>
                     <tr align="center" valign="top" style="font-size:0.95em;">
                         <td style="padding:8px;width:33%;background:#f5f5f5;border:solid 1px #dedede; border-top:none;">
-                            <p>Puede hacer su donativo mediante depósito en efectivo o cheque en nuestra cuenta bancaria (las donaciones en efectivo solo serán recibidas mediante depósito bancario):</p>
+                            <p>Puedes hacer tu donativo mediante depósito en efectivo o cheque en nuestra cuenta bancaria (las donaciones en efectivo solo serán recibidas mediante depósito bancario):</p>
                                 <p><b>Banco:</b></p>
                                 Banco Bajio
                                 <p><b>Nombre:</b></p>
@@ -677,7 +676,7 @@ function enviar_correo_interes($correo_fundacion, $historia, $nombre, $ahijado, 
                                 0155513280201
                         </td>
                         <td style="padding:8px;width:34%;background:#eaeaea;border-bottom:solid 1px #dedede; border-top:none;">
-                            <p>Si desea hacerner su donativo mediante Transferencia Electrónica Bancaria los datos son los siguientes.</p>
+                            <p>Si deseas hacer tu donativo mediante Transferencia Electrónica Bancaria los datos son los siguientes.</p>
                                     <p><b>Banco:</b></p>
                                     Banco Bajio
                                     <p><b>Nombre:</b></p>
@@ -686,7 +685,7 @@ function enviar_correo_interes($correo_fundacion, $historia, $nombre, $ahijado, 
                                     030730900007328992
                         </td>
                         <td style="padding:8px;width:33%;background:#f5f5f5;border:solid 1px #dedede; border-top:none;">
-                            <p>También puede hacer su donativo a través de Paypal, solo debe hacer clic en el siguiente enlace.</p>
+                            <p>También puedes hacer tu donativo a través de Paypal, solo debe hacer clic en el siguiente enlace.</p>
                             <a style="padding:5px;margin:10%;display:block;background:#25AAE3;color:#fff;text-decoration:none;font-weight:bold;border-radius:3px;font-size:0.9em" target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YDDHME7ZN8YRL">Donar con Paypal</a>
                         </td>
                     </tr>
@@ -731,5 +730,5 @@ function enviar_correo_interes($correo_fundacion, $historia, $nombre, $ahijado, 
     </html>';
 
     //envamos la informacion del interesado a la fundacion
-    mail($correo_fundacion,$titulo,$mensaje,$cabeceras);    
+    mail(MAILFUNDACION,$titulo,$mensaje,$cabeceras);    
 }
