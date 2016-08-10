@@ -138,8 +138,16 @@ id="captchaimg" ></p>
                               </label>
                             </div>';
                         }
-                        ?>                        
-                              <button type="submit" id="apadrinar" class="btn btn-lg btn-mark center-block" name="apadrinar"><strong>Apadrinar</strong></button>
+                        ?> 
+                        <button type="submit" id="apadrinar" class="btn btn-lg btn-mark oswald center-block" name="apadrinar">
+                            <?php
+                            if($tipo['tipo']){
+                                echo 'Solicitar comprobante';
+                            }else{
+                                echo 'Apadrinar';
+                            }
+                            ?> 
+                         </button>
                         </form>
                     </div>
                 </div>     

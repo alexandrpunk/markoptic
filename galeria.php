@@ -21,31 +21,30 @@ require 'mod/head.php';
                 <div class="panel panel-default panel-mark ">
                     <div class="panel-heading panel-heading-mark" id="aqua">GALERÍA</div>
                     <div class="panel-body panel-body-mark"> 
-                    <cms:ignore>
-                        <h2 style="margin:10px 8%;" class="text-center decor-gal"><span class="decor-span">Galería Fotografica</span></h2>
-                        <ul class="row image-list">
-                            <cms:folders masterpage='fotografias.php'>
-                                <img src="<cms:show k_folder_image />">
-                                <a href="<cms:show k_folder_link />"><cms:show k_folder_title /></a><br>
-                            </cms:folders>
-                        </ul>
-                        <hr/>
-                    </cms:ignore>
 
+                    <h2 style="margin:10px 8%;" class="text-center decor-gal"><span class="decor-span">Galería Fotografica</span></h2>
+                    <ul class="row image-list">
+                        <cms:folders masterpage='fotografias.php'>
+                            <img src="<cms:show k_folder_image />">
+                            <a href="<cms:show k_folder_link />"><cms:show k_folder_title /></a><br>
+                        </cms:folders>
+                    </ul>
+                    <hr/>
+                        
                     <h2 style="margin:10px 8%;" class="text-center decor-gal"><span class="decor-span">Videos</span></h2>
-                        <cms:pages masterpage="videos.php" limit='3'>
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <iframe class="center-block" width="285" height="200" src="https://www.youtube.com/embed/<cms:show video />" frameborder="0" allowfullscreen></iframe>
-                                </div>
-                                <div class="col-md-7">
-                                    <h3 class="txt-mark"><cms:show k_page_title /></h3>
-                                    <cms:show descripcion />
-                                </div>
+                    <cms:pages masterpage="videos.php" limit='3'>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <iframe class="center-block" width="285" height="200" src="https://www.youtube.com/embed/<cms:show video />" frameborder="0" allowfullscreen></iframe>
                             </div>
-                            <hr/>
-                        </cms:pages> 
-                        <h4 class="txt-mark oswald text-center" ><a class="txt-mark"  href="videos">ver todos los videos</a></h4>
+                            <div class="col-md-7">
+                                <h3 class="txt-mark"><cms:show k_page_title /></h3>
+                                <cms:show descripcion />
+                            </div>
+                        </div>
+                        <hr/>
+                    </cms:pages> 
+                    <h4 class="txt-mark oswald text-center" ><a class="txt-mark"  href="videos">ver todos los videos</a></h4>
                         
                                                  
                     <h2 style="margin:10px 8%;" class="text-center decor-gal"><span class="decor-span">Testimonios</span></h2>  

@@ -40,19 +40,26 @@
                 <div class="panel panel-default panel-mark ">
                     <div class="panel-heading panel-heading-mark" id="aqua">GALERIA FOTOGRAFICA</div>
                     <div class="panel-body panel-body-mark"> 
-                        <h2 style="margin:10px 8%;" class="text-center decor-gal"><span class="decor-span">Eventos</span></h2>  
                         <div class="row">
-                            <cms:folders>
-                                <div class="col-md-4 col-sm-4">
-                                    <a class="gal-folder sombra" href="<cms:show k_folder_link />" >
-                                        <div>
-                                            <img class="img-responsive" src="<cms:show k_folder_image />" />
-                                            <h4><cms:show k_folder_title /></4>
-                                            <p><cms:show k_folder_pagecount /> Fotografias</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </cms:folders>
+                            <cms:if k_is_folder>
+                                <cms:pages folder=k_folder_name>
+                                    <div class="col-md-3 col-sm-3">
+                                        <a  href="<cms:show gg_image />" data-lightbox="image-1" >
+                                            <img class="img-responsive img-thumbnail" src="<cms:show gg_thumb />">
+                                        </a>
+                                    </div>
+                                </cms:pages>
+                            <cms:else />
+                                <cms:folders>
+                                    <div class="col-md-4 col-sm-4">
+                                        <a class="gal-folder sombra" href="<cms:show k_folder_link />" >
+                                            <div style="background-image:url(<cms:show k_folder_image />);" class="gal-cover"></div>
+                                            <h4><cms:show k_folder_title /></h4>
+                                            <p><cms:show k_folder_pagecount /> Fotografias</p>      
+                                        </a>
+                                    </div>
+                                </cms:folders>
+                            </cms:if>
                         </div>
                         <hr />
                     </div>

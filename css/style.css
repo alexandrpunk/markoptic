@@ -27,7 +27,7 @@ body{
     width: 100%;
     background: #31a463;
     border: 0;
-    -webkit-box-shadow: 0px 1px35px 0px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0px 1px 35px 0px rgba(0,0,0,0.5);
     -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
     box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
     color: #fff;
@@ -190,7 +190,7 @@ fieldset[disabled] .btn-mark:focus,
 fieldset[disabled] .btn-mark:active,
 fieldset[disabled] .btn-mark.active {
     background-color: #00A65A;
-    border-color: #00A65A;
+    border-color: #02713e;
     color: #fff;
 }
 
@@ -589,40 +589,35 @@ hr {
 
 /*galeria*/
 .gal-folder{
-    background: #fff;
-    border: 1px solid #dedede;
-    padding: 5px;
-    border-radius: 3px;
+    background:#fff;
     display: block;
-    transition: all 0.3s ease 0s;
+    text-align: center;
+    padding: 5px;
+    margin: 0;
 }
 .gal-folder:visited, .gal-folder:hover, .gal-folder:active, .gal-folder:link{
-    text-decoration: none;
+text-decoration: none;
 }
-.gal-folder:hover{
-   box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
-}
+.gal-cover{
+    height: 150px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
 
-
-.gal-folder img{
-    border-radius: 3px;
-    border: 1px solid #c9c9c9;
 }
 .gal-folder p{
+    font-size: 0.95em;
+    line-height: 0.95em;
     margin: 0;
-    font-size: 0.8em;
-    text-align: center;
-    vertical-align: middle;
-    color: #8e8e8e;
 }
 .gal-folder h4{
-    margin: 0;
-    text-align: center;   
-    margin: 5px;
-    color: #727272;
-    font-weight: 600;
+    font-size: 1.3em;
+    line-height: 1.3em;
+    margin:0;
 }
-
 
 .scroll-top-wrapper {
     position: fixed;
@@ -808,7 +803,6 @@ margin: 0;
 /*propiedades de lso botones de solicitudy del contador*/
 .sbut{
     background: #31a463;
-    min-height:  height: 100px;
     max-width: 235px;
     border-radius: 5px;
     padding: 10px;
@@ -843,7 +837,7 @@ text-decoration: none;
 }
 .sbut p{
     color:#fff;
-    font-size: 0.6e;
+    font-size: 1.2em;
     margin: 0;
     font-weight: 600;
 }
