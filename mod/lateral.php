@@ -3,16 +3,24 @@
 <div class="col-md-3 zero">
 <div class="col-md-12 col-sm-6">
     <div class="panel panel-default panel-mark">
-        <div class="panel-heading panel-heading-mark" id="rosado">FORMULARIO DE SOLICITUD</div>
+        <div class="panel-heading panel-heading-mark" id="mark">HAZ TU DONATIVO AQUÍ</div>
         <div class="panel-body panel-body-mark">
-            <a href="solicitud" class="sbut center-block">
-                <img src="img/handy.png" class="animated tada">
-                <span>Solicita aquí uno de nuestros dispositivos</span>
+            <a href="donar"><img src="img/donar.svg" alt="Haz una donacion" class="img-responsive animated tada"></a>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 col-sm-6">
+    <div class="panel panel-default panel-mark">
+        <div class="panel-heading panel-heading-mark" id="rosado">FORMULARIO DE SOLICITUD</div>
+        <div class="panel-body panel-body-mark" style="padding:0;">
+            <a href="solicitud" style="min-height: 90px;"class="sbut center-block animated tada">
+                <img src="img/handy.png">
+                <span>Solicitar donacion de dispositivo</span>
             </a>
+            
             <a href="historias" class="sbut center-block" id="counter">
-                <span><?php echo $total; ?> Solicitudes</span>
-                <p>Conoce las historias aqui</p>
-                <a href="estadisticas" id="hist">Estadísticas</a>
+                <span style="color:#E92A6F;"><?php echo $total; ?> Solicitudes</span>
             </a>
         </div>
     </div>
