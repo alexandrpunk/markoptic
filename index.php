@@ -49,7 +49,7 @@ require 'mod/head.php';
 
                     <hr/>
                         
-                    <div class="text-center"><a class="btn btn-mark oswald" href="historias" style="font-size:1.15em">Conocer todas las historias</a></div>
+                    <div class="text-center"><a class="btn btn-mark oswald" href="historias">Conocer todas las historias</a></div>
                     </div>
                 </div>
                 
@@ -77,7 +77,7 @@ require 'mod/head.php';
                           <hr/>
                       </cms:pages>
                       <div class="text-center">
-                            <a class="btn btn-mark oswald" style="font-size:1.15em" href="publicacion">Ver todas las noticias</a>
+                            <a class="btn btn-mark oswald" href="publicacion">Ver todas las noticias</a>
                         </div>
                     </div>
                 </div>

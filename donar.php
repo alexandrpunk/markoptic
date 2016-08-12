@@ -74,24 +74,24 @@ require 'mod/head.php';
     </div>
 
     
-<?php require 'mod/footer.php';?>
-    
-<?php require 'mod/mmodal.php';?>
+    <?php require 'mod/footer.php';?>
 
-<!-- moda de solicitud de email -->
-<div class="modal fade" id="solicitar_email" tabindex="-1" role="dialog" aria-labelledby="Correo electronico del padrino">
-    <div class="modal-dialog modal-content" role="document">
-     <div class="modal-header"><strong>Solicitar Recibo deducible de impuestos</strong></div>
-      <div class="modal-body">
-        <form id="donar">
-           <p class="news" style="margin-top:0;">Para solicitar tu recibo deducible primero debes ingresar tu correo electronico.</p>
-            <input type="email" name="correo_donador" id="correo" class="form-control" placeholder="Correo Electronico" required  maxlength="255" autofocus>
-            <button type="submit" id="donar" class="btn btn-mark" style="margin-top:10px;" name="donar"><strong>Solicitar mi recibo</strong></button>
-        </form>       
-      </div>
+    <?php require 'mod/mmodal.php';?>
+
+    <!-- moda de solicitud de email -->
+    <div class="modal fade" id="solicitar_email" tabindex="-1" role="dialog" aria-labelledby="Correo electronico del padrino">
+        <div class="modal-dialog modal-content" role="document">
+         <div class="modal-header"><strong>Solicitar Recibo deducible de impuestos</strong></div>
+          <div class="modal-body">
+            <form id="donar">
+               <p class="news" style="margin-top:0;">Para solicitar tu recibo deducible primero debes ingresar tu correo electronico.</p>
+                <input type="email" name="correo_donador" id="correo" class="form-control" placeholder="Correo Electronico" required  maxlength="255" autofocus>
+                <button type="submit" id="donar" class="btn btn-mark" style="margin-top:10px;" name="donar"><strong>Solicitar mi recibo</strong></button>
+            </form>       
+          </div>
+        </div>
     </div>
-</div>
-    
+
 <?php require 'mod/scripts.php';?>
 
 <script src="js/donar.js"></script>

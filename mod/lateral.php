@@ -18,7 +18,7 @@
                 <img src="img/handy.png">
                 <span>Solicitar donacion de dispositivo</span>
             </a>
-            
+            <hr />
             <a href="historias" class="sbut center-block" id="counter">
                 <span style="color:#E92A6F;"><?php echo $total; ?> Solicitudes</span>
             </a>

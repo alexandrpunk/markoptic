@@ -18,20 +18,24 @@ require 'mod/head.php';
                 
                 <?php require 'mod/menu.php';?>
                 
-                <div class="panel panel-default panel-mark ">
-                    <div class="panel-heading panel-heading-mark" id="aqua">GALERÍA</div>
+                <div class="panel panel-default panel-mark" style="border-top:solid 6px #09d3c5;border-bottom:solid 6px #09d3c5;">
                     <div class="panel-body panel-body-mark"> 
-
-                    <h2 style="margin:10px 8%;" class="text-center decor-gal"><span class="decor-span">Galería Fotografica</span></h2>
-                    <ul class="row image-list">
-                        <cms:folders masterpage='fotografias.php'>
-                            <img src="<cms:show k_folder_image />">
-                            <a href="<cms:show k_folder_link />"><cms:show k_folder_title /></a><br>
+                    <h2  class="text-center decor-gal"><span class="decor-span">Galería Fotografica</span></h2>
+                    <div class="row">
+                        <cms:folders masterpage='fotografias.php' limit='3'>
+                            <div class="col-md-4 col-sm-4">
+                                <a class="gal-folder sombra" href="<cms:show k_folder_link />" >
+                                    <div style="background-image:url(<cms:show k_folder_image />);" class="gal-cover"></div>
+                                    <h4><cms:show k_folder_title /></h4>
+                                    <p><cms:show k_folder_pagecount /> Fotografias</p>      
+                                </a>
+                            </div>
                         </cms:folders>
-                    </ul>
+                    </div>
+                    <div class="text-center"><a class="btn btn-mark oswald" href="fotografias">ver la galeria fotografica completa</a></div>
                     <hr/>
                         
-                    <h2 style="margin:10px 8%;" class="text-center decor-gal"><span class="decor-span">Videos</span></h2>
+                    <h2 class="text-center decor-gal"><span class="decor-span">Videos</span></h2>
                     <cms:pages masterpage="videos.php" limit='3'>
                         <div class="row">
                             <div class="col-md-5">
@@ -44,10 +48,10 @@ require 'mod/head.php';
                         </div>
                         <hr/>
                     </cms:pages> 
-                    <h4 class="txt-mark oswald text-center" ><a class="txt-mark"  href="videos">ver todos los videos</a></h4>
-                        
-                                                 
-                    <h2 style="margin:10px 8%;" class="text-center decor-gal"><span class="decor-span">Testimonios</span></h2>  
+                    <div class="text-center"><a class="btn btn-mark oswald" href="videos">ver todos los videos</a></div>
+                    <hr />
+
+                    <h2 class="text-center decor-gal"><span class="decor-span">Testimonios</span></h2>  
                         <cms:pages masterpage="testimonios.php"  limit='2' >
                             <div class="row">
                                 <div class="col-md-5">
@@ -60,7 +64,7 @@ require 'mod/head.php';
                             </div>
                             <hr/>
                         </cms:pages>
-                        <h4 class="txt-mark text-center oswald" ><a class="txt-mark"  href="testimonios">ver todos los testimonios</a></h4>
+                        <div class="text-center"><a class="btn btn-mark oswald" href="testimonios">ver todos los testimonios</a></div>
                     </div>
                 </div>
             </div>

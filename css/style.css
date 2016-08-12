@@ -269,7 +269,8 @@ font-size: 1.2em;
     background: url(../img/aqua.png);
     background-size: 100% 2px;
     background-repeat: no-repeat;
-    background-position: center
+    background-position: center;
+    margin: 25px 0 !important;
 }
 .decor-donar{
     background: url(../img/rose.png);
@@ -592,8 +593,8 @@ hr {
     background:#fff;
     display: block;
     text-align: center;
-    padding: 5px;
-    margin: 0;
+    padding: 1px 1px 5px;
+    margin: 0 0 15px;
 }
 .gal-folder:visited, .gal-folder:hover, .gal-folder:active, .gal-folder:link{
 text-decoration: none;
@@ -612,11 +613,15 @@ text-decoration: none;
     font-size: 0.95em;
     line-height: 0.95em;
     margin: 0;
+    vertical-align: middle;
 }
 .gal-folder h4{
-    font-size: 1.3em;
-    line-height: 1.3em;
-    margin:0;
+    font-size: 1.35em;
+    line-height: 1.35em;
+    margin:3px 0;
+    vertical-align: middle;
+    color: #31a463;
+    font-family: 'Oswald', sans-serif;
 }
 
 .scroll-top-wrapper {
@@ -806,7 +811,7 @@ margin: 0;
     border-radius: 5px;
     padding: 10px;
     transition: all 0.3s ease 0s;
-    /*font-family: 'Oswald', sans-serif;*/
+    font-family: 'Oswald', sans-serif;
     font-weight: 900;
 }
 .sbut:hover{
