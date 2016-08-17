@@ -595,8 +595,19 @@ hr {
     text-align: center;
     padding: 1px 1px 5px;
     margin: 0 0 15px;
+    -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.3);
+    box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.3);
+    transition: all 0.1s ease-in-out;
 }
-.gal-folder:visited, .gal-folder:hover, .gal-folder:active, .gal-folder:link{
+.gal-folder:hover{
+    text-decoration: none;
+    -webkit-box-shadow: 0px 1px 3px 2px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 1px 3px 2px rgba(0,0,0,0.3);
+    box-shadow: 0px 1px 3px 2px rgba(0,0,0,0.3);
+    
+}
+.gal-folder:visited, .gal-folder:active, .gal-folder:link{
 text-decoration: none;
 }
 .gal-cover{
@@ -742,68 +753,6 @@ margin: 0;
     margin: 0 auto 10px !important;
 }
 
-
-.play-wrapper {
-    position: fixed;
-    opacity: 1.0;
-    visibility: visible;
-    overflow: hidden;
-    cursor:pointer;
-    text-align: center;
-    z-index: 99;
-    background-color: rgba(49, 164, 99, 0.76);
-    color: #fff;
-    width: 48px;
-    line-height: 48px;
-    left: 30px;
-    bottom: 30px;
-    padding-top: 2px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    transition: all 0.5s ease-in-out;
-    border: solid #fff 2px;
-    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
-}
-.play-wrapper:hover {
-  background-color: #31a463;
-}
-.play-wrapper i.fa {
-  line-height: 48px;
-    vertical-align: middle;
-}
-
-.pause-wrapper {
-    position: fixed;
-    opacity: 1.0;
-    visibility: visible;
-    overflow: hidden;
-    cursor:pointer;
-    text-align: center;
-    z-index: 99;
-    background-color: rgba(49, 164, 99, 0.76);
-    color: #fff;
-    width: 48px;
-    line-height: 48px;
-    left: 30px;
-    bottom: 30px;
-    padding-top: 2px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    transition: all 0.5s ease-in-out;
-    border: solid #fff 2px;
-    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.4);
-}
-.pause-wrapper:hover {
-  background-color: #31a463;
-}
-.pause-wrapper i.fa {
-    line-height: 48px;
-    vertical-align: middle;
-}
 
 /*propiedades de lso botones de solicitudy del contador*/
 .sbut{

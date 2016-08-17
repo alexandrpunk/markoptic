@@ -50,7 +50,7 @@
                                     </div>
                                 </cms:pages>
                             <cms:else />
-                                <cms:folders>
+                                <cms:folders limit='2'>
                                     <div class="col-md-4 col-sm-4">
                                         <a class="gal-folder sombra" href="<cms:show k_folder_link />" >
                                             <div style="background-image:url(<cms:show k_folder_image />);" class="gal-cover"></div>
@@ -58,6 +58,16 @@
                                             <p><cms:show k_folder_pagecount /> Fotografias</p>      
                                         </a>
                                     </div>
+                                    
+                                    <cms:if k_paginated_bottom >
+                                        <hr/>
+                                        <cms:if k_paginate_link_prev >
+                                            <a class="btn btn-md btn-mark oswald pull-left" href="<cms:show k_paginate_link_prev />">Fotografias recientes</a>
+                                        </cms:if>
+                                        <cms:if k_paginate_link_next >
+                                            <a class="btn btn-md btn-mark oswald strong pull-right" href="<cms:show k_paginate_link_next />">Fotografias anteriores</a>
+                                        </cms:if>
+                                    </cms:if>
                                 </cms:folders>
                             </cms:if>
                         </div>

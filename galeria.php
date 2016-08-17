@@ -24,7 +24,7 @@ require 'mod/head.php';
                     <div class="row">
                         <cms:folders masterpage='fotografias.php' limit='3'>
                             <div class="col-md-4 col-sm-4">
-                                <a class="gal-folder sombra" href="<cms:show k_folder_link />" >
+                                <a class="gal-folder" href="<cms:show k_folder_link />" >
                                     <div style="background-image:url(<cms:show k_folder_image />);" class="gal-cover"></div>
                                     <h4><cms:show k_folder_title /></h4>
                                     <p><cms:show k_folder_pagecount /> Fotografias</p>      
