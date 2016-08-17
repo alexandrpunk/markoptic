@@ -25,61 +25,52 @@
 
 </head>
 <body class="animated fadeIn"> 
-    
-<?php require 'mod/navbar.php';?>
-
+    <?php require 'mod/navbar.php';?>
     <div class="container">
-        
-        <?php require 'mod/header.php';?>
-        
+        <?php require 'mod/header.php';?>     
         <div class="row">
-            <div class="col-md-9">
-                
-                <?php require 'mod/menu.php';?>
-                
+            <div class="col-md-9">              
+                <?php require 'mod/menu.php';?>              
                 <div class="panel panel-default panel-mark ">
                     <div class="panel-heading panel-heading-mark" id="aqua">GALERIA FOTOGRAFICA</div>
-                    <div class="panel-body panel-body-mark"> 
-                        <div class="row">
-                            <cms:if k_is_folder>
-                                <cms:pages folder=k_folder_name>
-                                    <div class="col-md-3 col-sm-3">
-                                        <a  href="<cms:show gg_image />" data-lightbox="image-1" >
-                                            <img class="img-responsive img-thumbnail" src="<cms:show gg_thumb />">
-                                        </a>
-                                    </div>
-                                </cms:pages>
-                            <cms:else />
-                                <cms:folders limit='2'>
+                    <div class="panel-body panel-body-mark">
+                        <cms:if k_is_folder>
+                            <cms:pages folder=k_folder_name>
+                                <div class="col-md-3 col-sm-3">
+                                    <a href="<cms:show gg_image />" data-lightbox="image-1" >
+                                        <img class="img-responsive img-thumbnail" src="<cms:show gg_thumb />">
+                                    </a>
+                                </div>
+                            </cms:pages>
+                        <cms:else />
+                            <div class="row">
+                                <cms:folders hierarchical = '1' paginate = '1' limit='1'>
                                     <div class="col-md-4 col-sm-4">
                                         <a class="gal-folder sombra" href="<cms:show k_folder_link />" >
                                             <div style="background-image:url(<cms:show k_folder_image />);" class="gal-cover"></div>
                                             <h4><cms:show k_folder_title /></h4>
                                             <p><cms:show k_folder_pagecount /> Fotografias</p>      
                                         </a>
-                                    </div>
-                                    
-                                    <cms:if k_paginated_bottom >
-                                        <hr/>
+                                    </div>                                    
+                                <cms:if k_paginated_bottom >
+                                </div>
+                                    <cms:if k_paginator_required >
+                                    <hr/>
+                                    </cms:if>                                        
                                         <cms:if k_paginate_link_prev >
-                                            <a class="btn btn-md btn-mark oswald pull-left" href="<cms:show k_paginate_link_prev />">Fotografias recientes</a>
+                                            <a class="btn btn-success oswald pull-left" href="<cms:show k_paginate_link_prev />">Fotografias recientes</a>
                                         </cms:if>
                                         <cms:if k_paginate_link_next >
-                                            <a class="btn btn-md btn-mark oswald strong pull-right" href="<cms:show k_paginate_link_next />">Fotografias anteriores</a>
+                                            <a class="btn btn-success oswald pull-right" href="<cms:show k_paginate_link_next />">Fotografias anteriores</a>
                                         </cms:if>
-                                    </cms:if>
-                                </cms:folders>
-                            </cms:if>
-                        </div>
-                        <hr />
+                                </cms:if>
+                            </cms:folders>
+                        </cms:if>
                     </div>
                 </div> 
             </div>
-
-                <?php require 'mod/lateral.php';?>
-
+            <?php require 'mod/lateral.php';?>
         </div>
-
     </div>
     
 <?php require 'mod/footer.php';?>

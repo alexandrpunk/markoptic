@@ -68,6 +68,7 @@ require_once( 'cms/cms.php' );
                     order='9'
     />
     <cms:folder name="sin-fotografia" title="sin fotografia" />
+    <cms:config_list_view searchable='1' />
 </cms:template>
 <?php require 'mod/head.php';?>
 

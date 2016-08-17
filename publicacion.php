@@ -1,6 +1,7 @@
 <?php require_once( 'cms/cms.php' ); ?>
 <cms:template title='Noticias' clonable='1' order='1'>
-    <cms:editable name='contenido' type='richtext' toolbar='full' />
+    <cms:config_list_view searchable='1' />
+    <cms:editable name='contenido' type='richtext' toolbar='full'/>
     <cms:editable name='publicacion_image'
                     label='Imagen de la publicacion'
                     desc='imagen para la pubicacion'

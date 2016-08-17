@@ -36,7 +36,6 @@
     */
 
     if ( !defined('K_COUCH_DIR') ) die(); // cannot be loaded directly
-    require_once( K_COUCH_DIR.'addons/cart/session.php' );
 
     define( 'PP_CART_VERSION', '1.0' );
     define( 'PP_ACTION_UNDEFINED', 0 );
@@ -118,8 +117,8 @@
         function populate_config(){
 
             $pp = array();
-            if( file_exists(K_COUCH_DIR.'addons/cart/config.php') ){
-                require_once( K_COUCH_DIR.'addons/cart/config.php' );
+            if( file_exists(K_ADDONS_DIR.'cart/config.php') ){
+                require_once( K_ADDONS_DIR.'cart/config.php' );
             }
             $this->config = array_map( "trim", $pp );
             unset( $pp );
@@ -220,7 +219,7 @@
             if( isset($_GET['kcart_action']) && $FUNCS->is_non_zero_natural($_GET['kcart_action']) ){
 
                 // Sanity check - actions should be executed only when invoked on the cart template
-                $cur_tpl = KWebpage::get_template_name();
+                $cur_tpl = $FUNCS->get_template_name();
                 if( $FUNCS->is_error($cur_tpl) || $cur_tpl!=$this->config['tpl_cart']) return;
 
                 $action = (int)$_GET['kcart_action'];
@@ -1149,8 +1148,8 @@
 
     } // end class
 
-    if( file_exists(K_COUCH_DIR.'addons/cart/cart_ex.php') ){
-        require_once( K_COUCH_DIR.'addons/cart/cart_ex.php' );
+    if( file_exists(K_ADDONS_DIR.'cart/cart_ex.php') ){
+        require_once( K_ADDONS_DIR.'cart/cart_ex.php' );
         $CART = new KCartEx();
     }
     else{
