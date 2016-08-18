@@ -44,7 +44,7 @@
                             </cms:pages>
                         <cms:else />
                             <div class="row">
-                                <cms:folders hierarchical = '1' paginate = '1' limit='1'>
+                                <cms:folders hierarchical = '1' paginate = '1' limit='9'>
                                     <div class="col-md-4 col-sm-4">
                                         <a class="gal-folder sombra" href="<cms:show k_folder_link />" >
                                             <div style="background-image:url(<cms:show k_folder_image />);" class="gal-cover"></div>
