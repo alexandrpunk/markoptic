@@ -53,7 +53,7 @@
                 </div>     
                 <div id="share"></div>
                 
-                <h3>Comentarios</h3><hr />
+                <h3>Comentarios</h3><hr>
                 <div class="fb-comments" data-href="<cms:show k_page_link />" data-width="100%" data-numposts="3"></div>
 
                 <cms:else />

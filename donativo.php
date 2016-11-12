@@ -30,7 +30,7 @@ require 'mod/head.php';
                   <div class="panel panel-default panel-mark animated fadeIn">
                     <div class="panel-heading panel-heading-mark" id="militar">
                         <a class="pull-left" href="#" onClick="history.go(-1);return true;"><i class="fa fa-chevron-left" aria-hidden="true"></i> regresar
-</a>
+                        </a>
                         Solicitud de <?php echo $tipo['texto'];?>
                       </div>
                     <div class="panel-body panel-body-mark">

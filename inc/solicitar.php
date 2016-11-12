@@ -231,7 +231,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	//if you want case sensitive match, update the check above to
 	// strcmp()
 		$_SESSION ['errors'] .= "¡El codigo de verificacion no coincide!\n";
-	}   
+	}
     
  
     if(empty($_SESSION ['errors'])){

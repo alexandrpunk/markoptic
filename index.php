@@ -91,8 +91,6 @@ require 'mod/head.php';
     </div>
     
 <?php require 'mod/footer.php';?>
-    
-
 <?php require 'mod/scripts.php';?>
 <script src="https://npmcdn.com/flickity@1.2/dist/flickity.pkgd.min.js"></script>
 

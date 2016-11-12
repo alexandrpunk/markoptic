@@ -4,7 +4,7 @@ require_once( 'cms/cms.php' );
 ?>
 
 <cms:template title='Historias' clonable='1' order='2'>
-      
+    <cms:config_list_view searchable='1' />      
     <cms:editable   name='edad'
                     desc='Edad del solicitante'
                     validator='non_negative_integer'
@@ -85,60 +85,104 @@ require_once( 'cms/cms.php' );
                 
                 <?php require 'mod/menu.php';?>
                 <cms:if k_is_page >
+                    <cms:dump />
                     <cms:set image="<cms:php> 
                         $len = strlen($_SERVER['HTTP_HOST'])+8;
                         $str='<cms:show fotografia />';
                         $str = substr($str, $len);
                         if(file_exists($str)){echo '<cms:show fotografia />';}else{echo 'img/placeholder.jpg';}
                     </cms:php>" />
-                            
+
                     <cms:set thumb="<cms:php> 
                         $len = strlen($_SERVER['HTTP_HOST'])+8;
                         $str='<cms:show fotografia />';
                         $str = substr($str, $len);
                         if(file_exists($str)){echo '<cms:show fotografia_thumb />';}else{echo 'img/placeholder.jpg';}
                     </cms:php>" />
-                <div class="panel panel-default panel-mark  animated fadeIn">
-                    <div class="panel-heading panel-heading-mark" id="rosado">CONOCE A: <cms:show k_page_title /></div>
-                    <div  class="panel-body panel-body-mark">
-                        <div class="row hist-box sombra">
-                               
-                                <div class="col-md-4 col-sm-4">
-                                    <a href="<cms:show image />" data-lightbox="image-1">
-                                        <img src="<cms:show thumb />" class="img-thumbnail center-block sombra">
-                                    </a>
-                                    <h3 class="text-capitalize text-center"><strong><cms:show k_page_title /></strong></h3>                             
-                                </div>
-                                
-                                <div class="col-md-8 col-sm-8">
-                                    <dl class="dl-horizontal">
-                                        <dt  class="txt-mark">Solicitó:</dt>
-                                        <dd class="txt-gris"><i><cms:show dispositivo /> <cms:show descripcion /></i></dd>
-                                    
-                                        <dt class="txt-mark">Edad:</dt>
-                                        <dd class="txt-gris"><i><cms:show edad /></i></dd>
-                                        
-                                        <dt class="txt-mark">Vive en:</dt>
-                                        <dd class="txt-gris"><i><cms:show ciudad />, <cms:show estado />, <cms:show pais/></i></dd>
-                                        
-                                        <dt class="txt-mark">¿Por qué lo necesita?</dt>
-                                        <dd class="txt-gris text-lowercase"><i><cms:show necesidad /></i></dd>
-                                    </dl>
-                                    <div class="text-center" style="margin-top:10px;">
-                                        <a href="" class="btn btn-success oswald" data-toggle="modal"  OnClick="setinfo('<cms:show k_page_title />', '<cms:show k_page_id />')" data-target="#solicitar_email" >
-                                            Apadrinar
-                                        </a>
-                                    </div>
-                                </div>
-                                
-                        </div>
-                    
-                    </div>
-                </div>
-                        
-                <cms:else />
                     <div class="panel panel-default panel-mark  animated fadeIn">
-                    <div class="panel-heading panel-heading-mark" id="rosado">CONOCE A QUIENES NECESITAN TU APOYO</div>
+                        <div class="panel-heading panel-heading-mark" id="rosado">CONOCE A: <cms:show k_page_title /></div>
+                        <div  class="panel-body panel-body-mark">
+                            <div class="row hist-box sombra">
+
+                                    <div class="col-md-4 col-sm-4">
+                                        <a href="<cms:show image />" data-lightbox="image-1">
+                                            <img src="<cms:show thumb />" class="img-thumbnail center-block sombra">
+                                        </a>
+                                        <h3 class="text-capitalize text-center"><strong><cms:show k_page_title /></strong></h3>                             
+                                    </div>
+
+                                    <div class="col-md-8 col-sm-8">
+                                        <dl class="dl-horizontal">
+                                            <dt  class="txt-mark">Solicitó:</dt>
+                                            <dd class="txt-gris"><i><cms:show dispositivo /> <cms:show descripcion /></i></dd>
+
+                                            <dt class="txt-mark">Edad:</dt>
+                                            <dd class="txt-gris"><i><cms:show edad /></i></dd>
+
+                                            <dt class="txt-mark">Vive en:</dt>
+                                            <dd class="txt-gris"><i><cms:show ciudad />, <cms:show estado />, <cms:show pais/></i></dd>
+
+                                            <dt class="txt-mark">¿Por qué lo necesita?</dt>
+                                            <dd class="txt-gris text-lowercase"><i><cms:show necesidad /></i></dd>
+                                        </dl>
+                                        <div class="text-center" style="margin-top:10px;">
+                                            <a href="" class="btn btn-success oswald" data-toggle="modal"  OnClick="setinfo('<cms:show k_page_title />', '<cms:show k_page_id />')" data-target="#solicitar_email" >
+                                                Apadrinar
+                                            </a>
+                                        </div>
+                                    </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                <cms:else />
+                    <cms:search />
+                    <cms:if k_search_query >
+                        <cms:search masterpage='historias.php' limit='10' >
+                            <h3><a href="<cms:show k_page_link />"><cms:show k_search_title /></a></h3>
+                            <cms:show k_search_excerpt />
+                        </cms:search>
+                    <cms:else />
+                    <div class="panel panel-default panel-mark  animated fadeIn">
+                    <div class="panel-heading panel-heading-mark" id="rosado">
+                        CONOCE A QUIENES NECESITAN TU APOYO
+                        <span class="pull-right filter-switch"  data-toggle="collapse" data-target="#demo">
+                          <i class="fa fa-search"></i>
+                        </span>
+                        </div>
+                    <div id="demo" class="filter-panel collapse">
+                        <p>Filtrar los resutados por:</p>
+                        <div class="form-inline">
+                            <div class="form-group">
+                                <label for="ciudad">Ciudad</label>
+                                <select id="ciudad" class="form-control">
+                                    <option>1</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="estado">Estado</label>
+                                <select id="estado" class="form-control">
+                                    <option>1</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="pais">Pais</label>
+                                <select id="pais" class="form-control">
+                                    <option>1</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="solicitud">solicitud</label>
+                                <select id="solicitud" class="form-control">
+                                    <option>1</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-info oswald">Filtrar</button>
+                        </div>
+
+                    </div>
                     <div  class="panel-body panel-body-mark">                    
                     <cms:pages masterpage='historias.php' limit='5' paginate='1'>
                             <cms:set image="<cms:php> 
@@ -147,7 +191,7 @@ require_once( 'cms/cms.php' );
                             $str = substr($str, $len);
                             if(file_exists($str)){echo '<cms:show fotografia />';}else{echo 'img/placeholder.jpg';}
                             </cms:php>" />
-                            
+
                             <cms:set thumb="<cms:php> 
                             $len = strlen($_SERVER['HTTP_HOST'])+8;
                             $str='<cms:show fotografia />';
@@ -162,18 +206,18 @@ require_once( 'cms/cms.php' );
                                     </a>
                                     <h3 class="text-capitalize text-center"><strong><cms:show k_page_title /></strong></h3>                             
                                 </div>
-                                
+
                                 <div class="col-md-8 col-sm-8">
                                     <dl class="dl-horizontal">
                                         <dt  class="txt-mark">Solicitó:</dt>
                                         <dd class="txt-gris"><i><cms:show dispositivo /> <cms:show descripcion /></i></dd>
-                                    
+
                                         <dt class="txt-mark">Edad:</dt>
                                         <dd class="txt-gris"><i><cms:show edad /></i></dd>
-                                        
+
                                         <dt class="txt-mark">Vive en:</dt>
                                         <dd class="txt-gris"><i><cms:show ciudad />, <cms:show estado />, <cms:show pais/></i></dd>
-                                        
+
                                         <dt class="txt-mark">¿Por qué lo necesita?</dt>
                                         <dd class="txt-gris text-lowercase scroll-box"><i><cms:show necesidad /></i></dd>
                                     </dl>
@@ -187,7 +231,7 @@ require_once( 'cms/cms.php' );
                                     </div>
                                 </div>
                             </div>
-                        
+
                     <cms:if k_paginated_bottom >
                        <hr/>
                         <cms:if k_paginate_link_prev >
@@ -200,7 +244,8 @@ require_once( 'cms/cms.php' );
                     </cms:pages>
                     </div>
                     </div>
-                    </cms:if>
+                </cms:if>
+                </cms:if>
             </div>
 
                 <?php require 'mod/lateral.php';?>
@@ -287,6 +332,12 @@ require_once( 'cms/cms.php' );
 <?php require 'mod/scripts.php';?>
 <script src="js/lightbox.min.js"></script>
 <script src="js/donar.js"></script>
+    
+    <script>
+function myFunction() {
+    $(".filter-panel").css('height',50);
+}
+</script>
     
 </body>
 </html>
