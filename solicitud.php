@@ -456,7 +456,7 @@ Fundación Markoptic A.C. iniciará un proceso de estudio de la solicitud y se c
                                         </textarea>
                                     </div>
                                 </div>
-                                <div class="col-xs-12">
+                                <div class="col-sm-12">
                                     <div class="form-group">
                                         <label class="checkbox-inline">
                                         <input type="checkbox" id="checkbox-tyc" value="aceptyc">  Acepto los Términos y Condiciones.

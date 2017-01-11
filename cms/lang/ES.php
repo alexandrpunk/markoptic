@@ -11,7 +11,7 @@
     $t['view_site'] = 'Ver p&aacute;gina';
     $t['logout'] = 'Cerrar sesi&oacute;n';
     $t['javascript_msg'] = 'JavaScript est&aacute; deshabilitado o no es compatible con su navegador.<br/>
-                            Actualice su navegador o <a title="C&oacute;mo habilitar JavaScript en su navegador" href="http://support.google.com/bin/answer.py?hl=es&hlrm=en&answer=23852"><b>habilite JavaScript</b></a> para usar el Panel de administraci&oacute;n.';
+                            Actualice su navegador o <a href="https://support.google.com/answer/23852" target="_blank">habilite JavaScript</a> para usar el Panel de administraci&oacute;n.';
     $t['add_new'] = 'A&ntilde;adir';
     $t['add_new_page'] = 'A&ntilde;adir una nueva p&aacute;gina';
     $t['add_new_user'] = 'A&ntilde;adir un nuevo usuario';
@@ -198,7 +198,7 @@
     $t['template'] = 'Plantilla';
     $t['modified'] = 'Fecha de modificaci&oacute;n'; // Date of last modification
     $t['preview'] = 'Vista previa';
-    $t['confirm_delete_draft'] = '¿Seguro que desea eliminar este borrador?';
+    $t['confirm_delete_draft'] = '¿Seguro que desea eliminar este borrador'; // No question mark please
     $t['confirm_delete_selected_drafts'] = '¿Seguro que desea eliminar los borradores seleccionados?';
     $t['confirm_apply_selected_drafts'] = '¿Seguro que desea aplicar los borradores seleccionados?';
     $t['view_all_drafts'] = 'Ver todos los borradores';

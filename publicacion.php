@@ -1,6 +1,7 @@
 <?php require_once( 'cms/cms.php' ); ?>
 <cms:template title='Noticias' clonable='1' order='1'>
-    <cms:editable name='contenido' type='richtext' toolbar='full' />
+    <cms:config_list_view searchable='1' />
+    <cms:editable name='contenido' type='richtext' toolbar='full'/>
     <cms:editable name='publicacion_image'
                     label='Imagen de la publicacion'
                     desc='imagen para la pubicacion'
@@ -52,7 +53,7 @@
                 </div>     
                 <div id="share"></div>
                 
-                <h3>Comentarios</h3><hr />
+                <h3>Comentarios</h3><hr>
                 <div class="fb-comments" data-href="<cms:show k_page_link />" data-width="100%" data-numposts="3"></div>
 
                 <cms:else />

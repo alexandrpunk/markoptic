@@ -7,9 +7,9 @@
     // Header
     $t['greeting'] = 'Hello';
     $t['view_site'] = 'View Site';
-    $t['logout'] = 'Logout';
-    $t['javascript_msg'] = 'JavaScript is disabled or is not supported by your browser.<br/>
-                            Please upgrade your browser or <a title="Enable JavaScript in your browser" href="http://www.google.com/support/bin/answer.py?answer=23852"><b>enable JavaScript</b></a> to use the Admin Panel.';
+    $t['logout'] = 'Log Out';
+    $t['javascript_msg'] = 'JavaScript is disabled or not supported by your browser.
+                            Please upgrade your browser or <a href="https://support.google.com/answer/23852" target="_blank">enable JavaScript</a> to use the Admin Panel.';
     $t['add_new'] = 'Add New';
     $t['add_new_page'] = 'Add a new page';
     $t['add_new_user'] = 'Add a new user';
@@ -49,7 +49,7 @@
     $t['welcome'] = 'Welcome';
     $t['no_regions_defined'] = 'No Editable Regions defined';
     $t['no_templates_defined'] = 'No templates are being managed by the CMS';
-    $t['access_level'] = 'Access level';
+    $t['access_level'] = 'Access Level';
     $t['superadmin'] = 'Super Admin';
     $t['admin'] = 'Administrator';
     $t['authenticated_user_special'] = 'Authenticated User (Special)';
@@ -95,7 +95,7 @@
     $t['bulk_action'] = 'Bulk action with selected';
     $t['apply'] = 'Apply';
     $t['submitted_on'] = 'Submitted on';
-    $t['email'] = 'E-Mail';
+    $t['email'] = 'Email Address';
     $t['website'] = 'Website';
     $t['duplicate_content'] = 'Duplicate content';
     $t['insufficient_interval'] = 'Not sufficient interval between comments';
@@ -113,12 +113,12 @@
     $t['repeat_password'] = 'Repeat Password';
     $t['repeat_password_msg'] = 'Type your new password again.';
     $t['user_name_exists'] = 'Username already exists';
-    $t['email_exists'] = 'E-Mail already exists';
+    $t['email_exists'] = 'Email address already exists';
 
     // Login
     $t['user_name'] = 'Username';
     $t['password'] = 'Password';
-    $t['login'] = 'Login';
+    $t['login'] = 'Log In';
     $t['forgot_password'] = 'Forgot your password?';
     $t['prompt_cookies'] = 'Cookies must be enabled to use this CMS';
     $t['prompt_username'] = 'Please enter your username';
@@ -127,25 +127,25 @@
     $t['account_disabled'] = 'Account disabled';
     $t['access_denied'] = 'Access Denied';
     $t['insufficient_privileges'] = 'You do not have sufficient privileges to view the page requested.
-                                    To see this page you must logout and login with sufficient privileges.';
+                                    To see this page you must log out and log in with sufficient privileges.';
 
     // Password recovery
     $t['recovery_prompt'] = 'Please submit your username or email address.<br/>
-                            You\'ll receive your password by email.';
-    $t['name_or_email'] = 'Your Username or E-mail';
+                            You will receive your password by email.';
+    $t['name_or_email'] = 'Your Username or Email Address';
     $t['submit'] = 'Submit';
-    $t['submit_error'] = 'Please enter your username or email address.';
-    $t['no_such_user'] = 'No such user exists.';
+    $t['submit_error'] = 'Please enter your username or email address';
+    $t['no_such_user'] = 'No such user exists';
     $t['reset_req_email_subject'] = 'Password reset requested';
     $t['reset_req_email_msg_0'] = 'A request was received to reset your password for the following site and username';
-    $t['reset_req_email_msg_1'] = 'To confirm that the request was made by you please visit the following address, otherwise just ignore this email.';
-    $t['email_failed'] = 'E-Mail could not be sent.';
+    $t['reset_req_email_msg_1'] = 'To confirm that the request was made by you, please visit the following address, otherwise just ignore this email.';
+    $t['email_failed'] = 'Email could not be sent';
     $t['reset_req_email_confirm'] = 'A confirmation email has been sent to you.<br/>
-                                    Please check your email.';
+                                    Please check your email inbox.';
     $t['invalid_key'] = 'Invalid key';
     $t['reset_email_subject'] = 'Your new password';
     $t['reset_email_msg_0'] = 'Your password has been reset for the following site and username';
-    $t['reset_email_msg_1'] = 'Once logged in you can change your password.';
+    $t['reset_email_msg_1'] = 'You can change your password once logged in.';
     $t['reset_email_confirm'] = 'Your password has been reset.<br/>
                                 Please check your email for the new password.';
 
@@ -192,11 +192,11 @@
     $t['update_original_msg'] = 'Copy the contents of this draft to the original page (and delete draft)';
     $t['recreate_original'] = 'Recreate Original';
     $t['no_drafts_found'] = 'No drafts found';
-    $t['original_page'] = 'Original page';
+    $t['original_page'] = 'Original Page';
     $t['template'] = 'Template';
     $t['modified'] = 'Modified'; // Date of last modification
     $t['preview'] = 'Preview';
-    $t['confirm_delete_draft'] = 'Are you sure you want to delete this draft?';
+    $t['confirm_delete_draft'] = 'Are you sure you want to delete this draft'; // No question mark please
     $t['confirm_delete_selected_drafts'] = 'Are you sure you want to delete the selected drafts?';
     $t['confirm_apply_selected_drafts'] = 'Are you sure you want to apply the selected drafts?';
     $t['view_all_drafts'] = 'View all drafts';
@@ -242,3 +242,10 @@
     $t['columns_missing'] = 'Some columns missing!';
     $t['confirm_delete_columns'] = 'Are you sure you want to permanently delete the missing columns?';
     $t['add_row'] = 'Add a Row';
+
+    // 2.0
+    $t['left'] = 'Move Left';
+    $t['right'] = 'Move Right';
+    $t['crop'] = 'Crop';
+    $t['menu_templates'] = 'Templates';
+    $t['menu_modules'] = 'Administration';
