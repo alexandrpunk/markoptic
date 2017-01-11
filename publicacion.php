@@ -40,7 +40,7 @@
                 
                 <cms:if k_is_page >
                 
-                <div class="panel panel-default panel-mark animated fadeIn">
+                <div class="panel panel-default panel-mark">
                     <div class="panel-body panel-body-mark pub">                
                         <h1 class="txt-mark oswald"><cms:show k_page_title /></h1>
                         <p><small><strong>publicado el: <cms:date k_page_date format='j/m/Y' /></strong></small></p>

@@ -66,7 +66,7 @@ EOS;
       global $FUNCS;
       
       extract( $FUNCS->get_named_vars(array( 
-         'video' => 'http://',
+         'video' => 'https://',
          'width' => '475',
          'height' => '350',
       ), $params) );
@@ -91,7 +91,7 @@ EOS;
       
       // Output HTML
       $html =<<<EOS
-      <iframe class="youtube-player" type="text/html" width="$width" height="$height" src="http://www.youtube.com/embed/$video" frameborder="0"></iframe>
+      <iframe class="youtube-player" width="$width" height="$height" src="https://www.youtube.com/embed/$video" frameborder="0" allowfullscreen></iframe>
 EOS;
       return $html;
    }
@@ -101,6 +101,7 @@ EOS;
    // Usage:   [donate]
    //          [donate]Donate Now[/donate]
    //          [donate account="you@yoursite.com" onHover="Thanks" for="Title"]
+   //           <iframe width="560" height="315" src="https://www.youtube.com/embed/msjgLgbsyP4" frameborder="0" allowfullscreen></iframe>
    //          [donate account="you@yoursite.com" onHover="Thanks" for="Title"]Donate Now[/donate]
    $FUNCS->register_shortcode( 'donate', 'donate_handler' );
    function donate_handler( $params, $content=null ){
