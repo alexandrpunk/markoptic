@@ -15,6 +15,7 @@ if ($peticion == "Protesis") {
 		$descripcion = $arreglo_op[$n];
 		$porque = $_POST["porque"];
 		$medio_difusion = $_POST["medio_difusion"];
+		$vinculacion = $_POST["vinculacion"];
 
 		$nombre = $_POST["nombre"];
 		$apellido = $_POST["apellido"];
@@ -49,7 +50,8 @@ if ($peticion == "Protesis") {
 		$ds = array("peticion" => $peticion,
 					"descripcion" => $descripcion,
 					"porque" => $porque,
-					"medio_difusion" => $medio_difusion
+					"medio_difusion" => $medio_difusion,
+                    "vinculacion" => $vinculacion
 					);
 
 		$id_solicitud = Solicitud1($ds);
@@ -113,6 +115,7 @@ if ($peticion == "Protesis") {
 						"descripcion" => $descripcion,
 						"porque" => $porque,
 						"medio_difusion" => $medio_difusion,
+                        "vinculacion" => $vinculacion,
 						"nombre" => $nombre,
 						"folio" => $folio,
 						"apellido" => $apellido,
@@ -258,10 +261,6 @@ if ($peticion == "Protesis") {
 			    	else{
 			    		echo "error 5";
 			    	}
-				/*}
-				else{
-					echo "error 6";
-				}*/
 			}
 		}
 
@@ -272,6 +271,7 @@ else{
 	$peticion = $_POST["peticion"];
 	$porque = $_POST["porque"];
 	$medio_difusion = $_POST["medio_difusion"];
+    $vinculacion = $_POST["vinculacion"];
 
 	if ($peticion == "Colchon Antiescaras") {
 		$descripcion = "";
@@ -310,7 +310,8 @@ else{
 	$ds = array("peticion" => $peticion,
 				"descripcion" => $descripcion,
 				"porque" => $porque,
-				"medio_difusion" => $medio_difusion
+				"medio_difusion" => $medio_difusion,
+                "vinculacion" => $vinculacion
 				);
 
 		$nombre_pais = Pais($pais);
@@ -376,6 +377,7 @@ else{
 					"descripcion" => $descripcion,
 					"porque" => $porque,
 					"medio_difusion" => $medio_difusion,
+                    "vinculacion" => $vinculacion,
 					"nombre" => $nombre,
 					"folio" => $folio,
 					"apellido" => $apellido,
@@ -407,7 +409,7 @@ else{
 			);
 
 	//3
-	if(update_folio($folio,$id_solicitud)){
+	if(update_folio($folio,$id_solicitud)) {
 		$id_beneficiario = beneficiario($db);
 		if ($t_nombre != "") {
 
@@ -478,7 +480,7 @@ else{
 				
 			}
 		}
-		else{
+		else {
 			$targetPath = "adj-solicitudes/";
 			$zip_file = $targetPath . $folio . '.zip';
 			move_uploaded_file($folio, $targetPath);
@@ -506,8 +508,7 @@ else{
 			}
 
 			$zip->close();
-			//if (file_exists($zip_file)) {
-		    	if(update_adj($zip_file,$id_solicitud)){
+		    	if(update_adj($zip_file,$id_solicitud)) {
 		    		if (envioEmails($data)) {
 		    			header('Location: /solicitud-concluida');
 		    		}
@@ -518,11 +519,7 @@ else{
 		    	else{
 		    		echo "error 5";
 		    	}
-			/*}
-			else{
-				echo "error 6";
-			}*/
-		}
+        }
 	}
 
 }

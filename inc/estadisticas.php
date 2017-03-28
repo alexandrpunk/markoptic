@@ -2,6 +2,12 @@
 include ("db_config.php");
 
 $mysqli = mysqli_connect(SERVER, USER, PASS, DB);
+if (!$mysqli) {
+    echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
+    echo "errno de depuración: " . mysqli_connect_errno() . PHP_EOL;
+    echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
+    exit;
+}
 
 mysqli_set_charset($mysqli, "utf8");
 
@@ -113,7 +119,7 @@ $paises = "";
 foreach ($r_paises as $pais) {
 	$paises .= "['" .  $pais["nombre"] . "', " . $pais["cantidadporpais"] ."],\n";
 	}
-
+#mysqli_query($mysqli, "SET SESSION sql_mode = 'TRADITIONAL'");
 $query_estados = mysqli_query($mysqli, "SELECT beneficiario_solicitud.estado, regiones.nombre, count(*) as cantidadporestado 
 										FROM 
 										`beneficiario_solicitud` INNER JOIN regiones on beneficiario_solicitud.estado = regiones.id
@@ -122,6 +128,7 @@ $query_estados = mysqli_query($mysqli, "SELECT beneficiario_solicitud.estado, re
 										&& solicitud.folio NOT LIKE 'OD%' 
 										group by estado 
 										order by cantidadporestado DESC;");
+
 while($r_estado = $query_estados->fetch_array())
 {
 	$r_estados[] = $r_estado;

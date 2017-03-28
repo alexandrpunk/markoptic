@@ -9,6 +9,26 @@ function AbrirConexion() {
 	return $link;
 }
 
+function Vinculaciones() {
+	$query = "SELECT id, nombre FROM Vinculaciones order by nombre";
+	$link = AbrirConexion();
+	mysqli_set_charset($link, "utf8");
+	$vinculaciones = array();
+	
+	if($r = $link->query($query)){
+		while($t = $r->fetch_assoc()) {
+			$vinculaciones[] = $t;
+		}		
+		$r->free();
+		$link->close();
+	}else {
+		die("Error: ". $link->error);
+		return array();
+	}
+	
+	return $vinculaciones;
+}
+
 function Paises( ) {
 	$query = "SELECT id, nombre FROM paises order by nombre";
 	$link = AbrirConexion();
@@ -178,7 +198,7 @@ function TLocalidad($id_localidad) {
 }
 
 function Solicitud1($ds){
-	$query = "INSERT INTO solicitud (peticion, descripcion, porque, medio_difusion) VALUES ('".$ds["peticion"]."', '".$ds["descripcion"]."', '".$ds["porque"]."', '".$ds["medio_difusion"]."');";
+	$query = "INSERT INTO solicitud (peticion, descripcion, porque, medio_difusion, vinculacion) VALUES ('".$ds["peticion"]."', '".$ds["descripcion"]."', '".$ds["porque"]."', '".$ds["medio_difusion"]."', '".$ds["vinculacion"]."');";
 	$link = AbrirConexion();
 	mysqli_set_charset($link, "utf8");
 	if($r = $link->query($query)){

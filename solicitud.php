@@ -1,9 +1,10 @@
 <?php
 
-$title = 'Formulario para solicitud protesis/colchon';
+$title = 'Formulario para solicitud';
 
 require_once("inc/solicitud.repo.php");
 $paises = Paises(); 
+$vinculaciones = Vinculaciones();
 
 require 'mod/head.php';
 ?>
@@ -23,22 +24,23 @@ require 'mod/head.php';
                 <?php require 'mod/menu.php';?>
                 
                   <div class="panel panel-default panel-mark animated fadeIn">
-                    <div class="panel-heading panel-heading-mark" id="rosado">Solicitud de Prótesis/Colchón</div>
+                    <div class="panel-heading panel-heading-mark" id="rosado">Formulario de Solicitud</div>
                     <div class="panel-body panel-body-mark">    
                         <form method="POST" action="inc/solicitud.post.php" enctype="multipart/form-data" onsubmit="return funcionEnviar()">
 
                         <!--seccion donde selecciona la ayuda-->
-                        <div class="" id="form-solicitud-seccion1">
-                            <h3 style="margin:20px 5%;" class="text-center decor-donar"><span class="decor-span">¿CON QUE TE PODEMOS AYUDAR?</span></h3>
-                            <div class="form-horizontal">
-                                <div class="form-group">
-                                    <label for="peticion" class="col-sm-3 control-label">Petición</label>
-                                    <div class="col-sm-8">
-                                        <select class="form-control" name="peticion" id="peticion">
-                                            <option value="">Seleccioné Una Opción</option>
-                                            <option value="Protesis">Prótesis</option>
-                                            <option value="Colchon Antiescaras">Colchón Anti-escaras</option>
-                                        </select>
+                        <div id="form-solicitud-seccion1">
+                            <h3 class="text-center decor-donar"><span class="decor-span">¿CON QUE TE PODEMOS AYUDAR?</span></h3>
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="peticion" class="control-label col-xs-2">Petición</label>
+                                        <div class="col-xs-10">
+                                            <select class="form-control" name="peticion" id="peticion">
+                                                <option value="">Seleccioné Una Opción</option>
+                                                <option value="Protesis">Prótesis</option>
+                                                <option value="Colchon Antiescaras">Colchón Anti-escaras</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group hidden" id="form-solicitud-seccion1-1">
@@ -74,15 +76,15 @@ require 'mod/head.php';
                                 <div class="form-group">
                                     <center><a class="btn btn-lg btn-success" id="btn-cont-ss1">Continuar</a></center>
                                 </div>
+                            <hr>
+                            <div class="well">
+                                <p class="text-center" style="margin:0"><strong>¿Tienes dudas de como llenar nuestro formulario? Puedes ver el videotutorial de como hacerlo <a href="https://www.youtube.com/watch?v=7HLG39tYBH8" target="_blank">aqui</a></strong></p>
                             </div>
-                            
-                            <p class="text-center"><strong>¿Tienes dudas de como llenar nuestro formulario? Puedes ver el videotutorial de como hacerlo <a href="https://www.youtube.com/watch?v=7HLG39tYBH8" target="_blank">aqui</a></strong></p>
                         </div>
 
                         <!--Informacion del beneficiario-->
                         <div class="hidden" id="form-solicitud-seccion2">
-                            <h3 style="margin:20px 5%;" class="text-center decor-donar"><span class="decor-span">DATOS DEL BENEFICIARIO</span></h3>
-                            <div class="">
+                            <h3 class="text-center decor-donar"><span class="decor-span">DATOS DEL BENEFICIARIO</span></h3>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="nombre">Nombre</label>
@@ -122,7 +124,7 @@ require 'mod/head.php';
                                     </div>
                                 </div>
 
-                                <center><h4 >Dirección</h4></center>
+                                <h4 class="text-center">Dirección</h4>
 
                                 <div class="col-sm-4">
                                     <div class="form-group">
@@ -207,12 +209,10 @@ require 'mod/head.php';
                                     </div>
                                 </div>
 
-
-                            </div>
                         </div>
 
                         <div class="hidden" id="form-solicitud-seccion3">
-                            <h3 style="margin:20px 5%;" class="text-center decor-donar"><span class="decor-span">AGREGAR TUTOR</span></h3>
+                            <h3 class="text-center decor-donar"><span class="decor-span">AGREGAR TUTOR</span></h3>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <center><a class="btn btn-md btn-success" id="btn-si-ss3" style="width: 100px;">Si</a></center>
@@ -227,8 +227,7 @@ require 'mod/head.php';
 
                         <!--Informacion del tutor-->
                         <div class="hidden" id="form-solicitud-seccion4">
-                            <h3 style="margin:20px 5%;" class="text-center decor-donar"><span class="decor-span">DATOS DEL TUTOR</span></h3>
-                            <div class="">
+                            <h3 class="text-center decor-donar"><span class="decor-span">DATOS DEL TUTOR</span></h3>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="nombre">Nombre</label>
@@ -354,54 +353,59 @@ require 'mod/head.php';
                                         <center><a class="btn btn-lg btn-success btn-form" id="btn-cont-ss4">Continuar</a></center>
                                     </div>
                                 </div>
-
-                                
-                            </div>
                         </div>
 
                         <!--Informacion de porque la necesita-->
                         <div class="hidden" id="form-solicitud-seccion5">
-                            <h3 style="margin:20px 5%;" class="text-center decor-donar"><span class="decor-span">YA CASI TERMINAMOS</span></h3>
-                            <div class="">
-                                <div class="col-sm-12">
+                            <h3 class="text-center decor-donar"><span class="decor-span">YA CASI TERMINAMOS</span></h3>
                                     <div class="form-group">
-                                        <label for="porque">Cuéntanos Porque La Necesitas</label>
+                                        <label for="porque">Cuéntanos Porque la Necesitas</label>
                                         <textarea type="textarea" class="form-control" id="porque" name="porque" placeholder="Porque la necesitas.." rows="3"></textarea>
                                     </div>
-                                </div>
 
-                                <div class="col-sm-12">
                                     <div class="form-group">
-                                        <label for="medio_difusion">Como Supiste De Nosotros</label>
+                                        <label for="medio_difusion">Como Supiste de Nosotros</label>
                                         <textarea type="textarea" class="form-control" id="medio_difusion" name="medio_difusion" placeholder="Como supiste de nosotros.." rows="3"></textarea>
                                     </div>
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="vinculacion" class="control-label col-xs-2">
+                                            Vinculacion
+                                            <span tabindex="0" class="text-info" role="button" data-container="body" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="Si usted conocio fundacion por medio de alguno de los organizmos con los que tenemos programas de colaboracion y aparece en la lista, seleccionelo">
+                                                <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i>
+                                            </span>
+                                        </label>
+                                        <div class="col-xs-10">
+                                            <select class="form-control" name="vinculacion" id="vinculacion">
+                                                <option value="0">Sin Vinculacion</option>
+                                                <?php
+                                                foreach ($vinculaciones as $vinculacion) {
+                                                    if($vinculacion['id']) {
+                                                        echo '<option value ="'.$vinculacion["id"].'">'.$vinculacion["nombre"].'</option>';
+                                                    }
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
-
-                                <div class="col-sm-12">
-                                    <center><h4>Envíanos Fotografías o Vídeo</h4></center>
-                                </div>
-
-                                <div class="col-sm-12">
+                                <hr>
+                                <h4 class="text-center">Envíanos Fotografías o Vídeo</h4>
                                     <div class="form-group">
                                         <label for="adjunto1">Adjunto Uno</label>
                                         <input type="file" id="adjunto1" name="adjunto1">
-                                        <p class="help-block">Tamaño máximo de archivo 20 MB</p>
+                                        <small>Tamaño máximo de archivo 20 MB</small>
                                     </div>
-                                </div>
-                                <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="adjunto2">Adjunto Dos</label>
                                         <input type="file" id="adjunto2" name="adjunto2">
-                                        <p class="help-block">Tamaño máximo de archivo 20 MB</p>
+                                        <small>Tamaño máximo de archivo 20 MB</small>
                                     </div>
-                                </div>
-                                <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="adjunto3">Adjunto Tres</label>
                                         <input type="file" id="adjunto3" name="adjunto3">
-                                        <p class="help-block">Tamaño máximo de archivo 20 MB</p>
+                                        <small>Tamaño máximo de archivo 20 MB</small>
                                     </div>
-                                </div>
 
                                 <div class="row">
                                     <div class="col-sm-3">
@@ -415,14 +419,12 @@ require 'mod/head.php';
                                     <div class="col-sm-3">
                                     </div>
                                 </div>
-                                
-                            </div>
+
                         </div>
 
                         <div class="hidden" id="form-solicitud-seccion6">
-                            <h3 style="margin:20px 5%;" class="text-center decor-donar"><span class="decor-span">TERMINOS Y CONDICIONES</span></h3>
-                            <div class="">
-                                <div class="col-sm-12">
+                            <h3 class="text-center decor-donar"><span class="decor-span">TERMINOS Y CONDICIONES</span></h3>
+                                  <div class="col-sm-12">
                                     <div class="form-group">
                                         <textarea type="textarea" class="form-control" style="resize: none;" rows="10" readonly="true">
 TERMINOS Y CONDICIONES DE USO Y PRIVACIDAD
@@ -476,8 +478,7 @@ Fundación Markoptic A.C. iniciará un proceso de estudio de la solicitud y se c
                                     <div class="col-sm-3">
                                     </div>
                                 </div>
-                                
-                            </div>
+
                         </div>
                         </form>
 
@@ -500,15 +501,13 @@ Fundación Markoptic A.C. iniciará un proceso de estudio de la solicitud y se c
     <div class="modal-content">
       <div class="modal-header modal-mark modal-magenta">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="noticia3">AVISO IMPORTANTE!</h4>
+        <h4 class="modal-title text-center" id="noticia3">¡AVISO IMPORTANTE!</h4>
       </div>
         <div class="modal-body">
             <p class="news text-justify">En Fundación Markoptic A.C. nos sentimos orgullosos de haber desarrollado <b style="font-size:1.1em;">una prótesis robótica de brazo y seguimos con la investigación de la prótesis mecánica de pierna.</b> Si usted presenta esta necesidad puede solicitarla y formar parte de la lista 
             con la que definiremos las donaciones.</p>
             <p class="news text-justify">Fundación Markoptic A.C. no realiza donaciones de dispositivos visuales, auditivos, dentales o implantes médicos destinados a ser colocados en el interior del cuerpo y no realizamos donación de dispositivos existentes comercialmente.</p>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Aceptar</button>
+            <div class="text-center"><a class="btn btn-warning" data-dismiss="modal"><strong>Aceptar</strong></a></div>
         </div>
     </div>
   </div>
@@ -516,7 +515,11 @@ Fundación Markoptic A.C. iniciará un proceso de estudio de la solicitud y se c
     
 <?php require 'mod/scripts.php';?>
 <script type="text/javascript" src="js/funciones.js"></script>
+<script>
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+</script>
     
 </body>
 </html>
-<?php COUCH::invoke(); ?>

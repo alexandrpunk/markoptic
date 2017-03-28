@@ -1,27 +1,3 @@
-    <!-- Convocatoria -->
-<div class="modal fade" id="summon" tabindex="-1" role="dialog" aria-labelledby="Mejorar la Calidad de Vida">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header modal-mark modal-morado">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="summon">Unete a Nuestro Equipo</h4>
-      </div>
-        <div class="modal-body">
-            <img class="img-responsive center-block" src="img/universidades.jpg">
-            <p class="news text-justiy">Fundación Markoptic A.C. te invita a que formes parte de nuestro equipo, existen diferentes formas de hacerlo:</p>
-                <ul>
-                    <li>Servicio Social</li>
-                    <li>Residencias Profesionales</li>
-                    <li>Voluntariado</li>
-                    <li>Verano Científico</li>
-                    <li>Bolsa de Trabajo</li>
-                </ul>
-            <p class="news text-center">Puedes solicitar informacion o enviarnos tu solicitud al siguiente correo <a href="mailto:ctorres@fundacionmarkoptic.org.mx" target="_blank">ctorres@fundacionmarkoptic.org.mx</a></p>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- Modal contacto -->
 <div class="modal fade" id="contacto-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">

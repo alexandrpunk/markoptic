@@ -39,11 +39,11 @@
     
 <div class="col-md-12 col-sm-6">
     <div class="panel panel-default panel-mark" >
-        <div class="panel-heading panel-heading-mark" id="morado">FORMA PARTE</div>
+        <div class="panel-heading panel-heading-mark" id="morado">UNETE</div>
         <div class="panel-body panel-body-mark">
-            <a href="#summon" data-toggle="modal" class="dlink"><span class="center-block img-thumbnail text-center">
-                <img class="img-responsive center-block" src="img/summon.png" />
-                <h4 class="txt-mark oswald"><strong>Haz tus Residencias Profesionales con nosotros</strong></h4>
+            <a href="unete" class="ublock">
+                <img class="img-responsive center-block" src="img/unete.svg"/>
+                <span>Unete a nuestro<br>equipo de trabajo</span>
             </span></a>
         </div>
     </div>

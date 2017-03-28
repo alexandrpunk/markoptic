@@ -93,7 +93,7 @@
 
         var $_ed;
 
-        function KFuncs(){
+        function __construct(){
             define( '_64e3',  (64.0 * 64.0 * 64.0) );
             define( '_64e4',  (64.0 * 64.0 * 64.0 * 64.0) );
             define( '_64e15', (_64e3 * _64e4 * _64e4 * _64e4) );
@@ -107,11 +107,11 @@
             $this->add_event_listener( 'alter_parsed_dom', array('KFuncs', '_handle_extends') );
         }
 
-        function raise_error( $err_msg ){
+        static function raise_error( $err_msg ){
             return new KError( $err_msg );
         }
 
-        function is_error( $e ){
+        static function is_error( $e ){
             return is_a( $e, 'KError');
         }
 
@@ -203,7 +203,7 @@
             return $s;
         }
 
-        function _handle_extends( $DOM ){
+        static function _handle_extends( $DOM ){
             if( count($DOM->children)>1 ){
                 if( $DOM->children[1]->name != 'extends' ) return;
 
@@ -282,14 +282,14 @@
             }
         }
 
-        function is_title_clean( $title ){
+        static function is_title_clean( $title ){
             if( !preg_match('/^[0-9a-z-_]+$/', $title ) ){
                 return false;
             }
             return true;
         }
 
-        function is_variable_clean( $title ){
+        static function is_variable_clean( $title ){
             if( !preg_match('/^[a-z_][0-9a-z_]+$/i', $title ) ){
                 return false;
             }
@@ -1481,10 +1481,13 @@
             $this->dispatch_event( 'alter_user_set_context' );
         }
 
-        function access_levels_dropdown( $selected_level, $max_level, $min_level=0, $inherited=0 ){
+        function access_levels_dropdown( $selected_level, $max_level, $min_level=0, $inherited=0, $simple_mode=0 ){
             global $DB, $FUNCS;
 
-            $html = '<div class="select dropdown"><select id="f_k_access_level" name="f_k_levels_list"';
+            if( !$simple_mode ){
+                $html .= '<div class="select dropdown">';
+            }
+            $html .= '<select id="f_k_access_level" name="f_k_levels_list"';
             if( $inherited ) $html .= " disabled=1";
             $html .= ">\n";
             $rs = $DB->select( K_TBL_USER_LEVELS, array('name', 'title', 'k_level'), "k_level <= ".$DB->sanitize( $max_level )." AND k_level >= ".$DB->sanitize( $min_level )." ORDER BY k_level DESC" );
@@ -1495,7 +1498,10 @@
                     $html .= ">".$this->t($rec['name'])."</option>";
                 }
             }
-            $html .= '</select><span class="select-caret">'.$FUNCS->get_icon('caret-bottom').'</span></div>';
+            $html .= '</select>';
+            if( !$simple_mode ){
+                $html .= '<span class="select-caret">'.$FUNCS->get_icon('caret-bottom').'</span></div>';
+            }
 
             return $html;
         }
@@ -1506,7 +1512,7 @@
             return gmdate( 'Y-m-d H:i:s', (time() + (K_GMT_OFFSET * 60 * 60)) );
         }
 
-        function date_dropdowns( $date='' ){
+        function date_dropdowns( $date='', $simple_mode=0 ){
             global $FUNCS, $PAGE;
             //TODO: allow localization
             $arrMonths = array('01'=>'January',   '02'=>'February', '03'=>'March',    '04'=>'April',
@@ -1523,13 +1529,21 @@
             $s = substr( $date, 17, 2 );
 
             $year = '<input class="year-field" type="text" id="f_k_year" name="f_k_year" value="' . $yy . '" size="4" maxlength="4" autocomplete="off" />';
-            $month = '<div class="select month-field"><select id="f_k_month" name="f_k_month">'."\n";
+            if( $simple_mode ){
+                $month = '<select class="month-field" id="f_k_month" name="f_k_month">'."\n";
+            }
+            else{
+                $month = '<div class="select month-field"><select id="f_k_month" name="f_k_month">'."\n";
+            }
             foreach( $arrMonths as $k=>$v ){
                 $month .= '<option value="'.$k.'"';
                 $month .= ( $k==$mm ) ? ' selected="selected"' : '';
                 $month .= '>'.$v.'</option>';
             }
-            $month .= '</select><span class="select-caret">'.$FUNCS->get_icon('caret-bottom').'</span></div>';
+            $month .= '</select>';
+            if( !$simple_mode ){
+                $month .= '<span class="select-caret">'.$FUNCS->get_icon('caret-bottom').'</span></div>';
+            }
             $day = '<input class="day-field" type="text" id="f_k_day" name="f_k_day" value="' . $dd . '" size="2" maxlength="2" autocomplete="off" />';
             $hour = '<input class="hour-field" type="text" id="f_k_hour" name="f_k_hour" value="' . $h . '" size="2" maxlength="2" autocomplete="off" />';
             $min = '<input class="minute-field" type="text" id="f_k_min" name="f_k_min" value="' . $m . '" size="2" maxlength="2" autocomplete="off" />';
@@ -2275,66 +2289,66 @@
             return ( is_callable($callable, $syntax_only) ) ? $callable : false;
         }
 
-        function is_alpha( $str ){
+        static function is_alpha( $str ){
             if( is_null($str) ) return 0;
             return (preg_match("/[^a-zA-Z]/", $str)) ? 0 : 1;
         }
 
-        function is_alphanumeric( $str ){
+        static function is_alphanumeric( $str ){
             if( is_null($str) ) return 0;
             return (preg_match("/[^a-zA-Z0-9]/", $str)) ? 0 : 1;
         }
 
         // -2, -1, 0, 1, 2 etc.
-        function is_int( $str ){
+        static function is_int( $str ){
             $str = trim( $str );
             if( !strlen($str) ) return 0;
             return (preg_match("/^[\+\-]?[0-9]+$/", $str)) ? 1 : 0;
         }
 
         // 0, 1, 2 etc.
-        function is_natural( $str ){
+        static function is_natural( $str ){
             $str = trim( $str );
             if( !strlen($str) ) return 0;
             return (preg_match("/[^0-9]/", $str)) ? 0 : 1;
         }
 
         // 1, 2, 3 etc.
-        function is_non_zero_natural( $str ){
-            if( !$this->is_natural($str) ) return 0;
+        static function is_non_zero_natural( $str ){
+            if( !KFuncs::is_natural($str) ) return 0;
             return ( $str == 0 ) ? 0 : 1;
         }
 
         // static helper validation routines for fields
-        function validate_alpha( $field ){
+        static function validate_alpha( $field ){
             $val = trim( $field->get_data() );
             if( !KFuncs::is_alpha($val) ){
                 return KFuncs::raise_error( "Contains invalid characters (only alpha allowed)" );
             }
         }
 
-        function validate_alpha_num( $field ){
+        static function validate_alpha_num( $field ){
             $val = trim( $field->get_data() );
             if( !KFuncs::is_alphanumeric($val) ){
                 return KFuncs::raise_error( "Invalid characters (only alphanumeric allowed)" );
             }
         }
 
-        function validate_int( $field ){
+        static function validate_int( $field ){
             $val = trim( $field->get_data() );
             if( !KFuncs::is_int($val) ){
                 return KFuncs::raise_error( "Invalid characters (only integers allowed)" );
             }
         }
 
-        function validate_natural( $field ){
+        static function validate_natural( $field ){
             $val = trim( $field->get_data() );
             if( !KFuncs::is_natural($val) ){
                 return KFuncs::raise_error( "Invalid characters (only natural numbers [0-9] allowed)" );
             }
         }
 
-        function validate_non_zero_natural( $field ){
+        static function validate_non_zero_natural( $field ){
             $val = trim( $field->get_data() );
             if( !KFuncs::is_natural($val) ){
                 return KFuncs::raise_error( "Invalid characters (only integers allowed)" );
@@ -2344,14 +2358,14 @@
             }
         }
 
-        function validate_numeric( $field ){
+        static function validate_numeric( $field ){
             $val = trim( $field->get_data() );
             if( !is_numeric($val) ){
                 return KFuncs::raise_error( "Invalid characters (only numeric values allowed)" );
             }
         }
 
-        function validate_non_negative_numeric( $field ){
+        static function validate_non_negative_numeric( $field ){
             $val = trim( $field->get_data() );
             if( !is_numeric($val) ){
                 return KFuncs::raise_error( "Invalid characters (only numeric values allowed)" );
@@ -2361,7 +2375,7 @@
             }
         }
 
-        function validate_non_zero_numeric( $field ){
+        static function validate_non_zero_numeric( $field ){
             $val = trim( $field->get_data() );
             if( !is_numeric($val) ){
                 return KFuncs::raise_error( "Invalid characters (only numeric values allowed)" );
@@ -2371,13 +2385,13 @@
             }
         }
 
-        function validate_title( $field ){
+        static function validate_title( $field ){
             if( !KFuncs::is_title_clean($field->get_data()) ){
                 return KFuncs::raise_error( "Contains invalid characters" );
             }
         }
 
-        function validate_min_len( $field, $args ){
+        static function validate_min_len( $field, $args ){
             $min = trim( $args );
             $val = trim( $field->get_data() );
             //if( !$field->required && !strlen($val) ) return;
@@ -2389,7 +2403,7 @@
             }
         }
 
-        function validate_max_len( $field, $args ){
+        static function validate_max_len( $field, $args ){
             $min = trim( $args );
             $val = trim( $field->get_data() );
             //if( !$field->required && !strlen($val) ) return;
@@ -2401,7 +2415,7 @@
             }
         }
 
-        function validate_exact_len( $field, $args ){
+        static function validate_exact_len( $field, $args ){
             $min = trim( $args );
             $val = trim( $field->get_data() );
             //if( !$field->required && !strlen($val) ) return;
@@ -2413,7 +2427,7 @@
             }
         }
 
-        function validate_matches( $field, $args ){
+        static function validate_matches( $field, $args ){
             $val1 = trim( $field->get_data() );
             $args = trim( $args );
 
@@ -2446,13 +2460,13 @@
             }
         }
 
-        function validate_email( $field ){
+        static function validate_email( $field ){
             if( !preg_match("/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,10}$/i", trim($field->get_data())) ){
                 return KFuncs::raise_error( "Invalid email address" );
             }
         }
 
-        function validate_url( $field ){
+        static function validate_url( $field ){
             // Pattern from http://mathiasbynens.be/demo/url-regex
             $pattern = "/^(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!10(?:\.\d{1,3}){3})(?!127(?:\.\d{1,3}){3})(?!169\.254(?:\.\d{1,3}){2})(?!192\.168(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\x{00a1}-\x{ffff}0-9]+-?)*[a-z\x{00a1}-\x{ffff}0-9]+)(?:\.(?:[a-z\x{00a1}-\x{ffff}0-9]+-?)*[a-z\x{00a1}-\x{ffff}0-9]+)*(?:\.(?:[a-z\x{00a1}-\x{ffff}]{2,})))(?::\d{2,5})?(?:\/[^\s]*)?$/iuS";
             if( !preg_match($pattern, trim($field->get_data())) ){
@@ -2460,14 +2474,14 @@
             }
         }
 
-        function validate_regex( $field, $args ){
+        static function validate_regex( $field, $args ){
             if( !preg_match(trim($args), trim($field->get_data())) ){
                 return KFuncs::raise_error( "Does not match pattern" );
             }
         }
 
         // Used only internally
-        function validate_unique_page( $field ){
+        static function validate_unique_page( $field ){
             global $DB;
 
             $page_id = ( $field->page_id ) ? $field->page_id : $field->page->id;
@@ -3922,15 +3936,33 @@ OUT;
         }
 
         function add_js( $code ){
-            $this->admin_js .= $code . "\r\n";
+            static $sig = array();
+
+            $hash = MD5( $code );
+            if( !isset($sig[$hash]) ){
+                $this->admin_js .= $code . "\r\n";
+                $sig[$hash] = 1;
+            }
         }
 
         function add_css( $css ){
-            $this->admin_css .= $css . "\r\n";
+            static $sig = array();
+
+            $hash = MD5( $css );
+            if( !isset($sig[$hash]) ){
+                $this->admin_css .= $css . "\r\n";
+                $sig[$hash] = 1;
+            }
         }
 
         function add_html( $html ){
-            $this->admin_html .= $html . "\r\n";
+            static $sig = array();
+
+            $hash = MD5( $html );
+            if( !isset($sig[$hash]) ){
+                $this->admin_html .= $html . "\r\n";
+                $sig[$hash] = 1;
+            }
         }
 
         function get_js(){
@@ -3960,8 +3992,8 @@ OUT;
             return $this->admin_html;
         }
 
-        function show_alert( $heading='', $content='', $type='' ){
-            return $this->render( 'alert', $heading, $content, $type );
+        function show_alert( $heading='', $content='', $type='', $center='' ){
+            return $this->render( 'alert', $heading, $content, $type, $center );
         }
 
         function is_core_type( $fieldtype ){
@@ -4350,7 +4382,7 @@ OUT;
     class KError{
         var $err_msg = '';
 
-        function KError( $err_msg='' ){
+        function __construct( $err_msg='' ){
             $this->err_msg = $err_msg;
         }
     }

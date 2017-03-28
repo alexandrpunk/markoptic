@@ -94,10 +94,16 @@ require 'mod/head.php';
 <?php require 'mod/scripts.php';?>
 <script src="https://npmcdn.com/flickity@1.2/dist/flickity.pkgd.min.js"></script>
 
-
     <script type="text/javascript">
 	$(document).ready(function(){
-		//$("#itt").modal('show');
+        $('#itt').on('hidden.bs.modal', function() {
+        var $this = $(this).find('iframe'),
+        tempSrc = $this.attr('src');
+        $this.attr('src', "");
+        });
+                
+        $("#itt").modal('show');        
+
 	});
         
     $('.main-carousel').flickity({
@@ -110,7 +116,7 @@ require 'mod/head.php';
     });
     </script>
 
-    
+<?php# require 'mod/modals.php';?>
 </body>
 </html>
 <?php COUCH::invoke(); ?>

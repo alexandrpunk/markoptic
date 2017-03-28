@@ -55,7 +55,7 @@
         var $first_pos = 0; // first and last immediate children
         var $last_pos = 0;
 
-        function KNestable(){
+        function __construct(){
 
         }
 
@@ -341,9 +341,19 @@
                     if( $extended_info ){
                         $this->children[$x]->set_in_context();
 
+                        // save 'order'by and 'order' before calling child tags as they (pages tag notably), can modify these values
+                        $orig_cmp_field = $this->cmp_field;
+                        $orig_cmp_order = $this->cmp_order;
+
                         $CTX->set( 'k_element_start', 1 ); //e.g. <LI>
                         call_user_func_array( $callback, array(&$this->children[$x], &$param0, &$param1) );
                         $CTX->set( 'k_element_start', 0 );
+
+                        // check if 'order'by and 'order' have changed
+                        if( $this->cmp_field!=$orig_cmp_field || $this->cmp_order!=$orig_cmp_order ){
+                            $this->root->set_sort( $orig_cmp_field, $orig_cmp_order );
+                            $this->root->sort(1);
+                        }
                     }
 
                     $quit = $this->children[$x]->visit( $callback, $param0, $param1, $depth, $extended_info, $exclude, $level+1, $exclude_if_not_in_menu, $exclude_if_inactive, $paginate, $cb_skip );
@@ -406,7 +416,7 @@
 
         var $fields; // for admin form
 
-        function KFolder( $row, $template_name, &$root ){
+        function __construct( $row, $template_name, &$root ){
             global $FUNCS, $Config;
 
             foreach( $row as $k=>$v ){
@@ -783,7 +793,7 @@
         }
 
         // callback function to create folders dropdown
-        function _k_visitor( &$folder, &$html, &$node ){
+        static function _k_visitor( &$folder, &$html, &$node ){
             global $CTX, $FUNCS;
 
             $level = $CTX->get('k_level', 1);
@@ -843,7 +853,7 @@
         var $is_current = 0;
         var $most_current = 0;
 
-        function KNestedPage( $row, $template_name, &$root ){
+        function __construct( $row, $template_name, &$root ){
             global $FUNCS, $Config;
 
             foreach( $row as $k=>$v ){
@@ -1325,7 +1335,7 @@
         }
 
         // callback function to create nested-pages dropdown
-        function _k_visitor_pages( &$page, &$html, &$node ){
+        static function _k_visitor_pages( &$page, &$html, &$node ){
             global $CTX, $FUNCS;
 
             $level = $CTX->get('k_level', 1);
@@ -1374,7 +1384,7 @@
         var $html;
         var $render;
 
-        function KAdminMenuItem( $row, &$root ){
+        function __construct( $row, &$root ){
             global $FUNCS;
 
             foreach( $row as $k=>$v ){

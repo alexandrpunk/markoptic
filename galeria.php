@@ -22,7 +22,7 @@ require 'mod/head.php';
                     <div class="panel-body panel-body-mark"> 
                     <h2  class="text-center decor-gal"><span class="decor-span">Galería Fotografica</span></h2>
                     <div class="row">
-                        <cms:folders masterpage='fotografias.php' limit='3'>
+                        <cms:folders masterpage='fotografias.php' hierarchical = '1' paginate = '1'  limit = '3'>
                             <div class="col-md-4 col-sm-4">
                                 <a class="gal-folder" href="<cms:show k_folder_link />" >
                                     <div style="background-image:url(<cms:show k_folder_image />);" class="gal-cover"></div>

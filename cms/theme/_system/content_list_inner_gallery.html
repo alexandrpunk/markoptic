@@ -1,4 +1,4 @@
-<div class="gallery-listing">
+<div id="gallery-listing">
     <div id="listing">
         <cms:set my_max_items_in_row = '5' />
         <cms:set my_gallery_folder_count='0' />
@@ -41,11 +41,8 @@
                     <cms:set my_paginator="<cms:render 'paginator' />" 'parent' />
 
                     <div style="clear:both;"></div>
-                    <div class="select_all">
-                        <label>
-                            <cms:render 'list_checkbox' for_header='1' />
-                            <strong><cms:localize 'select-deselect' /></strong>
-                        </label>&nbsp;
+                    <div class="select-all">
+                        <cms:render 'list_checkbox' for_header='1' text_label='1' />
                     </div>
                 </cms:if>
             </cms:pages>

@@ -87,6 +87,7 @@ require 'mod/head.php';
                             <li><strong>Donataria Autorizada:</strong><a href="files/sat.pdf" target="_blank">Formato de Autorización</a>.</li>
                             <li><strong>Registro Federal de las Organizaciones de la Sociedad Civil:</strong><a href="files/cluni.pdf" target="_blank">CLUNI</a>.</li>
                             <li><strong>Informe de Actividades 2015</strong>:<a href="files/informe2015.pdf" target="_blank">Ejercicio 2014-2015</a>.</li>
+                            <li><strong>Informe de Actividades 2016</strong>:<a href="files/informe2016.pdf" target="_blank">Ejercicio 2015-2016</a>.</li>
                             <li><strong>Certificación IIT Cemefi:</strong><a href="files/iit-cemefi.pdf" target="_blank">Certificado IIT</a>.</li>
                             <li><strong>Convenio de Colaboración:</strong><a href="files/conv_udeo.pdf" target="_blank">Fundación Markoptic A.C. - Universidad de Occidente.</a></li>
                             <li><strong>Convenio de Colaboración:</strong><a href="files/conv_tec.pdf" target="_blank">Fundación Markoptic A.C. - Instituto Tecnológico de Culiacán.</a></li>

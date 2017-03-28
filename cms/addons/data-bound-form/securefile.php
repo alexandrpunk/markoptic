@@ -40,17 +40,17 @@
     // UDF for secure file upload
     class SecureFile extends KUserDefinedField{
 
-        function SecureFile( $row, &$page, &$siblings ){
+        function __construct( $row, &$page, &$siblings ){
             global $FUNCS;
 
             // call parent
-            parent::KUserDefinedField( $row, $page, $siblings );
+            parent::__construct( $row, $page, $siblings );
 
             $this->orig_data = array();
             $this->requires_multipart = 1;
         }
 
-        function handle_params( $params ){
+        static function handle_params( $params ){
             global $FUNCS, $AUTH;
             if( $AUTH->user->access_level < K_ACCESS_LEVEL_SUPER_ADMIN ) return;
 
@@ -138,7 +138,7 @@
         }
 
         // Output to admin panel
-        function _render( $input_name, $input_id, $extra='' ){
+        function _render( $input_name, $input_id, $extra='', $dynamic_insertion=0 ){
             global $FUNCS, $CTX;
 
             if( $this->data['file_id'] ){
@@ -189,7 +189,7 @@
         }
 
         // Output to front-end via $CTX
-        function get_data(){
+        function get_data( $for_ctx=0 ){
             global $CTX;
 
             // Data not a simple string hence
@@ -534,7 +534,7 @@
 
         //////
         // Handles 'cms:show_securefile' tag
-        function show_handler( $params, $node ){
+        static function show_handler( $params, $node ){
             global $FUNCS, $CTX, $DB;
             if( !count($node->children) ) return;
 

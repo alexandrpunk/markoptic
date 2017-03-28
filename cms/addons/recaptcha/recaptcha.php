@@ -6,7 +6,7 @@ if( !defined('K_RECAPTCHA_SITE_KEY') ) define( 'K_RECAPTCHA_SITE_KEY', '' );
 if( !defined('K_RECAPTCHA_SECRET_KEY') ) define( 'K_RECAPTCHA_SECRET_KEY', '' );
 
 class KReCaptchaForm extends KUserDefinedFormField{
-    function handle_params( $params, $node ){
+    static function handle_params( $params, $node ){
         global $FUNCS;
         $attr = $FUNCS->get_named_vars(
                     array( 'theme'=>'light', // light, dark
@@ -96,7 +96,7 @@ class KReCaptchaForm extends KUserDefinedFormField{
         }
     }
 
-    function _render( $input_name, $input_id, $extra='' ){
+    function _render( $input_name, $input_id, $extra='', $dynamic_insertion=0 ){
         static $count=0;
 
         if( !$count ){

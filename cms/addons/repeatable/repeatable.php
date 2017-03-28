@@ -42,9 +42,9 @@
         var $rendered_data = null;
         var $validation_errors = 0;
 
-        function Repeatable( $row, &$page, &$siblings ){
+        function __construct( $row, &$page, &$siblings ){
             // call parent
-            parent::KUserDefinedField( $row, $page, $siblings );
+            parent::__construct( $row, $page, $siblings );
 
             // now for own logic
             $this->orig_data = array();
@@ -52,7 +52,7 @@
 
         }
 
-        function tag_handler( $params, $node ){
+        static function tag_handler( $params, $node ){
             global $CTX, $FUNCS, $TAGS, $PAGE, $AUTH;
             if( $AUTH->user->access_level < K_ACCESS_LEVEL_SUPER_ADMIN ) return;
             if( defined('K_ADMIN') ) return; // nop within admin panel
@@ -139,7 +139,7 @@
             $TAGS->editable( $params, $_node );
         }
 
-        function show_handler( $params, $node ){
+        static function show_handler( $params, $node ){
             global $FUNCS, $CTX;
 
             extract( $FUNCS->get_named_vars(
@@ -185,7 +185,7 @@
             }
         }
 
-        function handle_params( $params ){
+        static function handle_params( $params ){
             global $FUNCS;
             $attr = $FUNCS->get_named_vars(
                 array(  'schema'=>'',
@@ -233,7 +233,7 @@
             $this->orig_data = $this->data;
         }
 
-        function _render( $input_name, $input_id, $extra='' ){
+        function _render( $input_name, $input_id, $extra='', $dynamic_insertion=0 ){
             global $FUNCS, $CTX, $AUTH;
 
             /*
@@ -546,7 +546,7 @@
         }
 
         // Output to front-end via $CTX
-        function get_data(){
+        function get_data( $for_ctx=0 ){
             global $CTX;
 
             // Data not a simple string hence

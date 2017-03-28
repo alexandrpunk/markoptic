@@ -85,7 +85,6 @@ require_once( 'cms/cms.php' );
                 
                 <?php require 'mod/menu.php';?>
                 <cms:if k_is_page >
-                    <cms:dump />
                     <cms:set image="<cms:php> 
                         $len = strlen($_SERVER['HTTP_HOST'])+8;
                         $str='<cms:show fotografia />';
@@ -99,6 +98,29 @@ require_once( 'cms/cms.php' );
                         $str = substr($str, $len);
                         if(file_exists($str)){echo '<cms:show fotografia_thumb />';}else{echo 'img/placeholder.jpg';}
                     </cms:php>" />
+                    
+                    <cms:set vinculacion="
+                            <cms:php> 
+                            $link = new mysqli('localhost', 'root', 'root', 'markoptic');
+                                if($link->connect_errno) {
+                                    die('Error ' . $link->connect_error);
+                                }
+                            
+                                $query = 'SELECT v.nombre, v.logo FROM solicitud s
+                                join Vinculaciones v on s.vinculacion = v.id
+                                where id_page = <cms:show k_page_id />';
+                            
+                                mysqli_set_charset($link, 'utf8');
+                                $vinculaciones = $link->query($query)->fetch_array();
+                                #echo $vinculaciones['logo'];  
+                                echo '<img class=\'vinculaciones center-block\' alt=\''.$vinculaciones['nombre'].'\' src=\'img/vinculaciones/'.$vinculaciones['logo'].'\'>';  
+                                // Free result set
+                                mysqli_close($link);
+                            </cms:php>
+                    " />
+
+
+                    
                     <div class="panel panel-default panel-mark  animated fadeIn">
                         <div class="panel-heading panel-heading-mark" id="rosado">CONOCE A: <cms:show k_page_title /></div>
                         <div  class="panel-body panel-body-mark">
@@ -123,7 +145,10 @@ require_once( 'cms/cms.php' );
                                             <dd class="txt-gris"><i><cms:show ciudad />, <cms:show estado />, <cms:show pais/></i></dd>
 
                                             <dt class="txt-mark">¿Por qué lo necesita?</dt>
-                                            <dd class="txt-gris text-lowercase"><i><cms:show necesidad /></i></dd>
+                                            <dd class="txt-gris text-lowercase"><i><cms:show necesidad /></i></dd>                        
+                                            <dt class="txt-mark">En Vinculacion con:</dt>
+                                            <cms:show vinculacion />
+
                                         </dl>
                                         <div class="text-center" style="margin-top:10px;">
                                             <a href="" class="btn btn-success oswald" data-toggle="modal"  OnClick="setinfo('<cms:show k_page_title />', '<cms:show k_page_id />')" data-target="#solicitar_email" >
@@ -198,6 +223,26 @@ require_once( 'cms/cms.php' );
                             $str = substr($str, $len);
                             if(file_exists($str)){echo '<cms:show fotografia_thumb />';}else{echo 'img/placeholder.jpg';}
                             </cms:php>" />
+                        
+                            <cms:set vinculacion="
+                                    <cms:php> 
+                                    $link = new mysqli('localhost', 'root', 'root', 'markoptic');
+                                        if($link->connect_errno) {
+                                            die('Error ' . $link->connect_error);
+                                        }
+
+                                        $query = 'SELECT v.nombre, v.logo FROM solicitud s
+                                        join Vinculaciones v on s.vinculacion = v.id
+                                        where id_page = <cms:show k_page_id />';
+
+                                        mysqli_set_charset($link, 'utf8');
+                                        $vinculaciones = $link->query($query)->fetch_array();
+                                        #echo $vinculaciones['logo'];  
+                                        echo '<img class=\'vinculaciones center-block\' alt=\''.$vinculaciones['nombre'].'\' src=\'img/vinculaciones/'.$vinculaciones['logo'].'\'>';  
+                                        // Free result set
+                                        mysqli_close($link);
+                                    </cms:php>
+                            " />
 
                             <div class="row hist-box sombra">
                                 <div class="col-md-4 col-sm-4">
@@ -220,6 +265,9 @@ require_once( 'cms/cms.php' );
 
                                         <dt class="txt-mark">¿Por qué lo necesita?</dt>
                                         <dd class="txt-gris text-lowercase scroll-box"><i><cms:show necesidad /></i></dd>
+                                        
+                                        <dt class="txt-mark">En Vinculacion con:</dt>
+                                        <cms:show vinculacion />
                                     </dl>
                                     <div class="text-center" style="margin-top:10px;">
                                         <a class="btn btn-primary oswald" href="<cms:show k_page_link />" role="button">
