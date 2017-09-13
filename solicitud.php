@@ -33,10 +33,10 @@ require 'mod/head.php';
                             <h3 class="text-center decor-donar"><span class="decor-span">¿CON QUE TE PODEMOS AYUDAR?</span></h3>
                                 <div class="form-horizontal">
                                     <div class="form-group">
-                                        <label for="peticion" class="control-label col-xs-2">Petición</label>
-                                        <div class="col-xs-10">
+                                        <label for="peticion" class="control-label col-sm-2">Petición</label>
+                                        <div class="col-sm-10">
                                             <select class="form-control" name="peticion" id="peticion">
-                                                <option value="">Seleccioné Una Opción</option>
+                                                <option value="">Seleccioné una opción</option>
                                                 <option value="Protesis">Prótesis</option>
                                                 <option value="Colchon Antiescaras">Colchón Anti-escaras</option>
                                             </select>
@@ -73,8 +73,9 @@ require 'mod/head.php';
                                         
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <center><a class="btn btn-lg btn-success" id="btn-cont-ss1">Continuar</a></center>
+                            
+                                <div class="row text-center">
+                                    <button class="btn btn-lg btn-success btn-form" id="btn-cont-ss1" type="button">Continuar</button>
                                 </div>
                             <hr>
                             <div class="well">
@@ -103,7 +104,7 @@ require 'mod/head.php';
                                     <div class="form-group">
                                         <label for="sexo">Sexo</label>
                                         <select class="form-control" name="sexo" id="sexo">
-                                            <option value="">Seleccioné Su Sexo</option>
+                                            <option value="">Seleccioné su sexo</option>
                                             <option value="F">Femenino</option>
                                             <option value="M">Masculino</option>
                                         </select>
@@ -130,12 +131,10 @@ require 'mod/head.php';
                                     <div class="form-group">
                                         <label for="pais">País</label>
                                         <select class="form-control" name="pais" id="pais">
-                                            <option value="">Seleccioné Su País</option>
+                                            <option value="">Seleccioné su País</option>
                                             <?php
                                             foreach ($paises as $p) {
-                                            ?>
-                                            <option value = <?php echo $p["id"]?> > <?php echo $p["nombre"]; ?> </option>
-                                            <?php
+                                            echo'<option value ='.$p["id"].' >'.$p["nombre"].'</option>';
                                             }
                                             ?>
                                         </select>
@@ -146,7 +145,7 @@ require 'mod/head.php';
                                     <div class="form-group">
                                         <label for="estado">Estado</label>
                                         <select class="form-control" name="estado" id="estado">
-                                            <option value="">Seleccioné Su Estado</option>
+                                            <option value="">Seleccioné su Estado</option>
                                         </select>
                                     </div>
                                 </div>
@@ -155,7 +154,7 @@ require 'mod/head.php';
                                     <div class="form-group">
                                         <label for="ciudad">Ciudad o Localidad</label>
                                         <select class="form-control" name="ciudad" id="ciudad">
-                                            <option value="">Seleccioné Su Ciudad o Localidad</option>
+                                            <option value="">Seleccioné su Ciudad </option>
                                         </select>
                                     </div>
                                 </div>
@@ -196,32 +195,18 @@ require 'mod/head.php';
                                     </div>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <center><a class="btn btn-lg btn-primary btn-form" id="btn-volver-ss2">Volver</a></center>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <center><a class="btn btn-lg btn-success btn-form" id="btn-cont-ss2">Continuar</a></center>
-                                    </div>
-                                    <div class="col-sm-3">
-                                    </div>
+                                <div class="row text-center">
+                                    <button class="btn btn-lg btn-primary btn-form" id="btn-volver-ss2" type="button">Volver</button>
+                                    <button class="btn btn-lg btn-success btn-form" id="btn-cont-ss2" type="button">Continuar</button>
                                 </div>
 
                         </div>
 
                         <div class="hidden" id="form-solicitud-seccion3">
                             <h3 class="text-center decor-donar"><span class="decor-span">AGREGAR TUTOR</span></h3>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <center><a class="btn btn-md btn-success" id="btn-si-ss3" style="width: 100px;">Si</a></center>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <center><a class="btn btn-md btn-success" id="btn-no-ss3" style="width: 100px;">No</a></center>
-                                </div>
+                            <div class="row text-center">
+                                <button class="btn btn-lg btn-success btn-form" id="btn-si-ss3" type="button" style="width: 100px;">Si</button>
+                                <button class="btn btn-lg btn-success btn-form" id="btn-no-ss3" type="button"  style="width: 100px;">No</button>
                             </div>
                         </div>
 
@@ -246,7 +231,7 @@ require 'mod/head.php';
                                     <div class="form-group">
                                         <label for="sexo">Sexo</label>
                                         <select class="form-control" name="t_sexo" id="t_sexo">
-                                            <option value="">Seleccioné Su Sexo</option>
+                                            <option value="">Seleccioné su sexo</option>
                                             <option value="F">Femenino</option>
                                             <option value="M">Masculino</option>
                                         </select>
@@ -273,13 +258,11 @@ require 'mod/head.php';
                                     <div class="form-group">
                                         <label for="pais">País</label>
                                         <select class="form-control" name="t_pais" id="t_pais">
-                                            <option value="">Seleccioné Su País</option>
+                                            <option value="">Seleccioné su País</option>
                                             <?php
-                                            foreach ($paises as $p) {
-                                            ?>
-                                            <option value = <?php echo $p["id"]?> > <?php echo $p["nombre"]; ?> </option>
-                                            <?php
-                                            }
+                                                foreach ($paises as $p) {
+                                                echo'<option value ='.$p["id"].' >'.$p["nombre"].'</option>';
+                                                }
                                             ?>
                                         </select>
                                     </div>
@@ -289,7 +272,7 @@ require 'mod/head.php';
                                     <div class="form-group">
                                         <label for="estado">Estado</label>
                                         <select class="form-control" name="t_estado" id="t_estado">
-                                            <option value="">Seleccioné Su Estado</option>
+                                            <option value="">Seleccioné su Estado</option>
                                         </select>
                                     </div>
                                 </div>
@@ -298,7 +281,7 @@ require 'mod/head.php';
                                     <div class="form-group">
                                         <label for="ciudad">Ciudad o Localidad</label>
                                         <select class="form-control" name="t_ciudad" id="t_ciudad">
-                                            <option value="">Seleccioné Su Ciudad o Localidad</option>
+                                            <option value="">Seleccioné su Ciudad o Localidad</option>
                                         </select>
                                     </div>
                                 </div>
@@ -339,19 +322,15 @@ require 'mod/head.php';
                                     </div>
                                 </div>
 
-                                <div class="col-sm-6">
+                                <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="parentesco">Parentesco</label>
                                         <input type="text" class="form-control" id="t_parentesco" name="t_parentesco" placeholder="Parentesco">
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <center><a class="btn btn-lg btn-primary btn-form" id="btn-volver-ss4">Volver</a></center>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <center><a class="btn btn-lg btn-success btn-form" id="btn-cont-ss4">Continuar</a></center>
-                                    </div>
+                                <div class="row text-center">
+                                    <button class="btn btn-lg btn-primary btn-form" id="btn-volver-ss4" type="button">Volver</button>
+                                    <button class="btn btn-lg btn-success btn-form" id="btn-cont-ss4" type="button">Continuar</button>
                                 </div>
                         </div>
 
@@ -359,24 +338,22 @@ require 'mod/head.php';
                         <div class="hidden" id="form-solicitud-seccion5">
                             <h3 class="text-center decor-donar"><span class="decor-span">YA CASI TERMINAMOS</span></h3>
                                     <div class="form-group">
-                                        <label for="porque">Cuéntanos Porque la Necesitas</label>
+                                        <label for="porque">Cuéntanos porque necesitas nuestra ayuda</label>
                                         <textarea type="textarea" class="form-control" id="porque" name="porque" placeholder="Porque la necesitas.." rows="3"></textarea>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="medio_difusion">Como Supiste de Nosotros</label>
+                                        <label for="medio_difusion">Como nos conociste</label>
                                         <textarea type="textarea" class="form-control" id="medio_difusion" name="medio_difusion" placeholder="Como supiste de nosotros.." rows="3"></textarea>
                                     </div>
-                                <div class="form-horizontal">
+                                <div class="form-horizontal well">
                                     <div class="form-group">
-                                        <label for="vinculacion" class="control-label col-xs-2">
+                                        <label for="vinculacion" class="control-label col-sm-2">
                                             Vinculacion
-                                            <span tabindex="0" class="text-info" role="button" data-container="body" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="Si usted conocio fundacion por medio de alguno de los organizmos con los que tenemos programas de colaboracion y aparece en la lista, seleccionelo">
-                                                <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i>
-                                            </span>
                                         </label>
-                                        <div class="col-xs-10">
+                                        <div class="col-sm-10">
                                             <select class="form-control" name="vinculacion" id="vinculacion">
+                                                <option value="">Seleccione una opcion de vinculacion</option>
                                                 <option value="0">Sin Vinculacion</option>
                                                 <?php
                                                 foreach ($vinculaciones as $vinculacion) {
@@ -388,36 +365,29 @@ require 'mod/head.php';
                                             </select>
                                         </div>
                                     </div>
+                                    <p class="little-info text-center">Si usted conocio fundacion Markoptic por medio de alguno de los organizmos con los que tenemos programas de colaboracion y aparece en la lista, seleccionelo.</p>
                                 </div>
                                 <hr>
                                 <h4 class="text-center">Envíanos Fotografías o Vídeo</h4>
                                     <div class="form-group">
-                                        <label for="adjunto1">Adjunto Uno</label>
+                                        <label for="adjunto1">Fotografia o video 1:</label>
                                         <input type="file" id="adjunto1" name="adjunto1">
                                         <small>Tamaño máximo de archivo 20 MB</small>
                                     </div>
                                     <div class="form-group">
-                                        <label for="adjunto2">Adjunto Dos</label>
-                                        <input type="file" id="adjunto2" name="adjunto2">
+                                        <label for="adjunto2">Fotografia o video 2:</label>
+                                        <input type="file" id="adjunto2" name="adjunto2" disabled>
                                         <small>Tamaño máximo de archivo 20 MB</small>
                                     </div>
                                     <div class="form-group">
-                                        <label for="adjunto3">Adjunto Tres</label>
-                                        <input type="file" id="adjunto3" name="adjunto3">
+                                        <label for="adjunto3">Fotografia o video 3:</label>
+                                        <input type="file" id="adjunto3" name="adjunto3" disabled>
                                         <small>Tamaño máximo de archivo 20 MB</small>
                                     </div>
 
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <center><a class="btn btn-lg btn-primary btn-form" id="btn-volver-ss5">Volver</a></center>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <center><a class="btn btn-lg btn-success btn-form" id="btn-cont-ss5">Continuar</a></center>
-                                    </div>
-                                    <div class="col-sm-3">
-                                    </div>
+                                <div class="row text-center">
+                                    <button class="btn btn-lg btn-primary btn-form" id="btn-volver-ss5" type="button">Volver</button>
+                                    <button class="btn btn-lg btn-success btn-form" id="btn-cont-ss5" type="button">Continuar</button>
                                 </div>
 
                         </div>
@@ -466,19 +436,11 @@ Fundación Markoptic A.C. iniciará un proceso de estudio de la solicitud y se c
                                     </div>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <center><a class="btn btn-lg btn-primary btn-form" id="btn-volver-ss6">Volver</a></center>
-                                    </div>
-                                    <div class="col-sm-3">
-                                    <center><input type="submit" value="Enviar Solicitud" class="btn btn-lg btn-success btn-form" id="btn-enviar-solicitud" disabled></center>
-                                    </div>
-                                    <div class="col-sm-3">
-                                    </div>
-                                </div>
 
+                                <div class="row text-center">
+                                    <button class="btn btn-lg btn-primary btn-form" id="btn-volver-ss6" type="button">Volver</button>
+                                    <button type="submit" class="btn btn-lg btn-success btn-form" id="btn-enviar-solicitud" disabled>Enviar Solicitud</button>
+                                </div>
                         </div>
                         </form>
 
@@ -500,7 +462,7 @@ Fundación Markoptic A.C. iniciará un proceso de estudio de la solicitud y se c
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header modal-mark modal-magenta">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hiden="true">&times;</span></button>
         <h4 class="modal-title text-center" id="noticia3">¡AVISO IMPORTANTE!</h4>
       </div>
         <div class="modal-body">

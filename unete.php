@@ -65,7 +65,7 @@ require 'mod/head.php';
         <div class="modal-body">
             <img class="img-unete" src="img/residencias.svg">
             <p class="news text-center">
-                ¡Únete al equipo! Libera tu servicio social y residencias con nosotros. Envía tus datos a 
+                ¡Únete al equipo de MArkoptic! Libera tu servicio social y residencias con nosotros. Envía tus datos a 
                 <a href="mailto:residencias@markoptic.mx" target="_blank">residencias@markoptic.mx</a>
             </p>
       </div>
@@ -84,8 +84,13 @@ require 'mod/head.php';
         <div class="modal-body">
             <img class="img-unete" src="img/voluntarios.svg">
             <p class="news text-center">
-               Únete a nosotros y participa en nuestras actividades. Comunícate con nosotros al Telefono: <strong>715 21 66</strong> o al correo
-                <strong><a href="mailto:info@fundacionmarkoptic.org.mx" target="_blank">info@fundacionmarkoptic.org.mx</a></p></strong>
+               Únete a nosotros, participa en nuestras actividades y ayúdanos a cumplir nuestra labor social, contamos con varias opciones de voluntariado.
+            </p>
+            <p class="text-center"><strong><a href="files/voluntariado.pdf" target="_blank">Consultar las opciones de Voluntariado</a></strong></p>
+            <p class="news text-center">
+                Si necesitar mas informacion puedes comunicarte con nosotros al Telefono: <strong>715 21 66</strong> o al correo
+                <strong><a href="mailto:info@fundacionmarkoptic.org.mx" target="_blank">info@fundacionmarkoptic.org.mx</a></strong>
+            </p>
       </div>
     </div>
   </div>
@@ -102,7 +107,7 @@ require 'mod/head.php';
         <div class="modal-body">
             <img class="img-unete" src="img/trabajo.svg">
             <p class="news text-center">
-                Te invitamos a formar parte del equipo de trabajo de grupo <strong>Gallbo - Markoptic</strong>, consulta nuestras vacantes en los siguientes enlaces: </p>
+                Te invitamos a formar parte del equipo de trabajo de grupo <strong>Gallbo - Markoptic</strong>, consulta nuestros puestos de trabajo en los siguientes enlaces: </p>
                 <ul>
                     <li><a href="files/BT_FM.pdf" target="_blank">Bolsa de Trabajo Fundacion Markoptic</a></li>
                     <li><a href="files/BT_Gallbo.pdf" target="_blank">Bolsa de Trabajo Gallbo Recalmacion Estrategica</a></li>

@@ -113,7 +113,14 @@ CREATE TRIGGER trigger_beneficiario after insert
                     
 	#se guarda el id de la pagina que le toco al solicitante
 	UPDATE markoptic.solicitud s SET s.id_page = @id WHERE s.id = @new_sol;
-
+    
+    #se generan los indices de busqueda
+    SET SESSION group_concat_max_len = 1000000;
+    insert into cms.cmscouch_fulltext
+    SELECT d.page_id, p.page_title title, GROUP_CONCAT(d.search_value SEPARATOR ' ') content
+    FROM cms.cmscouch_data_text d
+    join cms.cmscouch_pages p on d.page_id = p.id
+    where p.id = @id group by d.page_id
 
 END;//
 delimiter ;

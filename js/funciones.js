@@ -1,6 +1,12 @@
-$(document).ready(function(){
-    $('#peticion').change(function()
-    {
+$(document).ready(function() {
+    $('#adjunto1').change(function(){
+        $('#adjunto2').removeAttr('disabled');
+    });
+    $('#adjunto2').change(function(){
+        $('#adjunto3').removeAttr('disabled');
+    });
+    
+    $('#peticion').change(function() {
     	var select = document.getElementById("peticion").value;
     	if (select == 'Protesis') {
             $("#aviso_solicitud").modal('show');
@@ -9,42 +15,40 @@ $(document).ready(function(){
     	else{
     		document.getElementById("form-solicitud-seccion1-1").className= "form-group hidden";
     	}
- 
     });
 
-    $('#pais').change(function(){
+    $('#pais').change(function() {
     	document.getElementById("estado").disabled = true;
 		var id_pais= document.getElementById("pais").value;
 		$('#estado').load('inc/estados.php?id_pais='+id_pais);
 		document.getElementById("estado").disabled = false;
 	});
 
-	$('#estado').change(function(){
+	$('#estado').change(function() {
 		document.getElementById("ciudad").disabled = true;
 		var id_estado= document.getElementById("estado").value;
 		$('#ciudad').load('inc/localidades.php?id_estado='+id_estado);
 		document.getElementById("ciudad").disabled = false;
 	});
 
-	$('#t_pais').change(function(){
+	$('#t_pais').change(function() {
 		document.getElementById("t_estado").disabled = true;
 		var id_pais= document.getElementById("t_pais").value;
 		$('#t_estado').load('inc/estados.php?id_pais='+id_pais);
 		document.getElementById("t_estado").disabled = false;
 	});
 
-	$('#t_estado').change(function(){
+	$('#t_estado').change(function() {
 		document.getElementById("t_ciudad").disabled = true;
 		var id_estado= document.getElementById("t_estado").value;
 		$('#t_ciudad').load('inc/localidades.php?id_estado='+id_estado);
 		document.getElementById("t_ciudad").disabled = false;
 	});
 
-	$('#fecha_nac').change(function(){
+	$('#fecha_nac').change(function() {
 		var fecha= document.getElementById("fecha_nac").value;
 
-	    if(validate_fecha(fecha)==true)
-	    {
+	    if(validate_fecha(fecha)==true) {
 	        // Si la fecha es correcta, calculamos la edad
 	        var values=fecha.split("-");
 	        var dia = values[2];
@@ -59,16 +63,13 @@ $(document).ready(function(){
 	 
 	        // realizamos el calculo
 	        var edad = (ahora_ano + 1900) - ano;
-	        if ( ahora_mes < mes )
-	        {
+	        if ( ahora_mes < mes ) {
 	            edad--;
 	        }
-	        if ((mes == ahora_mes) && (ahora_dia < dia))
-	        {
+	        if ((mes == ahora_mes) && (ahora_dia < dia)) {
 	            edad--;
 	        }
-	        if (edad > 1900)
-	        {
+	        if (edad > 1900) {
 	            edad -= 1900;
 	        }
 	 
@@ -98,11 +99,10 @@ $(document).ready(function(){
 	    }
 	});
 
-	$('#t_fecha_nac').change(function(){
+	$('#t_fecha_nac').change(function() {
 		var fecha= document.getElementById("t_fecha_nac").value;
 		
-	    if(validate_fecha(fecha)==true)
-	    {
+	    if(validate_fecha(fecha)==true) {
 	        // Si la fecha es correcta, calculamos la edad
 	        var values=fecha.split("-");
 	        var dia = values[2];
@@ -117,16 +117,13 @@ $(document).ready(function(){
 	 
 	        // realizamos el calculo
 	        var edad = (ahora_ano + 1900) - ano;
-	        if ( ahora_mes < mes )
-	        {
+	        if ( ahora_mes < mes ) {
 	            edad--;
 	        }
-	        if ((mes == ahora_mes) && (ahora_dia < dia))
-	        {
+	        if ((mes == ahora_mes) && (ahora_dia < dia)) {
 	            edad--;
 	        }
-	        if (edad > 1900)
-	        {
+	        if (edad > 1900) {
 	            edad -= 1900;
 	        }
 	 
@@ -143,8 +140,7 @@ $(document).ready(function(){
 	        var dias=0;
 	        if(ahora_dia>dia)
 	            dias=ahora_dia-dia;
-	        if(ahora_dia<dia)
-	        { 
+	        if(ahora_dia<dia) { 
 	            ultimoDiaMes=new Date(ahora_ano, ahora_mes, 0);
 	            dias=ultimoDiaMes.getDate()-(dia-ahora_dia);
 	        }
@@ -155,32 +151,28 @@ $(document).ready(function(){
 	        document.getElementById("t_edad").value="error";
 	    }
 	});
-
-
 });
 
 
-$('#checkbox-tyc').on('click',function()
-{
+
+$('#checkbox-tyc').on('click',function() {
 	var check = this;
 	if (check.checked == true) {
 		document.getElementById("btn-enviar-solicitud").disabled = false;
 	}
-	else{
+	else {
 		document.getElementById("btn-enviar-solicitud").disabled = true;
 	}
 
 });
-$('#btn-cont-ss1').on('click',function()
-{
+$('#btn-cont-ss1').on('click',function() {
 	if (validacion1(true)) {
 		document.getElementById("form-solicitud-seccion1").className= "hidden";
  		document.getElementById("form-solicitud-seccion2").className= "";
 	};
 });
 
-$('#btn-cont-ss2').on('click',function()
-{
+$('#btn-cont-ss2').on('click',function() {
 	//aqui ocupo validar si es menor de edad. Si es menor de edad de pasa a la seccion 5 automaticamente.
 	if (validacion2(true)) {
 		if (document.getElementById("edad").value < 18) {
@@ -194,15 +186,13 @@ $('#btn-cont-ss2').on('click',function()
 	};
 });
 
-$('#btn-si-ss3').on('click',function()
-{
+$('#btn-si-ss3').on('click',function() {
  	document.getElementById("form-solicitud-seccion3").className= "hidden";
  	document.getElementById("form-solicitud-seccion4").className= "";
 
 });
 
-$('#btn-no-ss3').on('click',function()
-{
+$('#btn-no-ss3').on('click',function() {
  	document.getElementById("form-solicitud-seccion3").className= "hidden";
 	document.getElementById("form-solicitud-seccion5").className= "";
 
@@ -216,45 +206,40 @@ $('#btn-cont-ss4').on('click',function()
 	};
 });
 
-$('#btn-cont-ss5').on('click',function()
-{
+$('#btn-cont-ss5').on('click',function() {
 	if (validacion4(true)) {
 		document.getElementById("form-solicitud-seccion5").className= "hidden";
  		document.getElementById("form-solicitud-seccion6").className= "";
 	};
 });
 
-$('#btn-volver-ss2').on('click',function()
-{
+$('#btn-volver-ss2').on('click',function() {
 	document.getElementById("form-solicitud-seccion2").className= "hidden";
 	document.getElementById("form-solicitud-seccion1").className= "";
 });
 
-$('#btn-volver-ss4').on('click',function()
-{
+$('#btn-volver-ss4').on('click',function() {
 	document.getElementById("form-solicitud-seccion4").className= "hidden";
 	document.getElementById("form-solicitud-seccion2").className= "";
 });
 
-$('#btn-volver-ss5').on('click',function()
-{
+$('#btn-volver-ss5').on('click',function() {
 	document.getElementById("form-solicitud-seccion5").className= "hidden";
 	document.getElementById("form-solicitud-seccion4").className= "";
 });
 
-$('#btn-volver-ss6').on('click',function()
-{
+$('#btn-volver-ss6').on('click',function() {
 	document.getElementById("form-solicitud-seccion6").className= "hidden";
 	document.getElementById("form-solicitud-seccion5").className= "";
 });
 
 
-function funcionEnviar(){
+function funcionEnviar() {
 	document.getElementById("btn-enviar-solicitud").value = "Enviando..";
 	document.getElementById("btn-enviar-solicitud").disabled = true;
 }
 
-function validacion1(){
+function validacion1() {
 	peticion = document.getElementById("peticion").value;
 
 
@@ -270,7 +255,7 @@ function validacion1(){
     return true;
 }
 
-function validacion2(){
+function validacion2() {
 	var nombre = document.getElementById("nombre").value;
 	var apellido = document.getElementById("apellido").value;
 	var sexo = document.getElementById("sexo").value;
@@ -336,7 +321,7 @@ function validacion2(){
     return true;
 }
 
-function validacion3(){
+function validacion3() {
     t_nombre = document.getElementById("t_nombre").value;
     t_apellido = document.getElementById("t_apellido").value;
     t_sexo = document.getElementById("t_sexo").value;
@@ -407,13 +392,15 @@ function validacion3(){
     return true;
 }
 
-function validacion4(){
+function validacion4() {
+    
     porque = document.getElementById("porque").value;
     medio_difusion = document.getElementById("medio_difusion").value;
     adjunto1 = document.getElementById("adjunto1").value;
     adjunto2 = document.getElementById("adjunto2").value;
     adjunto3 = document.getElementById("adjunto3").value;
     peticion = document.getElementById("peticion").value;
+    vinculacion = document.getElementById("vinculacion").value;
 
 	if (porque == "") {
     	alert('Cuéntanos porque la necesitas');
@@ -423,11 +410,10 @@ function validacion4(){
     	alert('Menciona la forma por la que te enteraste de nosotros');
         return false;
     }
-    if (peticion == "Protesis") {
-        if (adjunto1 == "" && adjunto2 == "" && adjunto3 == "") {
+    
+    if (adjunto1 == "" && adjunto2 == "" && adjunto3 == "") {
             alert('Ingrese por lo menos una imagen o vídeo de usted.');
             return false;
-        }
     }
     
     if (adjunto1 != "" && document.getElementById("adjunto1").files[0].size > 1024*1024*20) {
@@ -442,13 +428,16 @@ function validacion4(){
     	alert("Tamaño de adjunto 3 excedido");
     	return false;
     }
+    if (vinculacion === '') {
+    	alert("Seleccione su metodo de vinculacion");
+    	return false;
+    }
     return true;
 }
 
 
 
-function calcularEdad(fecha)
-{
+function calcularEdad(fecha) {
     if(validate_fecha(fecha)==true)
     {
         // Si la fecha es correcta, calculamos la edad
@@ -465,16 +454,13 @@ function calcularEdad(fecha)
  
         // realizamos el calculo
         var edad = (ahora_ano + 1900) - ano;
-        if ( ahora_mes < mes )
-        {
+        if ( ahora_mes < mes ) {
             edad--;
         }
-        if ((mes == ahora_mes) && (ahora_dia < dia))
-        {
+        if ((mes == ahora_mes) && (ahora_dia < dia)) {
             edad--;
         }
-        if (edad > 1900)
-        {
+        if (edad > 1900) {
             edad -= 1900;
         }
  
@@ -491,8 +477,7 @@ function calcularEdad(fecha)
         var dias=0;
         if(ahora_dia>dia)
             dias=ahora_dia-dia;
-        if(ahora_dia<dia)
-        {
+        if(ahora_dia<dia) {
             ultimoDiaMes=new Date(ahora_ano, ahora_mes, 0);
             dias=ultimoDiaMes.getDate()-(dia-ahora_dia);
         }
@@ -504,23 +489,19 @@ function calcularEdad(fecha)
     }
 }
 
-function validate_fecha(fecha)
-{
+function validate_fecha(fecha) {
     var patron=new RegExp("^(19|20)+([0-9]{2})([-])([0-9]{1,2})([-])([0-9]{1,2})$");
  
-    if(fecha.search(patron)==0)
-    {
+    if(fecha.search(patron)==0) {
         var values=fecha.split("-");
-        if(isValidDate(values[2],values[1],values[0]))
-        {
+        if(isValidDate(values[2],values[1],values[0])) {
             return true;
         }
     }
     return false;
 }
 
-function isValidDate(day,month,year)
-{
+function isValidDate(day,month,year) {
     var dteDate;
     month=month-1;
     dteDate=new Date(year,month,day);

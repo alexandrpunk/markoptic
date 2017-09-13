@@ -1,6 +1,8 @@
 <?php
 session_start();
 require_once( 'cms/cms.php' );
+require_once("inc/solicitud.repo.php");
+$paises = Paises(); 
 ?>
 
 <cms:template title='Historias' clonable='1' order='2'>
@@ -71,229 +73,93 @@ require_once( 'cms/cms.php' );
     <cms:config_list_view searchable='1' />
 </cms:template>
 <?php require 'mod/head.php';?>
-
 </head>
 <body>
-<cms:editable type='message' name='admin_navlinks' dynamic='default_data' order='-100'>cms_navlinks.html</cms:editable>
 <?php require 'mod/navbar.php';?>
     <div class="container">
         
         <?php require 'mod/header.php';?>
         
         <div class="row">
-            <div class="col-md-9">
-                
+            <div class="col-md-9">                
                 <?php require 'mod/menu.php';?>
-                <cms:if k_is_page >
-                    <cms:set image="<cms:php> 
-                        $len = strlen($_SERVER['HTTP_HOST'])+8;
-                        $str='<cms:show fotografia />';
-                        $str = substr($str, $len);
-                        if(file_exists($str)){echo '<cms:show fotografia />';}else{echo 'img/placeholder.jpg';}
-                    </cms:php>" />
-
-                    <cms:set thumb="<cms:php> 
-                        $len = strlen($_SERVER['HTTP_HOST'])+8;
-                        $str='<cms:show fotografia />';
-                        $str = substr($str, $len);
-                        if(file_exists($str)){echo '<cms:show fotografia_thumb />';}else{echo 'img/placeholder.jpg';}
-                    </cms:php>" />
-                    
-                    <cms:set vinculacion="
-                            <cms:php> 
-                            $link = new mysqli('localhost', 'root', 'root', 'markoptic');
-                                if($link->connect_errno) {
-                                    die('Error ' . $link->connect_error);
-                                }
-                            
-                                $query = 'SELECT v.nombre, v.logo FROM solicitud s
-                                join Vinculaciones v on s.vinculacion = v.id
-                                where id_page = <cms:show k_page_id />';
-                            
-                                mysqli_set_charset($link, 'utf8');
-                                $vinculaciones = $link->query($query)->fetch_array();
-                                #echo $vinculaciones['logo'];  
-                                echo '<img class=\'vinculaciones center-block\' alt=\''.$vinculaciones['nombre'].'\' src=\'img/vinculaciones/'.$vinculaciones['logo'].'\'>';  
-                                // Free result set
-                                mysqli_close($link);
-                            </cms:php>
-                    " />
-
-
-                    
                     <div class="panel panel-default panel-mark  animated fadeIn">
-                        <div class="panel-heading panel-heading-mark" id="rosado">CONOCE A: <cms:show k_page_title /></div>
-                        <div  class="panel-body panel-body-mark">
-                            <div class="row hist-box sombra">
-
-                                    <div class="col-md-4 col-sm-4">
-                                        <a href="<cms:show image />" data-lightbox="image-1">
-                                            <img src="<cms:show thumb />" class="img-thumbnail center-block sombra">
-                                        </a>
-                                        <h3 class="text-capitalize text-center"><strong><cms:show k_page_title /></strong></h3>                             
-                                    </div>
-
-                                    <div class="col-md-8 col-sm-8">
-                                        <dl class="dl-horizontal">
-                                            <dt  class="txt-mark">Solicitó:</dt>
-                                            <dd class="txt-gris"><i><cms:show dispositivo /> <cms:show descripcion /></i></dd>
-
-                                            <dt class="txt-mark">Edad:</dt>
-                                            <dd class="txt-gris"><i><cms:show edad /></i></dd>
-
-                                            <dt class="txt-mark">Vive en:</dt>
-                                            <dd class="txt-gris"><i><cms:show ciudad />, <cms:show estado />, <cms:show pais/></i></dd>
-
-                                            <dt class="txt-mark">¿Por qué lo necesita?</dt>
-                                            <dd class="txt-gris text-lowercase"><i><cms:show necesidad /></i></dd>                        
-                                            <dt class="txt-mark">En Vinculacion con:</dt>
-                                            <cms:show vinculacion />
-
-                                        </dl>
-                                        <div class="text-center" style="margin-top:10px;">
-                                            <a href="" class="btn btn-success oswald" data-toggle="modal"  OnClick="setinfo('<cms:show k_page_title />', '<cms:show k_page_id />')" data-target="#solicitar_email" >
-                                                Apadrinar
-                                            </a>
-                                        </div>
-                                    </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-                <cms:else />
-                    <cms:search />
-                    <cms:if k_search_query >
-                        <cms:search masterpage='historias.php' limit='10' >
-                            <h3><a href="<cms:show k_page_link />"><cms:show k_search_title /></a></h3>
-                            <cms:show k_search_excerpt />
-                        </cms:search>
+                    <cms:if k_is_page >                    
+                    <div class="panel-heading panel-heading-mark text-uppercase" id="rosado">CONOCE A: <cms:show k_page_title /></div>
                     <cms:else />
-                    <div class="panel panel-default panel-mark  animated fadeIn">
                     <div class="panel-heading panel-heading-mark" id="rosado">
                         CONOCE A QUIENES NECESITAN TU APOYO
                         <span class="pull-right filter-switch"  data-toggle="collapse" data-target="#demo">
                           <i class="fa fa-search"></i>
                         </span>
-                        </div>
+                    </div>
+                    
+                    <!--panel de busqueda    -->
                     <div id="demo" class="filter-panel collapse">
-                        <p>Filtrar los resutados por:</p>
-                        <div class="form-inline">
+                        <p>Filtrar las historias por:</p>
+                            <div class="col-md-3">
                             <div class="form-group">
-                                <label for="ciudad">Ciudad</label>
-                                <select id="ciudad" class="form-control">
-                                    <option>1</option>
+                                <label for="ciudad">Pais</label>
+                                <select class="form-control" name="pais" id="pais">
+                                    <option value="">Seleccioné su País</option>
+                                    <?php
+                                        foreach ($paises as $p) {
+                                        echo'<option value ='.$p["id"].' >'.$p["nombre"].'</option>';
+                                        }
+                                    ?>
                                 </select>
                             </div>
+                            </div>
+                            
+                            <div class="col-md-3">
                             <div class="form-group">
                                 <label for="estado">Estado</label>
-                                <select id="estado" class="form-control">
-                                    <option>1</option>
+                                <select class="form-control" name="estado" id="estado" disabled>
+                                    <option value="">Seleccioné su Estado</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="pais">Pais</label>
-                                <select id="pais" class="form-control">
-                                    <option>1</option>
-                                </select>
                             </div>
+                            
+                            <div class="col-md-3">
                             <div class="form-group">
-                                <label for="solicitud">solicitud</label>
+                                <label for="pais">Ciudad</label>
+                                <select class="form-control" name="ciudad" id="ciudad" disabled>
+                                    <option value="">Seleccioné su Ciudad o Localidad</option>
+                                 </select>
+                            </div>
+                            </div>
+                            
+                            <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="solicitud">Tipo de Solicitud</label>
                                 <select id="solicitud" class="form-control">
-                                    <option>1</option>
+                                    <option value="">Selecioné el tipo de Solicitud</option>
+                                    <option value="Protesis">Protesis</option>
+                                    <option value="Colchon Antiescaras">Colchon Antiescaras</option>
                                 </select>
                             </div>
-                            <button class="btn btn-info oswald">Filtrar</button>
-                        </div>
-
-                    </div>
-                    <div  class="panel-body panel-body-mark">                    
-                    <cms:pages masterpage='historias.php' limit='5' paginate='1'>
-                            <cms:set image="<cms:php> 
-                            $len = strlen($_SERVER['HTTP_HOST'])+8;
-                            $str='<cms:show fotografia />';
-                            $str = substr($str, $len);
-                            if(file_exists($str)){echo '<cms:show fotografia />';}else{echo 'img/placeholder.jpg';}
-                            </cms:php>" />
-
-                            <cms:set thumb="<cms:php> 
-                            $len = strlen($_SERVER['HTTP_HOST'])+8;
-                            $str='<cms:show fotografia />';
-                            $str = substr($str, $len);
-                            if(file_exists($str)){echo '<cms:show fotografia_thumb />';}else{echo 'img/placeholder.jpg';}
-                            </cms:php>" />
-                        
-                            <cms:set vinculacion="
-                                    <cms:php> 
-                                    $link = new mysqli('localhost', 'root', 'root', 'markoptic');
-                                        if($link->connect_errno) {
-                                            die('Error ' . $link->connect_error);
-                                        }
-
-                                        $query = 'SELECT v.nombre, v.logo FROM solicitud s
-                                        join Vinculaciones v on s.vinculacion = v.id
-                                        where id_page = <cms:show k_page_id />';
-
-                                        mysqli_set_charset($link, 'utf8');
-                                        $vinculaciones = $link->query($query)->fetch_array();
-                                        #echo $vinculaciones['logo'];  
-                                        echo '<img class=\'vinculaciones center-block\' alt=\''.$vinculaciones['nombre'].'\' src=\'img/vinculaciones/'.$vinculaciones['logo'].'\'>';  
-                                        // Free result set
-                                        mysqli_close($link);
-                                    </cms:php>
-                            " />
-
-                            <div class="row hist-box sombra">
-                                <div class="col-md-4 col-sm-4">
-                                    <a href="<cms:show image />" data-lightbox="image-1">
-                                        <img src="<cms:show thumb />" class="img-thumbnail center-block sombra">
-                                    </a>
-                                    <h3 class="text-capitalize text-center"><strong><cms:show k_page_title /></strong></h3>                             
-                                </div>
-
-                                <div class="col-md-8 col-sm-8">
-                                    <dl class="dl-horizontal">
-                                        <dt  class="txt-mark">Solicitó:</dt>
-                                        <dd class="txt-gris"><i><cms:show dispositivo /> <cms:show descripcion /></i></dd>
-
-                                        <dt class="txt-mark">Edad:</dt>
-                                        <dd class="txt-gris"><i><cms:show edad /></i></dd>
-
-                                        <dt class="txt-mark">Vive en:</dt>
-                                        <dd class="txt-gris"><i><cms:show ciudad />, <cms:show estado />, <cms:show pais/></i></dd>
-
-                                        <dt class="txt-mark">¿Por qué lo necesita?</dt>
-                                        <dd class="txt-gris text-lowercase scroll-box"><i><cms:show necesidad /></i></dd>
-                                        
-                                        <dt class="txt-mark">En Vinculacion con:</dt>
-                                        <cms:show vinculacion />
-                                    </dl>
-                                    <div class="text-center" style="margin-top:10px;">
-                                        <a class="btn btn-primary oswald" href="<cms:show k_page_link />" role="button">
-                                            Conoce la historia
-                                        </a> 
-                                        <a href="" class="btn btn-success oswald" data-toggle="modal"  OnClick="setinfo('<cms:show k_page_title />', '<cms:show k_page_id />')" data-target="#solicitar_email" >
-                                            Apadrinar
-                                        </a>
-                                    </div>
-                                </div>
                             </div>
-
-                    <cms:if k_paginated_bottom >
-                       <hr/>
-                        <cms:if k_paginate_link_prev >
-                            <a class="btn btn-md btn-mark oswald pull-left" href="<cms:show k_paginate_link_prev />">Historias recientes</a>
-                        </cms:if>
-                        <cms:if k_paginate_link_next >
-                            <a class="btn btn-md btn-mark oswald strong pull-right" href="<cms:show k_paginate_link_next />">Historias anteriores</a>
-                        </cms:if>
+                            <button id="buscar" class="btn btn-info oswald" onclick="filtrar();" disabled>Filtrar Historias</button>
+                    </div>
+                    <!--termina panel de busqueda-->    
                     </cms:if>
-                    </cms:pages>
+                        <div  class="panel-body panel-body-mark">   
+                        <cms:if k_is_page >
+                            <cms:embed 'body-historias.php' />
+                        <cms:else />
+                            <cms:search />
+                            <cms:if k_search_query >                       
+                                <cms:search masterpage='historias.php' limit='5' paginate='1' orderby='publish_date' order='desc'>
+                                    <cms:embed 'body-historias.php' />
+                                </cms:search>
+                            <cms:else />
+                                <cms:pages masterpage='historias.php' limit='5' paginate='1' orderby='publish_date' order='desc'>
+                                    <cms:embed 'body-historias.php' />
+                                </cms:pages>
+                            </cms:if>
+                        </cms:if>                        
+                        </div>
                     </div>
-                    </div>
-                </cms:if>
-                </cms:if>
             </div>
 
                 <?php require 'mod/lateral.php';?>
@@ -334,11 +200,11 @@ require_once( 'cms/cms.php' );
                         <p class="txt-gris text-center">Puedes hacer tu donativo mediante depósito en efectivo o cheque en nuestra cuenta bancaria (las donaciones en efectivo solo serán recibidas mediante depósito bancario):</p>
                             <dl class="txt-gris text-center">
                                 <dt>Banco:</dt>
-                                <dd>Banco Bajio</dd>
+                                <dd>Citibanamex</dd>
                                 <dt>Nombre:</dt>
                                 <dd>Fundación Markoptic A.C.</dd>
                                 <dt>Cuenta:</dt>
-                                <dd>0155513280201</dd>
+                                <dd>7007 3742542</dd>
                             </dl>
                     </section>
                     <section id="transferencia" class="modal-rosado" style="color:#F05B6F;">
@@ -346,11 +212,11 @@ require_once( 'cms/cms.php' );
                         <p class="txt-gris">Si deseas hacer tu donativo mediante Transferencia Electrónica Bancaria los datos son los siguientes.</p>
                             <dl class="txt-gris text-center">
                                 <dt>Banco:</dt>
-                                <dd>Banco Bajio</dd>
+                                <dd>Citibanamex</dd>
                                 <dt>Nombre:</dt>
                                 <dd>Fundación Markoptic A.C.</dd>
                                 <dt>CLABE:</dt>
-                                <dd>030730900007328992</dd>
+                                <dd>002730700737425429</dd>
                             </dl>
                     </section>
                     <section id="paypal" class="modal-cyan" style="color:#25AAE3;">
@@ -381,10 +247,58 @@ require_once( 'cms/cms.php' );
 <script src="js/lightbox.min.js"></script>
 <script src="js/donar.js"></script>
     
-    <script>
-function myFunction() {
-    $(".filter-panel").css('height',50);
+<script>
+function filtrar() {
+    var a = '';
+    if($("#pais").val()) {
+        a += $("#pais option:selected").html()+'+';   
+    }
+    if($("#estado").val()) {
+        a += $("#estado option:selected").html()+'+';   
+    }
+    if($("#ciudad").val()) {
+        a += $("#ciudad option:selected").html()+'+';   
+    }
+    if($("#solicitud").val()) {
+        a += $("#solicitud option:selected").html();   
+    }
+    //http://www.yoursite.com/search.php?s=hello+world
+    var search = window.location.hostname+'/historias?s='+a;
+    console.log(search);
+    
+    
+    window.location.href="http://"+search;
+
 }
+$(document).ready(function() {
+    $('#pais').change(function(){
+    	$("#estado").empty();
+		var id_pais= document.getElementById("pais").value;
+		$('#estado').load('inc/estados.php?id_pais='+id_pais);
+        $("#ciudad").empty();
+        $('#ciudad').append($('<option>', {
+            value: '',
+            text: 'Seleccioné su Ciudad o Localidad'
+        }));
+        $('#estado').removeAttr('disabled');
+        $('#ciudad').attr('disabled', 'disabled');
+        $('#buscar').removeAttr('disabled');
+	});
+
+	$('#estado').change(function(){
+		document.getElementById("ciudad").disabled = true;
+		var id_estado= document.getElementById("estado").value;
+        $("#ciudad").empty();
+		$('#ciudad').load('inc/localidades.php?id_estado='+id_estado);
+		$('#ciudad').removeAttr('disabled');
+		$('#buscar').removeAttr('disabled');
+	});
+    
+    $('#solicitud').change(function(){
+		$('#buscar').removeAttr('disabled');
+	});
+})    
+
 </script>
     
 </body>

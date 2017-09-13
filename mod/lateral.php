@@ -27,17 +27,6 @@
 </div>
 
 <div class="col-md-12 col-sm-6">
-    <div class="panel panel-default panel-mark">
-        <div class="panel-heading panel-heading-mark" id="militar">CERTIFICACIONES</div>
-        <div style="padding:10px;" class="panel-body panel-body-mark">
-            <a href="files/iit-cemefi.pdf" target="_blank">
-            <img style="max-width:60%" class="img-responsive center-block" src="img/it.png">
-            </a>
-        </div>
-    </div>
-</div>    
-    
-<div class="col-md-12 col-sm-6">
     <div class="panel panel-default panel-mark" >
         <div class="panel-heading panel-heading-mark" id="morado">UNETE</div>
         <div class="panel-body panel-body-mark">
@@ -48,6 +37,17 @@
         </div>
     </div>
 </div>  
+
+<div class="col-md-12 col-sm-6">
+    <div class="panel panel-default panel-mark">
+        <div class="panel-heading panel-heading-mark" id="militar">CERTIFICACIONES</div>
+        <div style="padding:10px;" class="panel-body panel-body-mark">
+            <a href="files/iit-cemefi.pdf" target="_blank">
+            <img style="max-width:60%" class="img-responsive center-block" src="img/it.png">
+            </a>
+        </div>
+    </div>
+</div>    
 
 <div class="col-md-12 col-sm-6">
     <div class="panel panel-default panel-mark">

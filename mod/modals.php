@@ -8,7 +8,8 @@
       </div>
       <div class="modal-body">
 <div class="embed-responsive embed-responsive-16by9">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/msjgLgbsyP4?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/yBtdaSWxdbk?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>
+<!-- no se debe eprder el ?rel=0&autoplay=1-->
 </div>
       </div>
     </div>

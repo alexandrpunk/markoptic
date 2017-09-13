@@ -116,7 +116,7 @@ require 'mod/head.php';
     });
     </script>
 
-<?php# require 'mod/modals.php';?>
+<?php require 'mod/modals.php';?>
 </body>
 </html>
 <?php COUCH::invoke(); ?>

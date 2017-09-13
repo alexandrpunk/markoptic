@@ -171,7 +171,7 @@ if ($peticion == "Protesis") {
 
 				if (tutor($dt)) {
 
-					$targetPath = "adj-solicitudes/";
+					$targetPath = "../adj-solicitudes/";
 					$zip_file = $targetPath . $folio . '.zip';
 					move_uploaded_file($folio, $targetPath);
 					$zip = new ZipArchive;
@@ -433,7 +433,7 @@ else{
 
 			if (tutor($dt)) {
 
-				$targetPath = "adj-solicitudes/";
+				$targetPath = "../adj-solicitudes/";
 				$zip_file = $targetPath . $folio . '.zip';
 				move_uploaded_file($folio, $targetPath);
 				$zip = new ZipArchive;
@@ -481,7 +481,7 @@ else{
 			}
 		}
 		else {
-			$targetPath = "adj-solicitudes/";
+			$targetPath = "../adj-solicitudes/";
 			$zip_file = $targetPath . $folio . '.zip';
 			move_uploaded_file($folio, $targetPath);
 			$zip = new ZipArchive;

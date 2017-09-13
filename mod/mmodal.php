@@ -11,11 +11,11 @@
             <p class="txt-gris text-center">Puede hacer su donativo mediante depósito en cheque a nuestra cuenta bancaria:</p>
                 <dl class="txt-gris text-center">
                     <dt>Banco:</dt>
-                    <dd>Banco Bajio</dd>
+                    <dd>Citibanamex</dd>
                     <dt>Nombre:</dt>
                     <dd>Fundación Markoptic A.C.</dd>
                     <dt>Cuenta:</dt>
-                    <dd>0155513280201</dd>
+                    <dd>7007 3742542</dd>
                 </dl>
       </div>
     </div>
@@ -35,11 +35,11 @@
             <p class="txt-gris text-center">Si desea hacer su donativo mediante Transferencia Electrónica Bancaria los datos son los siguientes.</p>
                 <dl class="txt-gris text-center">
                     <dt>Banco:</dt>
-                    <dd>Banco Bajio</dd>
+                    <dd>Citibanamex</dd>
                     <dt>Nombre:</dt>
                     <dd>Fundación Markoptic A.C.</dd>
                     <dt>CLABE:</dt>
-                    <dd>030730900007328992</dd>
+                    <dd>002730700737425429</dd>
                 </dl>
       </div>
     </div>
@@ -59,11 +59,11 @@
             <p class="txt-gris text-center">Puede hacer su donativo mediante depósito en efectivo a nuestra cuenta bancaria (las donaciones en efectivo solo serán recibidas mediante depósito bancario):</p>
                 <dl class="txt-gris text-center">
                     <dt>Banco:</dt>
-                    <dd>Banco Bajio</dd>
+                    <dd>Citibanamex</dd>
                     <dt>Nombre:</dt>
                     <dd>Fundación Markoptic A.C.</dd>
                     <dt>Cuenta:</dt>
-                    <dd>0155513280201</dd>
+                    <dd>7007 3742542</dd>
                 </dl>
       </div>
     </div>

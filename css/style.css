@@ -1197,3 +1197,7 @@ a.hist-box:hover {
     max-width: 80px;
     max-height: 80px;
 }
+p.little-info{
+    font-size:1em;
+    color: #484848;
+}
