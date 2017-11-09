@@ -49,27 +49,23 @@
                             </cms:pages>
                         <cms:else />                            
                             <cms:folders hierarchical = '1' paginate = '1' limit='9'>
-                                <cms:if k_paginator_required >
-                                <div class="row">
-                                </cms:if>
-                                <div class="col-md-4 col-sm-4">
-                                    <a class="gal-folder" href="<cms:show k_folder_link />" >
-                                        <div style="background-image:url(<cms:show k_folder_image />);" class="gal-cover"></div>
-                                        <h4><cms:show k_folder_title /></h4>
-                                        <p><cms:show k_folder_pagecount /> Fotografias</p>      
-                                    </a>
-                                </div>                                    
+                                    <div class="col-md-4 col-sm-4">
+                                        <a class="gal-folder" href="<cms:show k_folder_link />" >
+                                            <div style="background-image:url(<cms:show k_folder_image />);" class="gal-cover"></div>
+                                            <h4><cms:show k_folder_title /></h4>
+                                            <p><cms:show k_folder_pagecount /> Fotografias</p>      
+                                        </a>
+                                    </div>                                    
                             <cms:if k_paginated_bottom >
                                 <cms:if k_paginator_required >
-                                </div>
-                                <hr/>
-                                </cms:if>                                        
+                                <hr style='width:100%;'>                                       
                                     <cms:if k_paginate_link_prev >
-                                        <a class="btn btn-success oswald pull-left" href="<cms:show k_paginate_link_prev />">Fotografias recientes</a>
+                                    <a class="btn btn-success oswald pull-left" href="<cms:show k_paginate_link_prev />">Fotografias recientes</a>
                                     </cms:if>
                                     <cms:if k_paginate_link_next >
-                                        <a class="btn btn-success oswald pull-right" href="<cms:show k_paginate_link_next />">Fotografias anteriores</a>
+                                    <a class="btn btn-success oswald pull-right" href="<cms:show k_paginate_link_next />">Fotografias anteriores</a>
                                     </cms:if>
+                                </cms:if> 
                             </cms:if>
                             </cms:folders>
                         </cms:if>
